@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{317FD8BE-1B10-403C-83BA-32150829029D}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Admin.ico</ApplicationIcon>
+    <AssemblyName>LATIR4Admin</AssemblyName>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>LATIR4Admin</RootNamespace>
+    <StartupObject>LATIR4Admin.My.MyApplication</StartupObject>
+    <MyType>WindowsForms</MyType>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>LATIR4Admin.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
+    <DocumentationFile>LATIR4Admin.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Convertors.vb" />
+    <Compile Include="frmAbout.designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppDel.designer.vb">
+      <DependentUpon>frmAppDel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppDel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCleanBase.designer.vb">
+      <DependentUpon>frmCleanBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCleanBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteTool.designer.vb">
+      <DependentUpon>frmDeleteTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDicList.designer.vb">
+      <DependentUpon>frmDicList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDicList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocList.designer.vb">
+      <DependentUpon>frmDocList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportToMySQL.Designer.vb">
+      <DependentUpon>frmExportToMySQL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmExportToMySQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFieldCopy.Designer.vb">
+      <DependentUpon>frmFieldCopy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFieldCopy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJouralList.designer.vb">
+      <DependentUpon>frmJouralList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmJouralList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChild.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJournalViewIG.Designer.vb">
+      <DependentUpon>frmJournalViewIG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmJournalViewIG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadDesc.designer.vb">
+      <DependentUpon>frmLoadDesc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadDesc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadFT.designer.vb">
+      <DependentUpon>frmLoadFT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadFT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadMTD.designer.vb">
+      <DependentUpon>frmLoadMTD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadMTD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMDI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMergeObjTool.designer.vb">
+      <DependentUpon>frmMergeObjTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMergeObjTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMergeRowTool.designer.vb">
+      <DependentUpon>frmMergeRowTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMergeRowTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModeSetup.Designer.vb">
+      <DependentUpon>frmModeSetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmModeSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPartCopy.Designer.vb">
+      <DependentUpon>frmPartCopy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPartCopy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveDesc.designer.vb">
+      <DependentUpon>frmSaveDesc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaveDesc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveFT.designer.vb">
+      <DependentUpon>frmSaveFT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaveFT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveMTD.designer.vb">
+      <DependentUpon>frmSaveMTD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaveMTD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveTool.designer.vb">
+      <DependentUpon>frmSaveTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaveTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSequenceTool.Designer.vb">
+      <DependentUpon>frmSequenceTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSequenceTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettings.Designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowID.designer.vb">
+      <DependentUpon>frmShowID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowID.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmartArm.designer.vb">
+      <DependentUpon>frmSmartArm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmartArm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest1.Designer.vb">
+      <DependentUpon>frmTest1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTypeList.designer.vb">
+      <DependentUpon>frmTypeList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTypeList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUniqueTool.designer.vb">
+      <DependentUpon>frmUniqueTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUniqueTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="testForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tmpInst.vb" />
+    <Compile Include="ViewItems.vb" />
+    <Compile Include="wordcheck.vb" />
+    <EmbeddedResource Include="frmAbout.resX">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppDel.resX">
+      <DependentUpon>frmAppDel.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCleanBase.resX">
+      <DependentUpon>frmCleanBase.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteTool.resX">
+      <DependentUpon>frmDeleteTool.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDicList.resX">
+      <DependentUpon>frmDicList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDocList.resX">
+      <DependentUpon>frmDocList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportToMySQL.resx">
+      <DependentUpon>frmExportToMySQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFieldCopy.resx">
+      <DependentUpon>frmFieldCopy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJouralList.resX">
+      <DependentUpon>frmJouralList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChild.resx">
+      <DependentUpon>frmChild.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerator.resx">
+      <DependentUpon>frmGenerator.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJournalViewIG.resx">
+      <DependentUpon>frmJournalViewIG.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadDesc.resX">
+      <DependentUpon>frmLoadDesc.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadFT.resX">
+      <DependentUpon>frmLoadFT.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadMTD.resX">
+      <DependentUpon>frmLoadMTD.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDI.resx">
+      <DependentUpon>frmMDI.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMergeObjTool.resX">
+      <DependentUpon>frmMergeObjTool.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMergeRowTool.resX">
+      <DependentUpon>frmMergeRowTool.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModeSetup.resx">
+      <DependentUpon>frmModeSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPartCopy.resx">
+      <DependentUpon>frmPartCopy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintPreview.resx">
+      <DependentUpon>frmPrintPreview.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveDesc.resX">
+      <DependentUpon>frmSaveDesc.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveFT.resX">
+      <DependentUpon>frmSaveFT.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveMTD.resX">
+      <DependentUpon>frmSaveMTD.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveTool.resX">
+      <DependentUpon>frmSaveTool.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSequenceTool.resx">
+      <DependentUpon>frmSequenceTool.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowID.resX">
+      <DependentUpon>frmShowID.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmartArm.resX">
+      <DependentUpon>frmSmartArm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTest1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTypeList.resX">
+      <DependentUpon>frmTypeList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUniqueTool.resX">
+      <DependentUpon>frmUniqueTool.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testForm.resx">
+      <DependentUpon>testForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin.ico" />
+    <Content Include="IDMAP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="latir_sites.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="WORDS.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Generated\Ядро2\VB.NET Model\MTZFltr\MTZFltr.vbproj">
+      <Project>{6EBA831A-2185-4318-A057-C5D1F9E5158A}</Project>
+      <Name>MTZFltr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj">
+      <Project>{B0C9AE57-AA49-4C08-9FB1-E3D531C1AF15}</Project>
+      <Name>MTZJrnl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро2\VB.NET Model\MTZwp\MTZwp.vbproj">
+      <Project>{6A786B2B-70F4-4195-81D7-E3D3F4C3B462}</Project>
+      <Name>MTZwp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро\VB.NET Interface\MTZMetaModel\MTZMetaModelGUI.vbproj">
+      <Project>{4ba767ff-f965-4bbe-bdc4-a9d5f0d17502}</Project>
+      <Name>MTZMetaModelGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро\VB.NET Interface\MTZUsers\MTZUsersGUI.vbproj">
+      <Project>{5a015873-4f52-4643-b03b-a934813a92a1}</Project>
+      <Name>MTZUsersGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро\VB.NET Model\MTZMetaModel\MTZMetaModel.vbproj">
+      <Project>{3E351770-05C0-4569-B7D7-EBD6F5EE49C4}</Project>
+      <Name>MTZMetaModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро\VB.NET Model\MTZUsers\MTZUsers.vbproj">
+      <Project>{FE4B362E-88E2-4E42-BE6E-BC5C96EDCA5D}</Project>
+      <Name>MTZUsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GENERATORS\LATIR_MySQLGen\LATIR_MYSQLGen.vbproj">
+      <Project>{326337B1-DCDF-4787-8D5C-2322D55B0082}</Project>
+      <Name>LATIR_MYSQLGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GENERATORS\LATIR_ORACLEGEN\OracleGen\LATIR_OracleGen.vbproj">
+      <Project>{DD2EEEA2-048A-47D8-A545-D531B5DC9BB0}</Project>
+      <Name>LATIR_OracleGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GENERATORS\LATIR_POSTRESGEN\LATIR_PostgresGen.vbproj">
+      <Project>{F1CB0541-663E-42E6-B349-C69C5FB9C155}</Project>
+      <Name>LATIR_PostgresGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GENERATORS\LATIR_SQLGen2\LATIR_MSSQLGen.vbproj">
+      <Project>{9EA470C4-C0EB-443A-BC23-9E00E99F21E0}</Project>
+      <Name>LATIR_MSSQLGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GENERATORS\LATIR_VBMODEL2\LATIR_VBModel.vbproj">
+      <Project>{2F5FA48E-2A22-4817-9E08-035BB0331E72}</Project>
+      <Name>LATIR_VBModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GENERATORS\LATIR_WINNET2\LATIR_WINNET.vbproj">
+      <Project>{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}</Project>
+      <Name>LATIR_WINNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\guicontrols\LATIRGUIControls.vbproj">
+      <Project>{E4E7ECF4-3CA4-46C6-BDFB-02C60263B704}</Project>
+      <Name>LATIRGUIControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GuiManager\Latir2GuiManager.vbproj">
+      <Project>{60996302-32D9-4636-9695-4046E51779BE}</Project>
+      <Name>Latir2GuiManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Journal_IG\JournalIG.vbproj">
+      <Project>{4cc4d55f-e6b7-4db1-8dc2-06f38619c1ca}</Project>
+      <Name>JournalIG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LATIRFramework\LATIR2Framework.csproj">
+      <Project>{98E98ADC-D666-45AA-BC9A-B441B03D4B15}</Project>
+      <Name>LATIR2Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LATIRGENERATOR\LATIRGenerator.vbproj">
+      <Project>{DE43AAE4-1C37-47EB-A4C3-00A5619D08F8}</Project>
+      <Name>LATIRGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NetronLight\NetronLight.csproj">
+      <Project>{6e58dfd7-5154-4aa3-96df-e562de00393b}</Project>
+      <Name>NetronLight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\objmanager\L2Manager.vbproj">
+      <Project>{C2AED02B-2ED8-497A-B79E-AFC4E5967F29}</Project>
+      <Name>L2Manager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+</Project>
