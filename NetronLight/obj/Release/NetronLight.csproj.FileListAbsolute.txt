@@ -1,0 +1,6 @@
+C:\LATIR2\Generated\Generated Dlls\NetronLight.dll
+C:\LATIR2\NetronLight\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\NetronLight\obj\Release\NetronLight.GraphControl.resources
+C:\LATIR2\NetronLight\obj\Release\NetronLight.dll
+C:\LATIR2\NetronLight\obj\Release\ResGen.read.1.tlog
+C:\LATIR2\NetronLight\obj\Release\ResGen.write.1.tlog
