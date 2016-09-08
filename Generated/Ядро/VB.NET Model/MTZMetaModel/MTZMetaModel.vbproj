@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion = "14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <Import Project = "$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /> 
+ <PropertyGroup>
+ <Configuration Condition = " '$(Configuration)' == '' ">Debug</Configuration>
+      <Platform Condition = " '$(Platform)' == '' ">AnyCPU</Platform>
+ <ProjectGuid>dd438ac2-6294-4718-9052-4d8d4b784537</ProjectGuid>
+ <OutputType>Library</OutputType>
+ <RootNamespace>MTZMetaModel</RootNamespace>
+ <AssemblyName>MTZMetaModel</AssemblyName>
+ <FileAlignment>512</FileAlignment>
+ <MyType>Windows</MyType>
+ <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+ <TargetFrameworkProfile />
+    </PropertyGroup>
+ <PropertyGroup Condition = " '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+ <DebugSymbols>True</DebugSymbols>
+ <DebugType>full</DebugType>
+ <DefineDebug>True</DefineDebug>
+ <DefineTrace>True</DefineTrace>
+ <OutputPath>C:\LATIR4\Build\</OutputPath>
+ <DocumentationFile>MTZMetaModel_doc.xml</DocumentationFile>
+ <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    </PropertyGroup>
+ <PropertyGroup Condition = " '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+      <DebugType>pdbonly</DebugType>
+ <DefineDebug>False</DefineDebug>
+      <DefineTrace>true</DefineTrace>
+ <Optimize> True</Optimize>
+      <OutputPath>C:\LATIR4\Build\</OutputPath>
+ <DocumentationFile>MTZMetaModel_doc.xml</DocumentationFile>
+      <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup>
+ <OptionExplicit>On</OptionExplicit>
+    </PropertyGroup>
+ <PropertyGroup>
+      <OptionCompare>Binary</OptionCompare>
+    </PropertyGroup>
+    <PropertyGroup>
+ <OptionStrict>Off</OptionStrict>
+    </PropertyGroup>
+ <PropertyGroup>
+      <OptionInfer>On</OptionInfer>
+    </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="L2Manager">
+      <Name>L2Manager</Name>
+      <HintPath>C:\LATIR4\Build\L2Manager.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Xml"/>
+  </ItemGroup>
+  <ItemGroup>
+      <Import Include="System" />
+      <Import Include="System.Collections" />
+      <Import Include="System.Data" />
+      <Import Include="System.Xml" />
+    </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+
+                <Compile Include="GENPACKAGE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="GENPACKAGE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="GENERATOR_TARGET.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="GENERATOR_TARGET_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="GENREFERENCE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="GENREFERENCE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="GENMANUALCODE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="GENMANUALCODE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="GENCONTROLS.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="GENCONTROLS_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="LocalizeInfo.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="LocalizeInfo_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDTYPE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDTYPE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="ENUMITEM.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="ENUMITEM_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDTYPEMAP.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDTYPEMAP_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="SHAREDMETHOD.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="SHAREDMETHOD_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="SCRIPT.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="SCRIPT_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="PARAMETERS.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="PARAMETERS_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="OBJECTTYPE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="OBJECTTYPE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="OBJSTATUS.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="OBJSTATUS_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="NEXTSTATE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="NEXTSTATE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="OBJECTMODE.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="OBJECTMODE_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="STRUCTRESTRICTION.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="STRUCTRESTRICTION_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="METHODRESTRICTION.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="METHODRESTRICTION_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDRESTRICTION.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDRESTRICTION_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="TYPEMENU.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="TYPEMENU_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="INSTANCEVALIDATOR.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="INSTANCEVALIDATOR_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="PART.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="PART_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="PARTMENU.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="PARTMENU_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="PARTPARAMMAP.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="PARTPARAMMAP_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="PARTVIEW.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="PARTVIEW_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="ViewColumn.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="ViewColumn_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="PARTVIEW_LNK.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="PARTVIEW_LNK_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="VALIDATOR.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="VALIDATOR_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="UNIQUECONSTRAINT.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="UNIQUECONSTRAINT_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="CONSTRAINTFIELD.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="CONSTRAINTFIELD_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="ExtenderInterface.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="ExtenderInterface_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELD.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELD_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FldExtenders.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FldExtenders_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDSRCDEF.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDSRCDEF_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="DINAMICFILTERSCRIPT.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="DINAMICFILTERSCRIPT_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDEXPRESSION.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDEXPRESSION_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDVALIDATOR.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDVALIDATOR_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDMENU.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDMENU_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="FIELDPARAMMAP.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="FIELDPARAMMAP_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="MTZAPP.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="MTZAPP_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+                <Compile Include="ParentPackage.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+                <Compile Include="ParentPackage_col.vb">
+                    <SubType>Code</SubType>
+                </Compile>
+
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

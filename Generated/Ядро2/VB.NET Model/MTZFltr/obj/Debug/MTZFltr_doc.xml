@@ -1,0 +1,906 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZFltr
+</name>
+</assembly>
+<members>
+<member name="M:MTZFltr.MTZFltr.Filters_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.Filters_col">
+	<summary>
+Реализация раздела Фильтрв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.Filters.m_TheCaption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.Filters.m_TheComment">
+	<summary>
+Локальная переменная для поля Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.Filters.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Filters.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Filters.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Filters.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Filters.TheCaption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Filters.TheComment">
+	<summary>
+Доступ к полю Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Filters.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Filters.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.Filters">
+	<summary>
+Реализация строки раздела Фильтр
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.FileterField_col">
+	<summary>
+Реализация раздела Поле фильтрав виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_FieldSize">
+	<summary>
+Локальная переменная для поля Размер
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_RefToType">
+	<summary>
+Локальная переменная для поля Тип, куда ссылаемся
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_RefType">
+	<summary>
+Локальная переменная для поля Тип ссылки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_FieldType">
+	<summary>
+Локальная переменная для поля Тип поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_ValueArray">
+	<summary>
+Локальная переменная для поля Массив значений
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_sequence">
+	<summary>
+Локальная переменная для поля Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FileterField.m_RefToPart">
+	<summary>
+Локальная переменная для поля Раздел, куда ссылаемся
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.sequence">
+	<summary>
+Доступ к полю Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.FieldType">
+	<summary>
+Доступ к полю Тип поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.FieldSize">
+	<summary>
+Доступ к полю Размер
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.RefType">
+	<summary>
+Доступ к полю Тип ссылки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.RefToType">
+	<summary>
+Доступ к полю Тип, куда ссылаемся
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.RefToPart">
+	<summary>
+Доступ к полю Раздел, куда ссылаемся
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.ValueArray">
+	<summary>
+Доступ к полю Массив значений
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FileterField.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FileterField.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.FileterField">
+	<summary>
+Реализация строки раздела Поле фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.FilterFieldGroup_col">
+	<summary>
+Реализация раздела Группа полей фильтрав виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FilterFieldGroup.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FilterFieldGroup.m_sequence">
+	<summary>
+Локальная переменная для поля Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FilterFieldGroup.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FilterFieldGroup.m_AllowIgnore">
+	<summary>
+Локальная переменная для поля Можно отключать
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.FilterFieldGroup.m_FileterField">
+	<summary>
+Локальная переменная для дочернего раздела Поле фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.sequence">
+	<summary>
+Доступ к полю Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.AllowIgnore">
+	<summary>
+Доступ к полю Можно отключать
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.FileterField">
+	<summary>
+Доступ к дочернему разделу Поле фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.FilterFieldGroup.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.FilterFieldGroup.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.FilterFieldGroup">
+	<summary>
+Реализация строки раздела Группа полей фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumQuarter">
+	<summary>
+Перечисление Квартал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumCacheType">
+	<summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumExportType">
+	<summary>
+Перечисление Тип экспорта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.Application.m_FilterFieldGroup">
+	<summary>
+ Внутренняя переменная для раздела Группа полей фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Application.FilterFieldGroup">
+	<summary>
+Свойство для доступа к строкам раздела Группа полей фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZFltr.MTZFltr.Application.m_Filters">
+	<summary>
+ Внутренняя переменная для раздела Фильтр
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Application.Filters">
+	<summary>
+Свойство для доступа к строкам раздела Фильтр
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZFltr.MTZFltr.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZFltr.MTZFltr.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZFltr.MTZFltr.Application">
+	<summary>
+Реализация документа Документ описывает структуру фильтра, который используется для ограничения множества информации, которая отображается в журнале , отчете и т.п.
+ </summary>
+	<remarks>
+Описание фильтра
+ </remarks>
+</member>
+</members>
+</doc>

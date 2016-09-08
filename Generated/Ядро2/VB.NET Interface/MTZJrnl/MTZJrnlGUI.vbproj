@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="14.0" >
+  <PropertyGroup>
+  <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>"ca38d93b-a121-4d05-bce2-ff8c05ea5129"</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>MTZJrnlGUI</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MTZJrnlGUI</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+<TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+<OldToolsVersion>3.5</OldToolsVersion>
+<TargetFrameworkProfile />
+<PublishUrl>publish\</PublishUrl>
+<Install>true</Install>
+<InstallFrom>Disk</InstallFrom>
+<UpdateEnabled>false</UpdateEnabled>
+<UpdateMode>Foreground</UpdateMode>
+<UpdateInterval>7</UpdateInterval>
+<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+<UpdatePeriodically>false</UpdatePeriodically>
+<UpdateRequired>false</UpdateRequired>
+<MapFileExtensions>true</MapFileExtensions>
+<ApplicationRevision>0</ApplicationRevision>
+<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+<IsWebBootstrapper>false</IsWebBootstrapper>
+<UseApplicationTrust>false</UseApplicationTrust>
+<BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>MTZJrnlGUI.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>MTZJrnlGUI.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="L2Manager">
+      <Name>L2Manager</Name>
+      <HintPath>C:\LATIR4\Build\L2Manager.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="LATIRGuiManager">
+      <Name>LATIRGuiManager</Name>
+      <HintPath>C:\LATIR4\Build\LATIR2GuiManager.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="LATIR2GUIControls">
+      <Name>LATIR2GUIControls</Name>
+      <HintPath>C:\LATIR4\Build\STDLATIRGUIControls.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MTZJrnl">
+      <Name>MTZJrnl</Name>
+      <HintPath>C:\LATIR4\Build\MTZJrnl.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+
+    <Reference Include="System">
+      <Name>System</Name>
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <HintPath>System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+      <HintPath>System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="system.windows.forms">
+      <Name>System.Windows.Forms</Name>
+      <HintPath>system.windows.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <HintPath>System.XML.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Xml" />
+    <Import Include="LATIR" />
+    <Import Include="LATIR2.Document" />
+    <Import Include="LATIR2GUIControls" />
+    <Import Include="LATIRGuiManager" />
+    <Import Include="MTZJrnl" />
+    <Import Include="MTZJrnl.MTZJrnl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI.vb">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Tabview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmMTZJrnl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editJournal.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmJournal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewJournal.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editJournalSrc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmJournalSrc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewJournalSrc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editJournalColumn.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmJournalColumn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewJournalColumn.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editJColumnSource.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmJColumnSource.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

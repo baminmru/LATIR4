@@ -1,0 +1,7 @@
+C:\LATIR4\Build\MTZRprt.dll
+C:\LATIR4\Build\MTZRprt.pdb
+C:\LATIR4\Build\MTZRprt_doc.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZRprt\obj\Debug\MTZRprt.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZRprt\obj\Debug\MTZRprt.dll
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZRprt\obj\Debug\MTZRprt_doc.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZRprt\obj\Debug\MTZRprt.pdb

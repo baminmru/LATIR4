@@ -1,0 +1,7 @@
+C:\LATIR4\Build\MTZExt.dll
+C:\LATIR4\Build\MTZExt.pdb
+C:\LATIR4\Build\MTZExt_doc.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZExt\obj\Debug\MTZExt.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZExt\obj\Debug\MTZExt.dll
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZExt\obj\Debug\MTZExt_doc.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZExt\obj\Debug\MTZExt.pdb

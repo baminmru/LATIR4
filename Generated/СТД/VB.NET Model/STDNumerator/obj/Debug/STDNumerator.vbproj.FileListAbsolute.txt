@@ -1,0 +1,7 @@
+C:\LATIR4\Build\STDNumerator.dll
+C:\LATIR4\Build\STDNumerator.pdb
+C:\LATIR4\Build\STDNumerator_doc.xml
+C:\LATIR4\Generated\СТД\VB.NET Model\STDNumerator\obj\Debug\STDNumerator.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\СТД\VB.NET Model\STDNumerator\obj\Debug\STDNumerator.dll
+C:\LATIR4\Generated\СТД\VB.NET Model\STDNumerator\obj\Debug\STDNumerator_doc.xml
+C:\LATIR4\Generated\СТД\VB.NET Model\STDNumerator\obj\Debug\STDNumerator.pdb

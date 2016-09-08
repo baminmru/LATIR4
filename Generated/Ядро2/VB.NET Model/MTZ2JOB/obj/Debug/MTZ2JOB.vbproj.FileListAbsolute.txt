@@ -1,0 +1,7 @@
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZ2JOB\obj\Debug\MTZ2JOB.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Build\MTZ2JOB.dll
+C:\LATIR4\Build\MTZ2JOB.pdb
+C:\LATIR4\Build\MTZ2JOB_doc.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZ2JOB\obj\Debug\MTZ2JOB.dll
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZ2JOB\obj\Debug\MTZ2JOB_doc.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZ2JOB\obj\Debug\MTZ2JOB.pdb

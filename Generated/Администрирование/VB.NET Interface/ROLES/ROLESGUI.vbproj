@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="14.0" >
+  <PropertyGroup>
+  <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>"c7f7d612-1fc5-40e6-b9ce-f5b845a3d7b4"</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>ROLESGUI</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ROLESGUI</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+<TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+<OldToolsVersion>3.5</OldToolsVersion>
+<TargetFrameworkProfile />
+<PublishUrl>publish\</PublishUrl>
+<Install>true</Install>
+<InstallFrom>Disk</InstallFrom>
+<UpdateEnabled>false</UpdateEnabled>
+<UpdateMode>Foreground</UpdateMode>
+<UpdateInterval>7</UpdateInterval>
+<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+<UpdatePeriodically>false</UpdatePeriodically>
+<UpdateRequired>false</UpdateRequired>
+<MapFileExtensions>true</MapFileExtensions>
+<ApplicationRevision>0</ApplicationRevision>
+<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+<IsWebBootstrapper>false</IsWebBootstrapper>
+<UseApplicationTrust>false</UseApplicationTrust>
+<BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>ROLESGUI.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>ROLESGUI.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="L2Manager">
+      <Name>L2Manager</Name>
+      <HintPath>C:\LATIR4\Build\L2Manager.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="LATIRGuiManager">
+      <Name>LATIRGuiManager</Name>
+      <HintPath>C:\LATIR4\Build\LATIR2GuiManager.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="LATIR2GUIControls">
+      <Name>LATIR2GUIControls</Name>
+      <HintPath>C:\LATIR4\Build\STDLATIRGUIControls.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ROLES">
+      <Name>ROLES</Name>
+      <HintPath>C:\LATIR4\Build\ROLES.dll</HintPath>
+       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+
+    <Reference Include="System">
+      <Name>System</Name>
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <HintPath>System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+      <HintPath>System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="system.windows.forms">
+      <Name>System.Windows.Forms</Name>
+      <HintPath>system.windows.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <HintPath>System.XML.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Xml" />
+    <Import Include="LATIR" />
+    <Import Include="LATIR2.Document" />
+    <Import Include="LATIR2GUIControls" />
+    <Import Include="LATIRGuiManager" />
+    <Import Include="ROLES" />
+    <Import Include="ROLES.ROLES" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI.vb">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Include="Tabview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editROLES_DEF.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DEF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_DEF.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_WP.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_WP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_WP.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_ACT.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_ACT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_MAP.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_MAP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_MAP.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_USER.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_USER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_USER.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_DOC.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DOC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_DOC.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_DOC_STATE.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DOC_STATE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_OPERATIONS.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_OPERATIONS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_OPERATIONS.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_REPORTS.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_REPORTS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_REPORTS.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES2_MODULE.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES2_MODULE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES2_MODULE.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES2_MODREPORT.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES2_MODREPORT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="Tabviewfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLESfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editROLES_DEFfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DEFfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_DEFfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_WPfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_WPfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_WPfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_ACTfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_ACTfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_MAPfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_MAPfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_MAPfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_USERfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_USERfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_USERfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_DOCfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DOCfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_DOCfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_DOC_STATEfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DOC_STATEfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_OPERATIONSfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_OPERATIONSfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_OPERATIONSfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_REPORTSfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_REPORTSfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_REPORTSfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES2_MODULEfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES2_MODULEfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES2_MODULEfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES2_MODREPORTfull.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES2_MODREPORTfull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="Tabviewmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLESmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editROLES_DEFmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DEFmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_DEFmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_WPmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_WPmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_WPmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_ACTmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_ACTmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_MAPmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_MAPmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_MAPmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_USERmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_USERmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_USERmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_DOCmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DOCmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_DOCmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_DOC_STATEmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_DOC_STATEmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_OPERATIONSmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_OPERATIONSmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_OPERATIONSmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES_REPORTSmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES_REPORTSmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES_REPORTSmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES2_MODULEmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES2_MODULEmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewROLES2_MODULEmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+
+    <Compile Include="editROLES2_MODREPORTmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmROLES2_MODREPORTmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,7 @@
+C:\LATIR4\Build\STDInfoStore.dll
+C:\LATIR4\Build\STDInfoStore.pdb
+C:\LATIR4\Build\STDInfoStore_doc.xml
+C:\LATIR4\Generated\СТД\VB.NET Model\STDInfoStore\obj\Debug\STDInfoStore.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\СТД\VB.NET Model\STDInfoStore\obj\Debug\STDInfoStore.dll
+C:\LATIR4\Generated\СТД\VB.NET Model\STDInfoStore\obj\Debug\STDInfoStore_doc.xml
+C:\LATIR4\Generated\СТД\VB.NET Model\STDInfoStore\obj\Debug\STDInfoStore.pdb

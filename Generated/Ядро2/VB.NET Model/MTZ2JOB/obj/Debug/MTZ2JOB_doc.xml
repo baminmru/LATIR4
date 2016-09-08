@@ -1,0 +1,534 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZ2JOB
+</name>
+</assembly>
+<members>
+<member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF_col">
+	<summary>
+Реализация раздела Отложенное событиев виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_NextState">
+	<summary>
+Локальная переменная для поля Состояние после обработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_ThruState">
+	<summary>
+Локальная переменная для поля Состояние - причина
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_ThruObject">
+	<summary>
+Локальная переменная для поля Объект - причина события
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_EvenType">
+	<summary>
+Локальная переменная для поля Тип события
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_EventDate">
+	<summary>
+Локальная переменная для поля Отложено до
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_ProcessDate">
+	<summary>
+Локальная переменная для поля Момент обработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.m_Processed">
+	<summary>
+Локальная переменная для поля Обработан
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.EventDate">
+	<summary>
+Доступ к полю Отложено до
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.EvenType">
+	<summary>
+Доступ к полю Тип события
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.ThruObject">
+	<summary>
+Доступ к полю Объект - причина события
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.ThruState">
+	<summary>
+Доступ к полю Состояние - причина
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.NextState">
+	<summary>
+Доступ к полю Состояние после обработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.ProcessDate">
+	<summary>
+Доступ к полю Момент обработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.Processed">
+	<summary>
+Доступ к полю Обработан
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF">
+	<summary>
+Реализация строки раздела Отложенное событие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumQuarter">
+	<summary>
+Перечисление Квартал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumCacheType">
+	<summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumExportType">
+	<summary>
+Перечисление Тип экспорта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZ2JOB.MTZ2JOB.Application.m_MTZ2JOB_DEF">
+	<summary>
+ Внутренняя переменная для раздела Отложенное событие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.Application.MTZ2JOB_DEF">
+	<summary>
+Свойство для доступа к строкам раздела Отложенное событие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZ2JOB.MTZ2JOB.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZ2JOB.MTZ2JOB.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZ2JOB.MTZ2JOB.Application">
+	<summary>
+Реализация документа Специализированный документ, который описывает набор событий, которые должны быть обработаны автоматически при наступлении определенного момента. Например, ввод в действие подписанного приказа.
+ </summary>
+	<remarks>
+Отложенные обработки
+ </remarks>
+</member>
+</members>
+</doc>

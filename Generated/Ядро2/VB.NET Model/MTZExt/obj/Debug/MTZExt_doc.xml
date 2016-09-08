@@ -1,0 +1,654 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZExt
+</name>
+</assembly>
+<members>
+<member name="M:MTZExt.MTZExt.MTZExtRel_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.MTZExtRel_col">
+	<summary>
+Реализация раздела Реализации расширенияв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.MTZExtRel.m_TheClassName">
+	<summary>
+Локальная переменная для поля Название класса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.MTZExtRel.m_ThePlatform">
+	<summary>
+Локальная переменная для поля Реализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.MTZExtRel.m_TheLibraryName">
+	<summary>
+Локальная переменная для поля Название библиотеки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExtRel.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExtRel.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExtRel.ThePlatform">
+	<summary>
+Доступ к полю Реализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExtRel.TheClassName">
+	<summary>
+Доступ к полю Название класса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExtRel.TheLibraryName">
+	<summary>
+Доступ к полю Название библиотеки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExtRel.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExtRel.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.MTZExtRel">
+	<summary>
+Реализация строки раздела Реализации расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.MTZExt_def_col">
+	<summary>
+Реализация раздела Описаниев виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.MTZExt_def.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.MTZExt_def.m_ExtType">
+	<summary>
+Локальная переменная для поля Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.MTZExt_def.m_TheDescription">
+	<summary>
+Локальная переменная для поля Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExt_def.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExt_def.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExt_def.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExt_def.ExtType">
+	<summary>
+Доступ к полю Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExt_def.TheDescription">
+	<summary>
+Доступ к полю Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.MTZExt_def.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.MTZExt_def.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.MTZExt_def">
+	<summary>
+Реализация строки раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumQuarter">
+	<summary>
+Перечисление Квартал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumCacheType">
+	<summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumExportType">
+	<summary>
+Перечисление Тип экспорта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.Application.m_MTZExt_def">
+	<summary>
+ Внутренняя переменная для раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.Application.MTZExt_def">
+	<summary>
+Свойство для доступа к строкам раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZExt.MTZExt.Application.m_MTZExtRel">
+	<summary>
+ Внутренняя переменная для раздела Реализации расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.Application.MTZExtRel">
+	<summary>
+Свойство для доступа к строкам раздела Реализации расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZExt.MTZExt.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZExt.MTZExt.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZExt.MTZExt.Application">
+	<summary>
+Реализация документа Каталог функциональных расширений системы (ADDINS). 
+ </summary>
+	<remarks>
+Расширения функциональности
+ </remarks>
+</member>
+</members>
+</doc>

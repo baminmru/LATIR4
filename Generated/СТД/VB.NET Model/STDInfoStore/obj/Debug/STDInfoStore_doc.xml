@@ -1,0 +1,828 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+STDInfoStore
+</name>
+</assembly>
+<members>
+<member name="M:STDInfoStore.STDInfoStore.InfoStoreDef_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.InfoStoreDef_col">
+	<summary>
+Реализация раздела Описаниев виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.InfoStoreDef.m_InfoStoreType">
+	<summary>
+Локальная переменная для поля Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.InfoStoreDef.m_TheGroup">
+	<summary>
+Локальная переменная для поля Группа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.InfoStoreDef.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.InfoStoreDef.m_TheUser">
+	<summary>
+Локальная переменная для поля Пользователь
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.TheGroup">
+	<summary>
+Доступ к полю Группа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.InfoStoreType">
+	<summary>
+Доступ к полю Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.TheUser">
+	<summary>
+Доступ к полю Пользователь
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.InfoStoreDef.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.InfoStoreDef.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.InfoStoreDef">
+	<summary>
+Реализация строки раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.Shortcut_col">
+	<summary>
+Реализация раздела Документыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Shortcut.m_StartMode">
+	<summary>
+Локальная переменная для поля Режим
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Shortcut.m_DocItem">
+	<summary>
+Локальная переменная для поля Документ
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Shortcut.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Shortcut.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Shortcut.DocItem">
+	<summary>
+Доступ к полю Документ
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Shortcut.StartMode">
+	<summary>
+Доступ к полю Режим
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Shortcut.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Shortcut.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.Shortcut">
+	<summary>
+Реализация строки раздела Документы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder_col.IsTree">
+	<summary>
+Признак древовидного раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.Folder_col">
+	<summary>
+Реализация раздела Папкав виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Folder.m_FolderType">
+	<summary>
+Локальная переменная для поля Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Folder.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Folder.m_Shortcut">
+	<summary>
+Локальная переменная для дочернего раздела Документы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Folder.m_Folder">
+	<summary>
+Локальная переменная для дочерних записей раздела Папка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.FolderType">
+	<summary>
+Доступ к полю Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.Shortcut">
+	<summary>
+Доступ к дочернему разделу Документы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.Folder">
+	<summary>
+Доступ к дочернему разделу Папка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Folder.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Folder.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.Folder">
+	<summary>
+Реализация строки раздела Папка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumQuarter">
+	<summary>
+Перечисление Квартал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumCacheType">
+	<summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumExportType">
+	<summary>
+Перечисление Тип экспорта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Application.m_Folder">
+	<summary>
+ Внутренняя переменная для раздела Папка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Application.Folder">
+	<summary>
+Свойство для доступа к строкам раздела Папка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:STDInfoStore.STDInfoStore.Application.m_InfoStoreDef">
+	<summary>
+ Внутренняя переменная для раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Application.InfoStoreDef">
+	<summary>
+Свойство для доступа к строкам раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:STDInfoStore.STDInfoStore.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:STDInfoStore.STDInfoStore.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:STDInfoStore.STDInfoStore.Application">
+	<summary>
+Реализация документа test
+ </summary>
+	<remarks>
+Каталог
+ </remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZRprt
+</name>
+</assembly>
+<members>
+<member name="M:MTZRprt.MTZRprt.Reports_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.Reports_col">
+	<summary>
+Реализация раздела Описаниев виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_PrepareMethod">
+	<summary>
+Локальная переменная для поля Метод для формирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_ReportType">
+	<summary>
+Локальная переменная для поля Тип отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_TheComment">
+	<summary>
+Локальная переменная для поля Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_ReportFile">
+	<summary>
+Локальная переменная для поля Файл отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_ReportView">
+	<summary>
+Локальная переменная для поля Базовый запрос
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Reports.m_TheReportExt">
+	<summary>
+Локальная переменная для поля Расширение для создания отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.ReportFile">
+	<summary>
+Доступ к полю Файл отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.PrepareMethod">
+	<summary>
+Доступ к полю Метод для формирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.ReportType">
+	<summary>
+Доступ к полю Тип отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.TheReportExt">
+	<summary>
+Доступ к полю Расширение для создания отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.ReportView">
+	<summary>
+Доступ к полю Базовый запрос
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.TheComment">
+	<summary>
+Доступ к полю Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Reports.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Reports.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.Reports">
+	<summary>
+Реализация строки раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.RPTFormula_col">
+	<summary>
+Реализация раздела Формулыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFormula.m_Platform">
+	<summary>
+Локальная переменная для поля Платформа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFormula.m_Code">
+	<summary>
+Локальная переменная для поля Выражение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFormula.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFormula.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFormula.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFormula.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFormula.Code">
+	<summary>
+Доступ к полю Выражение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFormula.Platform">
+	<summary>
+Доступ к полю Платформа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFormula.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFormula.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.RPTFormula">
+	<summary>
+Реализация строки раздела Формулы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.RPTFields_col">
+	<summary>
+Реализация раздела Поля секциив виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFields.m_FieldType">
+	<summary>
+Локальная переменная для поля Тип поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFields.m_FieldSize">
+	<summary>
+Локальная переменная для поля Размер
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFields.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTFields.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.FieldType">
+	<summary>
+Доступ к полю Тип поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.FieldSize">
+	<summary>
+Доступ к полю Размер
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTFields.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTFields.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.RPTFields">
+	<summary>
+Реализация строки раздела Поля секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct_col.IsTree">
+	<summary>
+Признак древовидного раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.RPTStruct_col">
+	<summary>
+Реализация раздела Секциив виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTStruct.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTStruct.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTStruct.m_RPTFields">
+	<summary>
+Локальная переменная для дочернего раздела Поля секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.RPTStruct.m_RPTStruct">
+	<summary>
+Локальная переменная для дочерних записей раздела Секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.RPTFields">
+	<summary>
+Доступ к дочернему разделу Поля секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.RPTStruct">
+	<summary>
+Доступ к дочернему разделу Секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.RPTStruct.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.RPTStruct.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.RPTStruct">
+	<summary>
+Реализация строки раздела Секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumQuarter">
+	<summary>
+Перечисление Квартал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumCacheType">
+	<summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumExportType">
+	<summary>
+Перечисление Тип экспорта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Application.m_RPTStruct">
+	<summary>
+ Внутренняя переменная для раздела Секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Application.RPTStruct">
+	<summary>
+Свойство для доступа к строкам раздела Секции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Application.m_RPTFormula">
+	<summary>
+ Внутренняя переменная для раздела Формулы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Application.RPTFormula">
+	<summary>
+Свойство для доступа к строкам раздела Формулы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZRprt.MTZRprt.Application.m_Reports">
+	<summary>
+ Внутренняя переменная для раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Application.Reports">
+	<summary>
+Свойство для доступа к строкам раздела Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZRprt.MTZRprt.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZRprt.MTZRprt.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZRprt.MTZRprt.Application">
+	<summary>
+Реализация документа Документ описывает отчетные формы, которые используются в АРМ.
+ </summary>
+	<remarks>
+Описание отчета
+ </remarks>
+</member>
+</members>
+</doc>
