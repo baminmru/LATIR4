@@ -22,7 +22,7 @@ Partial Class frmJournalViewIG
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.cmbJournals = New System.Windows.Forms.ComboBox
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.jv = New JournalIG.JournalViewIG
+        Me.jv = New LATIRJournalSTD.JournalViewSTD
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -84,5 +84,5 @@ Partial Class frmJournalViewIG
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents cmbJournals As System.Windows.Forms.ComboBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents jv As JournalIG.JournalViewIG
+    Friend WithEvents jv As LATIRJournalSTD.JournalViewSTD
 End Class

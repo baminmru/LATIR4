@@ -571,10 +571,6 @@
       <Project>{60996302-32D9-4636-9695-4046E51779BE}</Project>
       <Name>Latir2GuiManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Journal_IG\JournalIG.vbproj">
-      <Project>{4cc4d55f-e6b7-4db1-8dc2-06f38619c1ca}</Project>
-      <Name>JournalIG</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\LATIRFramework\LATIR2Framework.csproj">
       <Project>{98E98ADC-D666-45AA-BC9A-B441B03D4B15}</Project>
       <Name>LATIR2Framework</Name>
@@ -590,6 +586,10 @@
     <ProjectReference Include="..\..\objmanager\L2Manager.vbproj">
       <Project>{C2AED02B-2ED8-497A-B79E-AFC4E5967F29}</Project>
       <Name>L2Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StdJournal\STDJournal.vbproj">
+      <Project>{e40d6710-c21d-444d-8e81-3f8d07cd8260}</Project>
+      <Name>STDJournal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
