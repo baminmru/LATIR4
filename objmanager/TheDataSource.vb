@@ -36,7 +36,7 @@ Public Class TheDataSource
         Try
             _connection.Open()
         Catch ex As Exception
-            'MsgBox(ex.Message)
+            MsgBox(ex.Message)
         End Try
 
     End Sub

@@ -94,6 +94,10 @@
       <HintPath>..\..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="STDLATIRGUIControls, Version=1.0.6096.25753, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\LATIR4\Build\STDLATIRGUIControls.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -479,6 +483,7 @@
     </Content>
     <Content Include="latir_sites.XML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -563,10 +568,6 @@
       <Project>{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}</Project>
       <Name>LATIR_WINNET</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\guicontrols\LATIRGUIControls.vbproj">
-      <Project>{E4E7ECF4-3CA4-46C6-BDFB-02C60263B704}</Project>
-      <Name>LATIRGUIControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\GuiManager\Latir2GuiManager.vbproj">
       <Project>{60996302-32D9-4636-9695-4046E51779BE}</Project>
       <Name>Latir2GuiManager</Name>
@@ -590,6 +591,14 @@
     <ProjectReference Include="..\..\StdJournal\STDJournal.vbproj">
       <Project>{e40d6710-c21d-444d-8e81-3f8d07cd8260}</Project>
       <Name>STDJournal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modelloader\ModelLoader.vbproj">
+      <Project>{48376712-0dfb-412d-ba0e-927c38fa6325}</Project>
+      <Name>ModelLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ORADBInstal\ORAdbInstall.vbproj">
+      <Project>{c8dd25bf-d7a6-48f7-b94c-e9fbc33dbe31}</Project>
+      <Name>ORAdbInstall</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />

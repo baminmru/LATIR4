@@ -141,11 +141,8 @@ cont:
 	
 	Private Sub Form1_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		inClick = True
-		
-		txtServer.Text = ""
-		txtDatabase.Text = ""
-		txtLogin.Text = ""
-		txtPassword.Text = ""
+        txtLogin.Text = ""
+        txtPassword.Text = ""
 		Call DisableInvisibleControls()
 		inClick = False
 	End Sub

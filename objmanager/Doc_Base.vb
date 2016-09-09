@@ -489,9 +489,11 @@ Imports LATIR2.Utils
                     anode = CType(node, XmlElement)
                 End If
                 If TypeName <> anode.Attributes("TYPENAME").Value Then Exit Sub
+
                 'MsgBox("ÈÑÏÐÀÂÈÒÜ ÇÀÃÐÓÇÊÓ ÁËÎÊÈÐÎÂÎÊ")
-                m_IsLocked = CType(Int16.Parse(anode.Attributes("IsLocked").Value), LATIR2.Session.LockStyle)
-                If m_IsLocked > 2 Then m_IsLocked = 0
+                'm_IsLocked = CType(Int16.Parse(anode.Attributes("IsLocked").Value), LATIR2.Session.LockStyle)
+                'If m_IsLocked > 2 Then m_IsLocked = 0
+
                 m_ID = New System.Guid(anode.Attributes("ID").Value)
                 m_Name = anode.Attributes("NAME").Value
                 If Not anode.Attributes("STATUS") Is Nothing Then

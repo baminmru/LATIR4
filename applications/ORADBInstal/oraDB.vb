@@ -1,4 +1,5 @@
-﻿Imports Oracle.DataAccess.Client
+﻿Imports Oracle.ManagedDataAccess.Client
+Imports System.Windows.Forms
 
 
 Public Class oraDB
@@ -38,7 +39,7 @@ Public Class oraDB
 
         Catch ex As Exception
 
-            Console.WriteLine(ex.Message)
+            MsgBox(ex.Message)
             Return False
         End Try
 

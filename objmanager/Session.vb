@@ -204,9 +204,7 @@ Public Class Session
         Select Case UCase(name)
             Case "SQLOLEDB"
                 Return New LATIR2.SQLDBProvider
-            Case "MSDAORA"
-                Return New LATIR2.ORADBProvider
-            Case "MSDAORA.1"
+            Case "MSDAORA.1", "MSDAORA", "ORACLE"
                 Return New LATIR2.ORADBProvider
             Case "MYSQL"
                 Return New LATIR2.MYSQLDBProvider

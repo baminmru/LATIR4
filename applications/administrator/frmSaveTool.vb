@@ -17,7 +17,7 @@ Friend Class frmSaveTool
         On Error Resume Next
         Dim tt As tmpInst, o As tmpInst
         tt = cmbType.Items(cmbType.SelectedIndex)
-        rs = Manager.Session.GetRowsEx("INSTANCE", "", "", " ObjType='" & tt.ObjType & "'", "order by name")
+        rs = Manager.Session.GetRowsEx("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, "", "", " ObjType='" & tt.ObjType & "'", "order by name")
         i = 0
         lstObj.Items.Clear()
         For i = 0 To rs.Rows.Count - 1
@@ -26,17 +26,8 @@ Friend Class frmSaveTool
             o.ID = New Guid(rs.Rows(i)("InstanceID").ToString)
             o.Name = rs.Rows(i)("Name")
             o.ObjType = rs.Rows(i)("ObjType")
+            lstObj.Items.Add(o)
 
-            o.LockUserID = rs.Rows(i)("LockUserID") & ""
-
-
-            If o.LockUserID <> "" Then
-                o.Name = o.Name & "(заблокирован)"
-                lstObj.Items.Add(o)
-
-            Else
-                lstObj.Items.Add(o)
-            End If
 
         Next
 
@@ -109,7 +100,9 @@ Friend Class frmSaveTool
         Dim rs As DataTable
         Dim i As Object
 
-        rs = Manager.Session.GetRowsEx("OBJECTTYPE", "*", , , , "order by Name")
+
+        rs = model.OBJECTTYPE.GetDataTable()
+
 
         Dim o As tmpInst
 
@@ -118,8 +111,8 @@ Friend Class frmSaveTool
             o = New tmpInst
             o.Name = rs.Rows(i)("the_comment")
             o.ObjType = rs.Rows(i)("Name")
-            o.IsSingle = rs.Rows(i)("IsSingleInstance")
-            o.ID = New Guid(rs.Rows(i)("instanceid").ToString)
+            o.IsSingle = rs.Rows(i)("IsSingleInstance_val")
+            o.ID = New Guid(rs.Rows(i)("id").ToString)
             cmbType.Items.Add(o)
         Next
 

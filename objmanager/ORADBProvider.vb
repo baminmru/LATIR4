@@ -21,12 +21,13 @@ Public Class ORADBProvider
            ByVal Provider As String, _
            ByVal Integrated As Boolean) As String
 
+        Dim builder As New OracleConnectionStringBuilder()
+        builder.DataSource = Server
+        builder.UserID = UserName
+        builder.Password = Password
 
-        'If Integrated Then
-        '    Return "Integrated Security=true;Server=" & Server & ";"
-        'Else
-        Return "Server=" & Server & ";User ID=" & UserName & ";Password=" & Password & ";"
-        'End If
+        Return builder.ConnectionString
+
     End Function
 
     Public Overrides Function CreateConnection(ByVal ConnectionString As String) As DbConnection
@@ -76,7 +77,7 @@ Public Class ORADBProvider
 
 
     Public Overrides Function ID2Param(ByVal ID As Guid) As Object
-        Return ID2Const(ID)
+        Return ID2String(ID.ToString())
     End Function
 
     Public Overrides Function Date2Base(ByVal fieldName As String) As String

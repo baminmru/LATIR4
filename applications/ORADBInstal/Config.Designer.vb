@@ -26,13 +26,11 @@
 	Public WithEvents txtServer As System.Windows.Forms.TextBox
 	Public WithEvents txtLogin As System.Windows.Forms.TextBox
 	Public WithEvents txtPassword As System.Windows.Forms.TextBox
-	Public WithEvents txtDatabase As System.Windows.Forms.TextBox
     Public WithEvents lblServer As System.Windows.Forms.Label
     Public WithEvents lblLogin As System.Windows.Forms.Label
-	Public WithEvents lblPassword As System.Windows.Forms.Label
-	Public WithEvents lblDatabase As System.Windows.Forms.Label
-	Public WithEvents frameRight As System.Windows.Forms.GroupBox
-	Public WithEvents cmdDataPath As System.Windows.Forms.Button
+    Public WithEvents lblPassword As System.Windows.Forms.Label
+    Public WithEvents frameRight As System.Windows.Forms.GroupBox
+    Public WithEvents cmdDataPath As System.Windows.Forms.Button
 	Public WithEvents txtData As System.Windows.Forms.TextBox
 	Public DlgOpen As System.Windows.Forms.OpenFileDialog
 	Public WithEvents Label2 As System.Windows.Forms.Label
@@ -54,11 +52,9 @@
         Me.txtServer = New System.Windows.Forms.TextBox()
         Me.txtLogin = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.txtDatabase = New System.Windows.Forms.TextBox()
         Me.lblServer = New System.Windows.Forms.Label()
         Me.lblLogin = New System.Windows.Forms.Label()
         Me.lblPassword = New System.Windows.Forms.Label()
-        Me.lblDatabase = New System.Windows.Forms.Label()
         Me.cmdDataPath = New System.Windows.Forms.Button()
         Me.txtData = New System.Windows.Forms.TextBox()
         Me.DlgOpen = New System.Windows.Forms.OpenFileDialog()
@@ -151,11 +147,9 @@
         Me.frameRight.Controls.Add(Me.txtServer)
         Me.frameRight.Controls.Add(Me.txtLogin)
         Me.frameRight.Controls.Add(Me.txtPassword)
-        Me.frameRight.Controls.Add(Me.txtDatabase)
         Me.frameRight.Controls.Add(Me.lblServer)
         Me.frameRight.Controls.Add(Me.lblLogin)
         Me.frameRight.Controls.Add(Me.lblPassword)
-        Me.frameRight.Controls.Add(Me.lblDatabase)
         Me.frameRight.ForeColor = System.Drawing.SystemColors.ControlText
         Me.frameRight.Location = New System.Drawing.Point(0, 0)
         Me.frameRight.Name = "frameRight"
@@ -175,8 +169,9 @@
         Me.txtServer.MaxLength = 0
         Me.txtServer.Name = "txtServer"
         Me.txtServer.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtServer.Size = New System.Drawing.Size(257, 19)
+        Me.txtServer.Size = New System.Drawing.Size(257, 20)
         Me.txtServer.TabIndex = 1
+        Me.txtServer.Text = "//localhost/ORA"
         '
         'txtLogin
         '
@@ -188,7 +183,7 @@
         Me.txtLogin.MaxLength = 0
         Me.txtLogin.Name = "txtLogin"
         Me.txtLogin.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtLogin.Size = New System.Drawing.Size(257, 19)
+        Me.txtLogin.Size = New System.Drawing.Size(257, 20)
         Me.txtLogin.TabIndex = 6
         '
         'txtPassword
@@ -203,21 +198,8 @@
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtPassword.Size = New System.Drawing.Size(257, 19)
+        Me.txtPassword.Size = New System.Drawing.Size(257, 20)
         Me.txtPassword.TabIndex = 8
-        '
-        'txtDatabase
-        '
-        Me.txtDatabase.AcceptsReturn = True
-        Me.txtDatabase.BackColor = System.Drawing.SystemColors.Window
-        Me.txtDatabase.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtDatabase.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtDatabase.Location = New System.Drawing.Point(12, 75)
-        Me.txtDatabase.MaxLength = 0
-        Me.txtDatabase.Name = "txtDatabase"
-        Me.txtDatabase.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtDatabase.Size = New System.Drawing.Size(257, 19)
-        Me.txtDatabase.TabIndex = 3
         '
         'lblServer
         '
@@ -229,7 +211,7 @@
         Me.lblServer.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblServer.Size = New System.Drawing.Size(257, 17)
         Me.lblServer.TabIndex = 0
-        Me.lblServer.Text = "SQL сервер:"
+        Me.lblServer.Text = "Oracle сервер instance:"
         '
         'lblLogin
         '
@@ -255,18 +237,6 @@
         Me.lblPassword.TabIndex = 7
         Me.lblPassword.Text = "SQL пароль:"
         '
-        'lblDatabase
-        '
-        Me.lblDatabase.BackColor = System.Drawing.SystemColors.Control
-        Me.lblDatabase.Cursor = System.Windows.Forms.Cursors.Default
-        Me.lblDatabase.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblDatabase.Location = New System.Drawing.Point(12, 59)
-        Me.lblDatabase.Name = "lblDatabase"
-        Me.lblDatabase.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblDatabase.Size = New System.Drawing.Size(257, 17)
-        Me.lblDatabase.TabIndex = 2
-        Me.lblDatabase.Text = "База данных сайта:"
-        '
         'cmdDataPath
         '
         Me.cmdDataPath.BackColor = System.Drawing.SystemColors.Control
@@ -290,7 +260,7 @@
         Me.txtData.MaxLength = 0
         Me.txtData.Name = "txtData"
         Me.txtData.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtData.Size = New System.Drawing.Size(225, 19)
+        Me.txtData.Size = New System.Drawing.Size(225, 20)
         Me.txtData.TabIndex = 10
         '
         'Label2
@@ -342,7 +312,9 @@
         Me.Text = "Инсталлятор базы данных"
         Me.Frame1.ResumeLayout(False)
         Me.frameRight.ResumeLayout(False)
+        Me.frameRight.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 #End Region
