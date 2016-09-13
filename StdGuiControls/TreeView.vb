@@ -160,9 +160,10 @@ Public Class TreeView
         Me.ButtonsTree.AllowAddRoot = True
         Me.ButtonsTree.AllowDel = True
         Me.ButtonsTree.AllowEdit = True
-        Me.ButtonsTree.AllowFind = True
+        Me.ButtonsTree.AllowFind = False
+        Me.ButtonsTree.AllowProp = False
         Me.ButtonsTree.AllowPrint = True
-        Me.ButtonsTree.AllowProp = True
+        Me.ButtonsTree.AllowExport = True
         Me.ButtonsTree.AllowRefresh = True
         Me.ButtonsTree.AllowRun = True
         Me.ButtonsTree.Dock = System.Windows.Forms.DockStyle.Left
@@ -340,7 +341,7 @@ Public Class TreeView
         mnuPrint_Click(Nothing, Nothing)
     End Sub
 
-    Private Sub Buttons1_OnProp() Handles ButtonsTree.OnProp
+    Private Sub Buttons1_OnExport() Handles ButtonsTree.OnExport
         mnuProp_Click(Nothing, Nothing)
     End Sub
 

@@ -33,7 +33,7 @@ Public Class MakeCustom
         For i = 1 To targ.GENMANUALCODE.Count
             mc = targ.GENMANUALCODE.Item(i)
             o.OutNL("/*" & mc.Name & " (" & mc.the_Alias & ")*/")
-            o.OutNL(mc.Code)
+            o.OutNL(mc.Code.Replace("MTZ.", SchemaName & "."))
             o.OutNL("/")
         Next
     End Sub
@@ -100,7 +100,7 @@ Public Class MakeCustom
             '    's1 = ""
         End If
 
-        s = s & s1 & vbCrLf
+        s = s & s1.Replace("MTZ.", SchemaName & ".") & vbCrLf
         s = s & vbCrLf & "/"
 
         o.ModuleName = "--Custom"

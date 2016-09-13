@@ -469,7 +469,7 @@ bye:
         s.putBuf(" end if;")
 
         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
-            s.putBuf(" MTZ.Kernel.instance_ISLOCKED( acursession=>acursession,aROWID=>aInstanceID,aIsLocked=>aaccess); ")
+            s.putBuf(" " + SchemaName +".Kernel.instance_ISLOCKED( acursession=>acursession,aROWID=>aInstanceID,aIsLocked=>aaccess); ")
         Else
             s.putBuf(" " & CType(os.Parent.Parent, PART).Name & "_ISLOCKED (acursession=>acursession,aROWID=>aParentStructRowID,aIsLocked=>aaccess); ")
         End If

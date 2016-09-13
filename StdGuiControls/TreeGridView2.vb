@@ -210,7 +210,7 @@ Public Class TreeGridView
     Public Event OnGridEdit(ByRef OK As Boolean, ByVal ParentID As System.Guid, ByVal ID As System.Guid)
     Public Event OnGridRun(ByRef OK As Boolean, ByVal ID As System.Guid, ByRef UseDefault As Boolean)
     Public Event OnGridPrint(ByRef OK As Boolean, ByRef UseDefault As Boolean)
-    Public Event OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean)
+    Public Event OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean)
 
     Public Event OnGridGetData(ByVal ID As System.Guid)
 #End Region
@@ -357,8 +357,8 @@ Public Class TreeGridView
         RaiseEvent OnGridPrint(OK, UseDefault)
     End Sub
 
-    Private Sub GridViewControl_OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewControl.OnGridProp
-        RaiseEvent OnGridProp(OK, UseDefault)
+    Private Sub GridViewControl_OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewControl.OnGridExport
+        RaiseEvent OnGridExport(OK, UseDefault)
     End Sub
 
     Private Sub GridViewControl_OnGridRefresh() Handles GridViewControl.OnGridRefresh

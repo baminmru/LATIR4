@@ -29,175 +29,173 @@
 	'It can be modified using the Windows Form Designer.
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-		Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmOptions))
-		Me.components = New System.ComponentModel.Container()
-		Me.ToolTip1 = New System.Windows.Forms.ToolTip(components)
-		Me.chkMethods = New System.Windows.Forms.CheckBox
-		Me.chkProcs = New System.Windows.Forms.CheckBox
-		Me.chkInit = New System.Windows.Forms.CheckBox
-		Me.chkView = New System.Windows.Forms.CheckBox
-		Me.chkKernel = New System.Windows.Forms.CheckBox
-		Me.chkTables = New System.Windows.Forms.CheckBox
-		Me.CancelButton_Renamed = New System.Windows.Forms.Button
-		Me.OKButton = New System.Windows.Forms.Button
-		Me.SuspendLayout()
-		Me.ToolTip1.Active = True
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-		Me.Text = "Параметры генерации"
-		Me.ClientSize = New System.Drawing.Size(361, 186)
-		Me.Location = New System.Drawing.Point(184, 250)
-		Me.MaximizeBox = False
-		Me.MinimizeBox = False
-		Me.ShowInTaskbar = False
-		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.BackColor = System.Drawing.SystemColors.Control
-		Me.ControlBox = True
-		Me.Enabled = True
-		Me.KeyPreview = False
-		Me.Cursor = System.Windows.Forms.Cursors.Default
-		Me.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.HelpButton = False
-		Me.WindowState = System.Windows.Forms.FormWindowState.Normal
-		Me.Name = "frmOptions"
-		Me.chkMethods.Text = "Методы"
-		Me.chkMethods.Size = New System.Drawing.Size(244, 20)
-		Me.chkMethods.Location = New System.Drawing.Point(18, 157)
-		Me.chkMethods.TabIndex = 7
-		Me.chkMethods.CheckAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.chkMethods.FlatStyle = System.Windows.Forms.FlatStyle.Standard
-		Me.chkMethods.BackColor = System.Drawing.SystemColors.Control
-		Me.chkMethods.CausesValidation = True
-		Me.chkMethods.Enabled = True
-		Me.chkMethods.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.chkMethods.Cursor = System.Windows.Forms.Cursors.Default
-		Me.chkMethods.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.chkMethods.Appearance = System.Windows.Forms.Appearance.Normal
-		Me.chkMethods.TabStop = True
-		Me.chkMethods.CheckState = System.Windows.Forms.CheckState.Unchecked
-		Me.chkMethods.Visible = True
-		Me.chkMethods.Name = "chkMethods"
-		Me.chkProcs.Text = "Процедуры"
-		Me.chkProcs.Size = New System.Drawing.Size(244, 20)
-		Me.chkProcs.Location = New System.Drawing.Point(18, 128)
-		Me.chkProcs.TabIndex = 6
-		Me.chkProcs.CheckAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.chkProcs.FlatStyle = System.Windows.Forms.FlatStyle.Standard
-		Me.chkProcs.BackColor = System.Drawing.SystemColors.Control
-		Me.chkProcs.CausesValidation = True
-		Me.chkProcs.Enabled = True
-		Me.chkProcs.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.chkProcs.Cursor = System.Windows.Forms.Cursors.Default
-		Me.chkProcs.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.chkProcs.Appearance = System.Windows.Forms.Appearance.Normal
-		Me.chkProcs.TabStop = True
-		Me.chkProcs.CheckState = System.Windows.Forms.CheckState.Unchecked
-		Me.chkProcs.Visible = True
-		Me.chkProcs.Name = "chkProcs"
-		Me.chkInit.Text = "Инициализация базы"
-		Me.chkInit.Size = New System.Drawing.Size(244, 20)
-		Me.chkInit.Location = New System.Drawing.Point(18, 98)
-		Me.chkInit.TabIndex = 5
-		Me.chkInit.CheckAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.chkInit.FlatStyle = System.Windows.Forms.FlatStyle.Standard
-		Me.chkInit.BackColor = System.Drawing.SystemColors.Control
-		Me.chkInit.CausesValidation = True
-		Me.chkInit.Enabled = True
-		Me.chkInit.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.chkInit.Cursor = System.Windows.Forms.Cursors.Default
-		Me.chkInit.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.chkInit.Appearance = System.Windows.Forms.Appearance.Normal
-		Me.chkInit.TabStop = True
-		Me.chkInit.CheckState = System.Windows.Forms.CheckState.Unchecked
-		Me.chkInit.Visible = True
-		Me.chkInit.Name = "chkInit"
-		Me.chkView.Text = "Запросы (View)"
-		Me.chkView.Size = New System.Drawing.Size(244, 20)
-		Me.chkView.Location = New System.Drawing.Point(18, 39)
-		Me.chkView.TabIndex = 4
-		Me.chkView.CheckAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.chkView.FlatStyle = System.Windows.Forms.FlatStyle.Standard
-		Me.chkView.BackColor = System.Drawing.SystemColors.Control
-		Me.chkView.CausesValidation = True
-		Me.chkView.Enabled = True
-		Me.chkView.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.chkView.Cursor = System.Windows.Forms.Cursors.Default
-		Me.chkView.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.chkView.Appearance = System.Windows.Forms.Appearance.Normal
-		Me.chkView.TabStop = True
-		Me.chkView.CheckState = System.Windows.Forms.CheckState.Unchecked
-		Me.chkView.Visible = True
-		Me.chkView.Name = "chkView"
-		Me.chkKernel.Text = "Ядро"
-		Me.chkKernel.Size = New System.Drawing.Size(244, 20)
-		Me.chkKernel.Location = New System.Drawing.Point(18, 69)
-		Me.chkKernel.TabIndex = 3
-		Me.chkKernel.CheckAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.chkKernel.FlatStyle = System.Windows.Forms.FlatStyle.Standard
-		Me.chkKernel.BackColor = System.Drawing.SystemColors.Control
-		Me.chkKernel.CausesValidation = True
-		Me.chkKernel.Enabled = True
-		Me.chkKernel.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.chkKernel.Cursor = System.Windows.Forms.Cursors.Default
-		Me.chkKernel.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.chkKernel.Appearance = System.Windows.Forms.Appearance.Normal
-		Me.chkKernel.TabStop = True
-		Me.chkKernel.CheckState = System.Windows.Forms.CheckState.Unchecked
-		Me.chkKernel.Visible = True
-		Me.chkKernel.Name = "chkKernel"
-		Me.chkTables.Text = "Структура таблиц"
-		Me.chkTables.Size = New System.Drawing.Size(244, 20)
-		Me.chkTables.Location = New System.Drawing.Point(16, 9)
-		Me.chkTables.TabIndex = 2
-		Me.chkTables.CheckAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.chkTables.FlatStyle = System.Windows.Forms.FlatStyle.Standard
-		Me.chkTables.BackColor = System.Drawing.SystemColors.Control
-		Me.chkTables.CausesValidation = True
-		Me.chkTables.Enabled = True
-		Me.chkTables.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.chkTables.Cursor = System.Windows.Forms.Cursors.Default
-		Me.chkTables.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.chkTables.Appearance = System.Windows.Forms.Appearance.Normal
-		Me.chkTables.TabStop = True
-		Me.chkTables.CheckState = System.Windows.Forms.CheckState.Unchecked
-		Me.chkTables.Visible = True
-		Me.chkTables.Name = "chkTables"
-		Me.CancelButton_Renamed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		Me.CancelButton_Renamed.Text = "Cancel"
-		Me.CancelButton_Renamed.Size = New System.Drawing.Size(81, 25)
-		Me.CancelButton_Renamed.Location = New System.Drawing.Point(271, 40)
-		Me.CancelButton_Renamed.TabIndex = 1
-		Me.CancelButton_Renamed.BackColor = System.Drawing.SystemColors.Control
-		Me.CancelButton_Renamed.CausesValidation = True
-		Me.CancelButton_Renamed.Enabled = True
-		Me.CancelButton_Renamed.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.CancelButton_Renamed.Cursor = System.Windows.Forms.Cursors.Default
-		Me.CancelButton_Renamed.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.CancelButton_Renamed.TabStop = True
-		Me.CancelButton_Renamed.Name = "CancelButton_Renamed"
-		Me.OKButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		Me.OKButton.Text = "OK"
-		Me.OKButton.Size = New System.Drawing.Size(81, 25)
-		Me.OKButton.Location = New System.Drawing.Point(271, 9)
-		Me.OKButton.TabIndex = 0
-		Me.OKButton.BackColor = System.Drawing.SystemColors.Control
-		Me.OKButton.CausesValidation = True
-		Me.OKButton.Enabled = True
-		Me.OKButton.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.OKButton.Cursor = System.Windows.Forms.Cursors.Default
-		Me.OKButton.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.OKButton.TabStop = True
-		Me.OKButton.Name = "OKButton"
-		Me.Controls.Add(chkMethods)
-		Me.Controls.Add(chkProcs)
-		Me.Controls.Add(chkInit)
-		Me.Controls.Add(chkView)
-		Me.Controls.Add(chkKernel)
-		Me.Controls.Add(chkTables)
-		Me.Controls.Add(CancelButton_Renamed)
-		Me.Controls.Add(OKButton)
-		Me.ResumeLayout(False)
-		Me.PerformLayout()
-	End Sub
-#End Region 
+        Me.components = New System.ComponentModel.Container()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.chkMethods = New System.Windows.Forms.CheckBox()
+        Me.chkProcs = New System.Windows.Forms.CheckBox()
+        Me.chkInit = New System.Windows.Forms.CheckBox()
+        Me.chkView = New System.Windows.Forms.CheckBox()
+        Me.chkKernel = New System.Windows.Forms.CheckBox()
+        Me.chkTables = New System.Windows.Forms.CheckBox()
+        Me.CancelButton_Renamed = New System.Windows.Forms.Button()
+        Me.OKButton = New System.Windows.Forms.Button()
+        Me.txtSchema = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
+        '
+        'chkMethods
+        '
+        Me.chkMethods.BackColor = System.Drawing.SystemColors.Control
+        Me.chkMethods.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkMethods.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chkMethods.Location = New System.Drawing.Point(18, 157)
+        Me.chkMethods.Name = "chkMethods"
+        Me.chkMethods.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkMethods.Size = New System.Drawing.Size(244, 20)
+        Me.chkMethods.TabIndex = 7
+        Me.chkMethods.Text = "Методы"
+        Me.chkMethods.UseVisualStyleBackColor = False
+        '
+        'chkProcs
+        '
+        Me.chkProcs.BackColor = System.Drawing.SystemColors.Control
+        Me.chkProcs.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkProcs.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chkProcs.Location = New System.Drawing.Point(18, 128)
+        Me.chkProcs.Name = "chkProcs"
+        Me.chkProcs.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkProcs.Size = New System.Drawing.Size(244, 20)
+        Me.chkProcs.TabIndex = 6
+        Me.chkProcs.Text = "Процедуры"
+        Me.chkProcs.UseVisualStyleBackColor = False
+        '
+        'chkInit
+        '
+        Me.chkInit.BackColor = System.Drawing.SystemColors.Control
+        Me.chkInit.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkInit.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chkInit.Location = New System.Drawing.Point(18, 98)
+        Me.chkInit.Name = "chkInit"
+        Me.chkInit.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkInit.Size = New System.Drawing.Size(244, 20)
+        Me.chkInit.TabIndex = 5
+        Me.chkInit.Text = "Инициализация базы"
+        Me.chkInit.UseVisualStyleBackColor = False
+        '
+        'chkView
+        '
+        Me.chkView.BackColor = System.Drawing.SystemColors.Control
+        Me.chkView.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkView.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chkView.Location = New System.Drawing.Point(18, 39)
+        Me.chkView.Name = "chkView"
+        Me.chkView.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkView.Size = New System.Drawing.Size(244, 20)
+        Me.chkView.TabIndex = 4
+        Me.chkView.Text = "Запросы (View)"
+        Me.chkView.UseVisualStyleBackColor = False
+        '
+        'chkKernel
+        '
+        Me.chkKernel.BackColor = System.Drawing.SystemColors.Control
+        Me.chkKernel.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkKernel.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chkKernel.Location = New System.Drawing.Point(18, 69)
+        Me.chkKernel.Name = "chkKernel"
+        Me.chkKernel.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkKernel.Size = New System.Drawing.Size(244, 20)
+        Me.chkKernel.TabIndex = 3
+        Me.chkKernel.Text = "Ядро"
+        Me.chkKernel.UseVisualStyleBackColor = False
+        '
+        'chkTables
+        '
+        Me.chkTables.BackColor = System.Drawing.SystemColors.Control
+        Me.chkTables.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkTables.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chkTables.Location = New System.Drawing.Point(18, 9)
+        Me.chkTables.Name = "chkTables"
+        Me.chkTables.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkTables.Size = New System.Drawing.Size(244, 20)
+        Me.chkTables.TabIndex = 2
+        Me.chkTables.Text = "Структура таблиц"
+        Me.chkTables.UseVisualStyleBackColor = False
+        '
+        'CancelButton_Renamed
+        '
+        Me.CancelButton_Renamed.BackColor = System.Drawing.SystemColors.Control
+        Me.CancelButton_Renamed.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CancelButton_Renamed.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CancelButton_Renamed.Location = New System.Drawing.Point(271, 40)
+        Me.CancelButton_Renamed.Name = "CancelButton_Renamed"
+        Me.CancelButton_Renamed.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.CancelButton_Renamed.Size = New System.Drawing.Size(81, 25)
+        Me.CancelButton_Renamed.TabIndex = 1
+        Me.CancelButton_Renamed.Text = "Cancel"
+        Me.CancelButton_Renamed.UseVisualStyleBackColor = False
+        '
+        'OKButton
+        '
+        Me.OKButton.BackColor = System.Drawing.SystemColors.Control
+        Me.OKButton.Cursor = System.Windows.Forms.Cursors.Default
+        Me.OKButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.OKButton.Location = New System.Drawing.Point(271, 9)
+        Me.OKButton.Name = "OKButton"
+        Me.OKButton.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.OKButton.Size = New System.Drawing.Size(81, 25)
+        Me.OKButton.TabIndex = 0
+        Me.OKButton.Text = "OK"
+        Me.OKButton.UseVisualStyleBackColor = False
+        '
+        'txtSchema
+        '
+        Me.txtSchema.Location = New System.Drawing.Point(126, 194)
+        Me.txtSchema.Name = "txtSchema"
+        Me.txtSchema.Size = New System.Drawing.Size(183, 20)
+        Me.txtSchema.TabIndex = 8
+        Me.txtSchema.Text = "LATIR4"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(15, 197)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(93, 13)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Название схемы"
+        '
+        'frmOptions
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(361, 227)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtSchema)
+        Me.Controls.Add(Me.chkMethods)
+        Me.Controls.Add(Me.chkProcs)
+        Me.Controls.Add(Me.chkInit)
+        Me.Controls.Add(Me.chkView)
+        Me.Controls.Add(Me.chkKernel)
+        Me.Controls.Add(Me.chkTables)
+        Me.Controls.Add(Me.CancelButton_Renamed)
+        Me.Controls.Add(Me.OKButton)
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Location = New System.Drawing.Point(184, 250)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "frmOptions"
+        Me.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.Text = "Параметры генерации"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+    Friend WithEvents txtSchema As Windows.Forms.TextBox
+    Friend WithEvents Label1 As Windows.Forms.Label
+#End Region
 End Class

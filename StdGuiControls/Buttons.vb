@@ -36,7 +36,6 @@ Public Class Buttons
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel22 As System.Windows.Forms.Panel
     Friend WithEvents cmdPrint As System.Windows.Forms.Button
-    Friend WithEvents Panel21 As System.Windows.Forms.Panel
     Friend WithEvents cmdRun As System.Windows.Forms.Button
     Friend WithEvents Panel8 As System.Windows.Forms.Panel
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
@@ -51,254 +50,281 @@ Public Class Buttons
     Friend WithEvents cmdAdd As System.Windows.Forms.Button
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents cmdExport As Button
+    Friend WithEvents Panel10 As Panel
+    Friend WithEvents cmdProp As Button
     Friend WithEvents cmdAddRoot As System.Windows.Forms.Button
-    Friend WithEvents cmdProp As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-    Me.components = New System.ComponentModel.Container
-    Me.Panel1 = New System.Windows.Forms.Panel
-    Me.Panel7 = New System.Windows.Forms.Panel
-    Me.cmdPrint = New System.Windows.Forms.Button
-    Me.Panel22 = New System.Windows.Forms.Panel
-    Me.cmdRun = New System.Windows.Forms.Button
-    Me.Panel21 = New System.Windows.Forms.Panel
-    Me.cmdProp = New System.Windows.Forms.Button
-    Me.Panel8 = New System.Windows.Forms.Panel
-    Me.cmdFind = New System.Windows.Forms.Button
-    Me.Panel6 = New System.Windows.Forms.Panel
-    Me.cmdRefresh = New System.Windows.Forms.Button
-    Me.Panel5 = New System.Windows.Forms.Panel
-    Me.cmdDel = New System.Windows.Forms.Button
-    Me.Panel4 = New System.Windows.Forms.Panel
-    Me.cmdEdit = New System.Windows.Forms.Button
-    Me.Panel3 = New System.Windows.Forms.Panel
-    Me.cmdAdd = New System.Windows.Forms.Button
-    Me.Panel2 = New System.Windows.Forms.Panel
-    Me.cmdAddRoot = New System.Windows.Forms.Button
-    Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-    Me.Panel1.SuspendLayout()
-    Me.Panel7.SuspendLayout()
-    Me.Panel22.SuspendLayout()
-    Me.Panel21.SuspendLayout()
-    Me.Panel8.SuspendLayout()
-    Me.Panel6.SuspendLayout()
-    Me.Panel5.SuspendLayout()
-    Me.Panel4.SuspendLayout()
-    Me.Panel3.SuspendLayout()
-    Me.Panel2.SuspendLayout()
-    Me.SuspendLayout()
-    '
-    'Panel1
-    '
-    Me.Panel1.Controls.Add(Me.Panel7)
-    Me.Panel1.Controls.Add(Me.Panel22)
-    Me.Panel1.Controls.Add(Me.Panel21)
-    Me.Panel1.Controls.Add(Me.Panel8)
-    Me.Panel1.Controls.Add(Me.Panel6)
-    Me.Panel1.Controls.Add(Me.Panel5)
-    Me.Panel1.Controls.Add(Me.Panel4)
-    Me.Panel1.Controls.Add(Me.Panel3)
-    Me.Panel1.Controls.Add(Me.Panel2)
-    Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-    Me.Panel1.Location = New System.Drawing.Point(0, 0)
-    Me.Panel1.Name = "Panel1"
-    Me.Panel1.Size = New System.Drawing.Size(920, 32)
-    Me.Panel1.TabIndex = 14
-    '
-    'Panel7
-    '
-    Me.Panel7.Controls.Add(Me.cmdPrint)
-    Me.Panel7.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel7.Location = New System.Drawing.Point(720, 0)
-    Me.Panel7.Name = "Panel7"
-    Me.Panel7.Size = New System.Drawing.Size(88, 32)
-    Me.Panel7.TabIndex = 1
-    '
-    'cmdPrint
-    '
-    Me.cmdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdPrint.Location = New System.Drawing.Point(0, 0)
-    Me.cmdPrint.Name = "cmdPrint"
-    Me.cmdPrint.Size = New System.Drawing.Size(72, 24)
-    Me.cmdPrint.TabIndex = 19
-    Me.cmdPrint.Tag = "Print"
-    Me.cmdPrint.Text = "&Печать"
-    '
-    'Panel22
-    '
-    Me.Panel22.Controls.Add(Me.cmdRun)
-    Me.Panel22.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel22.Location = New System.Drawing.Point(632, 0)
-    Me.Panel22.Name = "Panel22"
-    Me.Panel22.Size = New System.Drawing.Size(88, 32)
-    Me.Panel22.TabIndex = 8
-    '
-    'cmdRun
-    '
-    Me.cmdRun.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdRun.Location = New System.Drawing.Point(8, 0)
-    Me.cmdRun.Name = "cmdRun"
-    Me.cmdRun.Size = New System.Drawing.Size(72, 24)
-    Me.cmdRun.TabIndex = 19
-    Me.cmdRun.Tag = "Run"
-    Me.cmdRun.Text = "&Открыть"
-    '
-    'Panel21
-    '
-    Me.Panel21.Controls.Add(Me.cmdProp)
-    Me.Panel21.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel21.Location = New System.Drawing.Point(544, 0)
-    Me.Panel21.Name = "Panel21"
-    Me.Panel21.Size = New System.Drawing.Size(88, 32)
-    Me.Panel21.TabIndex = 7
-    '
-    'cmdProp
-    '
-    Me.cmdProp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdProp.Location = New System.Drawing.Point(8, 0)
-    Me.cmdProp.Name = "cmdProp"
-    Me.cmdProp.Size = New System.Drawing.Size(72, 24)
-    Me.cmdProp.TabIndex = 13
-    Me.cmdProp.Tag = "Config"
-    Me.cmdProp.Text = "&Настройкa"
-    '
-    'Panel8
-    '
-    Me.Panel8.Controls.Add(Me.cmdFind)
-    Me.Panel8.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel8.Location = New System.Drawing.Point(456, 0)
-    Me.Panel8.Name = "Panel8"
-    Me.Panel8.Size = New System.Drawing.Size(88, 32)
-    Me.Panel8.TabIndex = 6
-    '
-    'cmdFind
-    '
-    Me.cmdFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdFind.Location = New System.Drawing.Point(8, 0)
-    Me.cmdFind.Name = "cmdFind"
-    Me.cmdFind.Size = New System.Drawing.Size(72, 24)
-    Me.cmdFind.TabIndex = 12
-    Me.cmdFind.Tag = "Find"
-    Me.cmdFind.Text = "&Поиск"
-    '
-    'Panel6
-    '
-    Me.Panel6.Controls.Add(Me.cmdRefresh)
-    Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel6.Location = New System.Drawing.Point(360, 0)
-    Me.Panel6.Name = "Panel6"
-    Me.Panel6.Size = New System.Drawing.Size(96, 32)
-    Me.Panel6.TabIndex = 5
-    '
-    'cmdRefresh
-    '
-    Me.cmdRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdRefresh.Location = New System.Drawing.Point(8, 0)
-    Me.cmdRefresh.Name = "cmdRefresh"
-    Me.cmdRefresh.Size = New System.Drawing.Size(72, 24)
-    Me.cmdRefresh.TabIndex = 11
-    Me.cmdRefresh.Tag = "Refresh"
-    Me.cmdRefresh.Text = "&Обновить"
-    '
-    'Panel5
-    '
-    Me.Panel5.Controls.Add(Me.cmdDel)
-    Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel5.Location = New System.Drawing.Point(272, 0)
-    Me.Panel5.Name = "Panel5"
-    Me.Panel5.Size = New System.Drawing.Size(88, 32)
-    Me.Panel5.TabIndex = 4
-    '
-    'cmdDel
-    '
-    Me.cmdDel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-    Me.cmdDel.Location = New System.Drawing.Point(8, 0)
-    Me.cmdDel.Name = "cmdDel"
-    Me.cmdDel.Size = New System.Drawing.Size(72, 24)
-    Me.cmdDel.TabIndex = 9
-    Me.cmdDel.Tag = "Delete"
-    Me.cmdDel.Text = "&Удалить"
-    '
-    'Panel4
-    '
-    Me.Panel4.Controls.Add(Me.cmdEdit)
-    Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel4.Location = New System.Drawing.Point(184, 0)
-    Me.Panel4.Name = "Panel4"
-    Me.Panel4.Size = New System.Drawing.Size(88, 32)
-    Me.Panel4.TabIndex = 3
-    '
-    'cmdEdit
-    '
-    Me.cmdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-    Me.cmdEdit.Location = New System.Drawing.Point(8, 0)
-    Me.cmdEdit.Name = "cmdEdit"
-    Me.cmdEdit.Size = New System.Drawing.Size(72, 24)
-    Me.cmdEdit.TabIndex = 10
-    Me.cmdEdit.Tag = "Prop"
-    Me.cmdEdit.Text = "&Изменить"
-    '
-    'Panel3
-    '
-    Me.Panel3.Controls.Add(Me.cmdAdd)
-    Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel3.Location = New System.Drawing.Point(88, 0)
-    Me.Panel3.Name = "Panel3"
-    Me.Panel3.Size = New System.Drawing.Size(96, 32)
-    Me.Panel3.TabIndex = 2
-    '
-    'cmdAdd
-    '
-    Me.cmdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-    Me.cmdAdd.Location = New System.Drawing.Point(16, 0)
-    Me.cmdAdd.Name = "cmdAdd"
-    Me.cmdAdd.Size = New System.Drawing.Size(72, 24)
-    Me.cmdAdd.TabIndex = 8
-    Me.cmdAdd.Tag = "New"
-    Me.cmdAdd.Text = "&Добавить"
-    Me.ToolTip1.SetToolTip(Me.cmdAdd, "cdcccc")
-    '
-    'Panel2
-    '
-    Me.Panel2.Controls.Add(Me.cmdAddRoot)
-    Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel2.Location = New System.Drawing.Point(0, 0)
-    Me.Panel2.Name = "Panel2"
-    Me.Panel2.Size = New System.Drawing.Size(88, 32)
-    Me.Panel2.TabIndex = 0
-    '
-    'cmdAddRoot
-    '
-    Me.cmdAddRoot.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-    Me.cmdAddRoot.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-    Me.cmdAddRoot.Location = New System.Drawing.Point(8, 0)
-    Me.cmdAddRoot.Name = "cmdAddRoot"
-    Me.cmdAddRoot.Size = New System.Drawing.Size(72, 24)
-    Me.cmdAddRoot.TabIndex = 8
-    Me.cmdAddRoot.Tag = "NewRoot"
-    Me.cmdAddRoot.Text = "&В корень"
-    Me.ToolTip1.SetToolTip(Me.cmdAddRoot, "cdcccc")
-    '
-    'Buttons
-    '
-    Me.Controls.Add(Me.Panel1)
-    Me.Name = "Buttons"
-    Me.Size = New System.Drawing.Size(920, 32)
-    Me.Panel1.ResumeLayout(False)
-    Me.Panel7.ResumeLayout(False)
-    Me.Panel22.ResumeLayout(False)
-    Me.Panel21.ResumeLayout(False)
-    Me.Panel8.ResumeLayout(False)
-    Me.Panel6.ResumeLayout(False)
-    Me.Panel5.ResumeLayout(False)
-    Me.Panel4.ResumeLayout(False)
-    Me.Panel3.ResumeLayout(False)
-    Me.Panel2.ResumeLayout(False)
-    Me.ResumeLayout(False)
+        Me.components = New System.ComponentModel.Container()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.cmdProp = New System.Windows.Forms.Button()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.cmdExport = New System.Windows.Forms.Button()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.cmdPrint = New System.Windows.Forms.Button()
+        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.cmdRun = New System.Windows.Forms.Button()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.cmdFind = New System.Windows.Forms.Button()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.cmdRefresh = New System.Windows.Forms.Button()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.cmdDel = New System.Windows.Forms.Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.cmdEdit = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.cmdAdd = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cmdAddRoot = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Panel1.SuspendLayout()
+        Me.Panel10.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.Panel22.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Panel10)
+        Me.Panel1.Controls.Add(Me.Panel9)
+        Me.Panel1.Controls.Add(Me.Panel7)
+        Me.Panel1.Controls.Add(Me.Panel22)
+        Me.Panel1.Controls.Add(Me.Panel8)
+        Me.Panel1.Controls.Add(Me.Panel6)
+        Me.Panel1.Controls.Add(Me.Panel5)
+        Me.Panel1.Controls.Add(Me.Panel4)
+        Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(920, 32)
+        Me.Panel1.TabIndex = 14
+        '
+        'Panel10
+        '
+        Me.Panel10.Controls.Add(Me.cmdProp)
+        Me.Panel10.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel10.Location = New System.Drawing.Point(808, 0)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(88, 32)
+        Me.Panel10.TabIndex = 15
+        '
+        'cmdProp
+        '
+        Me.cmdProp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdProp.Location = New System.Drawing.Point(8, 0)
+        Me.cmdProp.Name = "cmdProp"
+        Me.cmdProp.Size = New System.Drawing.Size(72, 24)
+        Me.cmdProp.TabIndex = 12
+        Me.cmdProp.Tag = "Find"
+        Me.cmdProp.Text = "&Свойства"
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.cmdExport)
+        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel9.Location = New System.Drawing.Point(720, 0)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(88, 32)
+        Me.Panel9.TabIndex = 14
+        '
+        'cmdExport
+        '
+        Me.cmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdExport.Location = New System.Drawing.Point(0, 0)
+        Me.cmdExport.Name = "cmdExport"
+        Me.cmdExport.Size = New System.Drawing.Size(72, 24)
+        Me.cmdExport.TabIndex = 14
+        Me.cmdExport.Tag = "Config"
+        Me.cmdExport.Text = "&Экспорт"
+        '
+        'Panel7
+        '
+        Me.Panel7.Controls.Add(Me.cmdPrint)
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel7.Location = New System.Drawing.Point(632, 0)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(88, 32)
+        Me.Panel7.TabIndex = 1
+        '
+        'cmdPrint
+        '
+        Me.cmdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdPrint.Location = New System.Drawing.Point(0, 0)
+        Me.cmdPrint.Name = "cmdPrint"
+        Me.cmdPrint.Size = New System.Drawing.Size(72, 24)
+        Me.cmdPrint.TabIndex = 19
+        Me.cmdPrint.Tag = "Print"
+        Me.cmdPrint.Text = "&Печать"
+        '
+        'Panel22
+        '
+        Me.Panel22.Controls.Add(Me.cmdRun)
+        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel22.Location = New System.Drawing.Point(544, 0)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(88, 32)
+        Me.Panel22.TabIndex = 8
+        '
+        'cmdRun
+        '
+        Me.cmdRun.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdRun.Location = New System.Drawing.Point(8, 0)
+        Me.cmdRun.Name = "cmdRun"
+        Me.cmdRun.Size = New System.Drawing.Size(72, 24)
+        Me.cmdRun.TabIndex = 19
+        Me.cmdRun.Tag = "Run"
+        Me.cmdRun.Text = "&Открыть"
+        '
+        'Panel8
+        '
+        Me.Panel8.Controls.Add(Me.cmdFind)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel8.Location = New System.Drawing.Point(456, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(88, 32)
+        Me.Panel8.TabIndex = 6
+        '
+        'cmdFind
+        '
+        Me.cmdFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdFind.Location = New System.Drawing.Point(8, 0)
+        Me.cmdFind.Name = "cmdFind"
+        Me.cmdFind.Size = New System.Drawing.Size(72, 24)
+        Me.cmdFind.TabIndex = 12
+        Me.cmdFind.Tag = "Find"
+        Me.cmdFind.Text = "&Поиск"
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.cmdRefresh)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel6.Location = New System.Drawing.Point(360, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(96, 32)
+        Me.Panel6.TabIndex = 5
+        '
+        'cmdRefresh
+        '
+        Me.cmdRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdRefresh.Location = New System.Drawing.Point(8, 0)
+        Me.cmdRefresh.Name = "cmdRefresh"
+        Me.cmdRefresh.Size = New System.Drawing.Size(72, 24)
+        Me.cmdRefresh.TabIndex = 11
+        Me.cmdRefresh.Tag = "Refresh"
+        Me.cmdRefresh.Text = "&Обновить"
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.cmdDel)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel5.Location = New System.Drawing.Point(272, 0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(88, 32)
+        Me.Panel5.TabIndex = 4
+        '
+        'cmdDel
+        '
+        Me.cmdDel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdDel.Location = New System.Drawing.Point(8, 0)
+        Me.cmdDel.Name = "cmdDel"
+        Me.cmdDel.Size = New System.Drawing.Size(72, 24)
+        Me.cmdDel.TabIndex = 9
+        Me.cmdDel.Tag = "Delete"
+        Me.cmdDel.Text = "&Удалить"
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.cmdEdit)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel4.Location = New System.Drawing.Point(184, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(88, 32)
+        Me.Panel4.TabIndex = 3
+        '
+        'cmdEdit
+        '
+        Me.cmdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdEdit.Location = New System.Drawing.Point(8, 0)
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(72, 24)
+        Me.cmdEdit.TabIndex = 10
+        Me.cmdEdit.Tag = "Prop"
+        Me.cmdEdit.Text = "&Изменить"
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.cmdAdd)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel3.Location = New System.Drawing.Point(88, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(96, 32)
+        Me.Panel3.TabIndex = 2
+        '
+        'cmdAdd
+        '
+        Me.cmdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdAdd.Location = New System.Drawing.Point(16, 0)
+        Me.cmdAdd.Name = "cmdAdd"
+        Me.cmdAdd.Size = New System.Drawing.Size(72, 24)
+        Me.cmdAdd.TabIndex = 8
+        Me.cmdAdd.Tag = "New"
+        Me.cmdAdd.Text = "&Добавить"
+        Me.ToolTip1.SetToolTip(Me.cmdAdd, "cdcccc")
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.cmdAddRoot)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(88, 32)
+        Me.Panel2.TabIndex = 0
+        '
+        'cmdAddRoot
+        '
+        Me.cmdAddRoot.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmdAddRoot.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdAddRoot.Location = New System.Drawing.Point(8, 0)
+        Me.cmdAddRoot.Name = "cmdAddRoot"
+        Me.cmdAddRoot.Size = New System.Drawing.Size(72, 24)
+        Me.cmdAddRoot.TabIndex = 8
+        Me.cmdAddRoot.Tag = "NewRoot"
+        Me.cmdAddRoot.Text = "&В корень"
+        Me.ToolTip1.SetToolTip(Me.cmdAddRoot, "cdcccc")
+        '
+        'Buttons
+        '
+        Me.Controls.Add(Me.Panel1)
+        Me.Name = "Buttons"
+        Me.Size = New System.Drawing.Size(920, 32)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel10.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel22.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.ResumeLayout(False)
 
-  End Sub
+    End Sub
 
 #End Region
     Private mAllowAddRoot As Boolean
@@ -307,6 +333,7 @@ Public Class Buttons
     Private mAllowFind As Boolean
     Private mAllowDel As Boolean
     Private mAllowEdit As Boolean
+    Private mAllowExport As Boolean
     Private mAllowProp As Boolean
     Private mAllowRun As Boolean
     Private mAllowPrint As Boolean
@@ -318,6 +345,7 @@ Public Class Buttons
     Public Event OnDel()
     Public Event OnEdit()
     Public Event OnProp()
+    Public Event OnExport()
     Public Event OnRun()
     Public Shadows Event OnPrint()
 
@@ -328,6 +356,7 @@ Public Class Buttons
         mAllowFind = False
         mAllowDel = True
         mAllowEdit = True
+        mAllowExport = True
         mAllowProp = False
         mAllowRun = False
         mAllowPrint = False
@@ -423,16 +452,16 @@ Public Class Buttons
         End Set
     End Property
 
-    Public Property AllowProp() As Boolean
+    Public Property AllowExport() As Boolean
         Get
-            Return mAllowProp
+            Return mAllowExport
         End Get
         Set(ByVal Value As Boolean)
-            mAllowProp = Value
-            If (mAllowProp) Then
-                cmdProp.Visible = True
+            mAllowExport = Value
+            If (mAllowExport) Then
+                cmdExport.Visible = True
             Else
-                cmdProp.Visible = False
+                cmdExport.Visible = False
             End If
             ButtonUtils.PrepareForm(ToolTip1, Me.Controls)
         End Set
@@ -448,6 +477,21 @@ Public Class Buttons
                 cmdRun.Visible = True
             Else
                 cmdRun.Visible = False
+            End If
+            ButtonUtils.PrepareForm(ToolTip1, Me.Controls)
+        End Set
+    End Property
+
+    Public Property AllowProp() As Boolean
+        Get
+            Return mAllowProp
+        End Get
+        Set(ByVal Value As Boolean)
+            mAllowProp = Value
+            If (mAllowProp) Then
+                cmdProp.Visible = True
+            Else
+                cmdProp.Visible = False
             End If
             ButtonUtils.PrepareForm(ToolTip1, Me.Controls)
         End Set
@@ -493,8 +537,8 @@ Public Class Buttons
         RaiseEvent OnFind()
     End Sub
 
-    Private Sub cmdProp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdProp.Click
-        RaiseEvent OnProp()
+    Private Sub cmdProp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        RaiseEvent OnExport()
     End Sub
 
     Private Sub cmdRun_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdRun.Click
@@ -503,5 +547,13 @@ Public Class Buttons
 
     Private Sub cmdPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPrint.Click
         RaiseEvent OnPrint()
+    End Sub
+
+    Private Sub cmdExport_Click(sender As Object, e As EventArgs) Handles cmdExport.Click
+        RaiseEvent OnExport()
+    End Sub
+
+    Private Sub cmdProp_Click_1(sender As Object, e As EventArgs) Handles cmdProp.Click
+        RaiseEvent OnProp()
     End Sub
 End Class

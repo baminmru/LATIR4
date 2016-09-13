@@ -47,9 +47,9 @@ Public Class MakeSchema
 
         SQL.putBuf("-- Kernel Tables --")
 
-        SQL.putBuf("drop table MTZ.sysoptions")
+        SQL.putBuf("drop table " + SchemaName + ".sysoptions")
         SQL.putBuf("/")
-        SQL.putBuf("create table MTZ.sysoptions(")
+        SQL.putBuf("create table " + SchemaName + ".sysoptions(")
         SQL.putBuf("sysoptionsID CHAR(38) primary key,")
         SQL.putBuf("Name varchar2(255) null,")
         SQL.putBuf("TheValue varchar2(255) null,")
@@ -58,9 +58,9 @@ Public Class MakeSchema
         SQL.putBuf("/")
 
 
-        SQL.putBuf("drop table MTZ.typelist")
+        SQL.putBuf("drop table " + SchemaName + ".typelist")
         SQL.putBuf("/")
-        SQL.putBuf("create  table MTZ.typelist(")
+        SQL.putBuf("create  table " + SchemaName + ".typelist(")
         SQL.putBuf("typelistID CHAR(38) primary key  ,")
         SQL.putBuf("Name varchar2(255) not null,")
         SQL.putBuf("SecurityStyleID CHAR(38) null, ")
@@ -72,9 +72,9 @@ Public Class MakeSchema
         SQL.putBuf("/")
 
 
-        SQL.putBuf("drop table MTZ.Instance")
+        SQL.putBuf("drop table " + SchemaName + ".Instance")
         SQL.putBuf("/")
-        SQL.putBuf("create table MTZ.Instance(")
+        SQL.putBuf("create table " + SchemaName + ".Instance(")
         SQL.putBuf("InstanceID CHAR(38) not null primary key,")
         SQL.putBuf("LockUserID CHAR(38) null, ")
         SQL.putBuf("LockSessionID CHAR(38) null, ")
@@ -96,17 +96,17 @@ Public Class MakeSchema
         SQL.putBuf("alter  table instance add archived NUMBER null")
         SQL.putBuf("/")
 
-        SQL.putBuf("drop table MTZ.QueryResult")
+        SQL.putBuf("drop table " + SchemaName + ".QueryResult")
         SQL.putBuf("/")
-        SQL.putBuf("CREATE TABLE MTZ.QueryResult (")
+        SQL.putBuf("CREATE TABLE " + SchemaName + ".QueryResult (")
         SQL.putBuf("  QueryResultid CHAR(38) NOT NULL ,")
         SQL.putBuf("  result CHAR(38) NULL ")
         SQL.putBuf(")")
         SQL.putBuf("/")
 
-        SQL.putBuf("drop table MTZ.RPRESULT")
+        SQL.putBuf("drop table " + SchemaName + ".RPRESULT")
         SQL.putBuf("/")
-        SQL.putBuf("CREATE TABLE MTZ.RPRESULT (")
+        SQL.putBuf("CREATE TABLE " + SchemaName + ".RPRESULT (")
         SQL.putBuf("  RPRESULTID CHAR(38) NOT NULL ,")
         SQL.putBuf("  PARENTLEVEL NUMBER NOT NULL ,")
         SQL.putBuf("  PARTNAME varchar2 (255) NULL ,")
@@ -151,18 +151,18 @@ bye:
         'Строка
         'Колекция
         'Дерево
-     
+
 
         On Error GoTo bye
         s.putBuf("/*" & os.Caption & "*/")
 
         's.putBuf "if not exists (select * from sysobjects where id = object_id('" & vf(os.name) & "') and OBJECTPROPERTY(id, 'IsUserTable') = 1)"
         's.putBuf "BEGIN"
-        s.putBuf("drop table MTZ." & VF(os.Name) & "/*" & os.the_comment & "*/ ")
+        s.putBuf("drop table " + SchemaName + "." & VF(os.Name) & "/*" & os.the_Comment & "*/ ")
         s.putBuf("/")
-        s.putBuf("create table MTZ." & VF(os.Name) & "/*" & os.the_comment & "*/ (")
+        s.putBuf("create table " + SchemaName + "." & VF(os.Name) & "/*" & os.the_Comment & "*/ (")
         collist = ""
-        If TypeName(os.parent.parent) = "OBJECTTYPE" Then
+        If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
             s.putBuf("InstanceID CHAR(38) ,")
             collist = collist & "'InstanceID'"
         Else
@@ -201,7 +201,7 @@ bye:
 
             's.putbuf ","
             's.putBuf "if  not exists(select * from syscolumns where name='" & vf(st.FIELD.Item(i).Name) & "' and id=object_id('" & st.Name & "'))"
-            s.putBuf("alter  table MTZ." & VF(st.Name) & " add ")
+            s.putBuf("alter  table " + SchemaName + "." & VF(st.Name) & " add ")
             s.putBuf(parent.FieldForCreate(st.FIELD.Item(i)))
             s.putBuf("/")
             collist = collist & ",'" & VF(st.FIELD.Item(i).Name) & "'"
@@ -209,7 +209,7 @@ bye:
             'support extention field if file type used
             If UCase(ft.Name) = "FILE" Then
                 's.putBuf "if  not exists(select * from syscolumns where name='" & vf(st.FIELD.Item(i).Name) & "_EXT' and id=object_id('" & st.Name & "'))"
-                s.putBuf("alter  table MTZ." & VF(st.Name) & " add ")
+                s.putBuf("alter  table " + SchemaName + "." & VF(st.Name) & " add ")
                 s.putBuf(" " & VF(st.FIELD.Item(i).Name) & "_EXT varchar2(4) null")
                 collist = collist & ",'" & VF(st.FIELD.Item(i).Name) & "_EXT'"
                 s.putBuf("/")
@@ -223,11 +223,11 @@ bye:
 
 
 
-        If TypeName(os.parent.parent) <> "OBJECTTYPE" Then
+        If TypeName(os.Parent.Parent) <> "OBJECTTYPE" Then
             s = Nothing
             s = New Writer
             s.putBuf(parent.keyDropSQL(os.Name, "fk_" & parent.FKMap(os.ID.ToString())))
-            s.putBuf("alter  table MTZ." & VF(os.Name) & " add constraint fk_" & parent.FKMap(os.ID.ToString()) & " foreign key(ParentStructRowID) references MTZ." & VF(CType(os.Parent.Parent, PART).Name) & " (" & VF(CType(os.Parent.Parent, PART).Name) & "ID)")
+            s.putBuf("alter  table " + SchemaName + "." & VF(os.Name) & " add constraint fk_" & parent.FKMap(os.ID.ToString()) & " foreign key(ParentStructRowID) references " + SchemaName + "." & VF(CType(os.Parent.Parent, PART).Name) & " (" & VF(CType(os.Parent.Parent, PART).Name) & "ID)")
             s.putBuf("/")
             o.ModuleName = "--Tables"
             o.Block = "--ForeignKey"
@@ -237,7 +237,7 @@ bye:
             s = Nothing
             s = New Writer
             s.putBuf(parent.indexDropSQL(os.Name, "parent_" & VF(os.Name)))
-            s.putBuf("create index MTZ.parent_" & VF(os.Name) & " on MTZ." & VF(os.Name) & "(ParentStructRowID)")
+            s.putBuf("create index " + SchemaName + ".parent_" & VF(os.Name) & " on " + SchemaName + "." & VF(os.Name) & "(ParentStructRowID)")
             s.putBuf("/")
             o.ModuleName = "--Tables"
             o.Block = "--Index"
@@ -247,7 +247,7 @@ bye:
             s = Nothing
             s = New Writer
             s.putBuf(parent.keyDropSQL(os.Name, "fk_" & parent.FKMap(os.ID.ToString)))
-            s.putBuf("alter  table MTZ." & VF(os.Name) & " add constraint fk_" & parent.FKMap(os.ID.ToString) & " foreign key(INSTANCEID) references MTZ.INSTANCE (INSTANCEID)")
+            s.putBuf("alter  table " + SchemaName + "." & VF(os.Name) & " add constraint fk_" & parent.FKMap(os.ID.ToString) & " foreign key(INSTANCEID) references " + SchemaName + ".INSTANCE (INSTANCEID)")
             s.putBuf("/")
             o.ModuleName = "--Tables"
             o.Block = "--ForeignKey"
@@ -258,7 +258,7 @@ bye:
             s = Nothing
             s = New Writer
             s.putBuf(parent.indexDropSQL(os.Name, "parent_" & VF(os.Name)))
-            s.putBuf("create index MTZ.parent_" & VF(os.Name) & " on MTZ." & VF(os.Name) & "(""INSTANCEID"")")
+            s.putBuf("create index " + SchemaName + ".parent_" & VF(os.Name) & " on " + SchemaName + "." & VF(os.Name) & "(""INSTANCEID"")")
             s.putBuf("/")
             o.ModuleName = "--Tables"
             o.Block = "--Index"

@@ -80,10 +80,11 @@ Public Class ComplexTreeView
     	Me.ButtonsControl.AllowAdd = true
     	Me.ButtonsControl.AllowAddRoot = false
     	Me.ButtonsControl.AllowDel = true
-    	Me.ButtonsControl.AllowEdit = true
-    	Me.ButtonsControl.AllowFind = true
-    	Me.ButtonsControl.AllowPrint = true
-    	Me.ButtonsControl.AllowProp = true
+    	Me.ButtonsControl.AllowEdit = True
+        Me.ButtonsControl.AllowFind = False
+        Me.ButtonsControl.AllowProp = False
+        Me.ButtonsControl.AllowPrint = true
+    	Me.ButtonsControl.AllowExport = true
     	Me.ButtonsControl.AllowRefresh = true
     	Me.ButtonsControl.AllowRun = true
     	Me.ButtonsControl.Dock = System.Windows.Forms.DockStyle.Fill
@@ -195,6 +196,7 @@ Public Class ComplexTreeView
     Public Event OnGridFind(ByRef UseDefault As Boolean)
     Public Event OnGridDel(ByRef OK As Boolean, ByVal ID As System.Guid)
     Public Event OnGridEdit(ByRef OK As Boolean, ByVal ID As System.Guid)
+    Public Event OnGridExport(ByRef UseDefault As Boolean)
     Public Event OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean)
     Public Event OnGridRun(ByRef OK As Boolean, ByVal ID As System.Guid, ByRef UseDefault As Boolean)
     Public Event OnGridPrint(ByRef UseDefault As Boolean)
@@ -530,23 +532,23 @@ Public Class ComplexTreeView
 
     Private Sub GridViewControl_OnGridAdd(ByRef OK As Boolean, ByVal ID As System.Guid) Handles GridViewControl.OnGridAdd
         RaiseEvent OnGridAdd(OK, ID)
-        If OK = False Then 
-        	ButtonsControl_OnAdd()
+        If OK = False Then
+            ButtonsControl_OnAdd()
         End If
     End Sub
 
 
     Private Sub GridViewControl_OnGridDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles GridViewControl.OnGridDel
         RaiseEvent OnGridDel(OK, ID)
-        If OK = False Then 
-        	ButtonsControl_OnDel()
+        If OK = False Then
+            ButtonsControl_OnDel()
         End If
     End Sub
 
     Private Sub GridViewControl_OnGridEdit(ByRef OK As Boolean, ByVal ID As System.Guid) Handles GridViewControl.OnGridEdit
         RaiseEvent OnGridEdit(OK, ID)
-        If OK = False Then 
-        	ButtonsControl_OnEdit()
+        If OK = False Then
+            ButtonsControl_OnEdit()
         End If
     End Sub
 
@@ -558,10 +560,18 @@ Public Class ComplexTreeView
         RaiseEvent OnGridPrint(UseDefault)
     End Sub
 
+    Private Sub GridViewControl_OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewControl.OnGridExport
+        UseDefault = True
+        RaiseEvent OnGridExport(UseDefault)
+        If UseDefault = True Then
+            GridViewControl.ExportGrid()
+        End If
+    End Sub
+
     Private Sub GridViewControl_OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewControl.OnGridProp
         RaiseEvent OnGridProp(OK, UseDefault)
-        If OK = False Then 
-        	ButtonsControl_OnEdit()
+        If OK = False Then
+            'ButtonsControl_OnEdit()
         End If
     End Sub
 
@@ -578,5 +588,22 @@ Public Class ComplexTreeView
         End If
     End Sub
 
-   
+    Private Sub ButtonsControl_OnPrint() Handles ButtonsControl.OnPrint
+
+        Dim UseDefault As Boolean
+        UseDefault = True
+        RaiseEvent OnGridPrint(UseDefault)
+        If UseDefault = True Then
+            GridViewControl.PrintPreview()
+        End If
+    End Sub
+
+    Private Sub ButtonsControl_OnExport() Handles ButtonsControl.OnExport
+        Dim UseDefault As Boolean
+        UseDefault = True
+        RaiseEvent OnGridExport(UseDefault)
+        If UseDefault = True Then
+            GridViewControl.ExportGrid()
+        End If
+    End Sub
 End Class

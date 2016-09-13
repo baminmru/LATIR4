@@ -19,17 +19,15 @@ Public Class MakeInit
     Private Function GetMap2(ByVal s As String) As String
         Dim out As String
         out = parent.GetMap(s)
-        '  out = Replace(out, "{", "")
-        '  out = Replace(out, "}", "")
-        GetMap2 = out
+        out = out.ToUpper()
+        Return out
     End Function
 
     Private Function GetID(ByVal s As String) As String
         Dim out As String = s
 
-        '  out = Replace(s, "{", "")
-        '  out = Replace(out, "}", "")
-        GetID = out
+        out = out.ToUpper()
+        Return out
     End Function
 
     Public Sub Run()
@@ -70,7 +68,7 @@ Public Class MakeInit
         For i = 1 To m.OBJECTTYPE.Count
 
             If Not m.OBJECTTYPE.Item(i).ChooseView Is Nothing Then
-                s.putBuf("MTZ.Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(m.OBJECTTYPE.Item(i).Name & "_TDEFVIEW") & "', aName=>'" & m.OBJECTTYPE.Item(i).Name & "', aValue=>'" & CType(m.OBJECTTYPE.Item(i).ChooseView, PARTVIEW).the_Alias & "', aOptionType=>'TDEFVIEW');")
+                s.putBuf("" + SchemaName +".Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(m.OBJECTTYPE.Item(i).Name & "_TDEFVIEW") & "', aName=>'" & m.OBJECTTYPE.Item(i).Name & "', aValue=>'" & CType(m.OBJECTTYPE.Item(i).ChooseView, PARTVIEW).the_Alias & "', aOptionType=>'TDEFVIEW');")
             End If
 
             For j = 1 To m.OBJECTTYPE.Item(i).PART.Count
@@ -80,7 +78,7 @@ Public Class MakeInit
         Next
 
         For i = 1 To m.SHAREDMETHOD.Count
-            s.putBuf("MTZ.Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(m.SHAREDMETHOD.Item(i).Name & "_METHOD") & "', aName=>'" & GetID(m.SHAREDMETHOD.Item(i).ID.ToString) & "', aValue=>'" & m.SHAREDMETHOD.Item(i).Name & "', aOptionType=>'METHODNAME');")
+            s.putBuf("" + SchemaName +".Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(m.SHAREDMETHOD.Item(i).Name & "_METHOD") & "', aName=>'" & GetID(m.SHAREDMETHOD.Item(i).ID.ToString) & "', aValue=>'" & m.SHAREDMETHOD.Item(i).Name & "', aOptionType=>'METHODNAME');")
         Next
 
 
@@ -107,7 +105,7 @@ Public Class MakeInit
         Dim i As Long
         For i = 1 To os.PARTVIEW.Count
             If os.PARTVIEW.Item(i).ForChoose = enumBoolean.Boolean_Da Then
-                s = s & vbCrLf & "MTZ.Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(os.Name & "_DEFVIEW") & "', aName=>'" & VF(os.Name) & "', aValue=>'" & os.PARTVIEW.Item(i).the_Alias & "', aOptionType=>'DEFVIEW');"
+                s = s & vbCrLf & "" + SchemaName +".Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(os.Name & "_DEFVIEW") & "', aName=>'" & VF(os.Name) & "', aValue=>'" & os.PARTVIEW.Item(i).the_Alias & "', aOptionType=>'DEFVIEW');"
                 Exit For
             End If
         Next
@@ -126,10 +124,10 @@ Public Class MakeInit
         Dim tn As String
         tn = parent.TypeForStruct(os).Name
 
-        s = s & vbCrLf & "MTZ.Kernel.SysOptions_SAVE  (aSysOptionsid=>'" & GetMap2(os.Name & "_structtype") & "', aName=>'" & VF(os.Name) & "', aValue=>'" & tn & "', aOptionType=>'STRUCT_TYPE');"
+        s = s & vbCrLf & "" + SchemaName +".Kernel.SysOptions_SAVE  (aSysOptionsid=>'" & GetMap2(os.Name & "_structtype") & "', aName=>'" & VF(os.Name) & "', aValue=>'" & tn & "', aOptionType=>'STRUCT_TYPE');"
 
         If TypeName(os.parent.parent) <> "OBJECTTYPE" Then
-            s = s & vbCrLf & "MTZ.Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(os.Name & "_PARENT") & "', aName=>'" & VF(os.Name) & "', aValue=>'" & CType(os.Parent.Parent, PART).Name & "', aOptionType=>'PARENT');"
+            s = s & vbCrLf & "" + SchemaName +".Kernel.SysOptions_SAVE ( aSysOptionsid=>'" & GetMap2(os.Name & "_PARENT") & "', aName=>'" & VF(os.Name) & "', aValue=>'" & CType(os.Parent.Parent, PART).Name & "', aOptionType=>'PARENT');"
         End If
 
         'Dim chos As PART
@@ -150,7 +148,7 @@ Public Class MakeInit
 
     Private Function MapViews(ByVal pv As PARTVIEW) As String
         Dim s As String
-        s = "  MTZ.Kernel.SysOptions_SAVE  (aSysOptionsid=>'" & GetMap2(pv.the_Alias & "_map") & "', aName=>'" & GetID(pv.ID.ToString) & "', aValue=.'V_" & pv.the_Alias & "', aOptionType=.'MAP');"
+        s = "  " + SchemaName +".Kernel.SysOptions_SAVE  (aSysOptionsid=>'" & GetMap2(pv.the_Alias & "_map") & "', aName=>'" & GetID(pv.ID.ToString) & "', aValue=.'V_" & pv.the_Alias & "', aOptionType=.'MAP');"
         MapViews = s
     End Function
 End Class

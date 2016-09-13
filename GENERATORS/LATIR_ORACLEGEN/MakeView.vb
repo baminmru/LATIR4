@@ -131,10 +131,10 @@ Friend Class MakeView
 
                         ' и расшифрованное значение
                         If f.ReferenceType = enumReferenceType.ReferenceType_Na_ob_ekt_ Then
-                            s.putBuf(" MTZ.Func.INSTANCE_BRIEF_F(" & p.Name & "." & VF(f.Name) & ") ")
+                            s.putBuf(" " + SchemaName +".Func.INSTANCE_BRIEF_F(" & p.Name & "." & VF(f.Name) & ") ")
                         ElseIf f.ReferenceType = enumReferenceType.ReferenceType_Na_stroku_razdela Then
                             refp = CType(f.RefToPart, PART)
-                            s.putBuf(" MTZ.Func." & refp.Name & "_BRIEF_F(" & p.Name & "." & VF(f.Name) & ") ")
+                            s.putBuf(" " + SchemaName +".Func." & refp.Name & "_BRIEF_F(" & p.Name & "." & VF(f.Name) & ") ")
                         Else
                             s.putBuf(p.Name & "." & VF(f.Name) & " ")
                         End If

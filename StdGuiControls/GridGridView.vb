@@ -273,7 +273,7 @@ Public Class GridGridView
     Public Event OnMasterGridFind(ByVal UseDefault As Boolean)
     Public Event OnMasterGridDel(ByRef OK As Boolean, ByVal ID As System.Guid)
     Public Event OnMasterGridEdit(ByRef OK As Boolean, ByVal ID As System.Guid)
-    Public Event OnMasterGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean)
+    Public Event OnMasterGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean)
     Public Event OnMasterGridRun(ByRef OK As Boolean, ByVal ID As System.Guid, ByRef UseDefault As Boolean)
     Public Event OnMasterGridPrint(ByRef OK As Boolean, ByRef UseDefault As Boolean)
 
@@ -285,7 +285,7 @@ Public Class GridGridView
     Public Event OnChildGridFind(ByVal UseDefault As Boolean)
     Public Event OnChildGridDel(ByRef OK As Boolean, ByVal ID As System.Guid)
     Public Event OnChildGridEdit(ByRef OK As Boolean, ByVal ID As System.Guid)
-    Public Event OnChildGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean)
+    Public Event OnChildGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean)
     Public Event OnChildGridRun(ByRef OK As Boolean, ByVal ID As System.Guid, ByRef UseDefault As Boolean)
     Public Event OnChildGridPrint(ByRef OK As Boolean, ByRef UseDefault As Boolean)
 
@@ -358,8 +358,8 @@ Public Class GridGridView
         RaiseEvent OnMasterGridPrint(OK, UseDefault)
     End Sub
 
-    Private Sub GridViewMaster_OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewMaster.OnGridProp
-        RaiseEvent OnMasterGridProp(OK, UseDefault)
+    Private Sub GridViewMaster_OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewMaster.OnGridExport
+        RaiseEvent OnMasterGridExport(OK, UseDefault)
     End Sub
 
     Private Sub GridViewMaster_OnGridRefresh() Handles GridViewMaster.OnGridRefresh
@@ -407,8 +407,8 @@ Public Class GridGridView
         RaiseEvent OnChildGridPrint(OK, UseDefault)
     End Sub
 
-    Private Sub GridViewChild_OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewChild.OnGridProp
-        RaiseEvent OnChildGridProp(OK, UseDefault)
+    Private Sub GridViewChild_OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean) Handles GridViewChild.OnGridExport
+        RaiseEvent OnChildGridExport(OK, UseDefault)
     End Sub
 
     Private Sub GridViewChild_OnGridRefresh() Handles GridViewChild.OnGridRefresh

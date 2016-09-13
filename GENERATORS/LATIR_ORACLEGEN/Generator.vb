@@ -126,7 +126,7 @@ Public Class Generator
     Public Function Run(ByVal Model As Object, ByVal out As Object, ByVal targetid As String) As String
         Dim i As Long, j As Long, k As Long
         Dim os As PART
-
+        SchemaName = GetSetting(My.Application.Info.Title, "ORAGEN", "SCHEMA", "LATIR4")
         m = Model
         o = out
         tid = targetid
@@ -666,7 +666,7 @@ bye:
             idm = New IDMAP
             If ID1S <> "" Then
                 idm.ID1S = ID1S
-                idm.IDMTZ = IDMTZ
+                idm.IDMTZ = ID2String(IDMTZ)
                 On Error Resume Next
                 Map.Add(idm, ID1S)
                 On Error GoTo bye
@@ -755,6 +755,16 @@ bye:
         FKMap = idm.IDMTZ
     End Function
 
+
+    Public Shared Function ID2String(ByVal sIn As String) As String
+        If Len(sIn) <= 0 Then Return ""
+
+        If (Not Left(sIn, 1) = "{") And (Len(sIn) = 36) Then
+            sIn = "{" + sIn + "}"
+        End If
+        Return sIn.ToUpper()
+    End Function
+
     Friend Function GetMap(ByRef ID1S As String) As String
         Dim idm As IDMAP
         On Error Resume Next
@@ -764,7 +774,7 @@ bye:
         If idm Is Nothing Then
             idm = New IDMAP
             idm.ID1S = ID1S
-            idm.IDMTZ = Guid.NewGuid().ToString
+            idm.IDMTZ = ID2String(Guid.NewGuid().ToString())
             Map.Add(idm, ID1S)
         End If
         GetMap = idm.IDMTZ
