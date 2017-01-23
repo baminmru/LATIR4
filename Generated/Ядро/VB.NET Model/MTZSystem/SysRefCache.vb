@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZSystem
 
@@ -113,8 +114,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = modulename
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -188,7 +193,7 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              select case CacheType
@@ -212,6 +217,9 @@ End Function
              end if 
              dr("modulename") =modulename
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -257,7 +265,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -267,7 +275,13 @@ End Function
             RowRetrived = True
             RetriveTime = Now
           If reader.Table.Columns.Contains("CacheType") Then m_CacheType=reader.item("CacheType")
-          If reader.Table.Columns.Contains("ObjectOwnerID") Then m_ObjectOwnerID=reader.item("ObjectOwnerID")
+      If reader.Table.Columns.Contains("ObjectOwnerID") Then
+          if isdbnull(reader.item("ObjectOwnerID")) then
+            If reader.Table.Columns.Contains("ObjectOwnerID") Then m_ObjectOwnerID = System.GUID.Empty
+          else
+            If reader.Table.Columns.Contains("ObjectOwnerID") Then m_ObjectOwnerID= New System.Guid(reader.item("ObjectOwnerID").ToString())
+          end if 
+      end if 
       If reader.Table.Columns.Contains("SessionID") Then
           if isdbnull(reader.item("SessionID")) then
             If reader.Table.Columns.Contains("SessionID") Then m_SessionID = System.GUID.Empty
@@ -276,6 +290,9 @@ End Function
           end if 
       end if 
           If reader.Table.Columns.Contains("modulename") Then m_modulename=reader.item("modulename").ToString()
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -371,12 +388,15 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             CacheType = node.Attributes.GetNamedItem("CacheType").Value
             m_ObjectOwnerID =new system.guid(node.Attributes.GetNamedItem("ObjectOwnerID").Value)
             m_SessionID = new system.guid(node.Attributes.GetNamedItem("SessionID").Value)
             modulename = node.Attributes.GetNamedItem("modulename").Value
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -389,11 +409,14 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
+           try 
           node.SetAttribute("CacheType", CacheType)  
           node.SetAttribute("ObjectOwnerID", ObjectOwnerID.ToString())  
           node.SetAttribute("SessionID", m_SessionID.tostring)  
           node.SetAttribute("modulename", modulename)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

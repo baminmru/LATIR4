@@ -54,7 +54,7 @@ Public Class editParentPackage
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblPackage  as  System.Windows.Forms.Label
-Friend WithEvents txtPackage As System.Windows.Forms.TextBox
+Friend WithEvents txtPackage As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdPackage As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -73,7 +73,7 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblPackage = New System.Windows.Forms.Label
-Me.txtPackage = New System.Windows.Forms.TextBox
+Me.txtPackage = New LATIR2GuiManager.TouchTextBox
 Me.cmdPackage = New System.Windows.Forms.Button
 
 Me.lblPackage.Location = New System.Drawing.Point(20,5)

@@ -1,0 +1,7 @@
+C:\LATIR2\Generated\Generated Dlls\LTOBJMan.dll
+C:\LATIR2\Generated\Generated Dlls\LTOBJMan.pdb
+C:\LATIR2\Generated\Generated Dlls\LTOBJMan.xml
+C:\LATIR2\objmanager\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\objmanager\obj\Debug\LTOBJMan.dll
+C:\LATIR2\objmanager\obj\Debug\LTOBJMan.xml
+C:\LATIR2\objmanager\obj\Debug\LTOBJMan.pdb

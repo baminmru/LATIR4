@@ -4,7 +4,7 @@
  <PropertyGroup>
  <Configuration Condition = " '$(Configuration)' == '' ">Debug</Configuration>
       <Platform Condition = " '$(Platform)' == '' ">AnyCPU</Platform>
- <ProjectGuid>5d5db66e-91cc-4f8d-a28f-5f74f0f1514a</ProjectGuid>
+ <ProjectGuid>8dcbed4b-8e45-4b87-85b0-d1f80fc86eec</ProjectGuid>
  <OutputType>Library</OutputType>
  <RootNamespace>MTZRprt</RootNamespace>
  <AssemblyName>MTZRprt</AssemblyName>

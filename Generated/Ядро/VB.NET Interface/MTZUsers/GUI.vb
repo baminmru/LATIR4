@@ -24,7 +24,7 @@ Public Class GUI
 '''Код типа в метамодели
 ''' </remarks>
     Public Overrides Function TypeName() As String
-        Return "MTZUsers"
+        Return "mtzusers"
     End Function
 
 
@@ -42,24 +42,24 @@ Public Class GUI
         If Mode = "" Then
 
             If RowItem.PartName.ToUpper = "USERS" Then
-                Dim f As frmUsers
-                f = New frmUsers
+                Dim f As frmusers
+                f = New frmusers
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
             End If
 
             If RowItem.PartName.ToUpper = "GROUPS" Then
-                Dim f As frmGroups
-                f = New frmGroups
+                Dim f As frmgroups
+                f = New frmgroups
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
             End If
 
             If RowItem.PartName.ToUpper = "GROUPUSER" Then
-                Dim f As frmGroupUser
-                f = New frmGroupUser
+                Dim f As frmgroupuser
+                f = New frmgroupuser
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
@@ -82,8 +82,8 @@ Public Class GUI
     Public Overrides Function ShowForm(ByVal Mode As String, ByRef DocItem As LATIR2.Document.Doc_Base, optional byval FormReadOnly as boolean = false) As Boolean
         If DocItem.TypeName.ToUpper = TypeName.ToUpper() Then
             If mode = "" Then
-                Dim f As frmMTZUsers
-                f = New frmMTZUsers
+                Dim f As frmmtzusers
+                f = New frmmtzusers
                 f.Attach(DocItem, Me.GUIManager, FormReadOnly)
                 ShowForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing

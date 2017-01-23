@@ -1,0 +1,58 @@
+C:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.dll
+C:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.pdb
+C:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.xml
+C:\LATIR2\GuiManager\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmLogin.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmObjectDialog.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmRefDialog.resources
+C:\LATIR2\GuiManager\obj\Debug\Latir2GuiManager.vbproj.GenerateResource.Cache
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.dll
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.xml
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.pdb
+E:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.dll
+E:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.pdb
+E:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.xml
+E:\LATIR2\GuiManager\obj\Debug\ResolveAssemblyReference.cache
+E:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmLogin.resources
+E:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmObjectDialog.resources
+E:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmRefDialog.resources
+E:\LATIR2\GuiManager\obj\Debug\Latir2GuiManager.vbproj.GenerateResource.Cache
+E:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.dll
+E:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.xml
+E:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.pdb
+E:\bin\Debug\LATIR2GuiManager.dll
+E:\bin\Debug\LATIR2GuiManager.pdb
+E:\bin\Debug\LATIR2GuiManager.xml
+E:\LATIR2\GuiManager\bin\Debug\LATIR2GuiManager.dll
+E:\LATIR2\GuiManager\bin\Debug\LATIR2GuiManager.pdb
+E:\LATIR2\GuiManager\bin\Debug\LATIR2GuiManager.xml
+E:\LATIR2\GuiManager\bin\Debug\L2Manager.dll
+E:\LATIR2\GuiManager\bin\Debug\L2Manager.pdb
+E:\LATIR2\GuiManager\bin\Debug\L2Manager.xml
+E:\LATIR4\GuiManager\bin\Debug\LATIR2GuiManager.dll
+E:\LATIR4\GuiManager\bin\Debug\LATIR2GuiManager.pdb
+E:\LATIR4\GuiManager\bin\Debug\LATIR2GuiManager.xml
+E:\LATIR4\GuiManager\bin\Debug\L2Manager.dll
+E:\LATIR4\GuiManager\bin\Debug\MySql.Data.dll
+E:\LATIR4\GuiManager\bin\Debug\L2Manager.pdb
+E:\LATIR4\GuiManager\bin\Debug\L2Manager.xml
+E:\LATIR4\GuiManager\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\LATIR4\Build\LATIR2GuiManager.dll
+C:\LATIR4\Build\LATIR2GuiManager.pdb
+C:\LATIR4\Build\LATIR2GuiManager.xml
+E:\LATIR4\objmanager\bin\Debug\LATIR2GuiManager.dll
+E:\LATIR4\objmanager\bin\Debug\LATIR2GuiManager.pdb
+E:\LATIR4\objmanager\bin\Debug\LATIR2GuiManager.xml
+C:\bin\Debug\LATIR2GuiManager.dll
+C:\bin\Debug\LATIR2GuiManager.pdb
+C:\bin\Debug\LATIR2GuiManager.xml
+E:\LATIR4\GuiManager\obj\Debug\Latir2GuiManager.vbprojResolveAssemblyReference.cache
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.CloseButton.resources
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.frmLogin.resources
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.frmObjectDialog.resources
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.frmRefDialog.resources
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.Resources.resources
+E:\LATIR4\GuiManager\obj\Debug\Latir2GuiManager.vbproj.GenerateResource.Cache
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.dll
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.xml
+E:\LATIR4\GuiManager\obj\Debug\LATIR2GuiManager.pdb

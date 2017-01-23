@@ -10,7 +10,7 @@ Imports System.Convert
 Imports System.DateTime
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -19,45 +19,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class JournalColumn
+    Public Class journalcolumn
         Inherits LATIR2.Document.DocRow_Base
 
-
-
-''' <summary>
-'''Локальная переменная для поля Выравнивание
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_ColumnAlignment  as enumVHAlignment
-
-
-''' <summary>
-'''Локальная переменная для поля Аггрегация при группировке
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_GroupAggregation  as enumAggregationType
-
-
-''' <summary>
-'''Локальная переменная для поля Название
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_name  as String
-
-
-''' <summary>
-'''Локальная переменная для поля Сортировка колонки
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_ColSort  as enumColumnSortType
 
 
 ''' <summary>
@@ -70,12 +34,48 @@ Namespace MTZJrnl
 
 
 ''' <summary>
+'''Локальная переменная для поля Название
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_name  as String
+
+
+''' <summary>
+'''Локальная переменная для поля Выравнивание
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_columnalignment  as enumVHAlignment
+
+
+''' <summary>
+'''Локальная переменная для поля Сортировка колонки
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_colsort  as enumColumnSortType
+
+
+''' <summary>
+'''Локальная переменная для поля Аггрегация при группировке
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_groupaggregation  as enumAggregationType
+
+
+''' <summary>
 '''Локальная переменная для дочернего раздела Состав колонки
 ''' </summary>
 ''' <remarks>
 '''
 ''' </remarks>
-        private m_JColumnSource As JColumnSource_col
+        private m_jcolumnsource As jcolumnsource_col
 
 
 
@@ -86,11 +86,11 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Sub CleanFields()
-            ' m_ColumnAlignment=   
-            ' m_GroupAggregation=   
-            ' m_name=   
-            ' m_ColSort=   
             ' m_sequence=   
+            ' m_name=   
+            ' m_columnalignment=   
+            ' m_colsort=   
+            ' m_groupaggregation=   
         End Sub
 
 
@@ -128,11 +128,11 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                 Case 2
                     Value = name
                 Case 3
-                    Value = ColumnAlignment
+                    Value = columnalignment
                 Case 4
-                    Value = ColSort
+                    Value = colsort
                 Case 5
-                    Value = GroupAggregation
+                    Value = groupaggregation
             End Select
         else
         try
@@ -155,11 +155,11 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                 Case 2
                     name = value
                 Case 3
-                    ColumnAlignment = value
+                    columnalignment = value
                 Case 4
-                    ColSort = value
+                    colsort = value
                 Case 5
-                    GroupAggregation = value
+                    groupaggregation = value
         End Select
      Else
         Try
@@ -195,11 +195,11 @@ Public Overrides Function FieldNameByID(ByVal Index As long) As String
                 Case 2
                     Return "name"
                 Case 3
-                    Return "ColumnAlignment"
+                    Return "columnalignment"
                 Case 4
-                    Return "ColSort"
+                    Return "colsort"
                 Case 5
-                    Return "GroupAggregation"
+                    Return "groupaggregation"
                 Case else
                 return "" 
             End Select
@@ -223,69 +223,69 @@ End Function
             dr("Brief") =Brief
              dr("sequence") =sequence
              dr("name") =name
-             select case ColumnAlignment
+             select case columnalignment
             case enumVHAlignment.VHAlignment_Right_Top
-              dr ("ColumnAlignment")  = "Right Top"
-              dr ("ColumnAlignment_VAL")  = 6
+              dr ("columnalignment")  = "Right Top"
+              dr ("columnalignment_VAL")  = 6
             case enumVHAlignment.VHAlignment_Right_Center
-              dr ("ColumnAlignment")  = "Right Center"
-              dr ("ColumnAlignment_VAL")  = 7
+              dr ("columnalignment")  = "Right Center"
+              dr ("columnalignment_VAL")  = 7
             case enumVHAlignment.VHAlignment_Right_Bottom
-              dr ("ColumnAlignment")  = "Right Bottom"
-              dr ("ColumnAlignment_VAL")  = 8
+              dr ("columnalignment")  = "Right Bottom"
+              dr ("columnalignment_VAL")  = 8
             case enumVHAlignment.VHAlignment_Center_Top
-              dr ("ColumnAlignment")  = "Center Top"
-              dr ("ColumnAlignment_VAL")  = 3
+              dr ("columnalignment")  = "Center Top"
+              dr ("columnalignment_VAL")  = 3
             case enumVHAlignment.VHAlignment_Left_Top
-              dr ("ColumnAlignment")  = "Left Top"
-              dr ("ColumnAlignment_VAL")  = 0
+              dr ("columnalignment")  = "Left Top"
+              dr ("columnalignment_VAL")  = 0
             case enumVHAlignment.VHAlignment_Center_Center
-              dr ("ColumnAlignment")  = "Center Center"
-              dr ("ColumnAlignment_VAL")  = 4
+              dr ("columnalignment")  = "Center Center"
+              dr ("columnalignment_VAL")  = 4
             case enumVHAlignment.VHAlignment_Left_Center
-              dr ("ColumnAlignment")  = "Left Center"
-              dr ("ColumnAlignment_VAL")  = 1
+              dr ("columnalignment")  = "Left Center"
+              dr ("columnalignment_VAL")  = 1
             case enumVHAlignment.VHAlignment_Center_Bottom
-              dr ("ColumnAlignment")  = "Center Bottom"
-              dr ("ColumnAlignment_VAL")  = 5
+              dr ("columnalignment")  = "Center Bottom"
+              dr ("columnalignment_VAL")  = 5
             case enumVHAlignment.VHAlignment_Left_Bottom
-              dr ("ColumnAlignment")  = "Left Bottom"
-              dr ("ColumnAlignment_VAL")  = 2
-              end select 'ColumnAlignment
-             select case ColSort
+              dr ("columnalignment")  = "Left Bottom"
+              dr ("columnalignment_VAL")  = 2
+              end select 'columnalignment
+             select case colsort
             case enumColumnSortType.ColumnSortType_As_String
-              dr ("ColSort")  = "As String"
-              dr ("ColSort_VAL")  = 0
+              dr ("colsort")  = "As String"
+              dr ("colsort_VAL")  = 0
             case enumColumnSortType.ColumnSortType_As_Numeric
-              dr ("ColSort")  = "As Numeric"
-              dr ("ColSort_VAL")  = 1
+              dr ("colsort")  = "As Numeric"
+              dr ("colsort_VAL")  = 1
             case enumColumnSortType.ColumnSortType_As_Date
-              dr ("ColSort")  = "As Date"
-              dr ("ColSort_VAL")  = 2
-              end select 'ColSort
-             select case GroupAggregation
+              dr ("colsort")  = "As Date"
+              dr ("colsort_VAL")  = 2
+              end select 'colsort
+             select case groupaggregation
             case enumAggregationType.AggregationType_SUM
-              dr ("GroupAggregation")  = "SUM"
-              dr ("GroupAggregation_VAL")  = 3
+              dr ("groupaggregation")  = "SUM"
+              dr ("groupaggregation_VAL")  = 3
             case enumAggregationType.AggregationType_AVG
-              dr ("GroupAggregation")  = "AVG"
-              dr ("GroupAggregation_VAL")  = 1
+              dr ("groupaggregation")  = "AVG"
+              dr ("groupaggregation_VAL")  = 1
             case enumAggregationType.AggregationType_CUSTOM
-              dr ("GroupAggregation")  = "CUSTOM"
-              dr ("GroupAggregation_VAL")  = 6
+              dr ("groupaggregation")  = "CUSTOM"
+              dr ("groupaggregation_VAL")  = 6
             case enumAggregationType.AggregationType_none
-              dr ("GroupAggregation")  = "none"
-              dr ("GroupAggregation_VAL")  = 0
+              dr ("groupaggregation")  = "none"
+              dr ("groupaggregation_VAL")  = 0
             case enumAggregationType.AggregationType_COUNT
-              dr ("GroupAggregation")  = "COUNT"
-              dr ("GroupAggregation_VAL")  = 2
+              dr ("groupaggregation")  = "COUNT"
+              dr ("groupaggregation_VAL")  = 2
             case enumAggregationType.AggregationType_MAX
-              dr ("GroupAggregation")  = "MAX"
-              dr ("GroupAggregation_VAL")  = 5
+              dr ("groupaggregation")  = "MAX"
+              dr ("groupaggregation_VAL")  = 5
             case enumAggregationType.AggregationType_MIN
-              dr ("GroupAggregation")  = "MIN"
-              dr ("GroupAggregation_VAL")  = 4
-              end select 'GroupAggregation
+              dr ("groupaggregation")  = "MIN"
+              dr ("groupaggregation_VAL")  = 4
+              end select 'groupaggregation
             DestDataTable.Rows.Add (dr)
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -302,7 +302,7 @@ End Function
 ''' </remarks>
         Public Overrides Function FindInside(ByVal Table As String, ByVal RowID As String) As LATIR2.Document.DocRow_Base
             dim mFindInside As LATIR2.Document.DocRow_Base = Nothing
-            mFindInside = JColumnSource.FindObject(table,RowID)
+            mFindInside = jcolumnsource.FindObject(table,RowID)
             if not mFindInside is nothing then return mFindInside
             Return Nothing
         End Function
@@ -318,9 +318,9 @@ End Function
         Public Overrides Sub Pack(ByVal nv As LATIR2.NamedValues)
           nv.Add("sequence", sequence, dbtype.Int32)
           nv.Add("name", name, dbtype.string)
-          nv.Add("ColumnAlignment", ColumnAlignment, dbtype.int16)
-          nv.Add("ColSort", ColSort, dbtype.int16)
-          nv.Add("GroupAggregation", GroupAggregation, dbtype.int16)
+          nv.Add("columnalignment", columnalignment, dbtype.int16)
+          nv.Add("colsort", colsort, dbtype.int16)
+          nv.Add("groupaggregation", groupaggregation, dbtype.int16)
             nv.Add(PartName() & "id", Application.Session.GetProvider.ID2Param(ID),  Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
         End Sub
 
@@ -345,9 +345,9 @@ End Function
             RetriveTime = Now
           If reader.Table.Columns.Contains("sequence") Then m_sequence=reader.item("sequence")
           If reader.Table.Columns.Contains("name") Then m_name=reader.item("name").ToString()
-          If reader.Table.Columns.Contains("ColumnAlignment") Then m_ColumnAlignment=reader.item("ColumnAlignment")
-          If reader.Table.Columns.Contains("ColSort") Then m_ColSort=reader.item("ColSort")
-          If reader.Table.Columns.Contains("GroupAggregation") Then m_GroupAggregation=reader.item("GroupAggregation")
+          If reader.Table.Columns.Contains("columnalignment") Then m_columnalignment=reader.item("columnalignment")
+          If reader.Table.Columns.Contains("colsort") Then m_colsort=reader.item("colsort")
+          If reader.Table.Columns.Contains("groupaggregation") Then m_groupaggregation=reader.item("groupaggregation")
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try
@@ -400,15 +400,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property ColumnAlignment() As enumVHAlignment
+        Public Property columnalignment() As enumVHAlignment
             Get
                 LoadFromDatabase()
-                ColumnAlignment = m_ColumnAlignment
+                columnalignment = m_columnalignment
                 AccessTime = Now
             End Get
             Set(ByVal Value As enumVHAlignment )
                 LoadFromDatabase()
-                m_ColumnAlignment = Value
+                m_columnalignment = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -420,15 +420,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property ColSort() As enumColumnSortType
+        Public Property colsort() As enumColumnSortType
             Get
                 LoadFromDatabase()
-                ColSort = m_ColSort
+                colsort = m_colsort
                 AccessTime = Now
             End Get
             Set(ByVal Value As enumColumnSortType )
                 LoadFromDatabase()
-                m_ColSort = Value
+                m_colsort = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -440,15 +440,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property GroupAggregation() As enumAggregationType
+        Public Property groupaggregation() As enumAggregationType
             Get
                 LoadFromDatabase()
-                GroupAggregation = m_GroupAggregation
+                groupaggregation = m_groupaggregation
                 AccessTime = Now
             End Get
             Set(ByVal Value As enumAggregationType )
                 LoadFromDatabase()
-                m_GroupAggregation = Value
+                m_groupaggregation = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -460,15 +460,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public readonly Property JColumnSource() As JColumnSource_col
+        Public readonly Property jcolumnsource() As jcolumnsource_col
             Get
-                if  m_JColumnSource is nothing then
-                  m_JColumnSource = new JColumnSource_col
-                  m_JColumnSource.Parent = me
-                  m_JColumnSource.Application = me.Application
-                  m_JColumnSource.Refresh
+                if  m_jcolumnsource is nothing then
+                  m_jcolumnsource = new jcolumnsource_col
+                  m_jcolumnsource.Parent = me
+                  m_jcolumnsource.Application = me.Application
+                  m_jcolumnsource.Refresh
                 end if
-                JColumnSource = m_JColumnSource
+                jcolumnsource = m_jcolumnsource
                 AccessTime = Now
             End Get
         End Property
@@ -485,18 +485,18 @@ End Function
           try 
             sequence = node.Attributes.GetNamedItem("sequence").Value
             name = node.Attributes.GetNamedItem("name").Value
-            ColumnAlignment = node.Attributes.GetNamedItem("ColumnAlignment").Value
-            ColSort = node.Attributes.GetNamedItem("ColSort").Value
-            GroupAggregation = node.Attributes.GetNamedItem("GroupAggregation").Value
-            e_list = node.SelectNodes("JColumnSource_COL")
-            JColumnSource.XMLLoad(e_list,LoadMode)
+            columnalignment = node.Attributes.GetNamedItem("columnalignment").Value
+            colsort = node.Attributes.GetNamedItem("colsort").Value
+            groupaggregation = node.Attributes.GetNamedItem("groupaggregation").Value
+            e_list = node.SelectNodes("jcolumnsource_COL")
+            jcolumnsource.XMLLoad(e_list,LoadMode)
              Changed = true
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try
         End sub
         Public Overrides Sub Dispose()
-            JColumnSource.Dispose
+            jcolumnsource.Dispose
         End Sub
 
 
@@ -510,10 +510,10 @@ End Function
            try 
           node.SetAttribute("sequence", sequence)  
           node.SetAttribute("name", name)  
-          node.SetAttribute("ColumnAlignment", ColumnAlignment)  
-          node.SetAttribute("ColSort", ColSort)  
-          node.SetAttribute("GroupAggregation", GroupAggregation)  
-            JColumnSource.XMLSave(node,xdom)
+          node.SetAttribute("columnalignment", columnalignment)  
+          node.SetAttribute("colsort", colsort)  
+          node.SetAttribute("groupaggregation", groupaggregation)  
+            jcolumnsource.XMLSave(node,xdom)
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try
@@ -532,7 +532,7 @@ Public Overrides Sub BatchUpdate()
     Exit Sub
   End If
   If Changed Then Save
-            JColumnSource.BatchUpdate
+            jcolumnsource.BatchUpdate
 End Sub
 
 
@@ -559,7 +559,7 @@ End Sub
         Public Overrides Function GetDocCollection_Base(ByVal Index As Long) As LATIR2.Document.DocCollection_Base
             Select Case Index
          Case 1
-            return JColumnSource
+            return jcolumnsource
             End Select
             return nothing
         End Function

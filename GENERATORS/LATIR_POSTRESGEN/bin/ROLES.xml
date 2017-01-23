@@ -1,0 +1,1788 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ROLES
+</name>
+</assembly>
+<members>
+<member name="F:ROLES.ROLES.ROLES_DOC_STATE.m_StateChangeDisabled">
+	<summary>
+Локальная переменная для поля Запрещена смена состояния
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC_STATE.m_AllowDelete">
+	<summary>
+Локальная переменная для поля Можно удалять
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC_STATE.m_The_State">
+	<summary>
+Локальная переменная для поля Состояние
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC_STATE.m_The_Mode">
+	<summary>
+Локальная переменная для поля Режим
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.The_State">
+	<summary>
+Доступ к полю Состояние
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.The_Mode">
+	<summary>
+Доступ к полю Режим
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.AllowDelete">
+	<summary>
+Доступ к полю Можно удалять
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.StateChangeDisabled">
+	<summary>
+Доступ к полю Запрещена смена состояния
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC_STATE.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_DOC_STATE">
+	<summary>
+Реализация строки раздела Доступные состояния
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_WP.m_WP">
+	<summary>
+Локальная переменная для поля Приложение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_WP.m_ROLES_ACT">
+	<summary>
+Локальная переменная для дочернего раздела Допустимые действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_WP.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_WP.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_WP.WP">
+	<summary>
+Доступ к полю Приложение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_WP.ROLES_ACT">
+	<summary>
+Доступ к дочернему разделу Допустимые действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_WP.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_WP">
+	<summary>
+Реализация строки раздела Доступные приложения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_WP_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_WP_col">
+	<summary>
+Реализация раздела Доступные приложенияв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumHACCPStep">
+	<summary>
+Перечисление Тип шага в ХАССП процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPCB_FileType">
+	<summary>
+Перечисление Тип файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumHaccpIdent">
+	<summary>
+Перечисление Идентификация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeFace">
+	<summary>
+Перечисление Физическое лицо \ Юрифическое лицо
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypePackage">
+	<summary>
+Перечисление Тип отправления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumParity">
+	<summary>
+Перечисление Четность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumAdditionType">
+	<summary>
+Перечисление Тип надбавки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumTypeSempling">
+	<summary>
+Перечисление Тип выборки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumDeliveryOn">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeOperatorSystem">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeOrder">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumHACCPPStep">
+	<summary>
+Перечисление Тип шага в ХАССП процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeDocOrder">
+	<summary>
+Перечисление Тип документов для печати заказчику
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPCB_LayerP">
+	<summary>
+Перечисление Представление поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeClient">
+	<summary>
+Перечисление Тип заказчика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeNomen">
+	<summary>
+Перечисление Тип номенкатуры
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumKONTR_TYPE">
+	<summary>
+Перечисление Тип контрагента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypePersonPay">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypePay">
+	<summary>
+Перечисление Сдельная \ Ставка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPCB_TaskType">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumVRTaskType">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeReceiv">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPCB_CustomerType">
+	<summary>
+Перечисление Статус заказчика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeRowCheque">
+	<summary>
+Перечисление Тип строки чека
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumPCB_clear">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeTariff">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumDCType">
+	<summary>
+Перечисление Остатки/Дебит/Кредит
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeTRF">
+	<summary>
+Перечисление Тип тарифа СС
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumtypeCourier">
+	<summary>
+Перечисление Договор \ ТрудКнижка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumEmployment_">
+	<summary>
+Перечисление осталось для совместимости
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumKONTR_STATUS">
+	<summary>
+Перечисление Состояние партнера
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.Application.m_ROLES_USER">
+	<summary>
+ Внутренняя переменная для раздела Пользователи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.ROLES_USER">
+	<summary>
+Свойство для доступа к строкам раздела Пользователи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.Application.m_ROLES_MAP">
+	<summary>
+ Внутренняя переменная для раздела Отображение на группы защиты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.ROLES_MAP">
+	<summary>
+Свойство для доступа к строкам раздела Отображение на группы защиты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.Application.m_ROLES_DOC">
+	<summary>
+ Внутренняя переменная для раздела Доступные документы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.ROLES_DOC">
+	<summary>
+Свойство для доступа к строкам раздела Доступные документы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.Application.m_ROLES_DEF">
+	<summary>
+ Внутренняя переменная для раздела Определение роли
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.ROLES_DEF">
+	<summary>
+Свойство для доступа к строкам раздела Определение роли
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.Application.m_ROLES_REPORTS">
+	<summary>
+ Внутренняя переменная для раздела Отчёты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.ROLES_REPORTS">
+	<summary>
+Свойство для доступа к строкам раздела Отчёты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.Application.m_ROLES_WP">
+	<summary>
+ Внутренняя переменная для раздела Доступные приложения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.ROLES_WP">
+	<summary>
+Свойство для доступа к строкам раздела Доступные приложения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.Application">
+	<summary>
+Реализация документа Каждый документ такого типа, описывает одну роль в рамках текущего бизнеса. Описание роли позволяет связать пользователя системы с теми рабочими местами, которые доступны для исполняющего роль сотрудника. Роль определяет  доступность пунктов меню, для каждого конкретного АРМ, а так же особенности работы документов.
+ </summary>
+	<remarks>
+Роли
+ </remarks>
+</member><member name="F:ROLES.ROLES.ROLES_USER.m_TheUser">
+	<summary>
+Локальная переменная для поля Пользователь
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_USER.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_USER.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_USER.TheUser">
+	<summary>
+Доступ к полю Пользователь
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_USER.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_USER">
+	<summary>
+Реализация строки раздела Пользователи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_USER_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_USER_col">
+	<summary>
+Реализация раздела Пользователив виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_REPORTS.m_The_Report">
+	<summary>
+Локальная переменная для поля Отчёт
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_REPORTS.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_REPORTS.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_REPORTS.The_Report">
+	<summary>
+Доступ к полю Отчёт
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_REPORTS.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_REPORTS">
+	<summary>
+Реализация строки раздела Отчёты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_ACT.m_Accesible">
+	<summary>
+Локальная переменная для поля Доступность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_ACT.m_EntryPoints">
+	<summary>
+Локальная переменная для поля Доступные действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_ACT.m_ROLES_ACT">
+	<summary>
+Локальная переменная для дочерних записей раздела Допустимые действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_ACT.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_ACT.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_ACT.Accesible">
+	<summary>
+Доступ к полю Доступность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_ACT.EntryPoints">
+	<summary>
+Доступ к полю Доступные действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_ACT.ROLES_ACT">
+	<summary>
+Доступ к дочернему разделу Допустимые действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_ACT.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_ACT">
+	<summary>
+Реализация строки раздела Допустимые действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DEF.m_ListCFG_Denied">
+	<summary>
+Локальная переменная для поля Настройка журналов запрещена
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DEF.m_FormCFG_Denied">
+	<summary>
+Локальная переменная для поля Настройки форм запрещены
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DEF.m_RightsSet_Denied">
+	<summary>
+Локальная переменная для поля Настройка прав запрещена
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DEF.m_TheComment">
+	<summary>
+Локальная переменная для поля Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DEF.m_name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DEF.m_FileExch_Denied">
+	<summary>
+Локальная переменная для поля Файловый обмен запрещен
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.TheComment">
+	<summary>
+Доступ к полю Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.RightsSet_Denied">
+	<summary>
+Доступ к полю Настройка прав запрещена
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.FormCFG_Denied">
+	<summary>
+Доступ к полю Настройки форм запрещены
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.ListCFG_Denied">
+	<summary>
+Доступ к полю Настройка журналов запрещена
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.FileExch_Denied">
+	<summary>
+Доступ к полю Файловый обмен запрещен
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DEF.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_DEF">
+	<summary>
+Реализация строки раздела Определение роли
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_MAP_col">
+	<summary>
+Реализация раздела Отображение на группы защитыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DEF_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_DEF_col">
+	<summary>
+Реализация раздела Определение ролив виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_DOC_col">
+	<summary>
+Реализация раздела Доступные документыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC.m_The_Document">
+	<summary>
+Локальная переменная для поля Тип документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC.m_The_Denied">
+	<summary>
+Локальная переменная для поля Запрещен
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC.m_AllowDeleteDoc">
+	<summary>
+Локальная переменная для поля Разрешено удаление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_DOC.m_ROLES_DOC_STATE">
+	<summary>
+Локальная переменная для дочернего раздела Доступные состояния
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.The_Document">
+	<summary>
+Доступ к полю Тип документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.The_Denied">
+	<summary>
+Доступ к полю Запрещен
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.AllowDeleteDoc">
+	<summary>
+Доступ к полю Разрешено удаление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.ROLES_DOC_STATE">
+	<summary>
+Доступ к дочернему разделу Доступные состояния
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_DOC.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_DOC">
+	<summary>
+Реализация строки раздела Доступные документы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_DOC_STATE_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_DOC_STATE_col">
+	<summary>
+Реализация раздела Доступные состоянияв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:ROLES.ROLES.ROLES_MAP.m_TheGroup">
+	<summary>
+Локальная переменная для поля Группа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_MAP.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_MAP.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_MAP.TheGroup">
+	<summary>
+Доступ к полю Группа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:ROLES.ROLES.ROLES_MAP.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_MAP.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_MAP">
+	<summary>
+Реализация строки раздела Отображение на группы защиты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_REPORTS_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_REPORTS_col">
+	<summary>
+Реализация раздела Отчётыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT_col.IsTree">
+	<summary>
+Признак древовидного раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:ROLES.ROLES.ROLES_ACT_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:ROLES.ROLES.ROLES_ACT_col">
+	<summary>
+Реализация раздела Допустимые действияв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member>
+</members>
+</doc>

@@ -41,6 +41,7 @@
         '
         'cmdUnselAll
         '
+        Me.cmdUnselAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdUnselAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdUnselAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdUnselAll.ForeColor = System.Drawing.SystemColors.ControlText
@@ -54,6 +55,7 @@
         '
         'cmdSelAll
         '
+        Me.cmdSelAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdSelAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdSelAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdSelAll.ForeColor = System.Drawing.SystemColors.ControlText
@@ -67,6 +69,7 @@
         '
         'cmdKill
         '
+        Me.cmdKill.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdKill.BackColor = System.Drawing.SystemColors.Control
         Me.cmdKill.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdKill.ForeColor = System.Drawing.SystemColors.ControlText
@@ -80,6 +83,9 @@
         '
         'lstObj
         '
+        Me.lstObj.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstObj.BackColor = System.Drawing.SystemColors.Window
         Me.lstObj.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstObj.ForeColor = System.Drawing.SystemColors.WindowText
@@ -135,10 +141,10 @@
         Me.MinimizeBox = False
         Me.Name = "frmDeleteTool"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Удаление документов"
         Me.ResumeLayout(False)
 
     End Sub
-#End Region 
+#End Region
 End Class

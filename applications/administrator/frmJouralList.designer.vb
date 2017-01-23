@@ -24,16 +24,19 @@
 	'It can be modified using the Windows Form Designer.
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmJouralList))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.lstJournal = New System.Windows.Forms.ListBox
-        Me.CancelButton_Renamed = New System.Windows.Forms.Button
-        Me.OKButton = New System.Windows.Forms.Button
+        Me.lstJournal = New System.Windows.Forms.ListBox()
+        Me.CancelButton_Renamed = New System.Windows.Forms.Button()
+        Me.OKButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstJournal
         '
+        Me.lstJournal.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstJournal.BackColor = System.Drawing.SystemColors.Window
         Me.lstJournal.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstJournal.ForeColor = System.Drawing.SystemColors.WindowText
@@ -46,11 +49,12 @@
         '
         'CancelButton_Renamed
         '
+        Me.CancelButton_Renamed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CancelButton_Renamed.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton_Renamed.Cursor = System.Windows.Forms.Cursors.Default
         Me.CancelButton_Renamed.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.CancelButton_Renamed.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CancelButton_Renamed.Location = New System.Drawing.Point(312, 34)
+        Me.CancelButton_Renamed.Location = New System.Drawing.Point(315, 34)
         Me.CancelButton_Renamed.Name = "CancelButton_Renamed"
         Me.CancelButton_Renamed.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.CancelButton_Renamed.Size = New System.Drawing.Size(79, 21)
@@ -60,10 +64,11 @@
         '
         'OKButton
         '
+        Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OKButton.BackColor = System.Drawing.SystemColors.Control
         Me.OKButton.Cursor = System.Windows.Forms.Cursors.Default
         Me.OKButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OKButton.Location = New System.Drawing.Point(312, 8)
+        Me.OKButton.Location = New System.Drawing.Point(315, 7)
         Me.OKButton.Name = "OKButton"
         Me.OKButton.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.OKButton.Size = New System.Drawing.Size(79, 21)
@@ -91,10 +96,10 @@
         Me.Name = "frmJouralList"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Выбор журнала"
         Me.ResumeLayout(False)
 
     End Sub
-#End Region 
+#End Region
 End Class

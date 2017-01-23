@@ -54,12 +54,12 @@ Public Class editFIELDTYPEMAP
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTarget  as  System.Windows.Forms.Label
-Friend WithEvents txtTarget As System.Windows.Forms.TextBox
+Friend WithEvents txtTarget As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTarget As System.Windows.Forms.Button
 Friend WithEvents lblStoageType  as  System.Windows.Forms.Label
-Friend WithEvents txtStoageType As System.Windows.Forms.TextBox
+Friend WithEvents txtStoageType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFixedSize  as  System.Windows.Forms.Label
-Friend WithEvents txtFixedSize As System.Windows.Forms.TextBox
+Friend WithEvents txtFixedSize As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -77,12 +77,12 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTarget = New System.Windows.Forms.Label
-Me.txtTarget = New System.Windows.Forms.TextBox
+Me.txtTarget = New LATIR2GuiManager.TouchTextBox
 Me.cmdTarget = New System.Windows.Forms.Button
 Me.lblStoageType = New System.Windows.Forms.Label
-Me.txtStoageType = New System.Windows.Forms.TextBox
+Me.txtStoageType = New LATIR2GuiManager.TouchTextBox
 Me.lblFixedSize = New System.Windows.Forms.Label
-Me.txtFixedSize = New System.Windows.Forms.TextBox
+Me.txtFixedSize = New LATIR2GuiManager.TouchTextBox
 
 Me.lblTarget.Location = New System.Drawing.Point(20,5)
 Me.lblTarget.name = "lblTarget"

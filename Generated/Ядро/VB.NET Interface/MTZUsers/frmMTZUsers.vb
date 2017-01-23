@@ -3,7 +3,7 @@
   Imports Microsoft.VisualBasic
   Imports System.Drawing
 
-  Public Class frmMTZUsers
+  Public Class frmmtzusers
     Inherits System.Windows.Forms.Form
 
 #Region " Windows Form Designer generated code "
@@ -33,9 +33,9 @@
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
-    Friend WithEvents tv As MTZUsersGUI.Tabview
+    Friend WithEvents tv As mtzusersGUI.Tabview
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.tv = New MTZUsersGUI.TabView
+        Me.tv = New mtzusersGUI.TabView
         Me.SuspendLayout()
         '
         'tv
@@ -48,16 +48,16 @@
         Me.tv.Size = New System.Drawing.Size(600, 344)
         Me.tv.TabIndex = 0
         '
-        'frmMTZUsers
+        'frmmtzusers
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(608, 357)
         Me.Controls.Add (Me.tv)
-        Me.name = "frmMTZUsers"
+        Me.name = "frmmtzusers"
         Me.ResumeLayout (False)
     End Sub
 #End Region
-    Public item As MTZUsers.MTZUsers.Application
+    Public item As mtzusers.mtzusers.Application
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
 
@@ -68,15 +68,24 @@
 '''Процедура инициализации формы
 ''' </remarks>
     Public Sub Attach(ByVal docItem As LATIR2.Document.Doc_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, optional byval FormReadOnly as boolean =false)
-        item = CType(docItem, MTZUsers.MTZUsers.Application)
+        item = CType(docItem, mtzusers.mtzusers.Application)
         GuiManager = gm
         tv.Attach(item, GuiManager,FormReadOnly)
         Me.Text = item.name
     End Sub
-         Private Sub frmChild_Load(sender As Object, e As EventArgs) Handles Me.Load
+    ' Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
+   Private Sub frm_Load(sender As Object, e As EventArgs) Handles Me.Load
         LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
-        End Sub
-        Private Sub frmChild_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+       ' myResizer.FindAllControls(Me) 
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+   End Sub
+   Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+   '   myResizer.ResizeAllControls(Me)
+   End Sub
+        Private Sub frm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If e.CloseReason = CloseReason.FormOwnerClosing Then
             e.Cancel = Not CheckAndSave(False)
         End If

@@ -1,0 +1,10 @@
+..\Generated\Generated Dlls\LATIRGenerator.dll
+..\Generated\Generated Dlls\LATIRGenerator.xml
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LATIRGenerator.dll
+obj\Release\LATIRGenerator.xml
+..\Generated\Generated Dlls\LATIRGenerator.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\LATIRGenerator.dll
+obj\Debug\LATIRGenerator.xml
+obj\Debug\LATIRGenerator.pdb

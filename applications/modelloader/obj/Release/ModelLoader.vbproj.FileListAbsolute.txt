@@ -1,0 +1,9 @@
+C:\LATIR\Generated\Generated DLLS\LATIRModelLoader.exe.config
+C:\LATIR\applications\modelloader\obj\Release\LATIRModelLoader.exe
+C:\LATIR\applications\modelloader\obj\Release\LATIRModelLoader.xml
+C:\LATIR\Generated\Generated DLLS\LATIRModelLoader.exe
+C:\LATIR\Generated\Generated DLLS\LATIRModelLoader.xml
+C:\LATIR\applications\modelloader\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR\applications\modelloader\obj\Release\LATIRModelLoader.Form1.resources
+C:\LATIR\applications\modelloader\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\LATIR\applications\modelloader\obj\Release\GenerateResource-ResGen.write.1.tlog

@@ -54,7 +54,7 @@ Public Class editARMJournalmain
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheJournal  as  System.Windows.Forms.Label
-Friend WithEvents txtTheJournal As System.Windows.Forms.TextBox
+Friend WithEvents txtTheJournal As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheJournal As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -73,7 +73,7 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheJournal = New System.Windows.Forms.Label
-Me.txtTheJournal = New System.Windows.Forms.TextBox
+Me.txtTheJournal = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheJournal = New System.Windows.Forms.Button
 
 Me.lblTheJournal.Location = New System.Drawing.Point(20,5)
@@ -121,7 +121,7 @@ If OK Then
     txtTheJournal.Text = brief
     txtTheJournal.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub

@@ -54,7 +54,7 @@ Public Class editNEXTSTATE
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheState  as  System.Windows.Forms.Label
-Friend WithEvents txtTheState As System.Windows.Forms.TextBox
+Friend WithEvents txtTheState As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheState As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -73,7 +73,7 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheState = New System.Windows.Forms.Label
-Me.txtTheState = New System.Windows.Forms.TextBox
+Me.txtTheState = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheState = New System.Windows.Forms.Button
 
 Me.lblTheState.Location = New System.Drawing.Point(20,5)

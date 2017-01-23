@@ -89,7 +89,7 @@ Public Class frmFldExtenders
         Me.EditFldExtenders.AutoScroll = True
         Me.EditFldExtenders.Location = New System.Drawing.Point(8, 8)
         Me.EditFldExtenders.name = "EditFldExtenders"
-        Me.EditFldExtenders.Size = New System.Drawing.Size(490, 600)
+        Me.EditFldExtenders.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditFldExtenders.TabIndex = 20
         Me.EditFldExtenders.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -101,6 +101,7 @@ Public Class frmFldExtenders
         Me.Controls.Add (Me.btnPanel)
         Me.name = "frmFldExtenders"
         Me.Text = "Интерфейсы расширения"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
@@ -108,6 +109,7 @@ Public Class frmFldExtenders
 #End Region
     Public Item As MTZMetaModel.MTZMetaModel.FldExtenders
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -156,8 +158,17 @@ Public Class frmFldExtenders
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditFldExtenders.GetMaxX() + 10, EditFldExtenders.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(EditFldExtenders.GetMaxX() + 10, EditFldExtenders.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZ2JOB
 
@@ -149,8 +150,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = Processed
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -236,7 +241,7 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              dr("EventDate") =EventDate
@@ -260,6 +265,9 @@ End Function
               dr ("Processed_VAL")  = 0
               end select 'Processed
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -316,7 +324,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -340,8 +348,20 @@ End Function
             If reader.Table.Columns.Contains("ThruObject") Then m_ThruObject= New System.Guid(reader.item("ThruObject").ToString())
           end if 
       end if 
-          If reader.Table.Columns.Contains("ThruState") Then m_ThruState=reader.item("ThruState")
-          If reader.Table.Columns.Contains("NextState") Then m_NextState=reader.item("NextState")
+      If reader.Table.Columns.Contains("ThruState") Then
+          if isdbnull(reader.item("ThruState")) then
+            If reader.Table.Columns.Contains("ThruState") Then m_ThruState = System.GUID.Empty
+          else
+            If reader.Table.Columns.Contains("ThruState") Then m_ThruState= New System.Guid(reader.item("ThruState").ToString())
+          end if 
+      end if 
+      If reader.Table.Columns.Contains("NextState") Then
+          if isdbnull(reader.item("NextState")) then
+            If reader.Table.Columns.Contains("NextState") Then m_NextState = System.GUID.Empty
+          else
+            If reader.Table.Columns.Contains("NextState") Then m_NextState= New System.Guid(reader.item("NextState").ToString())
+          end if 
+      end if 
       If reader.Table.Columns.Contains("ProcessDate") Then
           if isdbnull(reader.item("ProcessDate")) then
             If reader.Table.Columns.Contains("ProcessDate") Then m_ProcessDate = System.DateTime.MinValue
@@ -350,6 +370,9 @@ End Function
           end if 
       end if 
           If reader.Table.Columns.Contains("Processed") Then m_Processed=reader.item("Processed")
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -505,7 +528,7 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             m_EventDate = System.DateTime.MinValue
             EventDate = m_EventDate.AddTicks( node.Attributes.GetNamedItem("EventDate").Value)
             EvenType = node.Attributes.GetNamedItem("EvenType").Value
@@ -516,6 +539,9 @@ End Function
             ProcessDate = m_ProcessDate.AddTicks( node.Attributes.GetNamedItem("ProcessDate").Value)
             Processed = node.Attributes.GetNamedItem("Processed").Value
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -528,16 +554,19 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
-          if EventDate = System.DateTime.MinValue then EventDate=System.DateTime.Parse("12/30/1899")
+           try 
+         ' if EventDate = System.DateTime.MinValue then EventDate=new Date(1899,12,30)  ' SQL Server trouble
           node.SetAttribute("EventDate", EventDate.Ticks)  
           node.SetAttribute("EvenType", EvenType)  
           node.SetAttribute("ThruObject", m_ThruObject.tostring)  
           node.SetAttribute("ThruState", ThruState.ToString())  
           node.SetAttribute("NextState", NextState.ToString())  
-          if ProcessDate = System.DateTime.MinValue then ProcessDate=System.DateTime.Parse("12/30/1899")
+         ' if ProcessDate = System.DateTime.MinValue then ProcessDate=new Date(1899,12,30)  ' SQL Server trouble
           node.SetAttribute("ProcessDate", ProcessDate.Ticks)  
           node.SetAttribute("Processed", Processed)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

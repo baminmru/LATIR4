@@ -110,9 +110,9 @@ Module MakeCollections
                 s = s & vbCrLf & "           mFieldList =mFieldList+ "", " + f.Name.ToLower + """ "
             ElseIf ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
                 s = s & vbCrLf & "           mFieldList =mFieldList+"",""+.Date2Base(""" & f.Name & """) "
+            ElseIf ft.Name.ToLower = "id" Then
+                s = s & vbCrLf & "           mFieldList =mFieldList+"",""+.ID2Base(""" & f.Name & """) "
             Else
-
-
                 s = s & vbCrLf & "           mFieldList =mFieldList+ "", " + f.Name.ToLower + """ "
 
             End If

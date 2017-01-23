@@ -4,6 +4,7 @@ Option Explicit On
 Imports System.xml
 Imports LATIR2
 Imports LATIR2.Document
+Imports System.Diagnostics
 
 Namespace MTZ2JOB
 
@@ -143,12 +144,12 @@ end enum
 '''
 ''' </remarks>
 public enum enumMenuActionType'Вариант действия при выборе пункта меню
+  MenuActionType_Zapustit__ARM=4' Запустить АРМ
+  MenuActionType_Vipolnit__metod=2' Выполнить метод
+  MenuActionType_Otkrit__otcet=5' Открыть отчет
   MenuActionType_Nicego_ne_delat_=0' Ничего не делать
   MenuActionType_Otkrit__dokument=1' Открыть документ
-  MenuActionType_Vipolnit__metod=2' Выполнить метод
   MenuActionType_Otkrit__gurnal=3' Открыть журнал
-  MenuActionType_Zapustit__ARM=4' Запустить АРМ
-  MenuActionType_Otkrit__otcet=5' Открыть отчет
 end enum 
 
 
@@ -217,10 +218,10 @@ end enum
 '''
 ''' </remarks>
 public enum enumDevelopmentBase'Платформа разработки
-  DevelopmentBase_VB6=0' VB6
+  DevelopmentBase_OTHER=3' OTHER
   DevelopmentBase_DOTNET=1' DOTNET
   DevelopmentBase_JAVA=2' JAVA
-  DevelopmentBase_OTHER=3' OTHER
+  DevelopmentBase_VB6=0' VB6
 end enum 
 
 
@@ -766,9 +767,12 @@ end enum
 ''' </remarks>
         Protected Overrides Sub XMLLoadCollections(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
             Dim e_list As XmlNodeList
-            On Error Resume Next
+           try
             e_list = node.SelectNodes("MTZ2JOB_DEF_COL")
             MTZ2JOB_DEF.XMLLoad(e_list, LoadMode)
+catch ex as System.Exception
+ Debug.Print( ex.Message + " >> " + ex.StackTrace)
+end try
         End Sub
 
 

@@ -54,9 +54,9 @@ Public Class editFIELDPARAMMAP
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblFieldName  as  System.Windows.Forms.Label
-Friend WithEvents txtFieldName As System.Windows.Forms.TextBox
+Friend WithEvents txtFieldName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblParamName  as  System.Windows.Forms.Label
-Friend WithEvents txtParamName As System.Windows.Forms.TextBox
+Friend WithEvents txtParamName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblNoEdit  as  System.Windows.Forms.Label
 Friend WithEvents cmbNoEdit As System.Windows.Forms.ComboBox
 Friend cmbNoEditDATA As DataTable
@@ -78,9 +78,9 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblFieldName = New System.Windows.Forms.Label
-Me.txtFieldName = New System.Windows.Forms.TextBox
+Me.txtFieldName = New LATIR2GuiManager.TouchTextBox
 Me.lblParamName = New System.Windows.Forms.Label
-Me.txtParamName = New System.Windows.Forms.TextBox
+Me.txtParamName = New LATIR2GuiManager.TouchTextBox
 Me.lblNoEdit = New System.Windows.Forms.Label
 Me.cmbNoEdit = New System.Windows.Forms.ComboBox
 

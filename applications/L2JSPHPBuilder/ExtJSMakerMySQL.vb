@@ -27,7 +27,7 @@ Public Class ExtJSMakerMYSQL
             ti.ObjType = ""
             chkJournals.Items.Add(ti, False)
         Next
-        textBoxOutPutFolder.Text = GetSetting("L2BUILDER", "EXTJS2MYSQL_" & Manager.Site, "PATH", "c:\")
+        textBoxOutPutFolder.Text = GetSetting("BP3BUILDER", "EXTJS2MYSQL_" & Manager.Site, "PATH", "c:\")
     End Sub
 
     Private Sub button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles button3.Click
@@ -36,7 +36,7 @@ Public Class ExtJSMakerMYSQL
         textBoxOutPutFolder.Text = folderBrowserDialogProjectOutput.SelectedPath
         If Not textBoxOutPutFolder.Text.EndsWith("\") Then
             textBoxOutPutFolder.Text += "\"
-            SaveSetting("L2BUILDER", "EXTJS2MYSQL_" & Manager.Site, "PATH", textBoxOutPutFolder.Text)
+            SaveSetting("BP3BUILDER", "EXTJS2MYSQL_" & Manager.Site, "PATH", textBoxOutPutFolder.Text)
         End If
     End Sub
 
@@ -262,9 +262,9 @@ Public Class ExtJSMakerMYSQL
             P = pcol.Item(i)
             If P.PartType <> MTZMetaModel.MTZMetaModel.enumPartType.PartType_Rassirenie Then
                 xout = PartMake_CIModel(P)
-                Tool_WriteFile(xout, textBoxOutPutFolder.Text & "models\", "m_" & P.Name.ToLower() & ".php", True)
+                Tool_WriteFile(xout, textBoxOutPutFolder.Text & "models\", "m_" & P.Name.ToLower() & ".php")
                 xout = PartMake_CIController(P)
-                Tool_WriteFile(xout, textBoxOutPutFolder.Text & "controllers\", "c_" & P.Name.ToLower() & ".php", True)
+                Tool_WriteFile(xout, textBoxOutPutFolder.Text & "controllers\", "c_" & P.Name.ToLower() & ".php")
                 PartMake_CI(P.PART)
                 'xout = PartMake_CIMartModel(P)
                 'Tool_WriteFile(xout, textBoxOutPutFolder.Text & "models\", "m_mart_" & P.Name.ToLower() & ".php")
@@ -789,7 +789,7 @@ Public Class ExtJSMakerMYSQL
                     sw.Append(vbCrLf & "function DefineForms_" & P.Name.ToLower() & "_" & objmode & "(){" & vbCrLf)
                     sw.Append(vbCrLf & PartMake_FormPanelJS(ot, P, objmode, UseMartService))
                     sw.Append(vbCrLf & "}")
-                    Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "_js\", P.Name.ToLower() & "_" & objmode & ".js", False)
+                    Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "_js\", P.Name.ToLower() & "_" & objmode & ".js")
                 End If
             End If
         Next
@@ -946,8 +946,6 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "     " & ot.Name.ToLower() & "_" & objmode & "= Ext.create('Ext.form.Panel', {")
         sw.Append(vbCrLf & "      id: '" + ot.Name.ToLower() + "',")
         sw.Append(vbCrLf & "      layout:'fit',")
-        sw.Append(vbCrLf & "      width:810, // для правильного расчета размера дочерних окон ! ")
-        sw.Append(vbCrLf & "      height:530,")
 
         sw.Append(vbCrLf & "      fieldDefaults: {")
         sw.Append(vbCrLf & "          labelAlign:             'top',")
@@ -1104,7 +1102,7 @@ Public Class ExtJSMakerMYSQL
             sw.Append(vbCrLf & "                    store:  store_" + ot.Name.ToLower + "_parts,")
             sw.Append(vbCrLf & "                    displayField: 'name',")
 
-            sw.Append(vbCrLf & "					//typeAhead: true,")
+            sw.Append(vbCrLf & "					typeAhead: true,")
             sw.Append(vbCrLf & "					//mode: 'local',")
             sw.Append(vbCrLf & "                    triggerAction:  'all',")
             sw.Append(vbCrLf & "                    emptyText:  'Выбрать вкладку',")
@@ -1127,36 +1125,13 @@ Public Class ExtJSMakerMYSQL
         End If
 
         sw.Append(vbCrLf & "        items: [{")
-
-        Dim isSinglePartMode As Boolean
-
-        'If LATIR2Framework.ObjectHelper.CountStructs(ot.PART, objmode) = 1 Then
-        If ot.PART.Count = 1 Then
-            isSinglePartMode = True
-        Else
-            isSinglePartMode = False
-        End If
-
-        If isSinglePartMode Then
-            sw.Append(vbCrLf & "            xtype:'panel',")
-            sw.Append(vbCrLf & "            itemId:'tabs_" & ot.Name.ToLower() & "',")
-            ' sw.Append(vbCrLf & "            activeTab: 0,")
-            sw.Append(vbCrLf & "            layout: 'fit',")
-            'sw.Append(vbCrLf & "            tabPosition:'top',")  ' bottom
-            sw.Append(vbCrLf & "            border:0,")  ''''
-            sw.Append(vbCrLf & "            items:[   // tabs")
-        Else
-            sw.Append(vbCrLf & "            xtype:'tabpanel',")
-            sw.Append(vbCrLf & "            itemId:'tabs_" & ot.Name.ToLower() & "',")
-            sw.Append(vbCrLf & "            activeTab: 0,")
-            sw.Append(vbCrLf & "            layout: 'fit',")
-            sw.Append(vbCrLf & "            tabPosition:'top',")  ' bottom
-            sw.Append(vbCrLf & "            border:0,")  ''''
-            sw.Append(vbCrLf & "            items:[   // tabs")
-        End If
-
-
-
+        sw.Append(vbCrLf & "            xtype:'tabpanel',")
+        sw.Append(vbCrLf & "            itemId:'tabs_" & ot.Name.ToLower() & "',")
+        sw.Append(vbCrLf & "            activeTab: 0,")
+        sw.Append(vbCrLf & "            layout: 'fit',")
+        sw.Append(vbCrLf & "            tabPosition:'top',")  ' bottom
+        sw.Append(vbCrLf & "            border:0,")  ''''
+        sw.Append(vbCrLf & "            items:[   // tabs")
 
         isfirst = True
         For i = 1 To ot.PART.Count
@@ -1172,10 +1147,7 @@ Public Class ExtJSMakerMYSQL
                     sw.Append(vbCrLf & "            { // begin part tab")
                     sw.Append(vbCrLf & "            xtype:'panel',")
                     sw.Append(vbCrLf & "            border:0,")  ''''
-                    If Not isSinglePartMode Then
-                        sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
-                    End If
-
+                    sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
                     sw.Append(vbCrLf & "            layout:'fit',")
                     sw.Append(vbCrLf & "            itemId:'tab_" & P.Name.ToLower() & "',")
                     'If P.shablonBrief <> "" Then
@@ -1208,10 +1180,7 @@ Public Class ExtJSMakerMYSQL
                     sw.Append(vbCrLf & "            { // begin part tab")
                     sw.Append(vbCrLf & "            xtype:'panel',")
                     sw.Append(vbCrLf & "            border:0,")
-                    If Not isSinglePartMode Or tabcol.Count > 0 Then
-                        sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
-                    End If
-
+                    sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
                     sw.Append(vbCrLf & "            layout:'fit',")
                     sw.Append(vbCrLf & "            itemId:'tab_" & P.Name.ToLower() & "',")
                     'If P.shablonBrief <> "" Then
@@ -1239,15 +1208,16 @@ Public Class ExtJSMakerMYSQL
                             sw.Append(vbCrLf & "            items:[ // panel on tab ")
                             sw.Append(vbCrLf & "int_" & P.Name.ToLower() & "_" & objmode & "_tab" & ii.ToString())
                         Next
+
                     End If
+
+
 
                 ElseIf P.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
                     sw.Append(vbCrLf & "            { // begin part tab")
                     sw.Append(vbCrLf & "            xtype:'panel',")
                     sw.Append(vbCrLf & "            border:0,")
-                    If Not isSinglePartMode Then
-                        sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
-                    End If
+                    sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
                     sw.Append(vbCrLf & "            layout:'fit',")
                     sw.Append(vbCrLf & "            itemId:'tab_" & P.Name.ToLower() & "',")
                     'If P.shablonBrief <> "" Then
@@ -1260,9 +1230,7 @@ Public Class ExtJSMakerMYSQL
                     sw.Append(vbCrLf & "            { // begin part tab")
                     sw.Append(vbCrLf & "            xtype:'panel',")
                     sw.Append(vbCrLf & "            border:0,")
-                    If Not isSinglePartMode Then
-                        sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
-                    End If
+                    sw.Append(vbCrLf & "            title: '" & P.Caption & "',")
                     sw.Append(vbCrLf & "            layout:'fit',")
                     sw.Append(vbCrLf & "            itemId:'tab_" & P.Name.ToLower() & "',")
                     'If P.shablonBrief <> "" Then
@@ -1384,12 +1352,12 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "    return " & ot.Name.ToLower() & "_" & objmode & ";")
         sw.Append(vbCrLf & "}")
 
-        Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "_js\", ot.Name.ToLower() & "_" & objmode & ".js", False)
+        Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "_js\", ot.Name.ToLower() & "_" & objmode & ".js")
 
 
     End Sub
 
-    Private Sub Tool_WriteFile(ByVal s As String, ByVal path As String, ByVal fname As String, ByVal Capitalize As Boolean)
+    Private Sub Tool_WriteFile(ByVal s As String, ByVal path As String, ByVal fname As String)
         Dim p As String
         p = path
         If Not p.EndsWith("\") Then
@@ -1401,12 +1369,8 @@ Public Class ExtJSMakerMYSQL
         If Not di.Exists Then
             di.Create()
         End If
-        If Capitalize Then
-            File.WriteAllText(p & UFL(fname), s, System.Text.Encoding.UTF8)
-        Else
-            File.WriteAllText(p & fname, s, System.Text.Encoding.UTF8)
-        End If
 
+        File.WriteAllText(p & fname, s, System.Text.Encoding.UTF8)
         Dim jsc As Yahoo.Yui.Compressor.JavaScriptCompressor
 
         If fname.Contains(".js") Then
@@ -1420,12 +1384,8 @@ Public Class ExtJSMakerMYSQL
                 If Not di.Exists Then
                     di.Create()
                 End If
-                If Capitalize Then
-                    File.WriteAllText(p & UFL(fname), s, System.Text.Encoding.UTF8)
-                Else
-                    File.WriteAllText(p & fname, s, System.Text.Encoding.UTF8)
-                End If
 
+                File.WriteAllText(p & fname, s, System.Text.Encoding.UTF8)
             Catch ex As Exception
 
             End Try
@@ -1517,7 +1477,7 @@ Public Class ExtJSMakerMYSQL
 
             sw.Append(vbCrLf & "            reader: {")
             sw.Append(vbCrLf & "                type:   'json'")
-            sw.Append(vbCrLf & "                ,rootProperty:  'data'")
+            sw.Append(vbCrLf & "                ,root:  'data'")
             sw.Append(vbCrLf & "                ,successProperty:  'success'")
 
             sw.Append(vbCrLf & "                ,messageProperty:  'msg'")
@@ -1701,7 +1661,7 @@ Public Class ExtJSMakerMYSQL
         ''sw.Append(vbCrLf & "            },")
         'sw.Append(vbCrLf & "            reader: {")
         'sw.Append(vbCrLf & "                type:   'json'")
-        'sw.Append(vbCrLf & "                ,rootProperty:  'data'")
+        'sw.Append(vbCrLf & "                ,root:  'data'")
         'sw.Append(vbCrLf & "                ,successProperty:  'success'")
         'sw.Append(vbCrLf & "                ,messageProperty:  'msg'")
         ''sw.Append(vbCrLf & "            },")
@@ -1790,7 +1750,7 @@ Public Class ExtJSMakerMYSQL
             sw.Append(vbCrLf & "                url:   rootURL+'" & basepath & "c_" & P.Name.ToLower() & "/getRows',")
             sw.Append(vbCrLf & "            reader: {")
             sw.Append(vbCrLf & "                type:   'json'")
-            sw.Append(vbCrLf & "                ,rootProperty:  'data'")
+            sw.Append(vbCrLf & "                ,root:  'data'")
             sw.Append(vbCrLf & "                ,successProperty:  'success'")
             sw.Append(vbCrLf & "                ,messageProperty:  'msg'")
             sw.Append(vbCrLf & "            }")
@@ -1884,14 +1844,6 @@ Public Class ExtJSMakerMYSQL
         If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Rassirenie Then Return ""
         Dim ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE
 
-        Dim IntKey As Boolean
-        If p.integerpkey = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-            IntKey = True
-        Else
-            IntKey = False
-        End If
-
-
         ot = LATIR2Framework.ObjectTypeHelper.TypeForStruct(p)
         Dim isroot As Boolean = False
         If TypeName(p.Parent.Parent) = "OBJECTTYPE" Then
@@ -1906,33 +1858,16 @@ Public Class ExtJSMakerMYSQL
         Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
 
 
-        Dim flist As String
-        If IntKey Then
-            flist = "" & p.Name.ToLower() & "id as " & p.Name.ToLower() & "id, " & p.Name.ToLower() & "id as id"
-        Else
-            flist = "B2G(" & p.Name.ToLower() & "id) as " & p.Name.ToLower() & "id, B2G(" & p.Name.ToLower() & "id) as id"
-        End If
-
+        Dim flist As String = "B2G(" & p.Name.ToLower() & "id) as " & p.Name.ToLower() & "id, B2G(" & p.Name.ToLower() & "id) as id"
         If isroot Then
             flist = flist + ",B2G(instanceid) as instanceid"
         Else
-            If CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).integerpkey = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                flist = flist + ",parentstructrowid as parentid"
-            Else
-                flist = flist + ",B2G(parentstructrowid) as parentid"
-            End If
-
+            flist = flist + ",B2G(parentstructrowid) as parentid"
         End If
 
         If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
-            If IntKey Then
-                flist = flist & ", parentrowid"
-            Else
-                flist = flist & ",B2G(parentrowid) as parentrowid"
-            End If
-
+            flist = flist & ",B2G(parentrowid) as parentrowid"
         End If
-
         flist = flist & "," & " " & p.Name & "_BRIEF_F(" & p.Name.ToLower() & "id , NULL) as  brief"
         'flist = flist & "," & " " & p.Name & "_BRIEF_F(b2g(" & p.Name.ToLower() & "id) , NULL) as  brief"
 
@@ -1981,8 +1916,7 @@ Public Class ExtJSMakerMYSQL
                     For i = 1 To ft.ENUMITEM.Count
                         flist = flist & " when " & ft.ENUMITEM.Item(i).NameValue.ToString() & " then \'" & ft.ENUMITEM.Item(i).Name & "\'"
                     Next
-                    flist = flist & " else \'\' "
-                    flist = flist & " end  "
+                    flist = flist & "End "
                     flist = flist & " as " & fld.Name.ToLower() & "_grid"
 
                 End If
@@ -2254,36 +2188,21 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "	}")
         sw.Append(vbCrLf & "		}")
 
-        If Not isroot Then
-            sw.Append(vbCrLf & "    function getRowsByParent($id,$sort=array())")
-            sw.Append(vbCrLf & "	{")
+        sw.Append(vbCrLf & "    function getRowsByParent($id,$sort=array())")
+        sw.Append(vbCrLf & "	{")
 
-            If CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).integerpkey = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => ' parentstructrowid=(\''. $id . '\')'));")
-            Else
-                sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => ' parentstructrowid=G2B(\''. $id . '\')'));")
-            End If
-
-
-            sw.Append(vbCrLf & "	if (count($res) == 0) {")
-            sw.Append(vbCrLf & "	    return null;")
-            sw.Append(vbCrLf & "	} else {")
-            sw.Append(vbCrLf & "	    return $res;")
-            sw.Append(vbCrLf & "	}")
-            sw.Append(vbCrLf & "  }")
-        End If
-
+        sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => ' parentstructrowid=G2B(\''. $id . '\')'));")
+        sw.Append(vbCrLf & "	if (count($res) == 0) {")
+        sw.Append(vbCrLf & "	    return null;")
+        sw.Append(vbCrLf & "	} else {")
+        sw.Append(vbCrLf & "	    return $res;")
+        sw.Append(vbCrLf & "	}")
+        sw.Append(vbCrLf & "  }")
 
         If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
             sw.Append(vbCrLf & "    function getRowsByTree($treeid,$sort=array())")
             sw.Append(vbCrLf & "		{")
-
-            If IntKey Then
-                sw.Append(vbCrLf & "	    $res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => 'parentrowid=(\''.$treeid.'\')'));")
-            Else
-                sw.Append(vbCrLf & "	    $res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => 'parentrowid=G2B(\''.$treeid.'\')'));")
-            End If
-
+            sw.Append(vbCrLf & "	    $res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => 'parentrowid=G2B(\''.$treeid.'\')'));")
             sw.Append(vbCrLf & "	    if (count($res)) {")
             sw.Append(vbCrLf & "	        return $res;")
             sw.Append(vbCrLf & "	    } else {")
@@ -2294,12 +2213,7 @@ Public Class ExtJSMakerMYSQL
 
             sw.Append(vbCrLf & "    function getRowsByInstanceTree($id,$treeid,$sort=array())")
             sw.Append(vbCrLf & "		{")
-            If IntKey Then
-                sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => 'instanceid=G2B(\''. $id . '\') and parentrowid=(\''.$treeid.'\')'));")
-            Else
-                sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => 'instanceid=G2B(\''. $id . '\') and parentrowid=G2B(\''.$treeid.'\')'));")
-            End If
-
+            sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => 'instanceid=G2B(\''. $id . '\') and parentrowid=G2B(\''.$treeid.'\')'));")
             sw.Append(vbCrLf & "	if (count($res) == 0) {")
             sw.Append(vbCrLf & "	    return null;")
             sw.Append(vbCrLf & "	} else {")
@@ -2310,22 +2224,7 @@ Public Class ExtJSMakerMYSQL
             sw.Append(vbCrLf & "    function getRowsByParentTree($id,$treeid,$sort=array())")
             sw.Append(vbCrLf & "	{")
 
-            Dim pfunc As String
-            Dim tfunct As String
-            If CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).integerpkey = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                pfunc = ""
-            Else
-                pfunc = "G2B"
-            End If
-
-
-            If IntKey Then
-                tfunct = ""
-            Else
-                tfunct = "G2B"
-            End If
-
-            sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => ' parentstructrowid=" + pfunc + "(\''. $id . '\') and parentrowid=" + tfunct + " (\''.$treeid.'\')'));")
+            sw.Append(vbCrLf & "	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'" & flist & "', 'ViewName' => '" & p.Name.ToLower() & "', 'WhereClause' => ' parentstructrowid=G2B(\''. $id . '\') and parentrowid=G2B(\''.$treeid.'\')'));")
             sw.Append(vbCrLf & "	if (count($res) == 0) {")
             sw.Append(vbCrLf & "	    return null;")
             sw.Append(vbCrLf & "	} else {")
@@ -3291,11 +3190,11 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "showGroupsText:  'Показать группировку'")
         sw.Append(vbCrLf & "});")
 
-        'sw.Append(vbCrLf & "var filterFeature_" & P.Name.ToLower() & " = {")
-        'sw.Append(vbCrLf & "menuFilterText:  'Фильтр',")
-        'sw.Append(vbCrLf & "ftype: 'filters',")
-        'sw.Append(vbCrLf & "local: true ")
-        'sw.Append(vbCrLf & "};")
+        sw.Append(vbCrLf & "var filterFeature_" & P.Name.ToLower() & " = {")
+        sw.Append(vbCrLf & "menuFilterText:  'Фильтр',")
+        sw.Append(vbCrLf & "ftype: 'filters',")
+        sw.Append(vbCrLf & "local: true ")
+        sw.Append(vbCrLf & "};")
 
 
 
@@ -3414,8 +3313,7 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "        frame: true,")
         sw.Append(vbCrLf & "        instanceid: '',")
 
-        'sw.Append(vbCrLf & "        features: [groupingFeature_" & P.Name.ToLower() & " ,filterFeature_" & P.Name.ToLower() & "],")
-        sw.Append(vbCrLf & "        features: [groupingFeature_" & P.Name.ToLower() & " ],")
+        sw.Append(vbCrLf & "        features: [groupingFeature_" & P.Name.ToLower() & ",filterFeature_" & P.Name.ToLower() & "],")
 
 
 
@@ -4076,7 +3974,7 @@ Public Class ExtJSMakerMYSQL
         End If
         sw.Append(vbCrLf & "            reader: {")
         sw.Append(vbCrLf & "                type:   'json'")
-        sw.Append(vbCrLf & "                ,rootProperty:  'data'")
+        sw.Append(vbCrLf & "                ,root:  'data'")
         sw.Append(vbCrLf & "                ,successProperty:  'success'")
         sw.Append(vbCrLf & "                ,messageProperty:  'msg'")
         sw.Append(vbCrLf & "            },")
@@ -5233,11 +5131,11 @@ Public Class ExtJSMakerMYSQL
         ' Dim colsize As String
         Dim maxcol As Integer
         Dim sposY As Integer = 0
-        Dim sheight As Integer = 0 ' высота панели
-        Dim ydelta As Integer = 55
+        Dim sheight As Integer = 0
+        Dim ydelta As Integer = 46
         Dim colW As Integer = 250
-        Dim fsdelta As Integer = 70
-        Dim nofsdelta As Integer = 20
+        Dim fsdelta As Integer = 40
+        Dim nofsdelta As Integer = 30
         Dim ydeltaArea As Integer = 90
         Dim fldW As Integer = 220
         Dim labelWidth As Integer = 120
@@ -5260,7 +5158,7 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "alias: 'widget.f_" & P.Name.ToLower() & mode & "',")
 
         sw.Append(vbCrLf & "initComponent: function(){")
-        sw.Append(vbCrLf & "    //this.addEvents('create');")
+        sw.Append(vbCrLf & "    this.addEvents('create');")
         sw.Append(vbCrLf & "    Ext.apply(this,{")
         sw.Append(vbCrLf & "        activeRecord: null,")
         'sw.Append(vbCrLf & "        autoScroll: true,")
@@ -5511,7 +5409,7 @@ Public Class ExtJSMakerMYSQL
             sw.Append(vbCrLf & "       ], width: " + (maxcol * colW + 20).ToString + ",")
             sw.Append(vbCrLf & "       height: " + sheight.ToString + " ")
             sw.Append(vbCrLf & "        }")
-            sposY += sheight + 10
+            sposY += sheight + 5
             sheight = 0
         End If
 
@@ -5524,7 +5422,7 @@ Public Class ExtJSMakerMYSQL
 
         For j = 1 To col.Count
             fg = col.Item(j)
-            sheight = 0
+
             If j > 1 Then
                 sw.Append(vbCrLf & ",")
             End If
@@ -5641,7 +5539,6 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
                                 sw.Append(vbCrLf & "        height: " + (ydeltaArea * 3 - 10).ToString + ", ")
                                 sheight = posY + ydeltaArea * 3 + fsdelta
-
                                 posY += ydeltaArea * 3
                                 posX = 5
                             ElseIf fld.TheStyle.Contains("area") Then
@@ -5658,7 +5555,6 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
                                 sw.Append(vbCrLf & "        height: " + (ydeltaArea - 10).ToString + ", ")
                                 sheight = posY + ydeltaArea + fsdelta
-
                                 posY += ydeltaArea
                                 posX = 5
                             ElseIf fld.TheStyle.Contains("longtext") Then
@@ -5673,7 +5569,6 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
 
                                 sheight = posY + ydelta + fsdelta
-
                                 posY += ydelta
                                 posX = 5
                             ElseIf fld.TheStyle.Contains("flex") Then
@@ -5684,7 +5579,6 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + (posY).ToString + ", ")
                                 sheight = posY + ydelta + fsdelta
-
                                 posY += ydelta
                                 posX = 5
                             ElseIf ft.Name = "Boolean" Then
@@ -5694,7 +5588,6 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + (posY).ToString + ", ")
                                 sheight = posY + ydelta + fsdelta
-
                                 posX += colW
                                 If posX > maxcol * colW Then
                                     posY += ydelta
@@ -5708,7 +5601,6 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
                                 sheight = posY + ydelta + fsdelta
-
                                 posX += colW
                                 If posX > maxcol * colW Then
                                     posY += ydelta
@@ -5754,7 +5646,7 @@ Public Class ExtJSMakerMYSQL
                 sw.Append(vbCrLf & "       ], width: " + (maxcol * colW + 10).ToString + ",")
                 sw.Append(vbCrLf & "       height: " + sheight.ToString + " ")
                 sw.Append(vbCrLf & "        } //group")
-                sposY += sheight + 10
+                sposY += sheight + 5
                 sheight = 0
             Else
                 sw.Append(vbCrLf & substPanel)
@@ -6007,19 +5899,19 @@ Public Class ExtJSMakerMYSQL
 
         sw.Append(vbCrLf & "Ext.define('EditWindow_" & P.Name.ToLower() & mode & "', {")
         sw.Append(vbCrLf & "    extend:  'Ext.window.Window',")
-        sw.Append(vbCrLf & "    maxHeight: " + (sposY + 130).ToString + ",")
+        sw.Append(vbCrLf & "    maxHeight: " + (sposY + 100).ToString + ",")
         sw.Append(vbCrLf & "    maxWidth: 900,")
         sw.Append(vbCrLf & "    autoScroll:true,")
 
         sw.Append(vbCrLf & "    minWidth: " + (maxcol * colW).ToString() + ",")
         sw.Append(vbCrLf & "    width: " + (maxcol * colW + 50).ToString() + ",")
-        If sposY + 80 > 670 Then
+        If sposY + 70 > 670 Then
             sw.Append(vbCrLf & "    minHeight:670,")
             sw.Append(vbCrLf & "    height:670,")
 
         Else
-            sw.Append(vbCrLf & "    minHeight:" + (sposY + 80).ToString + ",")
-            sw.Append(vbCrLf & "    height:" + (sposY + 90).ToString + ",")
+            sw.Append(vbCrLf & "    minHeight:" + (sposY + 70).ToString + ",")
+            sw.Append(vbCrLf & "    height:" + (sposY + 70).ToString + ",")
         End If
         sw.Append(vbCrLf & "    constrainHeader :true,")
         sw.Append(vbCrLf & "    layout:  'absolute',")
@@ -6072,10 +5964,10 @@ Public Class ExtJSMakerMYSQL
         'Dim colsize As String = "33%"
         Dim sposY As Integer = 0
         Dim sheight As Integer = 0   ' суммарный размер панели
-        Dim ydelta As Integer = 35   ' размер поля + зазор  по сути шаг между полями
+        Dim ydelta As Integer = 30   ' размер поля + зазор  по сути шаг между полями
         Dim ydeltaArea As Integer = 90
-        Dim fsdelta As Integer = 60  '  зазор на шапку панели  если есть fieldset
-        Dim nofsDelta As Integer = 20  '  зазор на шапку панели  если нет fieldset
+        Dim fsdelta As Integer = 35  '  зазор на шапку панели  если есть fieldset
+        Dim fsdeltaBlank As Integer = 20  '  зазор на шапку панели  если нет fieldset
         Dim wasCR As Boolean = False
 
         'Dim maxcol As Integer = 3
@@ -6245,8 +6137,8 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "{")
         sw.Append(vbCrLf & "            itemId: id+'" + tabpostfix + "',")
         sw.Append(vbCrLf & "            autoScroll:true,")
-        sw.Append(vbCrLf & "            border:0, ")
-        sw.Append(vbCrLf & "            layout: 'absolute',")
+        sw.Append(vbCrLf & "            border:0, bodyPadding: 5,")
+        'sw.Append(vbCrLf & "            layout: 'accordion',")
         'sw.Append(vbCrLf & "            flex: 1,")
         sw.Append(vbCrLf & "            activeRecord: null,")
 
@@ -6302,14 +6194,13 @@ Public Class ExtJSMakerMYSQL
             wasCR = False
             sw.Append(vbCrLf & "        { ")
             sw.Append(vbCrLf & "        xtype:'fieldset', ") 'fieldset
-            'sw.Append(vbCrLf & "        anchor:     '100%',")
+            sw.Append(vbCrLf & "        anchor:     '100%',")
             'sw.Append(vbCrLf & "        closable:false,")
             'sw.Append(vbCrLf & "        collapsible:true,")
             'sw.Append(vbCrLf & "        titleCollapse : true,")
             sw.Append(vbCrLf & "        id:'" + P.Name.ToLower() + tabpostfix + "-" + cnt.ToString() + "',")
             cnt += 1
             'sw.Append(vbCrLf & "        y: " + sposY.ToString + ", ")
-            sw.Append(vbCrLf & "        y: 0, ")
             sw.Append(vbCrLf & "        x: 0, ")
             sw.Append(vbCrLf & "        border:1, ")
             sw.Append(vbCrLf & "        layout:'absolute', ")
@@ -6376,7 +6267,7 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
                                 sw.Append(vbCrLf & "        height: " + (ydeltaArea * 3 - 20).ToString + ", ")
-                                sheight = posY + ydeltaArea * 3 - 10 + nofsDelta
+                                sheight = posY + ydeltaArea * 3 - 10 + fsdeltaBlank
 
                                 posY += ydeltaArea * 3 - 10
                                 posX = 5
@@ -6392,7 +6283,7 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
                                 sw.Append(vbCrLf & "        height: " + (ydeltaArea - 10).ToString + ", ")
-                                sheight = posY + ydeltaArea + nofsDelta
+                                sheight = posY + ydeltaArea + fsdeltaBlank
                                 posY += ydeltaArea
                                 posX = 5
                             ElseIf fld.TheStyle.Contains("longtext") Then
@@ -6404,7 +6295,7 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
 
-                                sheight = posY + ydelta + nofsDelta
+                                sheight = posY + ydelta + fsdeltaBlank
 
                                 posY += ydelta
                                 posX = 5
@@ -6415,7 +6306,7 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        maxWidth: " + (maxcol * colW - posX).ToString + ",")
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + (posY).ToString + ", ")
-                                sheight = posY + ydelta + nofsDelta
+                                sheight = posY + ydelta + fsdeltaBlank
                                 posY += ydelta
                                 posX = 5
 
@@ -6425,7 +6316,7 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        maxWidth: " + fldW.ToString + ",")
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + (posY).ToString + ", ")
-                                sheight = posY + ydelta + nofsDelta
+                                sheight = posY + ydelta + fsdeltaBlank
                                 posX += colW
                                 If posX > maxcol * colW Then
                                     posY += ydelta
@@ -6438,7 +6329,7 @@ Public Class ExtJSMakerMYSQL
                                 sw.Append(vbCrLf & "        maxWidth: " + fldW.ToString + ",")
                                 sw.Append(vbCrLf & "        x: " + posX.ToString + ", ")
                                 sw.Append(vbCrLf & "        y: " + posY.ToString + ", ")
-                                sheight = posY + ydelta + nofsDelta
+                                sheight = posY + ydelta + fsdeltaBlank
                                 posX += colW
                                 If posX > maxcol * colW Then
                                     posY += ydelta
@@ -6505,7 +6396,7 @@ Public Class ExtJSMakerMYSQL
 
         For j = 1 To col.Count
             fg = col.Item(j)
-            sheight = 0
+
             If j > 1 Then
                 sw.Append(vbCrLf & ",")
             End If
@@ -6598,8 +6489,8 @@ Public Class ExtJSMakerMYSQL
                                 'End If
 
                                 'sw.Append(vbCrLf & "        titleCollapse : true,")
-                                sw.Append(vbCrLf & "        y: " + sposY.ToString + ", ")
-                                sw.Append(vbCrLf & "        x: 0 , ")
+                                'sw.Append(vbCrLf & "        y: " + sposY.ToString + ", ")
+                                sw.Append(vbCrLf & "        x: 0, ")
                                 sw.Append(vbCrLf & "        layout:'absolute', ")
                                 sw.Append(vbCrLf & "        id:'" + P.Name.ToLower() + tabpostfix + "_" + cnt.ToString() + "',")
                                 cnt += 1
@@ -6940,168 +6831,116 @@ Public Class ExtJSMakerMYSQL
 
             ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
 
-                If ft.Name = "YesNo" Then
+                'If ft.Name = "Boolean" Then
 
-                    sw.Append(vbCrLf & "xtype:          'checkboxfield',")
+                '    sw.Append(vbCrLf & "xtype:          'checkboxfield',")
 
-                    If FldReadOnly Then
-                        If fld.TheStyle.Contains("readonly") Then
-                            sw.Append(vbCrLf & "       cls:'x-item-readonly',")
-                        End If
-                        sw.Append(vbCrLf & "readOnly: true,")
-                        sw.Append(vbCrLf & "editable: false,")
-                        sw.Append(vbCrLf & "disabled: true,")
+                '    If FldReadOnly Then
+                '        If fld.TheStyle.Contains("readonly") Then
+                '            sw.Append(vbCrLf & "       cls:'x-item-readonly',")
+                '        End If
+                '        sw.Append(vbCrLf & "readOnly: true,")
+                '        sw.Append(vbCrLf & "editable: false,")
+                '        sw.Append(vbCrLf & "disabled: true,")
+                '    End If
+                '    sw.Append(vbCrLf & "listeners:{")
+                '    sw.Append(vbCrLf & "    change:function( cb, newValue, oldValue, eOpts ){")
+                '    sw.Append(vbCrLf & "		if(newValue){")
+                '    sw.Append(vbCrLf & "		    cb.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "',-1 );")
+                '    sw.Append(vbCrLf & "		}else{")
+                '    sw.Append(vbCrLf & "		    cb.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "',0 );")
+                '    sw.Append(vbCrLf & "		}")
+                '    sw.Append(vbCrLf & "    }")
+                '    sw.Append(vbCrLf & "},")
+                '    sw.Append(vbCrLf & "uncheckedValue: 'нет',")
+                '    sw.Append(vbCrLf & "inputValue:    'да',")
+
+
+                '    sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_grid',")
+                '    sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "_grid',")
+                '    If Trim(fld.Caption) = "" Then
+                '        sw.Append(vbCrLf & "hideLabel: true,")
+                '    Else
+                '        sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
+                '    End If
+                '    sw.Append(vbCrLf & "labelSeparator:'',")
+                '    'sw.Append(vbCrLf & "boxLabelAlign:  'before',")
+
+                'Else
+                sw.Append(vbCrLf & "xtype:          'combobox',")
+                sw.Append(vbCrLf & "editable: false,")
+                If FldReadOnly Then
+                    If fld.TheStyle.Contains("readonly") Then
+                        sw.Append(vbCrLf & "       cls:'x-item-readonly',")
                     End If
-
-                    sw.Append(vbCrLf & "listeners:{")
-                    sw.Append(vbCrLf & "    change:function( cb, newValue, oldValue, eOpts ){")
-                    ' sw.Append(vbCrLf & "		alert(newValue);")
-                    sw.Append(vbCrLf & "		if(newValue){")
-                    sw.Append(vbCrLf & "		    cb.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "',1 );")
-                    sw.Append(vbCrLf & "		    cb.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "_grid','да' );")
-                    sw.Append(vbCrLf & "		}else{")
-                    sw.Append(vbCrLf & "		    cb.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "',0 );")
-                    sw.Append(vbCrLf & "		    cb.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "_grid','нет' );")
-                    sw.Append(vbCrLf & "		}")
-                    sw.Append(vbCrLf & "    }")
-                    sw.Append(vbCrLf & "},")
-                    sw.Append(vbCrLf & "uncheckedValue: 'нет',")
-                    sw.Append(vbCrLf & "inputValue:    'да',")
-
-
-                    sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_grid',")
-                    sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "_grid',")
-                    If Trim(fld.Caption) = "" Then
-                        sw.Append(vbCrLf & "hideLabel: true,")
-                    Else
-                        sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
-                    End If
-                    sw.Append(vbCrLf & "labelSeparator:'',")
-                    'sw.Append(vbCrLf & "boxLabelAlign:  'before',")
-
+                    sw.Append(vbCrLf & "readOnly: true,")
+                    sw.Append(vbCrLf & "hideTrigger: true,")
                 Else
-                    sw.Append(vbCrLf & "xtype:          'combobox',")
-                    sw.Append(vbCrLf & "editable: false,")
-                    If FldReadOnly Then
-                        If fld.TheStyle.Contains("readonly") Then
-                            sw.Append(vbCrLf & "       cls:'x-item-readonly',")
-                        End If
-                        sw.Append(vbCrLf & "readOnly: true,")
-                        sw.Append(vbCrLf & "hideTrigger: true,")
-                    Else
-                        If Not iSMandatory Then 'fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                            sw.Append(vbCrLf & "trigger1Cls:        'x-form-clear-trigger', ")
-                            sw.Append(vbCrLf & "trigger2Cls:        'x-form-select-trigger', ")
-                            sw.Append(vbCrLf & "hideTrigger1:false, ")
-                            sw.Append(vbCrLf & "hideTrigger2:false, ")
-                            sw.Append(vbCrLf & "onTrigger1Click : function(){")
-                            sw.Append(vbCrLf & "		this.collapse();")
-                            sw.Append(vbCrLf & "		this.clearValue();")
-                            sw.Append(vbCrLf & "},")
-                            sw.Append(vbCrLf & "onTrigger2Click : function(){ ")
-                            sw.Append(vbCrLf & "		if(this.isExpanded) {")
-                            sw.Append(vbCrLf & "			this.collapse(); ")
-                            sw.Append(vbCrLf & "		}else{ ")
-                            'sw.Append(vbCrLf & "			if(this.store.count(false)==0) this.store.load();")
-                            sw.Append(vbCrLf & "			this.expand();")
-                            sw.Append(vbCrLf & "		}")
-                            sw.Append(vbCrLf & "},")
-                        End If
+                    If Not iSMandatory Then 'fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                        sw.Append(vbCrLf & "trigger1Cls:        'x-form-clear-trigger', ")
+                        sw.Append(vbCrLf & "trigger2Cls:        'x-form-select-trigger', ")
+                        sw.Append(vbCrLf & "hideTrigger1:false, ")
+                        sw.Append(vbCrLf & "hideTrigger2:false, ")
+                        sw.Append(vbCrLf & "onTrigger1Click : function(){")
+                        sw.Append(vbCrLf & "		this.collapse();")
+                        sw.Append(vbCrLf & "		this.clearValue();")
+                        sw.Append(vbCrLf & "},")
+                        sw.Append(vbCrLf & "onTrigger2Click : function(){ ")
+                        sw.Append(vbCrLf & "		if(this.isExpanded) {")
+                        sw.Append(vbCrLf & "			this.collapse(); ")
+                        sw.Append(vbCrLf & "		}else{ ")
+                        'sw.Append(vbCrLf & "			if(this.store.count(false)==0) this.store.load();")
+                        sw.Append(vbCrLf & "			this.expand();")
+                        sw.Append(vbCrLf & "		}")
+                        sw.Append(vbCrLf & "},")
+                    End If
 
-                    End If
-                    sw.Append(vbCrLf & "store: enum_" & ft.Name & ",")
-                    sw.Append(vbCrLf & "valueField:     'name',")
-                    sw.Append(vbCrLf & "displayField:   'name',")
-                    sw.Append(vbCrLf & "//typeAhead: true,")
-                    sw.Append(vbCrLf & "queryMode:      'local',")
-                    sw.Append(vbCrLf & "emptyText:      '',")
-                    sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_grid',")
-                    sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "_grid',")
-                    sw.Append(vbCrLf & "listeners:{  select: function ( combo, record, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', record.get('value'));}  },")
-                    If Trim(fld.Caption) = "" Then
-                        sw.Append(vbCrLf & "hideLabel: true,")
-                    Else
-                        sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
-                    End If
                 End If
+                sw.Append(vbCrLf & "store: enum_" & ft.Name & ",")
+                sw.Append(vbCrLf & "valueField:     'name',")
+                sw.Append(vbCrLf & "displayField:   'name',")
+                sw.Append(vbCrLf & "typeAhead: true,")
+                sw.Append(vbCrLf & "queryMode:      'local',")
+                sw.Append(vbCrLf & "emptyText:      '',")
+                sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_grid',")
+                sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "_grid',")
+                sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records[0].get('value'));}  },")
+                If Trim(fld.Caption) = "" Then
+                    sw.Append(vbCrLf & "hideLabel: true,")
+                Else
+                    sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
+                End If
+                'End If
 
             Else
-                    If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
 
-                        If ft.Name.ToLower() = "password" Then
-                            sw.Append(vbCrLf & "xtype:  'textfield',")
-                            sw.Append(vbCrLf & "inputType:  'password',")
-                            sw.Append(vbCrLf & "value:  '',")
-                            sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
-                            sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
-                            If Trim(fld.Caption) = "" Then
-                                sw.Append(vbCrLf & "hideLabel: true,")
-                            Else
-                                sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
-                            End If
-
-                        ElseIf ft.Name.ToLower() = "memo" Then
-                            sw.Append(vbCrLf & "xtype:  'textarea',")  'textareafield
-                            sw.Append(vbCrLf & "value:  '',")
-                            sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
-                            sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
-                            If Trim(fld.Caption) = "" Then
-                                sw.Append(vbCrLf & "hideLabel: true,")
-                            Else
-                                sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
-                            End If
-
+                    If ft.Name.ToLower() = "password" Then
+                        sw.Append(vbCrLf & "xtype:  'textfield',")
+                        sw.Append(vbCrLf & "inputType:  'password',")
+                        sw.Append(vbCrLf & "value:  '',")
+                        sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
+                        sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
+                        If Trim(fld.Caption) = "" Then
+                            sw.Append(vbCrLf & "hideLabel: true,")
                         Else
-                            If Not fld.TheStyle.Contains("area") Then
-                                sw.Append(vbCrLf & "xtype:  'textfield',")
-                            End If
-                            sw.Append(vbCrLf & "value:  '',")
-                            sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
-                            sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
-                            If Trim(fld.Caption) = "" Then
-                                sw.Append(vbCrLf & "hideLabel: true,")
-                            Else
-                                sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
-                            End If
-
+                            sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
                         End If
 
-                        If FldReadOnly Then
-                            sw.Append(vbCrLf & "editable: false,")
-                            sw.Append(vbCrLf & "readOnly: true,")
-                            If fld.TheStyle.Contains("readonly") Then
-
-                                sw.Append(vbCrLf & "cls:'x-item-readonly',")
-                            End If
-                        End If
-                    End If
-
-                    If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
-
-                        sw.Append(vbCrLf & "xtype:  'datefield',")
-
-                        If ft.Name.ToLower = "date" Then
-                            sw.Append(vbCrLf & "format:'d/m/Y',")
-                            sw.Append(vbCrLf & "submitFormat:'Y-m-d H:i:s',")
-                        ElseIf ft.Name.ToLower = "time" Then
-                            sw.Append(vbCrLf & "format:'H:i:s',")
-                            sw.Append(vbCrLf & "submitFormat:'Y-m-d H:i:s',")
-                        ElseIf ft.Name.ToLower = "datetime" Then
-                            sw.Append(vbCrLf & "format:'d/m/Y H:i:s',")
-                            sw.Append(vbCrLf & "submitFormat:'Y-m-d H:i:s',")
-                        ElseIf ft.Name.ToLower = "birthday" Then
-                            sw.Append(vbCrLf & "format:'F, d',")
-                            sw.Append(vbCrLf & "submitFormat:'F, d',")
+                    ElseIf ft.Name.ToLower() = "memo" Then
+                        sw.Append(vbCrLf & "xtype:  'textarea',")  'textareafield
+                        sw.Append(vbCrLf & "value:  '',")
+                        sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
+                        sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
+                        If Trim(fld.Caption) = "" Then
+                            sw.Append(vbCrLf & "hideLabel: true,")
+                        Else
+                            sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
                         End If
 
-
-                        If FldReadOnly Then
-                            sw.Append(vbCrLf & "hideTrigger: true,")
-                            sw.Append(vbCrLf & "editable: false,")
-                            sw.Append(vbCrLf & "readOnly: true,")
-                            If fld.TheStyle.Contains("readonly") Then
-                                sw.Append(vbCrLf & "cls:'x-item-readonly',")
-                            End If
+                    Else
+                        If Not fld.TheStyle.Contains("area") Then
+                            sw.Append(vbCrLf & "xtype:  'textfield',")
                         End If
                         sw.Append(vbCrLf & "value:  '',")
                         sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
@@ -7111,35 +6950,83 @@ Public Class ExtJSMakerMYSQL
                         Else
                             sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
                         End If
+
                     End If
 
-                    If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
-                        sw.Append(vbCrLf & "xtype:  'numberfield',")
-                        If FldReadOnly Then
-                            sw.Append(vbCrLf & "editable: false,")
-                            sw.Append(vbCrLf & "spinDownEnabled: false,")
-                            sw.Append(vbCrLf & "spinUpEnabled: false,")
-                            sw.Append(vbCrLf & "readOnly: true,")
-                            If fld.TheStyle.Contains("readonly") Then
-                                sw.Append(vbCrLf & "cls:'x-item-readonly',")
-                            End If
-                        End If
+                    If FldReadOnly Then
+                        sw.Append(vbCrLf & "editable: false,")
+                        sw.Append(vbCrLf & "readOnly: true,")
+                        If fld.TheStyle.Contains("readonly") Then
 
-                        If fld.TheComment.Contains("minValue") Or fld.TheComment.Contains("maxValue") Then
-                            sw.Append(vbCrLf & fld.TheComment)
-                            hasInterval = True
-                        End If
-
-                        sw.Append(vbCrLf & "value:  '0',")
-                        sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
-                        sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
-                        If Trim(fld.Caption) = "" Then
-                            sw.Append(vbCrLf & "hideLabel: true,")
-                        Else
-                            sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
+                            sw.Append(vbCrLf & "cls:'x-item-readonly',")
                         End If
                     End If
                 End If
+
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
+
+                    sw.Append(vbCrLf & "xtype:  'datefield',")
+
+                    If ft.Name.ToLower = "date" Then
+                        sw.Append(vbCrLf & "format:'d/m/Y',")
+                        sw.Append(vbCrLf & "submitFormat:'Y-m-d H:i:s',")
+                    ElseIf ft.Name.ToLower = "time" Then
+                        sw.Append(vbCrLf & "format:'H:i:s',")
+                        sw.Append(vbCrLf & "submitFormat:'Y-m-d H:i:s',")
+                    ElseIf ft.Name.ToLower = "datetime" Then
+                        sw.Append(vbCrLf & "format:'d/m/Y H:i:s',")
+                        sw.Append(vbCrLf & "submitFormat:'Y-m-d H:i:s',")
+                    ElseIf ft.Name.ToLower = "birthday" Then
+                        sw.Append(vbCrLf & "format:'F, d',")
+                        sw.Append(vbCrLf & "submitFormat:'F, d',")
+                    End If
+
+
+                    If FldReadOnly Then
+                        sw.Append(vbCrLf & "hideTrigger: true,")
+                        sw.Append(vbCrLf & "editable: false,")
+                        sw.Append(vbCrLf & "readOnly: true,")
+                        If fld.TheStyle.Contains("readonly") Then
+                            sw.Append(vbCrLf & "cls:'x-item-readonly',")
+                        End If
+                    End If
+                    sw.Append(vbCrLf & "value:  '',")
+                    sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
+                    sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
+                    If Trim(fld.Caption) = "" Then
+                        sw.Append(vbCrLf & "hideLabel: true,")
+                    Else
+                        sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
+                    End If
+                End If
+
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
+                    sw.Append(vbCrLf & "xtype:  'numberfield',")
+                    If FldReadOnly Then
+                        sw.Append(vbCrLf & "editable: false,")
+                        sw.Append(vbCrLf & "spinDownEnabled: false,")
+                        sw.Append(vbCrLf & "spinUpEnabled: false,")
+                        sw.Append(vbCrLf & "readOnly: true,")
+                        If fld.TheStyle.Contains("readonly") Then
+                            sw.Append(vbCrLf & "cls:'x-item-readonly',")
+                        End If
+                    End If
+
+                    If fld.TheComment.Contains("minValue") Or fld.TheComment.Contains("maxValue") Then
+                        sw.Append(vbCrLf & fld.TheComment)
+                        hasInterval = True
+                    End If
+
+                    sw.Append(vbCrLf & "value:  '0',")
+                    sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
+                    sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
+                    If Trim(fld.Caption) = "" Then
+                        sw.Append(vbCrLf & "hideLabel: true,")
+                    Else
+                        sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
+                    End If
+                End If
+            End If
 
         ElseIf fld.ReferenceType = MTZMetaModel.MTZMetaModel.enumReferenceType.ReferenceType_Na_stroku_razdela Then
             Dim refP As MTZMetaModel.MTZMetaModel.PART
@@ -7231,7 +7118,7 @@ Public Class ExtJSMakerMYSQL
                     sw.Append(vbCrLf & "store: cmbstore_" + refP.Name.ToLower() + ",")
                     sw.Append(vbCrLf & "valueField:     'brief',")
                     sw.Append(vbCrLf & "displayField:   'brief',")
-                    sw.Append(vbCrLf & "//typeAhead: true,")
+                    sw.Append(vbCrLf & "typeAhead: true,")
                     'sw.Append(vbCrLf & "queryMode:      'local',")
                     sw.Append(vbCrLf & "emptyText:      '',")
                     sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_grid',")
@@ -7301,10 +7188,10 @@ Public Class ExtJSMakerMYSQL
                             sw.Append(vbCrLf & "editable: true,")
                             sw.Append(vbCrLf & "enableRegEx: true,")
                             sw.Append(vbCrLf & "queryMode:'local',")
-                            sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records.get('id'));} ,focus: function()   {  this.store.load();  } },")
+                            sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records[0].get('id'));} ,focus: function()   {  this.store.load();  } },")
                         Else
                             sw.Append(vbCrLf & "editable: false,")
-                            sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records.get('id'));}  },")
+                            sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records[0].get('id'));}  },")
                         End If
 
                     End If
@@ -7315,13 +7202,13 @@ Public Class ExtJSMakerMYSQL
                     sw.Append(vbCrLf & "store: cmbstore_" + refP.Name.ToLower() + ",")
                     sw.Append(vbCrLf & "valueField:     'brief',")
                     sw.Append(vbCrLf & "displayField:   'brief',")
-                    sw.Append(vbCrLf & "//typeAhead: true,")
+                    sw.Append(vbCrLf & "typeAhead: true,")
                     'sw.Append(vbCrLf & "queryMode:      'local',")
                     sw.Append(vbCrLf & "emptyText:      '',")
                     sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_grid',")
                     sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "_grid',")
                     sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
-                    'sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records.get('id'));}  },")
+                    'sw.Append(vbCrLf & "listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('" & fld.Name.ToLower() & "', records[0].get('id'));}  },")
 
 
                 End If
@@ -7375,10 +7262,10 @@ Public Class ExtJSMakerMYSQL
 
         If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
             If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-                'If ft.Name = "YesNo" Then
+                'If ft.Name = "Boolean" Then
                 '    sw.Append(vbCrLf & "xtype:          'checkboxfield',")
                 '    sw.Append(vbCrLf & "uncheckedValue: 0,")
-                '    sw.Append(vbCrLf & "inputValue:    1,")
+                '    sw.Append(vbCrLf & "inputValue:    -1,")
                 '    sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "',")
                 '    sw.Append(vbCrLf & "itemId:   '" & fld.Name.ToLower() & "',")
                 '    sw.Append(vbCrLf & "fieldLabel:  '" & fld.Caption & "',")
@@ -7409,7 +7296,7 @@ Public Class ExtJSMakerMYSQL
                 sw.Append(vbCrLf & "store: enum_" & ft.Name & ",")
                 sw.Append(vbCrLf & "valueField:     'value',")
                 sw.Append(vbCrLf & "displayField:   'name',")
-                sw.Append(vbCrLf & "//typeAhead: true,")
+                sw.Append(vbCrLf & "typeAhead: true,")
                 sw.Append(vbCrLf & "queryMode:      'local',")
                 sw.Append(vbCrLf & "emptyText:      '',")
                 sw.Append(vbCrLf & "name:   '" & fld.Name.ToLower() & "_val',")
@@ -7554,7 +7441,7 @@ Public Class ExtJSMakerMYSQL
                     'sw.Append(vbCrLf & "store: cmbstore_" + refP.Name.ToLower() + ",")
                     'sw.Append(vbCrLf & "valueField:     'id',")
                     'sw.Append(vbCrLf & "displayField:   'brief',")
-                    'sw.Append(vbCrLf & "//typeAhead: true,")
+                    'sw.Append(vbCrLf & "typeAhead: true,")
                     'sw.Append(vbCrLf & "queryMode:      'local',")
                     'sw.Append(vbCrLf & "multiSelect : true,")
                     'sw.Append(vbCrLf & "delimiter:          ' ', ")
@@ -8078,7 +7965,7 @@ Public Class ExtJSMakerMYSQL
         End If
         sw.Append(vbCrLf & "            reader: {")
         sw.Append(vbCrLf & "                type:   'json'")
-        sw.Append(vbCrLf & "                ,rootProperty:  'rows'")
+        sw.Append(vbCrLf & "                ,root:  'rows'")
         sw.Append(vbCrLf & "                ,totalProperty: 'total'")
         sw.Append(vbCrLf & "                ,successProperty:  'success'")
         sw.Append(vbCrLf & "                ,messageProperty:  'msg'")
@@ -8318,7 +8205,7 @@ Public Class ExtJSMakerMYSQL
         sw.Append(vbCrLf & "        store: store_v_" & pv.the_Alias.ToLower() & ",")
         sw.Append(vbCrLf & "        features: [groupingFeature_" & pv.the_Alias.ToLower() & "],")
         sw.Append(vbCrLf & "        defaultDockWeights : { top: 7, bottom: 5, left: 1, right: 3 },")
-        sw.Append(vbCrLf & "        // viewConfig: {               enableTextSelection: true        },")
+        sw.Append(vbCrLf & "        viewConfig: {               enableTextSelection: true        },")
         sw.Append(vbCrLf & "        dockedItems: [{")
         sw.Append(vbCrLf & "                xtype:  'toolbar',")
         sw.Append(vbCrLf & "                     items: [{")
@@ -8367,12 +8254,11 @@ Public Class ExtJSMakerMYSQL
         If p.UseFavorites = MTZJrnl.MTZJrnl.enumBoolean.Boolean_Da Then
             sw.Append(vbCrLf & "                    {")
             sw.Append(vbCrLf & "                      xtype:  'checkcolumn',")
-            sw.Append(vbCrLf & "                      text:  'X',")
             sw.Append(vbCrLf & "                      width: 30,")
             sw.Append(vbCrLf & "                      dataIndex:  'isfavorite',")
-            sw.Append(vbCrLf & "					  fixed: true,")
-            sw.Append(vbCrLf & "					  menuDisabled: true,")
-            sw.Append(vbCrLf & "					  sortable: false,")
+            sw.Append(vbCrLf & "						fixed: true,")
+            sw.Append(vbCrLf & "						menuDisabled: true,")
+            sw.Append(vbCrLf & "						sortable: false,")
             sw.Append(vbCrLf & "                      listeners:")
             sw.Append(vbCrLf & "                        {")
             sw.Append(vbCrLf & "                            checkchange: function( cell, rowIndex, checked, eOpts )")
@@ -8393,20 +8279,7 @@ Public Class ExtJSMakerMYSQL
             sw.Append(vbCrLf & "                                        record.commit();")
             sw.Append(vbCrLf & "                                    }")
             sw.Append(vbCrLf & "                                });")
-            sw.Append(vbCrLf & "                            },")
-
-            sw.Append(vbCrLf & "                            headerclick:function( ct, column, e, t, eOpts ){")
-            sw.Append(vbCrLf & "								 Ext.Ajax.request({")
-            sw.Append(vbCrLf & "									url: rootURL+'index.php/app2/resetFavorite',")
-            sw.Append(vbCrLf & "                                  method:     'POST',")
-            sw.Append(vbCrLf & "									params: { ")
-            sw.Append(vbCrLf & "                                      type:       '" + ot.Name + "'")
-            sw.Append(vbCrLf & "									}")
-            sw.Append(vbCrLf & "								});")
-            sw.Append(vbCrLf & "								ct.grid.store.load();")
-            sw.Append(vbCrLf & "							}")
-
-
+            sw.Append(vbCrLf & "                            }")
             sw.Append(vbCrLf & "                        }")
             sw.Append(vbCrLf & "                    },")
         End If
@@ -8803,17 +8676,17 @@ Public Class ExtJSMakerMYSQL
         End If
 
         ' make journal PHP model
-        Tool_WriteFile(JournalMake_PHPModel(JJJ), textBoxOutPutFolder.Text & "models\", "m_v_" & pv.the_Alias.ToLower() & ".php", True)
+        Tool_WriteFile(JournalMake_PHPModel(JJJ), textBoxOutPutFolder.Text & "models\", "m_v_" & pv.the_Alias.ToLower() & ".php")
 
         ' make journal PHP controller
-        Tool_WriteFile(JournalMake_PHPController(JJJ), textBoxOutPutFolder.Text & "controllers\", "c_v_" & pv.the_Alias.ToLower() & ".php", True)
+        Tool_WriteFile(JournalMake_PHPController(JJJ), textBoxOutPutFolder.Text & "controllers\", "c_v_" & pv.the_Alias.ToLower() & ".php")
 
         ' make journal JS model
-        Tool_WriteFile(JournalMake_JSModel(JJJ) & vbCrLf & JournalMake_JSStore(JJJ), textBoxOutPutFolder.Text & "_js\", "s_v_" & pv.the_Alias.ToLower() & ".js", False)
+        Tool_WriteFile(JournalMake_JSModel(JJJ) & vbCrLf & JournalMake_JSStore(JJJ), textBoxOutPutFolder.Text & "_js\", "s_v_" & pv.the_Alias.ToLower() & ".js")
 
 
         ' make journal grid
-        Tool_WriteFile(JournalMake_JSGrid(JJJ), textBoxOutPutFolder.Text & "_js\", "j_v_" & pv.the_Alias.ToLower() & ".js", False)
+        Tool_WriteFile(JournalMake_JSGrid(JJJ), textBoxOutPutFolder.Text & "_js\", "j_v_" & pv.the_Alias.ToLower() & ".js")
 
 
         ' make jurnal filter ???
@@ -8847,11 +8720,11 @@ Public Class ExtJSMakerMYSQL
             pb.Value = i
             Application.DoEvents()
         Next
-        Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "_js\", "models.js", False)
+        Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "_js\", "models.js")
 
         Me.Text = "Generating enums"
         Application.DoEvents()
-        Tool_WriteFile(SysMake_enumStore, textBoxOutPutFolder.Text & "_js\", "enums.js", False)
+        Tool_WriteFile(SysMake_enumStore, textBoxOutPutFolder.Text & "_js\", "enums.js")
 
 
         pb.Minimum = 0
@@ -8906,14 +8779,14 @@ Public Class ExtJSMakerMYSQL
         If chkMenu.Checked Then
             Me.Text = "Generating menus"
             Application.DoEvents()
-            Tool_WriteFile(SysMake_Menu(), textBoxOutPutFolder.Text & "_js\", "menu.js", False)
+            Tool_WriteFile(SysMake_Menu(), textBoxOutPutFolder.Text & "_js\", "menu.js")
         End If
 
 
         If chkInc.Checked Then
             Me.Text = "Generating include file"
             Application.DoEvents()
-            Tool_WriteFile(SysMake_Include(), textBoxOutPutFolder.Text & "views\", "inc.php", False)
+            Tool_WriteFile(SysMake_Include(), textBoxOutPutFolder.Text & "views\", "inc.php")
         End If
 
         MsgBox("Генерация кода завершена")
@@ -8955,22 +8828,4 @@ Public Class ExtJSMakerMYSQL
     Private Sub chkJournals_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles chkJournals.SelectedIndexChanged
 
     End Sub
-
-
-    Function UFL(ByVal val As String) As String
-        ' Test for nothing or empty.
-        If String.IsNullOrEmpty(val) Then
-            Return val
-        End If
-
-
-        ' Convert to character array.
-        Dim array() As Char = val.ToLower.ToCharArray
-
-        ' Uppercase first character.
-        array(0) = Char.ToUpper(array(0))
-
-        ' Return new string.
-        Return New String(array)
-    End Function
 End Class

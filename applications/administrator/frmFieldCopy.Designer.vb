@@ -40,6 +40,8 @@ Partial Class frmFieldCopy
         '
         'tvCopyTo
         '
+        Me.tvCopyTo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tvCopyTo.Location = New System.Drawing.Point(446, 41)
         Me.tvCopyTo.Name = "tvCopyTo"
         Me.tvCopyTo.Size = New System.Drawing.Size(321, 177)
@@ -47,6 +49,7 @@ Partial Class frmFieldCopy
         '
         'cmdCopy
         '
+        Me.cmdCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdCopy.Location = New System.Drawing.Point(339, 288)
         Me.cmdCopy.Name = "cmdCopy"
         Me.cmdCopy.Size = New System.Drawing.Size(101, 33)
@@ -74,6 +77,8 @@ Partial Class frmFieldCopy
         '
         'lstFrom
         '
+        Me.lstFrom.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lstFrom.FormattingEnabled = True
         Me.lstFrom.Location = New System.Drawing.Point(19, 226)
         Me.lstFrom.Name = "lstFrom"
@@ -82,6 +87,8 @@ Partial Class frmFieldCopy
         '
         'lstTo
         '
+        Me.lstTo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstTo.FormattingEnabled = True
         Me.lstTo.Location = New System.Drawing.Point(446, 228)
         Me.lstTo.Name = "lstTo"
@@ -104,8 +111,9 @@ Partial Class frmFieldCopy
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmFieldCopy"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Копирование полей"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

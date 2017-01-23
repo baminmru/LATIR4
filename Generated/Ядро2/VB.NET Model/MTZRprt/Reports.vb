@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZRprt
 
@@ -161,8 +162,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = TheComment
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -252,7 +257,7 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              dr("Name") =Name
@@ -292,6 +297,9 @@ End Function
              dr("ReportView") =ReportView
              dr("TheComment") =TheComment
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -345,7 +353,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -374,6 +382,9 @@ End Function
       end if 
           If reader.Table.Columns.Contains("ReportView") Then m_ReportView=reader.item("ReportView").ToString()
           If reader.Table.Columns.Contains("TheComment") Then m_TheComment=reader.item("TheComment").ToString()
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -553,7 +564,7 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             Name = node.Attributes.GetNamedItem("Name").Value
             ReportFile = System.Convert.FromBase64String(node.Attributes.GetNamedItem("ReportFile").Value.ToString())
             Caption = node.Attributes.GetNamedItem("Caption").Value
@@ -563,6 +574,9 @@ End Function
             ReportView = node.Attributes.GetNamedItem("ReportView").Value
             TheComment = node.Attributes.GetNamedItem("TheComment").Value
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -575,7 +589,7 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
+           try 
           node.SetAttribute("Name", Name)  
           node.SetAttribute("ReportFile", System.Convert.ToBase64String(ReportFile))  
           node.SetAttribute("Caption", Caption)  
@@ -584,6 +598,9 @@ End Function
           node.SetAttribute("TheReportExt", m_TheReportExt.tostring)  
           node.SetAttribute("ReportView", ReportView)  
           node.SetAttribute("TheComment", TheComment)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
   Public Class viewReports
     Inherits System.Windows.Forms.UserControl

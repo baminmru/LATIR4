@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,14 +51,14 @@ Public Class editRPTFormula
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCode  as  System.Windows.Forms.Label
-Friend WithEvents txtCode As System.Windows.Forms.TextBox
+Friend WithEvents txtCode As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblPlatform  as  System.Windows.Forms.Label
-Friend WithEvents txtPlatform As System.Windows.Forms.TextBox
+Friend WithEvents txtPlatform As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdPlatform As System.Windows.Forms.Button
 Friend WithEvents cmdPlatformClear As System.Windows.Forms.Button
 
@@ -77,11 +78,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblCode = New System.Windows.Forms.Label
-Me.txtCode = New System.Windows.Forms.TextBox
+Me.txtCode = New LATIR2GuiManager.TouchTextBox
 Me.lblPlatform = New System.Windows.Forms.Label
-Me.txtPlatform = New System.Windows.Forms.TextBox
+Me.txtPlatform = New LATIR2GuiManager.TouchTextBox
 Me.cmdPlatform = New System.Windows.Forms.Button
 Me.cmdPlatformClear = New System.Windows.Forms.Button
 
@@ -163,7 +164,7 @@ private sub txtPlatform_TextChanged(ByVal sender As Object, ByVal e As System.Ev
 
 end sub
 private sub cmdPlatform_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPlatform.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -171,11 +172,17 @@ Dim OK as boolean
           txtPlatform.Tag = id
           txtPlatform.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub cmdPlatformClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPlatformClear.Click
-  on error resume next
+  try
           txtPlatform.Tag = Guid.Empty
           txtPlatform.text = ""
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 
 Public Item As MTZRprt.MTZRprt.RPTFormula

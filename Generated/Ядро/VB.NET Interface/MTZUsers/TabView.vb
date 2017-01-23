@@ -39,16 +39,16 @@ Public Class Tabview
     'Do not modify it using the code editor.
     Friend WithEvents tab As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents ViewUsers As MTZUsersGUI.viewUsers
+    Friend WithEvents Viewusers As mtzusersGUI.viewusers
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents ViewGroups As MTZUsersGUI.viewGroups
+    Friend WithEvents Viewgroups As mtzusersGUI.viewgroups
    
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.tab = New System.Windows.Forms.TabControl
    TabPage1 = New System.Windows.Forms.TabPage
-   ViewUsers = new viewUsers
+   Viewusers = new viewusers
    TabPage2 = New System.Windows.Forms.TabPage
-   ViewGroups = new viewGroups
+   Viewgroups = new viewgroups
         Me.tab.SuspendLayout()
    Me.TabPage1.SuspendLayout()
    Me.TabPage2.SuspendLayout()
@@ -64,7 +64,7 @@ Public Class Tabview
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add (Me.ViewUsers)
+        Me.TabPage1.Controls.Add (Me.Viewusers)
         Me.TabPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.TabPage1.name = "TabPage1"
         Me.TabPage1.Text = "Пользователи"
@@ -72,17 +72,17 @@ Public Class Tabview
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.AutoScroll = True
         '
-        'ViewUsers
+        'Viewusers
         '
-        Me.ViewUsers.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ViewUsers.Location = New System.Drawing.Point(0, 0)
-        Me.ViewUsers.name = "ViewUsers"
-        Me.ViewUsers.Size = New System.Drawing.Size(504, 352)
-        Me.ViewUsers.TabIndex = 0
+        Me.Viewusers.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Viewusers.Location = New System.Drawing.Point(0, 0)
+        Me.Viewusers.name = "Viewusers"
+        Me.Viewusers.Size = New System.Drawing.Size(504, 352)
+        Me.Viewusers.TabIndex = 0
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add (Me.ViewGroups)
+        Me.TabPage2.Controls.Add (Me.Viewgroups)
         Me.TabPage2.Location = New System.Drawing.Point(-10000, -10000)
         Me.TabPage2.name = "TabPage2"
         Me.TabPage2.Text = "Группы"
@@ -90,13 +90,13 @@ Public Class Tabview
         Me.TabPage2.TabIndex = 0
         Me.TabPage2.AutoScroll = True
         '
-        'ViewGroups
+        'Viewgroups
         '
-        Me.ViewGroups.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ViewGroups.Location = New System.Drawing.Point(0, 0)
-        Me.ViewGroups.name = "ViewGroups"
-        Me.ViewGroups.Size = New System.Drawing.Size(504, 352)
-        Me.ViewGroups.TabIndex = 0
+        Me.Viewgroups.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Viewgroups.Location = New System.Drawing.Point(0, 0)
+        Me.Viewgroups.name = "Viewgroups"
+        Me.Viewgroups.Size = New System.Drawing.Size(504, 352)
+        Me.Viewgroups.TabIndex = 0
    Me.tab.Controls.Add (Me.TabPage1)
    Me.tab.Controls.Add (Me.TabPage2)
         '
@@ -122,7 +122,7 @@ Public Class Tabview
 ''' <remarks>
 '''
 ''' </remarks>
-    Public item As MTZUsers.MTZUsers.Application
+    Public item As mtzusers.mtzusers.Application
     Private mReadOnly as boolean
 
 
@@ -144,11 +144,11 @@ Public Class Tabview
 '''
 ''' </remarks>
     Public Sub Attach(ByVal docItem As LATIR2.Document.Doc_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, byval DocReadOnly as boolean  ) Implements LATIR2GUIManager.IViewPanel.Attach
-        item = CType(docItem, MTZUsers.MTZUsers.Application)
+        item = CType(docItem, mtzusers.mtzusers.Application)
         mReadOnly =DocReadOnly
         GuiManager = gm
-        ViewUsers.Attach(item, GuiManager,DocReadOnly)
-        ViewGroups.Attach(item, GuiManager,DocReadOnly)
+        Viewusers.Attach(item, GuiManager,DocReadOnly)
+        Viewgroups.Attach(item, GuiManager,DocReadOnly)
     End Sub
 
 
@@ -161,8 +161,8 @@ Public Class Tabview
     Public Function Save(ByVal Sielent As Boolean, ByVal NoError As Boolean) As Boolean Implements LATIR2GUIManager.IViewPanel.Save
     Dim ok As Boolean
     ok = True
-        ok = ok And ViewUsers.Save(Sielent, NoError)
-        ok = ok And ViewGroups.Save(Sielent, NoError)
+        ok = ok And Viewusers.Save(Sielent, NoError)
+        ok = ok And Viewgroups.Save(Sielent, NoError)
        Return ok
     End function
 
@@ -176,8 +176,8 @@ Public Class Tabview
     Public Function IsOK() As Boolean Implements LATIR2GUIManager.IViewPanel.IsOK
     Dim ok As Boolean
     ok = True
-        ok = ok And ViewUsers.IsOK()
-        ok = ok And ViewGroups.IsOK()
+        ok = ok And Viewusers.IsOK()
+        ok = ok And Viewgroups.IsOK()
        Return ok
     End function
 
@@ -192,8 +192,8 @@ Public Class Tabview
     Dim ok As Boolean
     if mReadOnly then return false
     ok = False
-        ok = ok or ViewUsers.IsChanged()
-        ok = ok or ViewGroups.IsChanged()
+        ok = ok or Viewusers.IsChanged()
+        ok = ok or Viewgroups.IsChanged()
        Return ok
     End function
 
@@ -208,21 +208,21 @@ Public Class Tabview
     Dim ok As Boolean
     if mReadOnly then return true
     ok = True
-        ok = ok And ViewUsers.Verify(NoError)
-        ok = ok And ViewGroups.Verify(NoError)
+        ok = ok And Viewusers.Verify(NoError)
+        ok = ok And Viewgroups.Verify(NoError)
        Return ok
     End function
     Private Sub TabPage1_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPage1.Leave
-        If ViewUsers.IsChanged() Then
+        If Viewusers.IsChanged() Then
             If MsgBox("Сохранить изменения на вкладке <" + TabPage1.Text + "> ?", MsgBoxStyle.YesNo, "Изменения") = MsgBoxResult.Yes Then
-                ViewUsers.Save(True, False)
+                Viewusers.Save(True, False)
             End If
         End If
     End Sub
     Private Sub TabPage2_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPage2.Leave
-        If ViewGroups.IsChanged() Then
+        If Viewgroups.IsChanged() Then
             If MsgBox("Сохранить изменения на вкладке <" + TabPage2.Text + "> ?", MsgBoxStyle.YesNo, "Изменения") = MsgBoxResult.Yes Then
-                ViewGroups.Save(True, False)
+                Viewgroups.Save(True, False)
             End If
         End If
     End Sub

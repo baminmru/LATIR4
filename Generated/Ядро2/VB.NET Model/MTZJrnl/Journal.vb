@@ -10,7 +10,7 @@ Imports System.Convert
 Imports System.DateTime
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -19,7 +19,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class Journal
+    Public Class journal
         Inherits LATIR2.Document.DocRow_Base
 
 
@@ -30,25 +30,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-            private m_Name  as String
-
-
-''' <summary>
-'''Локальная переменная для поля Описание
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_TheComment  as STRING
-
-
-''' <summary>
-'''Локальная переменная для поля Иконка журнала
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_jrnlIconCls  as String
+            private m_name  as String
 
 
 ''' <summary>
@@ -57,7 +39,25 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-            private m_the_Alias  as String
+            private m_the_alias  as String
+
+
+''' <summary>
+'''Локальная переменная для поля Описание
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_thecomment  as STRING
+
+
+''' <summary>
+'''Локальная переменная для поля Иконка журнала
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_jrnliconcls  as String
 
 
 ''' <summary>
@@ -66,7 +66,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-            private m_UseFavorites  as enumBoolean
+            private m_usefavorites  as enumBoolean
 
 
 
@@ -77,11 +77,11 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Sub CleanFields()
-            ' m_Name=   
-            ' m_TheComment=   
-            ' m_jrnlIconCls=   
-            ' m_the_Alias=   
-            ' m_UseFavorites=   
+            ' m_name=   
+            ' m_the_alias=   
+            ' m_thecomment=   
+            ' m_jrnliconcls=   
+            ' m_usefavorites=   
         End Sub
 
 
@@ -115,15 +115,15 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                 Case 0
                     Value = ID
                 Case 1
-                    Value = Name
+                    Value = name
                 Case 2
-                    Value = the_Alias
+                    Value = the_alias
                 Case 3
-                    Value = TheComment
+                    Value = thecomment
                 Case 4
-                    Value = jrnlIconCls
+                    Value = jrnliconcls
                 Case 5
-                    Value = UseFavorites
+                    Value = usefavorites
             End Select
         else
         try
@@ -142,15 +142,15 @@ Public Overrides Property Value(ByVal Index As Object) As Object
             Case 0
                  ID=value
                 Case 1
-                    Name = value
+                    name = value
                 Case 2
-                    the_Alias = value
+                    the_alias = value
                 Case 3
-                    TheComment = value
+                    thecomment = value
                 Case 4
-                    jrnlIconCls = value
+                    jrnliconcls = value
                 Case 5
-                    UseFavorites = value
+                    usefavorites = value
         End Select
      Else
         Try
@@ -182,15 +182,15 @@ Public Overrides Function FieldNameByID(ByVal Index As long) As String
                 Case 0
                    Return "ID"
                 Case 1
-                    Return "Name"
+                    Return "name"
                 Case 2
-                    Return "the_Alias"
+                    Return "the_alias"
                 Case 3
-                    Return "TheComment"
+                    Return "thecomment"
                 Case 4
-                    Return "jrnlIconCls"
+                    Return "jrnliconcls"
                 Case 5
-                    Return "UseFavorites"
+                    Return "usefavorites"
                 Case else
                 return "" 
             End Select
@@ -212,18 +212,18 @@ End Function
             try
             dr("ID") =ID
             dr("Brief") =Brief
-             dr("Name") =Name
-             dr("the_Alias") =the_Alias
-             dr("TheComment") =TheComment
-             dr("jrnlIconCls") =jrnlIconCls
-             select case UseFavorites
+             dr("name") =name
+             dr("the_alias") =the_alias
+             dr("thecomment") =thecomment
+             dr("jrnliconcls") =jrnliconcls
+             select case usefavorites
             case enumBoolean.Boolean_Da
-              dr ("UseFavorites")  = "Да"
-              dr ("UseFavorites_VAL")  = -1
+              dr ("usefavorites")  = "Да"
+              dr ("usefavorites_VAL")  = -1
             case enumBoolean.Boolean_Net
-              dr ("UseFavorites")  = "Нет"
-              dr ("UseFavorites_VAL")  = 0
-              end select 'UseFavorites
+              dr ("usefavorites")  = "Нет"
+              dr ("usefavorites_VAL")  = 0
+              end select 'usefavorites
             DestDataTable.Rows.Add (dr)
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -252,11 +252,11 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Pack(ByVal nv As LATIR2.NamedValues)
-          nv.Add("Name", Name, dbtype.string)
-          nv.Add("the_Alias", the_Alias, dbtype.string)
-          nv.Add("TheComment", TheComment, dbtype.string)
-          nv.Add("jrnlIconCls", jrnlIconCls, dbtype.string)
-          nv.Add("UseFavorites", UseFavorites, dbtype.int16)
+          nv.Add("name", name, dbtype.string)
+          nv.Add("the_alias", the_alias, dbtype.string)
+          nv.Add("thecomment", thecomment, dbtype.string)
+          nv.Add("jrnliconcls", jrnliconcls, dbtype.string)
+          nv.Add("usefavorites", usefavorites, dbtype.int16)
             nv.Add(PartName() & "id", Application.Session.GetProvider.ID2Param(ID),  Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
         End Sub
 
@@ -279,11 +279,11 @@ End Function
 
             RowRetrived = True
             RetriveTime = Now
-          If reader.Table.Columns.Contains("Name") Then m_Name=reader.item("Name").ToString()
-          If reader.Table.Columns.Contains("the_Alias") Then m_the_Alias=reader.item("the_Alias").ToString()
-          If reader.Table.Columns.Contains("TheComment") Then m_TheComment=reader.item("TheComment").ToString()
-          If reader.Table.Columns.Contains("jrnlIconCls") Then m_jrnlIconCls=reader.item("jrnlIconCls").ToString()
-          If reader.Table.Columns.Contains("UseFavorites") Then m_UseFavorites=reader.item("UseFavorites")
+          If reader.Table.Columns.Contains("name") Then m_name=reader.item("name").ToString()
+          If reader.Table.Columns.Contains("the_alias") Then m_the_alias=reader.item("the_alias").ToString()
+          If reader.Table.Columns.Contains("thecomment") Then m_thecomment=reader.item("thecomment").ToString()
+          If reader.Table.Columns.Contains("jrnliconcls") Then m_jrnliconcls=reader.item("jrnliconcls").ToString()
+          If reader.Table.Columns.Contains("usefavorites") Then m_usefavorites=reader.item("usefavorites")
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try
@@ -296,15 +296,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property Name() As String
+        Public Property name() As String
             Get
                 LoadFromDatabase()
-                Name = m_Name
+                name = m_name
                 AccessTime = Now
             End Get
             Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_Name = Value
+                m_name = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -316,15 +316,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property the_Alias() As String
+        Public Property the_alias() As String
             Get
                 LoadFromDatabase()
-                the_Alias = m_the_Alias
+                the_alias = m_the_alias
                 AccessTime = Now
             End Get
             Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_the_Alias = Value
+                m_the_alias = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -336,15 +336,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property TheComment() As STRING
+        Public Property thecomment() As STRING
             Get
                 LoadFromDatabase()
-                TheComment = m_TheComment
+                thecomment = m_thecomment
                 AccessTime = Now
             End Get
             Set(ByVal Value As STRING )
                 LoadFromDatabase()
-                m_TheComment = Value
+                m_thecomment = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -356,15 +356,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property jrnlIconCls() As String
+        Public Property jrnliconcls() As String
             Get
                 LoadFromDatabase()
-                jrnlIconCls = m_jrnlIconCls
+                jrnliconcls = m_jrnliconcls
                 AccessTime = Now
             End Get
             Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_jrnlIconCls = Value
+                m_jrnliconcls = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -376,15 +376,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property UseFavorites() As enumBoolean
+        Public Property usefavorites() As enumBoolean
             Get
                 LoadFromDatabase()
-                UseFavorites = m_UseFavorites
+                usefavorites = m_usefavorites
                 AccessTime = Now
             End Get
             Set(ByVal Value As enumBoolean )
                 LoadFromDatabase()
-                m_UseFavorites = Value
+                m_usefavorites = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -399,11 +399,11 @@ End Function
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
           try 
-            Name = node.Attributes.GetNamedItem("Name").Value
-            the_Alias = node.Attributes.GetNamedItem("the_Alias").Value
-            TheComment = node.Attributes.GetNamedItem("TheComment").Value
-            jrnlIconCls = node.Attributes.GetNamedItem("jrnlIconCls").Value
-            UseFavorites = node.Attributes.GetNamedItem("UseFavorites").Value
+            name = node.Attributes.GetNamedItem("name").Value
+            the_alias = node.Attributes.GetNamedItem("the_alias").Value
+            thecomment = node.Attributes.GetNamedItem("thecomment").Value
+            jrnliconcls = node.Attributes.GetNamedItem("jrnliconcls").Value
+            usefavorites = node.Attributes.GetNamedItem("usefavorites").Value
              Changed = true
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -421,11 +421,11 @@ End Function
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
            try 
-          node.SetAttribute("Name", Name)  
-          node.SetAttribute("the_Alias", the_Alias)  
-          node.SetAttribute("TheComment", TheComment)  
-          node.SetAttribute("jrnlIconCls", jrnlIconCls)  
-          node.SetAttribute("UseFavorites", UseFavorites)  
+          node.SetAttribute("name", name)  
+          node.SetAttribute("the_alias", the_alias)  
+          node.SetAttribute("thecomment", thecomment)  
+          node.SetAttribute("jrnliconcls", jrnliconcls)  
+          node.SetAttribute("usefavorites", usefavorites)  
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try

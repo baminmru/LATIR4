@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,14 +51,14 @@ Public Class editthe_Session
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblApplicationID  as  System.Windows.Forms.Label
-Friend WithEvents txtApplicationID As System.Windows.Forms.TextBox
+Friend WithEvents txtApplicationID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdApplicationID As System.Windows.Forms.Button
 Friend WithEvents cmdApplicationIDClear As System.Windows.Forms.Button
 Friend WithEvents lblUserRole  as  System.Windows.Forms.Label
-Friend WithEvents txtUserRole As System.Windows.Forms.TextBox
+Friend WithEvents txtUserRole As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdUserRole As System.Windows.Forms.Button
 Friend WithEvents lblClosedAt  as  System.Windows.Forms.Label
 Friend WithEvents dtpClosedAt As System.Windows.Forms.DateTimePicker
@@ -66,16 +67,16 @@ Friend WithEvents cmbClosed As System.Windows.Forms.ComboBox
 Friend cmbClosedDATA As DataTable
 Friend cmbClosedDATAROW As DataRow
 Friend WithEvents lblUsersid  as  System.Windows.Forms.Label
-Friend WithEvents txtUsersid As System.Windows.Forms.TextBox
+Friend WithEvents txtUsersid As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdUsersid As System.Windows.Forms.Button
 Friend WithEvents lblLastAccess  as  System.Windows.Forms.Label
 Friend WithEvents dtpLastAccess As System.Windows.Forms.DateTimePicker
 Friend WithEvents lblStartAt  as  System.Windows.Forms.Label
 Friend WithEvents dtpStartAt As System.Windows.Forms.DateTimePicker
 Friend WithEvents lblLang  as  System.Windows.Forms.Label
-Friend WithEvents txtLang As System.Windows.Forms.TextBox
+Friend WithEvents txtLang As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblLogin  as  System.Windows.Forms.Label
-Friend WithEvents txtLogin As System.Windows.Forms.TextBox
+Friend WithEvents txtLogin As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -93,27 +94,27 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblApplicationID = New System.Windows.Forms.Label
-Me.txtApplicationID = New System.Windows.Forms.TextBox
+Me.txtApplicationID = New LATIR2GuiManager.TouchTextBox
 Me.cmdApplicationID = New System.Windows.Forms.Button
 Me.cmdApplicationIDClear = New System.Windows.Forms.Button
 Me.lblUserRole = New System.Windows.Forms.Label
-Me.txtUserRole = New System.Windows.Forms.TextBox
+Me.txtUserRole = New LATIR2GuiManager.TouchTextBox
 Me.cmdUserRole = New System.Windows.Forms.Button
 Me.lblClosedAt = New System.Windows.Forms.Label
 Me.dtpClosedAt = New System.Windows.Forms.DateTimePicker
 Me.lblClosed = New System.Windows.Forms.Label
 Me.cmbClosed = New System.Windows.Forms.ComboBox
 Me.lblUsersid = New System.Windows.Forms.Label
-Me.txtUsersid = New System.Windows.Forms.TextBox
+Me.txtUsersid = New LATIR2GuiManager.TouchTextBox
 Me.cmdUsersid = New System.Windows.Forms.Button
 Me.lblLastAccess = New System.Windows.Forms.Label
 Me.dtpLastAccess = New System.Windows.Forms.DateTimePicker
 Me.lblStartAt = New System.Windows.Forms.Label
 Me.dtpStartAt = New System.Windows.Forms.DateTimePicker
 Me.lblLang = New System.Windows.Forms.Label
-Me.txtLang = New System.Windows.Forms.TextBox
+Me.txtLang = New LATIR2GuiManager.TouchTextBox
 Me.lblLogin = New System.Windows.Forms.Label
-Me.txtLogin = New System.Windows.Forms.TextBox
+Me.txtLogin = New LATIR2GuiManager.TouchTextBox
 
 Me.lblApplicationID.Location = New System.Drawing.Point(20,5)
 Me.lblApplicationID.name = "lblApplicationID"
@@ -280,7 +281,7 @@ private sub txtApplicationID_TextChanged(ByVal sender As Object, ByVal e As Syst
 
 end sub
 private sub cmdApplicationID_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdApplicationID.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -288,18 +289,24 @@ Dim OK as boolean
           txtApplicationID.Tag = id
           txtApplicationID.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub cmdApplicationIDClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdApplicationIDClear.Click
-  on error resume next
+  try
           txtApplicationID.Tag = Guid.Empty
           txtApplicationID.text = ""
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtUserRole_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtUserRole.TextChanged
   Changing
 
 end sub
 private sub cmdUserRole_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdUserRole.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -307,22 +314,28 @@ Dim OK as boolean
           txtUserRole.Tag = id
           txtUserRole.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub dtpClosedAt_Change(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtpClosedAt.ValueChanged
   Changing 
 
 end sub
 private sub cmbClosed_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbClosed.SelectedIndexChanged
-  on error resume next
+  try
   Changing
 
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtUsersid_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtUsersid.TextChanged
   Changing
 
 end sub
 private sub cmdUsersid_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdUsersid.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -330,6 +343,9 @@ Dim OK as boolean
           txtUsersid.Tag = id
           txtUsersid.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub dtpLastAccess_Change(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtpLastAccess.ValueChanged
   Changing 
@@ -382,14 +398,19 @@ else
 End If
 dtpClosedAt.value = System.DateTime.Now
 if item.ClosedAt <> System.DateTime.MinValue then
- dtpClosedAt.value = item.ClosedAt
+  try
+     dtpClosedAt.value = item.ClosedAt
+  catch
+   dtpClosedAt.value = System.DateTime.MinValue
+  end try
 else
- dtpClosedAt.value = System.DateTime.today
+   dtpClosedAt.value = System.DateTime.Today
+   dtpClosedAt.Checked =false
 end if
 cmbClosedData = New DataTable
 cmbClosedData.Columns.Add("name", GetType(System.String))
 cmbClosedData.Columns.Add("Value", GetType(System.Int32))
-On Error Resume Next
+try
 cmbClosedDataRow = cmbClosedData.NewRow
 cmbClosedDataRow("name") = "Нет"
 cmbClosedDataRow("Value") = 0
@@ -402,6 +423,9 @@ cmbClosed.DisplayMember = "name"
 cmbClosed.ValueMember = "Value"
 cmbClosed.DataSource = cmbClosedData
  cmbClosed.SelectedValue=CInt(Item.Closed)
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 If Not item.Usersid Is Nothing Then
   txtUsersid.Tag = item.Usersid.id
   txtUsersid.text = item.Usersid.brief
@@ -411,13 +435,22 @@ else
 End If
 dtpLastAccess.value = System.DateTime.Now
 if item.LastAccess <> System.DateTime.MinValue then
- dtpLastAccess.value = item.LastAccess
+  try
+     dtpLastAccess.value = item.LastAccess
+  catch
+   dtpLastAccess.value = System.DateTime.MinValue
+  end try
 else
- dtpLastAccess.value = System.DateTime.today
+   dtpLastAccess.value = System.DateTime.Today
+   dtpLastAccess.Checked =false
 end if
 dtpStartAt.value = System.DateTime.Now
 if item.StartAt <> System.DateTime.MinValue then
- dtpStartAt.value = item.StartAt
+  try
+     dtpStartAt.value = item.StartAt
+  catch
+   dtpStartAt.value = System.DateTime.MinValue
+  end try
 end if
 txtLang.text = item.Lang
 txtLogin.text = item.Login
@@ -445,10 +478,14 @@ If not txtUserRole.Tag.Equals(System.Guid.Empty) Then
 Else
    item.UserRole = Nothing
 End If
-  if  dtpClosedAt.value=System.DateTime.MinValue then
-    item.ClosedAt = System.DateTime.MinValue
-  else
+  if dtpClosedAt.checked=false then
+       item.ClosedAt = System.DateTime.MinValue
+  else 
+  try
     item.ClosedAt = dtpClosedAt.value
+  catch
+    item.ClosedAt = System.DateTime.MinValue
+  end try
   end if
    item.Closed = cmbClosed.SelectedValue
 If not txtUsersid.Tag.Equals(System.Guid.Empty) Then
@@ -456,16 +493,20 @@ If not txtUsersid.Tag.Equals(System.Guid.Empty) Then
 Else
    item.Usersid = Nothing
 End If
-  if  dtpLastAccess.value=System.DateTime.MinValue then
-    item.LastAccess = System.DateTime.MinValue
-  else
+  if dtpLastAccess.checked=false then
+       item.LastAccess = System.DateTime.MinValue
+  else 
+  try
     item.LastAccess = dtpLastAccess.value
+  catch
+    item.LastAccess = System.DateTime.MinValue
+  end try
   end if
-  if  dtpStartAt.value=System.DateTime.MinValue then
-    item.StartAt = System.DateTime.MinValue
-  else
+  try
     item.StartAt = dtpStartAt.value
-  end if
+  catch
+    item.StartAt = System.DateTime.MinValue
+  end try
 item.Lang = txtLang.text
 item.Login = txtLogin.text
   end if
@@ -480,7 +521,7 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
 if mIsOK then mIsOK = not txtUserRole.Tag.Equals(System.Guid.Empty)
 if mIsOK then mIsOK =(cmbClosed.SelectedIndex >=0)
 if mIsOK then mIsOK = not txtUsersid.Tag.Equals(System.Guid.Empty)
-if mIsOK then mIsOK = (dtpStartAt.value <> nothing)
+if mIsOK then mIsOK = (dtpStartAt.value <> System.DateTime.MinValue)
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged

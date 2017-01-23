@@ -124,6 +124,8 @@ Friend Class frmSaveTool
 
         End If
 
+        txtPath.Text = GetSetting("LATIR4", "ADMIN", "SAVEDOCPATH", "")
+
     End Sub
 	
 	
@@ -138,5 +140,7 @@ Friend Class frmSaveTool
         If (path <> "") Then
             txtPath.Text = path & "\"
         End If
-	End Sub
+
+        SaveSetting("LATIR4", "ADMIN", "SAVEDOCPATH", txtPath.Text)
+    End Sub
 End Class

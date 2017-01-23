@@ -54,11 +54,11 @@ Public Class editENUMITEM
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblNameValue  as  System.Windows.Forms.Label
-Friend WithEvents txtNameValue As System.Windows.Forms.TextBox
+Friend WithEvents txtNameValue As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblNameInCode  as  System.Windows.Forms.Label
-Friend WithEvents txtNameInCode As System.Windows.Forms.TextBox
+Friend WithEvents txtNameInCode As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -76,11 +76,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblNameValue = New System.Windows.Forms.Label
-Me.txtNameValue = New System.Windows.Forms.TextBox
+Me.txtNameValue = New LATIR2GuiManager.TouchTextBox
 Me.lblNameInCode = New System.Windows.Forms.Label
-Me.txtNameInCode = New System.Windows.Forms.TextBox
+Me.txtNameInCode = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"

@@ -1,0 +1,203 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E40D6710-C21D-444D-8E81-3F8D07CD8260}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>LATIRJournal</AssemblyName>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>LATIRJournal</RootNamespace>
+    <StartupObject>LATIRJournal</StartupObject>
+    <MyType>Windows</MyType>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <DocumentationFile>LATIRJournal.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <DocumentationFile>LATIRJournal.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LATIRGUIControls, Version=1.0.2599.30099, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion> 
+     <HintPath>..\Generated\Generated Dlls\LATIRGUIControls.dll</HintPath>
+   </Reference>
+    <Reference Include="LATIRGuiManager, Version=1.0.2400.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Generated\Generated Dlls\LATIRGuiManager.dll</HintPath>
+    </Reference>
+    <Reference Include="LTOBJMan, Version=1.0.2400.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Generated\Generated Dlls\LTOBJMan.dll</HintPath>
+    </Reference>
+    <Reference Include="MTZJrnl, Version=1.0.2599.23584, Culture=neutral, processorArchitecture=MSIL" >
+      <SpecificVersion>False</SpecificVersion> 
+     <HintPath>..\Generated\Generated Dlls\MTZJrnl.dll</HintPath>
+   </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="Janus.Windows.TimeLine">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.TimeLine.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.ButtonBar.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Janus.Windows.CalendarCombo">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.CalendarCombo.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Janus.Windows.Common">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Janus.Windows.ExplorerBar">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.ExplorerBar.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Janus.Windows.GridEX">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.GridEX.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Janus.Windows.Schedule">
+      <HintPath>..\..\Program Files\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls\Bin\v1.0.2500\Janus.Windows.Schedule.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmFormatCardView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFormatConditions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFormatView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGroupBy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowFields.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSort.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Journal.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NamedObject.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="frmFormatCardView.resx">
+      <DependentUpon>frmFormatCardView.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFormatConditions.resx">
+      <DependentUpon>frmFormatConditions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFormatView.resx">
+      <DependentUpon>frmFormatView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGroupBy.resx">
+      <DependentUpon>frmGroupBy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintPreview.resx">
+      <DependentUpon>frmPrintPreview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowFields.resx">
+      <DependentUpon>frmShowFields.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSort.resx">
+      <DependentUpon>frmSort.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewSummary.resx">
+      <DependentUpon>frmViewSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Journal.resx">
+      <DependentUpon>Journal.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+</Project>

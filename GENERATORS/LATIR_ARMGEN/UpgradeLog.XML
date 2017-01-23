@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="LATIR_ARMGEN">
+</Property><Property Name="Solution File" Value="C:\LATIR2\GENERATORS\LATIR_ARMGEN\LATIR_ARMGEN.sln">
+</Property><Property Name="User Options File" Value="C:\LATIR2\GENERATORS\LATIR_ARMGEN\LATIR_ARMGEN.suo">
+</Property><Property Name="Date" Value="1 апреля 2010 г.">
+</Property><Property Name="Time" Value="15:01">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="LATIR_ARMGEN.sln" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\LATIR_ARMGEN.sln">
+</Event><Event ErrorLevel="0" Project="" Source="LATIR_ARMGEN.suo" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\LATIR_ARMGEN.suo">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="LATIR_ARMGEN.vbproj" Description="Project file successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\LATIR_ARMGEN.vbproj">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="FilterControls.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\FilterControls.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="frmConfig.Designer.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\frmConfig.Designer.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="frmConfig.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\frmConfig.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="Generator.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\Generator.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="GeneratorM1.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\GeneratorM1.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="MakeApp.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\MakeApp.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="MakeCollections.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\MakeCollections.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="MakeProject.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\MakeProject.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="MakeRow.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\MakeRow.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="My Project\Settings.Designer.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="SinglePanel.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\SinglePanel.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="Utils.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\Utils.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="app.config" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\app.config">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="My Project\Settings.settings" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="frmConfig.resX" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ARMGEN\Backup\frmConfig.resX">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="LATIR_ARMGEN.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LATIR_ARMGEN" Source="LATIR_ARMGEN.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LATIR_ARMGEN.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="LATIR_ARMGEN.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LATIR_ARMGEN" Source="LATIR_ARMGEN.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

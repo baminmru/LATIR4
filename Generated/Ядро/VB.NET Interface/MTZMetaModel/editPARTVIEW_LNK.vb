@@ -54,10 +54,10 @@ Public Class editPARTVIEW_LNK
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheView  as  System.Windows.Forms.Label
-Friend WithEvents txtTheView As System.Windows.Forms.TextBox
+Friend WithEvents txtTheView As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheView As System.Windows.Forms.Button
 Friend WithEvents lblTheJoinSource  as  System.Windows.Forms.Label
-Friend WithEvents txtTheJoinSource As System.Windows.Forms.TextBox
+Friend WithEvents txtTheJoinSource As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheJoinSource As System.Windows.Forms.Button
 Friend WithEvents cmdTheJoinSourceClear As System.Windows.Forms.Button
 Friend WithEvents lblRefType  as  System.Windows.Forms.Label
@@ -65,13 +65,13 @@ Friend WithEvents cmbRefType As System.Windows.Forms.ComboBox
 Friend cmbRefTypeDATA As DataTable
 Friend cmbRefTypeDATAROW As DataRow
 Friend WithEvents lblTheJoinDestination  as  System.Windows.Forms.Label
-Friend WithEvents txtTheJoinDestination As System.Windows.Forms.TextBox
+Friend WithEvents txtTheJoinDestination As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheJoinDestination As System.Windows.Forms.Button
 Friend WithEvents cmdTheJoinDestinationClear As System.Windows.Forms.Button
 Friend WithEvents lblHandJoin  as  System.Windows.Forms.Label
-Friend WithEvents txtHandJoin As System.Windows.Forms.TextBox
+Friend WithEvents txtHandJoin As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblSEQ  as  System.Windows.Forms.Label
-Friend WithEvents txtSEQ As System.Windows.Forms.TextBox
+Friend WithEvents txtSEQ As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -89,22 +89,22 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheView = New System.Windows.Forms.Label
-Me.txtTheView = New System.Windows.Forms.TextBox
+Me.txtTheView = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheView = New System.Windows.Forms.Button
 Me.lblTheJoinSource = New System.Windows.Forms.Label
-Me.txtTheJoinSource = New System.Windows.Forms.TextBox
+Me.txtTheJoinSource = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheJoinSource = New System.Windows.Forms.Button
 Me.cmdTheJoinSourceClear = New System.Windows.Forms.Button
 Me.lblRefType = New System.Windows.Forms.Label
 Me.cmbRefType = New System.Windows.Forms.ComboBox
 Me.lblTheJoinDestination = New System.Windows.Forms.Label
-Me.txtTheJoinDestination = New System.Windows.Forms.TextBox
+Me.txtTheJoinDestination = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheJoinDestination = New System.Windows.Forms.Button
 Me.cmdTheJoinDestinationClear = New System.Windows.Forms.Button
 Me.lblHandJoin = New System.Windows.Forms.Label
-Me.txtHandJoin = New System.Windows.Forms.TextBox
+Me.txtHandJoin = New LATIR2GuiManager.TouchTextBox
 Me.lblSEQ = New System.Windows.Forms.Label
-Me.txtSEQ = New System.Windows.Forms.TextBox
+Me.txtSEQ = New LATIR2GuiManager.TouchTextBox
 
 Me.lblTheView.Location = New System.Drawing.Point(20,5)
 Me.lblTheView.name = "lblTheView"

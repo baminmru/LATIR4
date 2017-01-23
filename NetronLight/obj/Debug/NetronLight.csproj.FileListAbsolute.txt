@@ -6,9 +6,10 @@ C:\LATIR2\NetronLight\obj\Debug\NetronLight.dll
 C:\LATIR2\NetronLight\obj\Debug\NetronLight.pdb
 E:\LATIR4\Generated\Generated Dlls\NetronLight.dll
 E:\LATIR4\Generated\Generated Dlls\NetronLight.pdb
+E:\LATIR4\NetronLight\bin\Debug\NetronLight.dll
+E:\LATIR4\NetronLight\bin\Debug\NetronLight.pdb
 E:\LATIR4\NetronLight\obj\Debug\NetronLight.GraphControl.resources
 E:\LATIR4\NetronLight\obj\Debug\NetronLight.csproj.GenerateResource.Cache
 E:\LATIR4\NetronLight\obj\Debug\NetronLight.dll
 E:\LATIR4\NetronLight\obj\Debug\NetronLight.pdb
-E:\LATIR4\NetronLight\bin\Debug\NetronLight.dll
-E:\LATIR4\NetronLight\bin\Debug\NetronLight.pdb
+E:\LATIR4\NetronLight\obj\Debug\NetronLight.csprojResolveAssemblyReference.cache

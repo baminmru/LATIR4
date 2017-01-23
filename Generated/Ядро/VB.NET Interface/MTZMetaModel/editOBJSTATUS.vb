@@ -54,7 +54,7 @@ Public Class editOBJSTATUS
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblname  as  System.Windows.Forms.Label
-Friend WithEvents txtname As System.Windows.Forms.TextBox
+Friend WithEvents txtname As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblisStartup  as  System.Windows.Forms.Label
 Friend WithEvents cmbisStartup As System.Windows.Forms.ComboBox
 Friend cmbisStartupDATA As DataTable
@@ -64,7 +64,7 @@ Friend WithEvents cmbIsArchive As System.Windows.Forms.ComboBox
 Friend cmbIsArchiveDATA As DataTable
 Friend cmbIsArchiveDATAROW As DataRow
 Friend WithEvents lblthe_comment  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_comment As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_comment As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -82,13 +82,13 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblname = New System.Windows.Forms.Label
-Me.txtname = New System.Windows.Forms.TextBox
+Me.txtname = New LATIR2GuiManager.TouchTextBox
 Me.lblisStartup = New System.Windows.Forms.Label
 Me.cmbisStartup = New System.Windows.Forms.ComboBox
 Me.lblIsArchive = New System.Windows.Forms.Label
 Me.cmbIsArchive = New System.Windows.Forms.ComboBox
 Me.lblthe_comment = New System.Windows.Forms.Label
-Me.txtthe_comment = New System.Windows.Forms.TextBox
+Me.txtthe_comment = New LATIR2GuiManager.TouchTextBox
 
 Me.lblname.Location = New System.Drawing.Point(20,5)
 Me.lblname.name = "lblname"

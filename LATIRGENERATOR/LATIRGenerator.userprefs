@@ -1,0 +1,32 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.DebuggingService>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService>
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModuleHolder.vb" ctype="Workbench">
+    <Files>
+      <File FileName="AssemblyInfo.vb" Line="1" Column="1" />
+      <File FileName="AttributeHolder.vb" Line="10" Column="17" />
+      <File FileName="Writer.vb" Line="48" Column="9" />
+      <File FileName="Modules.vb" Line="1" Column="1" />
+      <File FileName="Blocks.vb" Line="1" Column="1" />
+      <File FileName="Attributes.vb" Line="1" Column="1" />
+      <File FileName="ControlData_col.vb" Line="1" Column="1" />
+      <File FileName="ControlProperty_col.vb" Line="1" Column="1" />
+      <File FileName="Properties.vb" Line="1" Column="1" />
+      <File FileName="Properties_col.vb" Line="1" Column="1" />
+      <File FileName="PropertyData_col.vb" Line="1" Column="1" />
+      <File FileName="Response.vb" Line="1" Column="1" />
+      <File FileName="Converter.vb" Line="348" Column="10" />
+      <File FileName="ModuleHolder.vb" Line="12" Column="18" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" />
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

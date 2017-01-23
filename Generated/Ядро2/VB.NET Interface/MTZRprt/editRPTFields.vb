@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,17 +51,17 @@ Public Class editRPTFields
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFieldType  as  System.Windows.Forms.Label
-Friend WithEvents txtFieldType As System.Windows.Forms.TextBox
+Friend WithEvents txtFieldType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdFieldType As System.Windows.Forms.Button
 Friend WithEvents lblFieldSize  as  System.Windows.Forms.Label
-Friend WithEvents txtFieldSize As System.Windows.Forms.TextBox
+Friend WithEvents txtFieldSize As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -78,14 +79,14 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblFieldType = New System.Windows.Forms.Label
-Me.txtFieldType = New System.Windows.Forms.TextBox
+Me.txtFieldType = New LATIR2GuiManager.TouchTextBox
 Me.cmdFieldType = New System.Windows.Forms.Button
 Me.lblFieldSize = New System.Windows.Forms.Label
-Me.txtFieldSize = New System.Windows.Forms.TextBox
+Me.txtFieldSize = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"
@@ -168,7 +169,7 @@ private sub txtFieldType_TextChanged(ByVal sender As Object, ByVal e As System.E
 
 end sub
 private sub cmdFieldType_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdFieldType.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -176,10 +177,13 @@ Dim OK as boolean
           txtFieldType.Tag = id
           txtFieldType.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
         Private Sub txtFieldSize_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles txtFieldSize.Validating
         If txtFieldSize.Text <> "" Then
-            On Error Resume Next
+            try
             If Not IsNumeric(txtFieldSize.Text) Then
                 e.Cancel = True
                 MsgBox("Ожидалось число", vbOKOnly + vbExclamation, "Внимание")
@@ -187,6 +191,9 @@ end sub
                 e.Cancel = True
                 MsgBox("Значение вне допустимого диапазона", vbOKOnly + vbExclamation, "Внимание")
             End If
+        catch ex as System.Exception
+            Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
         End If
     End Sub
 private sub txtFieldSize_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtFieldSize.TextChanged

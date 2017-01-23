@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZRprt
 
@@ -101,8 +102,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = Platform
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -172,7 +177,7 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              dr("Name") =Name
@@ -185,6 +190,9 @@ End Function
                dr("Platform_ID") =Platform.ID
              end if 
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -229,7 +237,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -247,6 +255,9 @@ End Function
             If reader.Table.Columns.Contains("Platform") Then m_Platform= New System.Guid(reader.item("Platform").ToString())
           end if 
       end if 
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -322,11 +333,14 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             Name = node.Attributes.GetNamedItem("Name").Value
             Code = node.Attributes.GetNamedItem("Code").Value
             m_Platform = new system.guid(node.Attributes.GetNamedItem("Platform").Value)
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -339,10 +353,13 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
+           try 
           node.SetAttribute("Name", Name)  
           node.SetAttribute("Code", Code)  
           node.SetAttribute("Platform", m_Platform.tostring)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

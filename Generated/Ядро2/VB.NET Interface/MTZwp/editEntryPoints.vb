@@ -54,11 +54,11 @@ Public Class editEntryPoints
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblsequence  as  System.Windows.Forms.Label
-Friend WithEvents txtsequence As System.Windows.Forms.TextBox
+Friend WithEvents txtsequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblAsToolbarItem  as  System.Windows.Forms.Label
 Friend WithEvents cmbAsToolbarItem As System.Windows.Forms.ComboBox
 Friend cmbAsToolbarItemDATA As DataTable
@@ -68,43 +68,43 @@ Friend WithEvents cmbActionType As System.Windows.Forms.ComboBox
 Friend cmbActionTypeDATA As DataTable
 Friend cmbActionTypeDATAROW As DataRow
 Friend WithEvents lblTheFilter  as  System.Windows.Forms.Label
-Friend WithEvents txtTheFilter As System.Windows.Forms.TextBox
+Friend WithEvents txtTheFilter As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheFilter As System.Windows.Forms.Button
 Friend WithEvents cmdTheFilterClear As System.Windows.Forms.Button
 Friend WithEvents lblJournal  as  System.Windows.Forms.Label
-Friend WithEvents txtJournal As System.Windows.Forms.TextBox
+Friend WithEvents txtJournal As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdJournal As System.Windows.Forms.Button
 Friend WithEvents cmdJournalClear As System.Windows.Forms.Button
 Friend WithEvents lblReport  as  System.Windows.Forms.Label
-Friend WithEvents txtReport As System.Windows.Forms.TextBox
+Friend WithEvents txtReport As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdReport As System.Windows.Forms.Button
 Friend WithEvents cmdReportClear As System.Windows.Forms.Button
 Friend WithEvents lblDocument  as  System.Windows.Forms.Label
-Friend WithEvents txtDocument As System.Windows.Forms.TextBox
+Friend WithEvents txtDocument As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdDocument As System.Windows.Forms.Button
 Friend WithEvents cmdDocumentClear As System.Windows.Forms.Button
 Friend WithEvents lblMethod  as  System.Windows.Forms.Label
-Friend WithEvents txtMethod As System.Windows.Forms.TextBox
+Friend WithEvents txtMethod As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdMethod As System.Windows.Forms.Button
 Friend WithEvents cmdMethodClear As System.Windows.Forms.Button
 Friend WithEvents lblIconFile  as  System.Windows.Forms.Label
-Friend WithEvents txtIconFile As System.Windows.Forms.TextBox
+Friend WithEvents txtIconFile As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheExtention  as  System.Windows.Forms.Label
-Friend WithEvents txtTheExtention As System.Windows.Forms.TextBox
+Friend WithEvents txtTheExtention As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheExtention As System.Windows.Forms.Button
 Friend WithEvents cmdTheExtentionClear As System.Windows.Forms.Button
 Friend WithEvents lblARM  as  System.Windows.Forms.Label
-Friend WithEvents txtARM As System.Windows.Forms.TextBox
+Friend WithEvents txtARM As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdARM As System.Windows.Forms.Button
 Friend WithEvents cmdARMClear As System.Windows.Forms.Button
 Friend WithEvents lblTheComment  as  System.Windows.Forms.Label
-Friend WithEvents txtTheComment As System.Windows.Forms.TextBox
+Friend WithEvents txtTheComment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblObjectType  as  System.Windows.Forms.Label
-Friend WithEvents txtObjectType As System.Windows.Forms.TextBox
+Friend WithEvents txtObjectType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdObjectType As System.Windows.Forms.Button
 Friend WithEvents cmdObjectTypeClear As System.Windows.Forms.Button
 Friend WithEvents lblJournalFixedQuery  as  System.Windows.Forms.Label
-Friend WithEvents txtJournalFixedQuery As System.Windows.Forms.TextBox
+Friend WithEvents txtJournalFixedQuery As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblAllowAdd  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowAdd As System.Windows.Forms.ComboBox
 Friend cmbAllowAddDATA As DataTable
@@ -142,53 +142,53 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblsequence = New System.Windows.Forms.Label
-Me.txtsequence = New System.Windows.Forms.TextBox
+Me.txtsequence = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblAsToolbarItem = New System.Windows.Forms.Label
 Me.cmbAsToolbarItem = New System.Windows.Forms.ComboBox
 Me.lblActionType = New System.Windows.Forms.Label
 Me.cmbActionType = New System.Windows.Forms.ComboBox
 Me.lblTheFilter = New System.Windows.Forms.Label
-Me.txtTheFilter = New System.Windows.Forms.TextBox
+Me.txtTheFilter = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheFilter = New System.Windows.Forms.Button
 Me.cmdTheFilterClear = New System.Windows.Forms.Button
 Me.lblJournal = New System.Windows.Forms.Label
-Me.txtJournal = New System.Windows.Forms.TextBox
+Me.txtJournal = New LATIR2GuiManager.TouchTextBox
 Me.cmdJournal = New System.Windows.Forms.Button
 Me.cmdJournalClear = New System.Windows.Forms.Button
 Me.lblReport = New System.Windows.Forms.Label
-Me.txtReport = New System.Windows.Forms.TextBox
+Me.txtReport = New LATIR2GuiManager.TouchTextBox
 Me.cmdReport = New System.Windows.Forms.Button
 Me.cmdReportClear = New System.Windows.Forms.Button
 Me.lblDocument = New System.Windows.Forms.Label
-Me.txtDocument = New System.Windows.Forms.TextBox
+Me.txtDocument = New LATIR2GuiManager.TouchTextBox
 Me.cmdDocument = New System.Windows.Forms.Button
 Me.cmdDocumentClear = New System.Windows.Forms.Button
 Me.lblMethod = New System.Windows.Forms.Label
-Me.txtMethod = New System.Windows.Forms.TextBox
+Me.txtMethod = New LATIR2GuiManager.TouchTextBox
 Me.cmdMethod = New System.Windows.Forms.Button
 Me.cmdMethodClear = New System.Windows.Forms.Button
 Me.lblIconFile = New System.Windows.Forms.Label
-Me.txtIconFile = New System.Windows.Forms.TextBox
+Me.txtIconFile = New LATIR2GuiManager.TouchTextBox
 Me.lblTheExtention = New System.Windows.Forms.Label
-Me.txtTheExtention = New System.Windows.Forms.TextBox
+Me.txtTheExtention = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheExtention = New System.Windows.Forms.Button
 Me.cmdTheExtentionClear = New System.Windows.Forms.Button
 Me.lblARM = New System.Windows.Forms.Label
-Me.txtARM = New System.Windows.Forms.TextBox
+Me.txtARM = New LATIR2GuiManager.TouchTextBox
 Me.cmdARM = New System.Windows.Forms.Button
 Me.cmdARMClear = New System.Windows.Forms.Button
 Me.lblTheComment = New System.Windows.Forms.Label
-Me.txtTheComment = New System.Windows.Forms.TextBox
+Me.txtTheComment = New LATIR2GuiManager.TouchTextBox
 Me.lblObjectType = New System.Windows.Forms.Label
-Me.txtObjectType = New System.Windows.Forms.TextBox
+Me.txtObjectType = New LATIR2GuiManager.TouchTextBox
 Me.cmdObjectType = New System.Windows.Forms.Button
 Me.cmdObjectTypeClear = New System.Windows.Forms.Button
 Me.lblJournalFixedQuery = New System.Windows.Forms.Label
-Me.txtJournalFixedQuery = New System.Windows.Forms.TextBox
+Me.txtJournalFixedQuery = New LATIR2GuiManager.TouchTextBox
 Me.lblAllowAdd = New System.Windows.Forms.Label
 Me.cmbAllowAdd = New System.Windows.Forms.ComboBox
 Me.lblAllowEdit = New System.Windows.Forms.Label
@@ -645,7 +645,7 @@ If OK Then
     txtTheFilter.Text = brief
     txtTheFilter.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub
@@ -663,7 +663,7 @@ If OK Then
     txtJournal.Text = brief
     txtJournal.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub
@@ -681,7 +681,7 @@ If OK Then
     txtReport.Text = brief
     txtReport.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub
@@ -699,7 +699,7 @@ If OK Then
     txtDocument.Text = brief
     txtDocument.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub
@@ -746,7 +746,7 @@ If OK Then
     txtTheExtention.Text = brief
     txtTheExtention.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub
@@ -764,7 +764,7 @@ If OK Then
     txtARM.Text = brief
     txtARM.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub

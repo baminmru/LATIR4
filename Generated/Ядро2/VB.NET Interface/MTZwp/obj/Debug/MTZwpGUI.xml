@@ -1,0 +1,908 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZwpGUI
+</name>
+</assembly>
+<members>
+<member name="M:MTZwpGUI.frmARMJRNLADDmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLADDmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJRNLADDmain">
+	<summary>
+Форма редактирования раздела Добавление режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLADDmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLADDmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJRNLADDmain">
+	<summary>
+Контрол редактирования раздела Добавление режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLRUNmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLRUNmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJRNLRUNmain">
+	<summary>
+Форма редактирования раздела Действия режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLRUNmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLRUNmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJRNLRUNmain">
+	<summary>
+Контрол редактирования раздела Действия режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLREPmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLREPmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJRNLREPmain">
+	<summary>
+Форма редактирования раздела Отчеты режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLREPmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLREPmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJRNLREPmain">
+	<summary>
+Контрол редактирования раздела Отчеты режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJournalmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJournalmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJournalmain">
+	<summary>
+Форма редактирования раздела Поведение журналов режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJournalmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJournalmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJournalmain">
+	<summary>
+Контрол редактирования раздела Поведение журналов режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypesmain.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypesmain.Init">
+	<summary>
+Load table settings
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypesmain.gv_OnEdit(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание редактирования Edit action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypesmain.gv_OnDel(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание удаления Delete action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypesmain.gv_OnAdd(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание создания записи Create action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypesmain.gv_OnRefresh">
+	<summary>
+Обслуживание кнопки (обновить) refresh action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMTypesmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMTypesmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMTypesmain">
+	<summary>
+Форма редактирования раздела Список типов режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMTypesmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMTypesmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMTypesmain">
+	<summary>
+Контрол редактирования раздела Список типов режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEPFilterLinkmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEPFilterLinkmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmEPFilterLinkmain">
+	<summary>
+Форма редактирования раздела Привязка фильтра режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEPFilterLinkmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEPFilterLinkmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editEPFilterLinkmain">
+	<summary>
+Контрол редактирования раздела Привязка фильтра режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwpGUI.viewEntryPointsmain.item">
+	<summary>
+Reference to the document, that serve control
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Control initialization
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.InitCols">
+	<summary>
+Load column settings
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.TreeView1_GetLevelData(System.Guid)">
+	<summary>
+Load data to tree
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.TreeView1_OnAddRoot(System.Boolean@)">
+	<summary>
+Обслуживание добавления в корневой элемент
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.gv_OnEdit(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.gv_OnDel(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание удаления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPointsmain.gv_OnAdd(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание добавления в уровень дерева
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEntryPointsmain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEntryPointsmain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmEntryPointsmain">
+	<summary>
+Форма редактирования раздела Меню режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEntryPointsmain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEntryPointsmain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editEntryPointsmain">
+	<summary>
+Контрол редактирования раздела Меню режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewWorkPlacemain.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmWorkPlacemain.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmWorkPlacemain.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmWorkPlacemain">
+	<summary>
+Форма редактирования раздела Арм режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editWorkPlacemain.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editWorkPlacemain.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editWorkPlacemain">
+	<summary>
+Контрол редактирования раздела Арм режим:main
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmMTZwpmain.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+Процедура инициализации формы
+ </remarks>
+</member><member name="F:MTZwpGUI.Tabviewmain.item">
+	<summary>
+Редактируемый объект
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwpGUI.Tabviewmain.GuiManager">
+	<summary>
+Объект управления визуальными компонентами
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabviewmain.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация контрольного элемента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabviewmain.Save(System.Boolean,System.Boolean)">
+	<summary>
+Сохранение всех изменений
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabviewmain.IsOK">
+	<summary>
+Корректны ли измененные данные проверка после Verify
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabviewmain.IsChanged">
+	<summary>
+Были ли изменения данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabviewmain.Verify(System.Boolean)">
+	<summary>
+Проверить корректность данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLADD.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLADD.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJRNLADD">
+	<summary>
+Форма редактирования раздела Добавление режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLADD.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLADD.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJRNLADD">
+	<summary>
+Контрол редактирования раздела Добавление режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLRUN.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLRUN.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJRNLRUN">
+	<summary>
+Форма редактирования раздела Действия режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLRUN.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLRUN.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJRNLRUN">
+	<summary>
+Контрол редактирования раздела Действия режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLREP.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJRNLREP.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJRNLREP">
+	<summary>
+Форма редактирования раздела Отчеты режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLREP.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJRNLREP.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJRNLREP">
+	<summary>
+Контрол редактирования раздела Отчеты режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJournal.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMJournal.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMJournal">
+	<summary>
+Форма редактирования раздела Поведение журналов режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJournal.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMJournal.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMJournal">
+	<summary>
+Контрол редактирования раздела Поведение журналов режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypes.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypes.Init">
+	<summary>
+Load table settings
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypes.gv_OnEdit(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание редактирования Edit action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypes.gv_OnDel(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание удаления Delete action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypes.gv_OnAdd(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание создания записи Create action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewARMTypes.gv_OnRefresh">
+	<summary>
+Обслуживание кнопки (обновить) refresh action
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMTypes.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmARMTypes.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmARMTypes">
+	<summary>
+Форма редактирования раздела Список типов режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMTypes.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editARMTypes.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editARMTypes">
+	<summary>
+Контрол редактирования раздела Список типов режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEPFilterLink.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEPFilterLink.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmEPFilterLink">
+	<summary>
+Форма редактирования раздела Привязка фильтра режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEPFilterLink.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEPFilterLink.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editEPFilterLink">
+	<summary>
+Контрол редактирования раздела Привязка фильтра режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwpGUI.viewEntryPoints.item">
+	<summary>
+Reference to the document, that serve control
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Control initialization
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.InitCols">
+	<summary>
+Load column settings
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.TreeView1_GetLevelData(System.Guid)">
+	<summary>
+Load data to tree
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.TreeView1_OnAddRoot(System.Boolean@)">
+	<summary>
+Обслуживание добавления в корневой элемент
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.gv_OnEdit(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.gv_OnDel(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание удаления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewEntryPoints.gv_OnAdd(System.Boolean@,System.Guid)">
+	<summary>
+Обслуживание добавления в уровень дерева
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEntryPoints.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmEntryPoints.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmEntryPoints">
+	<summary>
+Форма редактирования раздела Меню режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEntryPoints.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editEntryPoints.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editEntryPoints">
+	<summary>
+Контрол редактирования раздела Меню режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.viewWorkPlace.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmWorkPlace.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmWorkPlace.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+Завершение редактирования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.frmWorkPlace">
+	<summary>
+Форма редактирования раздела Арм режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editWorkPlace.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.editWorkPlace.Save">
+	<summary>
+Сохранения данных в полях объекта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.editWorkPlace">
+	<summary>
+Контрол редактирования раздела Арм режим:
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.frmMTZwp.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация
+ </summary>
+	<remarks>
+Процедура инициализации формы
+ </remarks>
+</member><member name="F:MTZwpGUI.Tabview.item">
+	<summary>
+Редактируемый объект
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwpGUI.Tabview.GuiManager">
+	<summary>
+Объект управления визуальными компонентами
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabview.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+	<summary>
+Инициализация контрольного элемента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabview.Save(System.Boolean,System.Boolean)">
+	<summary>
+Сохранение всех изменений
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabview.IsOK">
+	<summary>
+Корректны ли измененные данные проверка после Verify
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabview.IsChanged">
+	<summary>
+Были ли изменения данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.Tabview.Verify(System.Boolean)">
+	<summary>
+Проверить корректность данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwpGUI.GUI.TypeName">
+	<summary>
+Имя типа
+ </summary>
+	<returns>
+Строковое значение кода типа объекта 
+ </returns>
+	<remarks>
+Код типа в метамодели
+ </remarks>
+</member><member name="M:MTZwpGUI.GUI.ShowPartEditForm(System.String,LATIR2.Document.DocRow_Base@,System.Boolean)">
+	<summary>
+Форма редактирования раздела
+ </summary>
+	<returns>
+Результат работы формы редактирования
+ </returns>
+	<remarks>
+Определяется какая форма должна быть вызвана, происходит инициализация и вызов формы
+ </remarks>
+</member><member name="M:MTZwpGUI.GUI.ShowForm(System.String,LATIR2.Document.Doc_Base@,System.Boolean)">
+	<summary>
+Форма редактирования документа
+ </summary>
+	<returns>
+Резултат работы формы редактирования
+ </returns>
+	<remarks>
+Определяется какая форма должна быть вызвана, происходит инициализация и вызов формы в модальном режиме
+ </remarks>
+</member><member name="M:MTZwpGUI.GUI.GetObjectControl(System.String,System.String)">
+	<summary>
+Получить контрол, реализующий работу в заданном режиме
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwpGUI.GUI">
+	<summary>
+Основной класс компонента
+ </summary>
+	<remarks>
+Класс обслуживает визуальное редактирование 
+ </remarks>
+</member>
+</members>
+</doc>

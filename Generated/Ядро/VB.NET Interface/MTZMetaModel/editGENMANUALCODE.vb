@@ -54,11 +54,11 @@ Public Class editGENMANUALCODE
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblthe_Alias  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Alias As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Alias As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCode  as  System.Windows.Forms.Label
-Friend WithEvents txtCode As System.Windows.Forms.TextBox
+Friend WithEvents txtCode As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -76,11 +76,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblthe_Alias = New System.Windows.Forms.Label
-Me.txtthe_Alias = New System.Windows.Forms.TextBox
+Me.txtthe_Alias = New LATIR2GuiManager.TouchTextBox
 Me.lblCode = New System.Windows.Forms.Label
-Me.txtCode = New System.Windows.Forms.TextBox
+Me.txtCode = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"

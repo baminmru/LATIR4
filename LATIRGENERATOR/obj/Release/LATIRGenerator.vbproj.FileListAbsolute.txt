@@ -1,0 +1,5 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRGenerator.dll
+C:\LATIR2\Generated\Generated Dlls\LATIRGenerator.xml
+C:\LATIR2\LATIRGENERATOR\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\LATIRGENERATOR\obj\Release\LATIRGenerator.dll
+C:\LATIR2\LATIRGENERATOR\obj\Release\LATIRGenerator.xml

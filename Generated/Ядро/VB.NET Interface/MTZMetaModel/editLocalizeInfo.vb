@@ -54,9 +54,9 @@ Public Class editLocalizeInfo
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblLangFull  as  System.Windows.Forms.Label
-Friend WithEvents txtLangFull As System.Windows.Forms.TextBox
+Friend WithEvents txtLangFull As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblLangShort  as  System.Windows.Forms.Label
-Friend WithEvents txtLangShort As System.Windows.Forms.TextBox
+Friend WithEvents txtLangShort As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -74,9 +74,9 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblLangFull = New System.Windows.Forms.Label
-Me.txtLangFull = New System.Windows.Forms.TextBox
+Me.txtLangFull = New LATIR2GuiManager.TouchTextBox
 Me.lblLangShort = New System.Windows.Forms.Label
-Me.txtLangShort = New System.Windows.Forms.TextBox
+Me.txtLangShort = New LATIR2GuiManager.TouchTextBox
 
 Me.lblLangFull.Location = New System.Drawing.Point(20,5)
 Me.lblLangFull.name = "lblLangFull"

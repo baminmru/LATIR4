@@ -73,10 +73,19 @@
         tv.Attach(item, GuiManager,FormReadOnly)
         Me.Text = item.name
     End Sub
-         Private Sub frmChild_Load(sender As Object, e As EventArgs) Handles Me.Load
+    ' Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
+   Private Sub frm_Load(sender As Object, e As EventArgs) Handles Me.Load
         LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
-        End Sub
-        Private Sub frmChild_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+       ' myResizer.FindAllControls(Me) 
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+   End Sub
+   Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+   '   myResizer.ResizeAllControls(Me)
+   End Sub
+        Private Sub frm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If e.CloseReason = CloseReason.FormOwnerClosing Then
             e.Cancel = Not CheckAndSave(False)
         End If

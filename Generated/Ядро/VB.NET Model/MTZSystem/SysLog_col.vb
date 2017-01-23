@@ -5,6 +5,7 @@ Imports LATIR2
 Imports System
 Imports System.xml
 Imports System.Data
+Imports System.Diagnostics
 
 Namespace MTZSystem
 
@@ -73,8 +74,11 @@ Namespace MTZSystem
 '''
 ''' </remarks>
         Public Function GetItem( vIndex as object ) As MTZSystem.SysLog
-            on error resume next
+            try
             GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZSystem.SysLog))
+catch ex as System.Exception
+ Debug.Print( ex.Message + " >> " + ex.StackTrace)
+end try
         End Function
 
 
@@ -85,8 +89,11 @@ Namespace MTZSystem
 '''
 ''' </remarks>
         Public Shadows Function Item( vIndex as object ) As MTZSystem.SysLog
-            on error resume next
+          try
             return GetItem(vIndex)
+          catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Function
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
@@ -97,7 +104,7 @@ Public Overrides Function FieldList() As String
            mFieldList =mFieldList+ ", the_resource" 
            mFieldList =mFieldList+ ", logstructid" 
            mFieldList =mFieldList+ ", verb" 
-           mFieldList =mFieldList+ ", loginstanceid" 
+           mFieldList =mFieldList+","+.ID2Base("LogInstanceID") 
        end with
     End If
     Return mFieldList

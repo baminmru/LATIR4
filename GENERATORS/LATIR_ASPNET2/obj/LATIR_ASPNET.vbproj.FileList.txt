@@ -1,0 +1,23 @@
+.\bin\LATIR_ASPNET.dll.config
+.\bin\LATIR_ASPNET.dll
+.\bin\LATIR_ASPNET.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\LATIR_ASPNET.frmConfig.resources
+obj\Debug\LATIR_ASPNET.vbproj.GenerateResource.Cache
+obj\Debug\LATIR_ASPNET.dll
+obj\Debug\LATIR_ASPNET.xml
+obj\Debug\LATIR_ASPNET.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LATIR_ASPNET.frmConfig.resources
+obj\Release\LATIR_ASPNET.vbproj.GenerateResource.Cache
+obj\Release\LATIR_ASPNET.dll
+obj\Release\LATIR_ASPNET.xml
+.\bin\LATIRFramework.dll
+.\bin\LATIRGenerator.dll
+.\bin\LTOBJMan.dll
+.\bin\MTZMetaModel.dll
+.\bin\LATIR_ASPNET.pdb
+..\..\Generated\Generated Dlls\LATIR_ASPNET.dll.config
+..\..\Generated\Generated Dlls\LATIR_ASPNET.dll
+..\..\Generated\Generated Dlls\LATIR_ASPNET.xml
+..\..\Generated\Generated Dlls\LATIR_ASPNET.pdb

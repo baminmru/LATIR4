@@ -54,7 +54,7 @@ Public Class editSTRUCTRESTRICTION
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblStruct  as  System.Windows.Forms.Label
-Friend WithEvents txtStruct As System.Windows.Forms.TextBox
+Friend WithEvents txtStruct As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdStruct As System.Windows.Forms.Button
 Friend WithEvents lblAllowRead  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowRead As System.Windows.Forms.ComboBox
@@ -89,7 +89,7 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblStruct = New System.Windows.Forms.Label
-Me.txtStruct = New System.Windows.Forms.TextBox
+Me.txtStruct = New LATIR2GuiManager.TouchTextBox
 Me.cmdStruct = New System.Windows.Forms.Button
 Me.lblAllowRead = New System.Windows.Forms.Label
 Me.cmbAllowRead = New System.Windows.Forms.ComboBox

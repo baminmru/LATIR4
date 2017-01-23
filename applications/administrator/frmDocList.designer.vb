@@ -34,17 +34,21 @@
         '
         'lstJournal
         '
+        Me.lstJournal.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstJournal.BackColor = System.Drawing.SystemColors.Window
         Me.lstJournal.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstJournal.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstJournal.Location = New System.Drawing.Point(8, 8)
         Me.lstJournal.Name = "lstJournal"
         Me.lstJournal.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstJournal.Size = New System.Drawing.Size(297, 199)
+        Me.lstJournal.Size = New System.Drawing.Size(298, 199)
         Me.lstJournal.TabIndex = 0
         '
         'CancelButton_Renamed
         '
+        Me.CancelButton_Renamed.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CancelButton_Renamed.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton_Renamed.Cursor = System.Windows.Forms.Cursors.Default
         Me.CancelButton_Renamed.DialogResult = System.Windows.Forms.DialogResult.Cancel
@@ -59,6 +63,7 @@
         '
         'OKButton
         '
+        Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OKButton.BackColor = System.Drawing.SystemColors.Control
         Me.OKButton.Cursor = System.Windows.Forms.Cursors.Default
         Me.OKButton.ForeColor = System.Drawing.SystemColors.ControlText
@@ -77,7 +82,7 @@
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton = Me.CancelButton_Renamed
-        Me.ClientSize = New System.Drawing.Size(402, 213)
+        Me.ClientSize = New System.Drawing.Size(390, 213)
         Me.Controls.Add(Me.lstJournal)
         Me.Controls.Add(Me.CancelButton_Renamed)
         Me.Controls.Add(Me.OKButton)
@@ -90,10 +95,10 @@
         Me.Name = "frmDocList"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Новый документ"
         Me.ResumeLayout(False)
 
     End Sub
-#End Region 
+#End Region
 End Class

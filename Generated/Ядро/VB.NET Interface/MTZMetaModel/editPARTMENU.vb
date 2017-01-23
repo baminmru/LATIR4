@@ -54,13 +54,13 @@ Public Class editPARTMENU
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblToolTip  as  System.Windows.Forms.Label
-Friend WithEvents txtToolTip As System.Windows.Forms.TextBox
+Friend WithEvents txtToolTip As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblthe_Action  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Action As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Action As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdthe_Action As System.Windows.Forms.Button
 Friend WithEvents cmdthe_ActionClear As System.Windows.Forms.Button
 Friend WithEvents lblIsMenuItem  as  System.Windows.Forms.Label
@@ -72,7 +72,7 @@ Friend WithEvents cmbIsToolBarButton As System.Windows.Forms.ComboBox
 Friend cmbIsToolBarButtonDATA As DataTable
 Friend cmbIsToolBarButtonDATAROW As DataRow
 Friend WithEvents lblHotKey  as  System.Windows.Forms.Label
-Friend WithEvents txtHotKey As System.Windows.Forms.TextBox
+Friend WithEvents txtHotKey As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -90,13 +90,13 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblToolTip = New System.Windows.Forms.Label
-Me.txtToolTip = New System.Windows.Forms.TextBox
+Me.txtToolTip = New LATIR2GuiManager.TouchTextBox
 Me.lblthe_Action = New System.Windows.Forms.Label
-Me.txtthe_Action = New System.Windows.Forms.TextBox
+Me.txtthe_Action = New LATIR2GuiManager.TouchTextBox
 Me.cmdthe_Action = New System.Windows.Forms.Button
 Me.cmdthe_ActionClear = New System.Windows.Forms.Button
 Me.lblIsMenuItem = New System.Windows.Forms.Label
@@ -104,7 +104,7 @@ Me.cmbIsMenuItem = New System.Windows.Forms.ComboBox
 Me.lblIsToolBarButton = New System.Windows.Forms.Label
 Me.cmbIsToolBarButton = New System.Windows.Forms.ComboBox
 Me.lblHotKey = New System.Windows.Forms.Label
-Me.txtHotKey = New System.Windows.Forms.TextBox
+Me.txtHotKey = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"

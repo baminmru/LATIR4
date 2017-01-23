@@ -5,6 +5,7 @@ Imports LATIR2
 Imports System
 Imports System.xml
 Imports System.Data
+Imports System.Diagnostics
 
 Namespace MTZSystem
 
@@ -73,8 +74,11 @@ Namespace MTZSystem
 '''
 ''' </remarks>
         Public Function GetItem( vIndex as object ) As MTZSystem.SysRefCache
-            on error resume next
+            try
             GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZSystem.SysRefCache))
+catch ex as System.Exception
+ Debug.Print( ex.Message + " >> " + ex.StackTrace)
+end try
         End Function
 
 
@@ -85,8 +89,11 @@ Namespace MTZSystem
 '''
 ''' </remarks>
         Public Shadows Function Item( vIndex as object ) As MTZSystem.SysRefCache
-            on error resume next
+          try
             return GetItem(vIndex)
+          catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Function
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
@@ -94,7 +101,7 @@ Public Overrides Function FieldList() As String
        mFieldList=.ID2Base("SysRefCacheID")
            mFieldList =mFieldList+","+.ID2Base("SecurityStyleID") 
            mFieldList =mFieldList+ ", cachetype" 
-           mFieldList =mFieldList+ ", objectownerid" 
+           mFieldList =mFieldList+","+.ID2Base("ObjectOwnerID") 
            mFieldList =mFieldList+","+.ID2Base("SessionID") 
            mFieldList =mFieldList+ ", modulename" 
        end with

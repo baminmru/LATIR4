@@ -81,14 +81,6 @@ Public Class GUI
                 f = Nothing
             End If
 
-            If RowItem.PartName.ToUpper = "ARMJRNLADD" Then
-                Dim f As frmARMJRNLADD
-                f = New frmARMJRNLADD
-                f.Attach(RowItem, Me.GUIManager,FormReadOnly)
-                ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
-                f = Nothing
-            End If
-
             If RowItem.PartName.ToUpper = "ARMJRNLREP" Then
                 Dim f As frmARMJRNLREP
                 f = New frmARMJRNLREP
@@ -100,6 +92,14 @@ Public Class GUI
             If RowItem.PartName.ToUpper = "ARMJRNLRUN" Then
                 Dim f As frmARMJRNLRUN
                 f = New frmARMJRNLRUN
+                f.Attach(RowItem, Me.GUIManager,FormReadOnly)
+                ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
+                f = Nothing
+            End If
+
+            If RowItem.PartName.ToUpper = "ARMJRNLADD" Then
+                Dim f As frmARMJRNLADD
+                f = New frmARMJRNLADD
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
@@ -148,14 +148,6 @@ Public Class GUI
                 f = Nothing
             End If
 
-            If RowItem.PartName.ToUpper = "ARMJRNLADD" Then
-                Dim f As frmARMJRNLADDmain
-                f = New frmARMJRNLADDmain
-                f.Attach(RowItem, Me.GUIManager,FormReadOnly)
-                ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
-                f = Nothing
-            End If
-
             If RowItem.PartName.ToUpper = "ARMJRNLREP" Then
                 Dim f As frmARMJRNLREPmain
                 f = New frmARMJRNLREPmain
@@ -167,6 +159,14 @@ Public Class GUI
             If RowItem.PartName.ToUpper = "ARMJRNLRUN" Then
                 Dim f As frmARMJRNLRUNmain
                 f = New frmARMJRNLRUNmain
+                f.Attach(RowItem, Me.GUIManager,FormReadOnly)
+                ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
+                f = Nothing
+            End If
+
+            If RowItem.PartName.ToUpper = "ARMJRNLADD" Then
+                Dim f As frmARMJRNLADDmain
+                f = New frmARMJRNLADDmain
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
@@ -215,6 +215,9 @@ Public Class GUI
 '''
 ''' </remarks>
     Public Overrides Function GetObjectControl(ByVal Mode As String, ByVal TypeName As String) As Object
+            If Mode = "main" Then
+                Return New Tabviewmain
+            End If
       Return New Tabview
     End Function
 

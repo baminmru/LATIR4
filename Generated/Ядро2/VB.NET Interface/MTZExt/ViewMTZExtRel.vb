@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
   Imports LATIR2GuiManager
 Public Class viewMTZExtRel

@@ -1808,10 +1808,8 @@ bye:
     End Sub
 
     Private Sub CreateDelProc(ByRef os As MTZMetaModel.MTZMetaModel.PART)
-        'MTZUtilUtility_definst.DebugOutput("SQLGEN.CreateDelProc:start " & os.Caption)
-        '''   If os.PartType = 3 Then
+
         If os.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Rassirenie Then
-            'MTZUtilUtility_definst.DebugOutput("SQLGEN.CreateDelProc:skipped " & os.Caption)
             Exit Sub
         End If
 
@@ -3274,7 +3272,7 @@ bye:
         s.putBuf("exec Login @the_SESSION=@session OUTPUT , @PWD='init', @USR='init'")
         ' s.putBuf "exec MTZLogin @the_SESSION=@session OUTPUT , @PWD='init', @USR='init'"
 
-        s.putBuf("EXEC Instance_SAVE @CURSESSION=@session, @InstanceID=@secid, @ObjType='MTZUsers',@Name='Пользователи и группы'")
+        s.putBuf("EXEC Instance_SAVE @CURSESSION=@session, @InstanceID=@secid, @ObjType='mtzusers',@Name='Пользователи и группы'")
 
         For i = 1 To m.OBJECTTYPE.Count
 
@@ -5278,6 +5276,8 @@ bye:
     Private Sub LoadMap()
         Dim ff As Short
         Dim ID1S, IDMTZ As String
+        ID1S = ""
+        IDMTZ = ""
         Dim idm As IDMAP
         ff = FreeFile()
         Map = New Collection

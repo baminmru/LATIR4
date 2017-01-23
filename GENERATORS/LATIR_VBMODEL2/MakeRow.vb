@@ -277,7 +277,11 @@ Module MakeRowProc
                         End If
 
                     Else
-                        If UCase(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) = "DATE" Then
+                        If ft.Name.ToLower() = "id" Then
+                            s = s & vbCrLf & "            nv.Add(""" & f.Name & """, Application.Session.GetProvider.ID2Param(" & f.Name & "),  Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)"
+
+
+                        ElseIf UCase(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) = "DATE" Then
                             s = s & vbCrLf & "          if " & f.Name & "=System.DateTime.MinValue then"
                             s = s & vbCrLf & "            nv.Add(""" & f.Name & """, system.dbnull.value, " & LATIR2Framework.FieldTypesHelper.MapDBtype(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) & ")"
                             s = s & vbCrLf & "          else"
@@ -285,11 +289,11 @@ Module MakeRowProc
                             s = s & vbCrLf & "          end if "
                         Else
                             If LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True) <> String.Empty Then
-                                s = s & vbCrLf & "          nv.Add(""" & f.Name & """, " & f.Name & ", " & LATIR2Framework.FieldTypesHelper.MapDBtype(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) & ")"
+                                    s = s & vbCrLf & "          nv.Add(""" & f.Name & """, " & f.Name & ", " & LATIR2Framework.FieldTypesHelper.MapDBtype(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) & ")"
+                                End If
                             End If
                         End If
                     End If
-                End If
             End If
 
         Next
@@ -332,7 +336,15 @@ Module MakeRowProc
                     End If
 
                 Else
-                    If UCase(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) = "DATE" Then
+                    If ft.Name.ToLower = "id" Then
+                        s = s & vbCrLf & "      If reader.Table.Columns.Contains(""" & f.Name & """) Then"
+                        s = s & vbCrLf & "          if isdbnull(reader.item(""" & f.Name & """)) then"
+                        s = s & vbCrLf & "            If reader.Table.Columns.Contains(""" & f.Name & """) Then m_" & f.Name & " = System.GUID.Empty"
+                        s = s & vbCrLf & "          else"
+                        s = s & vbCrLf & "            If reader.Table.Columns.Contains(""" & f.Name & """) Then m_" & f.Name & "= New System.Guid(reader.item(""" & f.Name & """).ToString())"
+                        s = s & vbCrLf & "          end if "
+                        s = s & vbCrLf & "      end if "
+                    ElseIf UCase(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) = "DATE" Then
                         s = s & vbCrLf & "      If reader.Table.Columns.Contains(""" & f.Name & """) Then"
                         s = s & vbCrLf & "          if isdbnull(reader.item(""" & f.Name & """)) then"
                         s = s & vbCrLf & "            If reader.Table.Columns.Contains(""" & f.Name & """) Then m_" & f.Name & " = System.DateTime.MinValue"
@@ -577,7 +589,7 @@ Module MakeRowProc
 
                 Else
                     If UCase(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) = "DATE" Then
-                        s = s & vbCrLf & "          if " & f.Name & " = System.DateTime.MinValue then " & f.Name & "=System.DateTime.Parse(""12/30/1899"")"
+                        s = s & vbCrLf & "         ' if " & f.Name & " = System.DateTime.MinValue then " & f.Name & "=new Date(1899,12,30)  ' SQL Server trouble"
                         s = s & vbCrLf & "          node.SetAttribute(""" & f.Name & """, " & f.Name & ".Ticks)  "
                     ElseIf UCase(LATIR2Framework.FieldTypesHelper.MapFieldTypeToPhysicalType(m, ft.ID, tid, True)) = "GUID" Then
                         s = s & vbCrLf & "          node.SetAttribute(""" & f.Name & """, " & f.Name & ".ToString())  "

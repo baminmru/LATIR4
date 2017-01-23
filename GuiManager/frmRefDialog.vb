@@ -105,6 +105,7 @@ Public Class frmRefDialog
     Public InstanceID As System.Guid
     Private mPartName As String
     Private Const ColWidth As Integer = 150
+    ' Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
 
     Public Sub Attach(ByVal gm As LATIRGuiManager, Optional ByVal PartName As String = "", Optional ByVal Filter As String = "")
         GuiManager = gm
@@ -122,7 +123,7 @@ Public Class frmRefDialog
         mPartName = PartName
 
 
-        dt = GuiManager.Manager.Session.GetData("select caption from part where name='" & PartName & "'")
+        dt = GuiManager.Manager.Session.GetData("select caption from part where name='" & PartName.ToLower & "'")
         If dt.Rows.Count = 0 Then Exit Sub
         Me.Text = dt.Rows(0)("Caption")
 
@@ -134,7 +135,7 @@ Public Class frmRefDialog
                 ' прочитать определение View 
                 ' построить список колонок с мапингом
 
-                colDt = GuiManager.Manager.Session.GetRowsDT("PartView", GuiManager.Manager.Session.GetProvider.ID2Base("partviewid"), "", "", "the_Alias='" & va & "'")
+                colDt = GuiManager.Manager.Session.GetRowsDT("PartView", GuiManager.Manager.Session.GetProvider.ID2Base("partviewid"), "", "", "the_Alias='" & va.ToLower() & "'")
 
 
                 pvid = New System.Guid(colDt.Rows(0).Item("partviewid").ToString())
@@ -239,12 +240,20 @@ Public Class frmRefDialog
     End Sub
     Private Sub frmRefDialog_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+        ' myResizer.FindAllControls(Me)
     End Sub
     Private Sub cmdCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancel.Click
 
     End Sub
 
+    Private Sub frmRefDialog_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        '  myResizer.ResizeAllControls(Me)
+    End Sub
 
-
-
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        Me.StartPosition = FormStartPosition.Manual
+        Me.WindowState = FormWindowState.Normal
+        Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+        Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+    End Sub
 End Class

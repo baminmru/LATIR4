@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,19 +51,19 @@ Public Class editSysLog
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheSession  as  System.Windows.Forms.Label
-Friend WithEvents txtTheSession As System.Windows.Forms.TextBox
+Friend WithEvents txtTheSession As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheSession As System.Windows.Forms.Button
 Friend WithEvents lblthe_Resource  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Resource As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Resource As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblLogStructID  as  System.Windows.Forms.Label
-Friend WithEvents txtLogStructID As System.Windows.Forms.TextBox
+Friend WithEvents txtLogStructID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblVERB  as  System.Windows.Forms.Label
-Friend WithEvents txtVERB As System.Windows.Forms.TextBox
+Friend WithEvents txtVERB As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblLogInstanceID  as  System.Windows.Forms.Label
-Friend WithEvents txtLogInstanceID As System.Windows.Forms.TextBox
+Friend WithEvents txtLogInstanceID As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -80,16 +81,16 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheSession = New System.Windows.Forms.Label
-Me.txtTheSession = New System.Windows.Forms.TextBox
+Me.txtTheSession = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheSession = New System.Windows.Forms.Button
 Me.lblthe_Resource = New System.Windows.Forms.Label
-Me.txtthe_Resource = New System.Windows.Forms.TextBox
+Me.txtthe_Resource = New LATIR2GuiManager.TouchTextBox
 Me.lblLogStructID = New System.Windows.Forms.Label
-Me.txtLogStructID = New System.Windows.Forms.TextBox
+Me.txtLogStructID = New LATIR2GuiManager.TouchTextBox
 Me.lblVERB = New System.Windows.Forms.Label
-Me.txtVERB = New System.Windows.Forms.TextBox
+Me.txtVERB = New LATIR2GuiManager.TouchTextBox
 Me.lblLogInstanceID = New System.Windows.Forms.Label
-Me.txtLogInstanceID = New System.Windows.Forms.TextBox
+Me.txtLogInstanceID = New LATIR2GuiManager.TouchTextBox
 
 Me.lblTheSession.Location = New System.Drawing.Point(20,5)
 Me.lblTheSession.name = "lblTheSession"
@@ -179,7 +180,7 @@ private sub txtTheSession_TextChanged(ByVal sender As Object, ByVal e As System.
 
 end sub
 private sub cmdTheSession_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdTheSession.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -187,6 +188,9 @@ Dim OK as boolean
           txtTheSession.Tag = id
           txtTheSession.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtthe_Resource_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtthe_Resource.TextChanged
   Changing

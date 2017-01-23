@@ -44,6 +44,7 @@ Public Class oraDB
         End Try
 
         QueryExec("ALTER SESSION FORCE PARALLEL DML")
+        QueryExec("ALTER SESSION SET NLS_SORT=BINARY_CI")
 
 
         Inited = True

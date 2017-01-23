@@ -54,21 +54,21 @@ Public Class editFIELDTYPE
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTypeStyle  as  System.Windows.Forms.Label
 Friend WithEvents cmbTypeStyle As System.Windows.Forms.ComboBox
 Friend cmbTypeStyleDATA As DataTable
 Friend cmbTypeStyleDATAROW As DataRow
 Friend WithEvents lblthe_Comment  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Comment As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Comment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblAllowSize  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowSize As System.Windows.Forms.ComboBox
 Friend cmbAllowSizeDATA As DataTable
 Friend cmbAllowSizeDATAROW As DataRow
 Friend WithEvents lblMinimum  as  System.Windows.Forms.Label
-Friend WithEvents txtMinimum As System.Windows.Forms.TextBox
+Friend WithEvents txtMinimum As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblMaximum  as  System.Windows.Forms.Label
-Friend WithEvents txtMaximum As System.Windows.Forms.TextBox
+Friend WithEvents txtMaximum As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblAllowLikeSearch  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowLikeSearch As System.Windows.Forms.ComboBox
 Friend cmbAllowLikeSearchDATA As DataTable
@@ -98,17 +98,17 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblTypeStyle = New System.Windows.Forms.Label
 Me.cmbTypeStyle = New System.Windows.Forms.ComboBox
 Me.lblthe_Comment = New System.Windows.Forms.Label
-Me.txtthe_Comment = New System.Windows.Forms.TextBox
+Me.txtthe_Comment = New LATIR2GuiManager.TouchTextBox
 Me.lblAllowSize = New System.Windows.Forms.Label
 Me.cmbAllowSize = New System.Windows.Forms.ComboBox
 Me.lblMinimum = New System.Windows.Forms.Label
-Me.txtMinimum = New System.Windows.Forms.TextBox
+Me.txtMinimum = New LATIR2GuiManager.TouchTextBox
 Me.lblMaximum = New System.Windows.Forms.Label
-Me.txtMaximum = New System.Windows.Forms.TextBox
+Me.txtMaximum = New LATIR2GuiManager.TouchTextBox
 Me.lblAllowLikeSearch = New System.Windows.Forms.Label
 Me.cmbAllowLikeSearch = New System.Windows.Forms.ComboBox
 Me.lblGridSortType = New System.Windows.Forms.Label

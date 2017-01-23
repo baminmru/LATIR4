@@ -54,16 +54,16 @@ Public Class editPARAMETERS
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblsequence  as  System.Windows.Forms.Label
-Friend WithEvents txtsequence As System.Windows.Forms.TextBox
+Friend WithEvents txtsequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTypeOfParm  as  System.Windows.Forms.Label
-Friend WithEvents txtTypeOfParm As System.Windows.Forms.TextBox
+Friend WithEvents txtTypeOfParm As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTypeOfParm As System.Windows.Forms.Button
 Friend WithEvents lblDataSize  as  System.Windows.Forms.Label
-Friend WithEvents txtDataSize As System.Windows.Forms.TextBox
+Friend WithEvents txtDataSize As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblAllowNull  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowNull As System.Windows.Forms.ComboBox
 Friend cmbAllowNullDATA As DataTable
@@ -77,11 +77,11 @@ Friend WithEvents cmbReferenceType As System.Windows.Forms.ComboBox
 Friend cmbReferenceTypeDATA As DataTable
 Friend cmbReferenceTypeDATAROW As DataRow
 Friend WithEvents lblRefToType  as  System.Windows.Forms.Label
-Friend WithEvents txtRefToType As System.Windows.Forms.TextBox
+Friend WithEvents txtRefToType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdRefToType As System.Windows.Forms.Button
 Friend WithEvents cmdRefToTypeClear As System.Windows.Forms.Button
 Friend WithEvents lblRefToPart  as  System.Windows.Forms.Label
-Friend WithEvents txtRefToPart As System.Windows.Forms.TextBox
+Friend WithEvents txtRefToPart As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdRefToPart As System.Windows.Forms.Button
 Friend WithEvents cmdRefToPartClear As System.Windows.Forms.Button
 
@@ -101,16 +101,16 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblsequence = New System.Windows.Forms.Label
-Me.txtsequence = New System.Windows.Forms.TextBox
+Me.txtsequence = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblTypeOfParm = New System.Windows.Forms.Label
-Me.txtTypeOfParm = New System.Windows.Forms.TextBox
+Me.txtTypeOfParm = New LATIR2GuiManager.TouchTextBox
 Me.cmdTypeOfParm = New System.Windows.Forms.Button
 Me.lblDataSize = New System.Windows.Forms.Label
-Me.txtDataSize = New System.Windows.Forms.TextBox
+Me.txtDataSize = New LATIR2GuiManager.TouchTextBox
 Me.lblAllowNull = New System.Windows.Forms.Label
 Me.cmbAllowNull = New System.Windows.Forms.ComboBox
 Me.lblOutParam = New System.Windows.Forms.Label
@@ -118,11 +118,11 @@ Me.cmbOutParam = New System.Windows.Forms.ComboBox
 Me.lblReferenceType = New System.Windows.Forms.Label
 Me.cmbReferenceType = New System.Windows.Forms.ComboBox
 Me.lblRefToType = New System.Windows.Forms.Label
-Me.txtRefToType = New System.Windows.Forms.TextBox
+Me.txtRefToType = New LATIR2GuiManager.TouchTextBox
 Me.cmdRefToType = New System.Windows.Forms.Button
 Me.cmdRefToTypeClear = New System.Windows.Forms.Button
 Me.lblRefToPart = New System.Windows.Forms.Label
-Me.txtRefToPart = New System.Windows.Forms.TextBox
+Me.txtRefToPart = New LATIR2GuiManager.TouchTextBox
 Me.cmdRefToPart = New System.Windows.Forms.Button
 Me.cmdRefToPartClear = New System.Windows.Forms.Button
 

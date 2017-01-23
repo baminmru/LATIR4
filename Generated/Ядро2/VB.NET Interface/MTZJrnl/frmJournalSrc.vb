@@ -11,7 +11,7 @@ Imports System.Drawing
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class frmJournalSrc
+Public Class frmjournalsrc
     Inherits System.Windows.Forms.Form
 
 #Region " Windows Form Designer generated code "
@@ -46,12 +46,12 @@ Public Class frmJournalSrc
     Friend WithEvents edPanel As System.Windows.Forms.Panel
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnOK As System.Windows.Forms.Button
-    Friend WithEvents EditJournalSrc As MTZJrnlGUI.editJournalSrc
+    Friend WithEvents Editjournalsrc As mtzjrnlGUI.editjournalsrc
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.btnPanel = New System.Windows.Forms.Panel
         Me.btnCancel = New System.Windows.Forms.Button
         Me.btnOK = New System.Windows.Forms.Button
-        Me.EditJournalSrc = New MTZJrnlGUI.EditJournalSrc
+        Me.Editjournalsrc = New mtzjrnlGUI.Editjournalsrc
         Me.btnPanel.SuspendLayout()
         Me.SuspendLayout()
         'btnOK
@@ -84,30 +84,32 @@ Public Class frmJournalSrc
         Me.btnPanel.Size = New System.Drawing.Size(500, 32)
         Me.btnPanel.TabIndex = 21
         '
-        'EditJournalSrc
+        'Editjournalsrc
         '
-        Me.EditJournalSrc.AutoScroll = True
-        Me.EditJournalSrc.Location = New System.Drawing.Point(8, 8)
-        Me.EditJournalSrc.name = "EditJournalSrc"
-        Me.EditJournalSrc.Size = New System.Drawing.Size(490, 600)
-        Me.EditJournalSrc.TabIndex = 20
-        Me.EditJournalSrc.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Editjournalsrc.AutoScroll = True
+        Me.Editjournalsrc.Location = New System.Drawing.Point(8, 8)
+        Me.Editjournalsrc.name = "Editjournalsrc"
+        Me.Editjournalsrc.Size = New System.Drawing.Size(800-40-16, 600-16)
+        Me.Editjournalsrc.TabIndex = 20
+        Me.Editjournalsrc.Dock = System.Windows.Forms.DockStyle.Fill
         '
-        'frmJournalSrc
+        'frmjournalsrc
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(800, 600)
-        Me.Controls.Add (EditJournalSrc)
+        Me.Controls.Add (Editjournalsrc)
         Me.Controls.Add (Me.btnPanel)
-        Me.name = "frmJournalSrc"
+        Me.name = "frmjournalsrc"
         Me.Text = "Источники журнала"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
 
 #End Region
-    Public Item As MTZJrnl.MTZJrnl.JournalSrc
+    Public Item As mtzjrnl.mtzjrnl.journalsrc
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -119,14 +121,14 @@ Public Class frmJournalSrc
 '''
 ''' </remarks>
     Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, Optional ByVal FormReadOnly As Boolean =False)
-        Item = CType(RowItem, MTZJrnl.MTZJrnl.JournalSrc)
+        Item = CType(RowItem, mtzjrnl.mtzjrnl.journalsrc)
         GuiManager = gm
         mReadOnly = FormReadOnly
-        EditJournalSrc.Attach(GuiManager, Item, FormReadOnly)
+        Editjournalsrc.Attach(GuiManager, Item, FormReadOnly)
         btnOK.Enabled = False
     End Sub
 
-    Private Sub EditJournalSrc_Changed() Handles EditJournalSrc.Changed
+    Private Sub Editjournalsrc_Changed() Handles Editjournalsrc.Changed
         If Not mReadOnly Then
           btnOK.Enabled = True
         End If
@@ -141,8 +143,8 @@ Public Class frmJournalSrc
 ''' </remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
       If Not mReadOnly Then
-        If EditJournalSrc.IsOK() Then
-          EditJournalSrc.Save()
+        If Editjournalsrc.IsOK() Then
+          Editjournalsrc.Save()
          Try
           Item.Save()
           Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -156,8 +158,17 @@ Public Class frmJournalSrc
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditJournalSrc.GetMaxX() + 10, EditJournalSrc.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(Editjournalsrc.GetMaxX() + 10, Editjournalsrc.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

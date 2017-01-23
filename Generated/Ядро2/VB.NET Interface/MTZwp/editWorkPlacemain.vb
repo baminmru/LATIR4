@@ -54,17 +54,17 @@ Public Class editWorkPlacemain
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheVersion  as  System.Windows.Forms.Label
-Friend WithEvents txtTheVersion As System.Windows.Forms.TextBox
+Friend WithEvents txtTheVersion As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblThePlatform  as  System.Windows.Forms.Label
 Friend WithEvents cmbThePlatform As System.Windows.Forms.ComboBox
 Friend cmbThePlatformDATA As DataTable
 Friend cmbThePlatformDATAROW As DataRow
 Friend WithEvents lblTheComment  as  System.Windows.Forms.Label
-Friend WithEvents txtTheComment As System.Windows.Forms.TextBox
+Friend WithEvents txtTheComment As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -82,15 +82,15 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblTheVersion = New System.Windows.Forms.Label
-Me.txtTheVersion = New System.Windows.Forms.TextBox
+Me.txtTheVersion = New LATIR2GuiManager.TouchTextBox
 Me.lblThePlatform = New System.Windows.Forms.Label
 Me.cmbThePlatform = New System.Windows.Forms.ComboBox
 Me.lblTheComment = New System.Windows.Forms.Label
-Me.txtTheComment = New System.Windows.Forms.TextBox
+Me.txtTheComment = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"

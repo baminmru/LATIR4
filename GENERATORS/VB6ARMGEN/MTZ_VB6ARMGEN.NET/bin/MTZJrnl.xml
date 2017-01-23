@@ -1,0 +1,1182 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZJrnl
+</name>
+</assembly>
+<members>
+<member name="M:MTZJrnl.MTZJrnl.JournalColumn_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.JournalColumn_col">
+	<summary>
+Реализация раздела Колонки журналав виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.JournalSrc_col">
+	<summary>
+Реализация раздела Источники журналав виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalColumn.m_ColumnAlignment">
+	<summary>
+Локальная переменная для поля Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalColumn.m_GroupAggregation">
+	<summary>
+Локальная переменная для поля Аггрегация при группировке
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalColumn.m_sequence">
+	<summary>
+Локальная переменная для поля Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalColumn.m_ColSort">
+	<summary>
+Локальная переменная для поля Сортировка колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalColumn.m_name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalColumn.m_JColumnSource">
+	<summary>
+Локальная переменная для дочернего раздела Состав колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.sequence">
+	<summary>
+Доступ к полю Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.ColumnAlignment">
+	<summary>
+Доступ к полю Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.ColSort">
+	<summary>
+Доступ к полю Сортировка колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.GroupAggregation">
+	<summary>
+Доступ к полю Аггрегация при группировке
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.JColumnSource">
+	<summary>
+Доступ к дочернему разделу Состав колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalColumn.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalColumn.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.JournalColumn">
+	<summary>
+Реализация строки раздела Колонки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumHACCPStep">
+	<summary>
+Перечисление Тип шага в ХАССП процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPCB_FileType">
+	<summary>
+Перечисление Тип файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumHaccpIdent">
+	<summary>
+Перечисление Идентификация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeFace">
+	<summary>
+Перечисление Физическое лицо \ Юрифическое лицо
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypePackage">
+	<summary>
+Перечисление Тип отправления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPCB_HoleType">
+	<summary>
+Перечисление Тип отверстия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumAdditionType">
+	<summary>
+Перечисление Тип надбавки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumTypeSempling">
+	<summary>
+Перечисление Тип выборки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumDeliveryOn">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeOperatorSystem">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeOrder">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumHACCPPStep">
+	<summary>
+Перечисление Тип шага в ХАССП процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeDocOrder">
+	<summary>
+Перечисление Тип документов для печати заказчику
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPCB_LayerP">
+	<summary>
+Перечисление Представление поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeClient">
+	<summary>
+Перечисление Тип заказчика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeNomen">
+	<summary>
+Перечисление Тип номенкатуры
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumKONTR_TYPE">
+	<summary>
+Перечисление Тип контрагента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypePersonPay">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypePay">
+	<summary>
+Перечисление Сдельная \ Ставка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPCB_TaskType">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumVRTaskType">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeReceiv">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPCB_CustomerType">
+	<summary>
+Перечисление Статус заказчика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeRowCheque">
+	<summary>
+Перечисление Тип строки чека
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumPCB_clear">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeTariff">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumDCType">
+	<summary>
+Перечисление Остатки/Дебит/Кредит
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeTRF">
+	<summary>
+Перечисление Тип тарифа СС
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumtypeCourier">
+	<summary>
+Перечисление Договор \ ТрудКнижка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumEmployment_">
+	<summary>
+Перечисление осталось для совместимости
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumKONTR_STATUS">
+	<summary>
+Перечисление Состояние партнера
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.Application.m_JournalColumn">
+	<summary>
+ Внутренняя переменная для раздела Колонки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Application.JournalColumn">
+	<summary>
+Свойство для доступа к строкам раздела Колонки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.Application.m_Journal">
+	<summary>
+ Внутренняя переменная для раздела Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Application.Journal">
+	<summary>
+Свойство для доступа к строкам раздела Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.Application.m_JournalSrc">
+	<summary>
+ Внутренняя переменная для раздела Источники журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Application.JournalSrc">
+	<summary>
+Свойство для доступа к строкам раздела Источники журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.Application">
+	<summary>
+Реализация документа Документ описывает журнал, который используется для работы с множеством документов. В журнале могут отображаться документы одного, или нескольких типов.
+ </summary>
+	<remarks>
+Описание журнала
+ </remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JColumnSource.m_SrcPartView">
+	<summary>
+Локальная переменная для поля Представление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JColumnSource.m_ViewField">
+	<summary>
+Локальная переменная для поля Поле представления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JColumnSource.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JColumnSource.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JColumnSource.SrcPartView">
+	<summary>
+Доступ к полю Представление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JColumnSource.ViewField">
+	<summary>
+Доступ к полю Поле представления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JColumnSource.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.JColumnSource">
+	<summary>
+Реализация строки раздела Состав колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.Journal_col">
+	<summary>
+Реализация раздела Журналв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JColumnSource_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.JColumnSource_col">
+	<summary>
+Реализация раздела Состав колонкив виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.Journal.m_the_Alias">
+	<summary>
+Локальная переменная для поля Псевдоним
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.Journal.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.Journal.m_TheComment">
+	<summary>
+Локальная переменная для поля Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Journal.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Journal.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Journal.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Journal.the_Alias">
+	<summary>
+Доступ к полю Псевдоним
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Journal.TheComment">
+	<summary>
+Доступ к полю Описание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.Journal.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.Journal.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.Journal">
+	<summary>
+Реализация строки раздела Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalSrc.m_OnRun">
+	<summary>
+Локальная переменная для поля При открытии
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalSrc.m_PartView">
+	<summary>
+Локальная переменная для поля Представление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalSrc.m_OpenMode">
+	<summary>
+Локальная переменная для поля Режим открытия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZJrnl.MTZJrnl.JournalSrc.m_ViewAlias">
+	<summary>
+Локальная переменная для поля Псевдоним представления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.PartView">
+	<summary>
+Доступ к полю Представление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.OnRun">
+	<summary>
+Доступ к полю При открытии
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.OpenMode">
+	<summary>
+Доступ к полю Режим открытия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.ViewAlias">
+	<summary>
+Доступ к полю Псевдоним представления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZJrnl.MTZJrnl.JournalSrc.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZJrnl.MTZJrnl.JournalSrc.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZJrnl.MTZJrnl.JournalSrc">
+	<summary>
+Реализация строки раздела Источники журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member>
+</members>
+</doc>

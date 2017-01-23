@@ -89,7 +89,7 @@ Public Class frmFIELDMENU
         Me.EditFIELDMENU.AutoScroll = True
         Me.EditFIELDMENU.Location = New System.Drawing.Point(8, 8)
         Me.EditFIELDMENU.name = "EditFIELDMENU"
-        Me.EditFIELDMENU.Size = New System.Drawing.Size(490, 600)
+        Me.EditFIELDMENU.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditFIELDMENU.TabIndex = 20
         Me.EditFIELDMENU.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -101,6 +101,7 @@ Public Class frmFIELDMENU
         Me.Controls.Add (Me.btnPanel)
         Me.name = "frmFIELDMENU"
         Me.Text = "Методы поля"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
@@ -108,6 +109,7 @@ Public Class frmFIELDMENU
 #End Region
     Public Item As MTZMetaModel.MTZMetaModel.FIELDMENU
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -156,8 +158,17 @@ Public Class frmFIELDMENU
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditFIELDMENU.GetMaxX() + 10, EditFIELDMENU.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(EditFIELDMENU.GetMaxX() + 10, EditFIELDMENU.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

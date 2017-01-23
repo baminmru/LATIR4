@@ -39,25 +39,25 @@ Friend Class frmSmartArm
                 Dim ti As tmpInst
                 ti = lstTypes.Items(i)
                 MakeType(model.OBJECTTYPE.Item(ti.ID.ToString()))
-				System.Windows.Forms.Application.DoEvents()
-			End If
-		Next 
-		If chkCreateARM.CheckState = System.Windows.Forms.CheckState.Checked Then
-			MakeArm()
-		End If
-		pb.Visible = False
-		Label1.Visible = False
-		MsgBox("Подготовка АРМа завершена")
-	End Sub
-	
-	Private Sub frmSmartArm_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		lstTypes.Items.Clear()
+                System.Windows.Forms.Application.DoEvents()
+            End If
+        Next
+        If chkCreateARM.CheckState = System.Windows.Forms.CheckState.Checked Then
+            MakeArm()
+        End If
+        pb.Visible = False
+        Label1.Visible = False
+        MsgBox("Подготовка АРМа завершена")
+    End Sub
 
-		model.objectType.Sort = "Comment"
+    Private Sub frmSmartArm_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+        lstTypes.Items.Clear()
+
+        model.OBJECTTYPE.Sort = "Comment"
         Dim i As Integer
         Dim pn As String
         Dim ti As tmpInst
-        For i = 1 To model.objectType.Count
+        For i = 1 To model.OBJECTTYPE.Count
             With model.OBJECTTYPE.Item(i)
 
                 ti = New tmpInst
@@ -67,12 +67,11 @@ Friend Class frmSmartArm
                 lstTypes.Items.Add(ti)
             End With
         Next
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+        ' LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
 
     End Sub
-	
-    Private Sub MakeType(ByRef ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE)
 
+    Private Sub MakeType(ByRef ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE)
         '
         pb.Value = pb.Value + 1
         Label1.Text = "Views for type " & ot.Name
@@ -110,8 +109,8 @@ Friend Class frmSmartArm
         Dim fg As MTZFltr.MTZFltr.FilterFieldGroup
 
         For i = 1 To p.PARTVIEW.Count
-            pv = p.PARTVIEW.item(i)
-            If UCase(pv.the_Alias) = "AUTO" & UCase(p.Name) Then
+            pv = p.PARTVIEW.Item(i)
+            If pv.the_Alias.ToLower = "auto" & p.Name.ToLower Then
                 Exit For
             End If
         Next
@@ -206,75 +205,75 @@ Friend Class frmSmartArm
                         End If
                     End If
 
-                        If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
-                            With CType(fg.FileterField.Add, MTZFltr.MTZFltr.FileterField)
-                                .sequence = seq
-                                .Name = fname & "_GE"
-                                .Caption = f.Caption & " >="
-                                .FieldType = ft
-                                .RefType = f.ReferenceType
-                                .RefToPart = f.RefToPart
-                                .RefToType = f.RefToType
-                                .ValueArray = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net
-                                .FieldSize = f.DataSize
-                                seq = seq + 1
-                                .Save()
-                            End With
-                            With CType(fg.FileterField.Add, MTZFltr.MTZFltr.FileterField)
-                                .sequence = seq
-                                .Name = fname & "_LE"
-                                .Caption = f.Caption & " <="
-                                .FieldType = ft
-                                .RefType = f.ReferenceType
-                                .RefToPart = f.RefToPart
-                                .RefToType = f.RefToType
-                                .ValueArray = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net
-                                .FieldSize = f.DataSize
-                                seq = seq + 1
-                                .Save()
-                            End With
+                    If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
+                        With CType(fg.FileterField.Add, MTZFltr.MTZFltr.FileterField)
+                            .sequence = seq
+                            .Name = fname & "_GE"
+                            .Caption = f.Caption & " >="
+                            .FieldType = ft
+                            .RefType = f.ReferenceType
+                            .RefToPart = f.RefToPart
+                            .RefToType = f.RefToType
+                            .ValueArray = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net
+                            .FieldSize = f.DataSize
+                            seq = seq + 1
+                            .Save()
+                        End With
+                        With CType(fg.FileterField.Add, MTZFltr.MTZFltr.FileterField)
+                            .sequence = seq
+                            .Name = fname & "_LE"
+                            .Caption = f.Caption & " <="
+                            .FieldType = ft
+                            .RefType = f.ReferenceType
+                            .RefToPart = f.RefToPart
+                            .RefToType = f.RefToType
+                            .ValueArray = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net
+                            .FieldSize = f.DataSize
+                            seq = seq + 1
+                            .Save()
+                        End With
 
-                        End If
-
-                        If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
-                            '      If ft.TypeStyle = TypeStyle_Ssilka Then
-                            '
-                            '      Else
-                            '
-                            '      End If
-
-                            With CType(fg.FileterField.Add, MTZFltr.MTZFltr.FileterField)
-                                .sequence = seq
-                                .Name = fname
-                                .Caption = f.Caption
-                                .FieldType = ft
-                                .RefType = f.ReferenceType
-                                .RefToPart = f.RefToPart
-                                .RefToType = f.RefToType
-                                .ValueArray = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net
-                                .FieldSize = f.DataSize
-                                seq = seq + 1
-                                .Save()
-                            End With
-                        End If
-
-
-
-                        '    With fg.FileterField.Add
-                        '      .sequence = seq
-                        '      .Name = f.Name
-                        '      .Caption = f.Caption
-                        '      Set .FIELDTYPE = ft
-                        '      Set .RefType = f.ReferenceType
-                        '      Set .RefToPart = f.RefToPart
-                        '      Set .RefToType = f.RefToType
-                        '      .ValueArray = Boolean_Net
-                        '      .Rows(i)ize = f.DataSize
-                        '      seq = seq + 1
-                        '      .Save
-                        '    End With
                     End If
+
+                    If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
+                        '      If ft.TypeStyle = TypeStyle_Ssilka Then
+                        '
+                        '      Else
+                        '
+                        '      End If
+
+                        With CType(fg.FileterField.Add, MTZFltr.MTZFltr.FileterField)
+                            .sequence = seq
+                            .Name = fname
+                            .Caption = f.Caption
+                            .FieldType = ft
+                            .RefType = f.ReferenceType
+                            .RefToPart = f.RefToPart
+                            .RefToType = f.RefToType
+                            .ValueArray = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net
+                            .FieldSize = f.DataSize
+                            seq = seq + 1
+                            .Save()
+                        End With
+                    End If
+
+
+
+                    '    With fg.FileterField.Add
+                    '      .sequence = seq
+                    '      .Name = f.Name
+                    '      .Caption = f.Caption
+                    '      Set .FIELDTYPE = ft
+                    '      Set .RefType = f.ReferenceType
+                    '      Set .RefToPart = f.RefToPart
+                    '      Set .RefToType = f.RefToType
+                    '      .ValueArray = Boolean_Net
+                    '      .Rows(i)ize = f.DataSize
+                    '      seq = seq + 1
+                    '      .Save
+                    '    End With
                 End If
+            End If
         Next
 
 
@@ -301,7 +300,7 @@ Friend Class frmSmartArm
 
         For i = 1 To p.PARTVIEW.Count
             pv = p.PARTVIEW.Item(i)
-            If UCase(pv.the_Alias) = "AUTO" & UCase(p.Name) Then
+            If pv.the_Alias.ToLower = "auto" & p.Name.ToLower Then
                 Exit For
             End If
         Next
@@ -331,7 +330,7 @@ Friend Class frmSmartArm
             jsrc = jr.JournalSrc.Add()
             With jsrc
                 .ViewAlias = pv.the_Alias
-                .PartView = pv.ID
+                .spartview = pv.ID.ToString
                 .OnRun = MTZMetaModel.MTZMetaModel.enumOnJournalRowClick.OnJournalRowClick_Otkrit__dokument
                 .OpenMode = ""
                 .Save()
@@ -438,7 +437,7 @@ Friend Class frmSmartArm
                 If pv.ForChoose = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
                     HasDefault = True
                 End If
-                If UCase(pv.the_Alias) = "AUTO" & UCase(p.Name) Then
+                If pv.the_Alias.ToLower = "auto" & p.Name.ToLower Then
                     AutoID = pv.ID
                     If pv.ForChoose = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
                         HasDefault = False
@@ -483,7 +482,7 @@ Friend Class frmSmartArm
                 Next
 
                 NewViewName = p.Caption & " авто"
-                NewViewAlias = "AUTO" & p.Name
+                NewViewAlias = "auto" & p.Name.ToLower
 
                 If p.PartType <> MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
                     NewForChoose = Not HasDefault
@@ -810,7 +809,7 @@ Friend Class frmSmartArm
     Private Function FindJournal(ByRef ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE) As MTZJrnl.MTZJrnl.Application
         Dim rs As DataTable
         Dim jr As MTZJrnl.MTZJrnl.Application = Nothing
-        rs = Manager.Session.GetRowsEx("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='MTZJrnl' and Name='" & ot.Name & "'")
+        rs = Manager.Session.GetRowsEx("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='mtzjrnl' and Name='" & ot.Name & "'")
         If Not rs Is Nothing Then
             If rs.Rows.Count > 0 Then
                 jr = Manager.GetInstanceObject(New Guid(rs.Rows(0)("InstanceID").ToString))

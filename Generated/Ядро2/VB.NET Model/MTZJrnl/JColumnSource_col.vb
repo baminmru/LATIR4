@@ -7,7 +7,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -16,7 +16,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class JColumnSource_col
+    Public Class jcolumnsource_col
         Inherits LATIR2.Document.DocCollection_Base
 
 
@@ -28,7 +28,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Function ChildPartName() As String
-            ChildPartName = "JColumnSource"
+            ChildPartName = "jcolumnsource"
         End Function
 
 
@@ -42,12 +42,12 @@ Namespace MTZJrnl
         Protected Overrides Function CreateDataTable() As System.Data.DataTable
             Dim dt As DataTable
             dt = New DataTable
-            dt.TableName="JColumnSource"
+            dt.TableName="jcolumnsource"
             dt.Columns.Add("ID", GetType(System.guid))
             dt.Columns.Add("Brief", Gettype(System.string))
-            dt.Columns.Add("SrcPartView_ID" , GetType(System.guid))
-            dt.Columns.Add("SrcPartView", Gettype(System.string))
-            dt.Columns.Add("ViewField", Gettype(System.string))
+            dt.Columns.Add("srcpartview_ID" , GetType(System.guid))
+            dt.Columns.Add("srcpartview", Gettype(System.string))
+            dt.Columns.Add("viewfield", Gettype(System.string))
             return dt
         End Function
 
@@ -60,7 +60,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Protected Overrides Function NewItem() As LATIR2.Document.DocRow_Base
-            NewItem = New JColumnSource
+            NewItem = New jcolumnsource
         End Function
 
 
@@ -70,9 +70,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Function GetItem( vIndex as object ) As MTZJrnl.JColumnSource
+        Public Function GetItem( vIndex as object ) As mtzjrnl.jcolumnsource
             try
-            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZJrnl.JColumnSource))
+            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(mtzjrnl.jcolumnsource))
 catch ex as System.Exception
  Debug.Print( ex.Message + " >> " + ex.StackTrace)
 end try
@@ -85,7 +85,7 @@ end try
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Shadows Function Item( vIndex as object ) As MTZJrnl.JColumnSource
+        Public Shadows Function Item( vIndex as object ) As mtzjrnl.jcolumnsource
           try
             return GetItem(vIndex)
           catch ex as System.Exception
@@ -95,9 +95,9 @@ end try
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
        with application.Session.GetProvider
-       mFieldList=.ID2Base("JColumnSourceID")
+       mFieldList=.ID2Base("jcolumnsourceID")
            mFieldList =mFieldList+","+.ID2Base("SecurityStyleID") 
-           mFieldList =mFieldList+","+.ID2Base("SrcPartView") 
+           mFieldList =mFieldList+","+.ID2Base("srcpartview") 
            mFieldList =mFieldList+ ", viewfield" 
        end with
     End If

@@ -34,10 +34,10 @@ Imports System.Diagnostics
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
-    Friend WithEvents EditWorkPlace1 As MTZwpGUI.editWorkPlace
+    Friend WithEvents EditWorkPlace1 As MTZwpGUI.editWorkPlacemain
     Friend WithEvents cmdSave As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.EditWorkPlace1 = New MTZwpGUI.editWorkPlace
+        Me.EditWorkPlace1 = New MTZwpGUI.editWorkPlacemain
         Me.cmdSave = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '

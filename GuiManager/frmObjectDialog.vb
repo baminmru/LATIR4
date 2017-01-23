@@ -93,6 +93,7 @@ Public Class frmObjectDialog
     Public GuiManager As LATIRGuiManager
     Public ID As System.Guid
     Public Brief As String
+    ' Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
 
     Public Sub Attach(ByVal gm As LATIRGuiManager, Optional ByVal TypeName As String = "", Optional ByVal Filter As String = "")
         GuiManager = gm
@@ -112,7 +113,7 @@ Public Class frmObjectDialog
 
                 ' прочитать определение View 
                 ' построить список колонок с мапингом
-                colDt = GuiManager.Manager.Session.GetRowsDT("PartView", GuiManager.Manager.Session.GetProvider.ID2Base("partviewid"), "", "", "the_Alias='" & va & "'")
+                colDt = GuiManager.Manager.Session.GetRowsDT("PartView", GuiManager.Manager.Session.GetProvider.ID2Base("partviewid"), "", "", "the_Alias='" & va.ToLower & "'")
 
                 pvid = colDt.Rows(0).Item("partviewid")
                 colDt = GuiManager.Manager.Session.GetRowsDT("Viewcolumn", "*", pvid.ToString)
@@ -186,6 +187,7 @@ Public Class frmObjectDialog
 
     Private Sub frmObjectDialog_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+        ' myResizer.FindAllControls(Me)
     End Sub
 
     Private Sub cmdOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdOK.Click
@@ -204,5 +206,16 @@ Public Class frmObjectDialog
         End If
     End Sub
 
-   
+    Private Sub frmRefDialog_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        ' myResizer.ResizeAllControls(Me)
+    End Sub
+
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        Me.StartPosition = FormStartPosition.Manual
+        Me.WindowState = FormWindowState.Normal
+        Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+        Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+    End Sub
+
+
 End Class

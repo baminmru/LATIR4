@@ -1,0 +1,3 @@
+C:\LATIR2\GENERATORS\LATIR_ARMGEN\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\GENERATORS\LATIR_ARMGEN\obj\Debug\LATIR_ARMGEN.Form1.resources
+C:\LATIR2\GENERATORS\LATIR_ARMGEN\obj\Debug\LATIR_ARMGEN.vbproj.GenerateResource.Cache

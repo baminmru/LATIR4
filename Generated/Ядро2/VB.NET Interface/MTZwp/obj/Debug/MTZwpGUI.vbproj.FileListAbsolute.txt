@@ -1,0 +1,7 @@
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZwp\obj\Debug\MTZwpGUI.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZwp\obj\Debug\MTZwpGUI.xml
+C:\LATIR4\Build\MTZwpGUI.dll
+C:\LATIR4\Build\MTZwpGUI.pdb
+C:\LATIR4\Build\MTZwpGUI.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZwp\obj\Debug\MTZwpGUI.dll
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZwp\obj\Debug\MTZwpGUI.pdb

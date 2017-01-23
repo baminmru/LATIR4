@@ -3,7 +3,7 @@ Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
 Imports System.Diagnostics
 
-  Public Class viewJournal
+  Public Class viewjournal
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IViewPanel 
 #Region " Windows Form Designer generated code "
@@ -34,22 +34,22 @@ Imports System.Diagnostics
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
-    Friend WithEvents EditJournal1 As MTZJrnlGUI.editJournal
+    Friend WithEvents Editjournal1 As mtzjrnlGUI.editjournal
     Friend WithEvents cmdSave As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.EditJournal1 = New MTZJrnlGUI.editJournal
+        Me.Editjournal1 = New mtzjrnlGUI.editjournal
         Me.cmdSave = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
-        'EditJournal1
+        'Editjournal1
         '
-        Me.EditJournal1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.Editjournal1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EditJournal1.Location = New System.Drawing.Point(0, 40)
-        Me.EditJournal1.name = "EditJournal1"
-        Me.EditJournal1.Size = New System.Drawing.Size(248, 128)
-        Me.EditJournal1.TabIndex = 0
+        Me.Editjournal1.Location = New System.Drawing.Point(0, 40)
+        Me.Editjournal1.name = "Editjournal1"
+        Me.Editjournal1.Size = New System.Drawing.Size(248, 128)
+        Me.Editjournal1.TabIndex = 0
         '
         'cmdSave
         '
@@ -62,15 +62,15 @@ Imports System.Diagnostics
         'view" & p.name & "
         '
         Me.Controls.Add (Me.cmdSave)
-        Me.Controls.Add (Me.EditJournal1)
-        Me.name = "viewJournal"
+        Me.Controls.Add (Me.Editjournal1)
+        Me.name = "viewjournal"
         Me.Size = New System.Drawing.Size(248, 168)
         Me.ResumeLayout (False)
 
     End Sub
 
 #End Region
-    Public item As MTZJrnl.MTZJrnl.Application
+    Public item As mtzjrnl.mtzjrnl.Application
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
     Private mReadOnly as boolean
 
@@ -83,20 +83,20 @@ Imports System.Diagnostics
 ''' </remarks>
     Public Sub Attach(ByVal docItem As LATIR2.Document.Doc_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager,byval ReadOnlyView as boolean) Implements LATIR2GUIManager.IViewPanel.Attach
         mReadOnly = ReadOnlyView
-        item = CType(docItem, MTZJrnl.MTZJrnl.Application)
+        item = CType(docItem, mtzjrnl.mtzjrnl.Application)
         GuiManager = gm
-        If item.Journal.Count = 0 Then
-            item.Journal.Add()
+        If item.journal.Count = 0 Then
+            item.journal.Add()
         End If
-        EditJournal1.Attach(gm, item.Journal.Item(1),mReadOnly)
+        Editjournal1.Attach(gm, item.journal.Item(1),mReadOnly)
         cmdSave.Enabled = false
     End Sub
 
     Private Sub cmdSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSave.Click
         if not mReadOnly then
-          if EditJournal1.IsOK() then
-            EditJournal1.Save()
-            item.Journal.Item(1).Save()
+          if Editjournal1.IsOK() then
+            Editjournal1.Save()
+            item.journal.Item(1).Save()
             cmdSave.Enabled = false
           Else
             MsgBox("Не все обязательные поля заполнены")
@@ -105,13 +105,13 @@ Imports System.Diagnostics
           MsgBox("Сохранение невозможно, документ в режиме просмотра")
         End If
     End Sub
-    Private Sub EditJournal1_Changed() Handles EditJournal1.Changed
+    Private Sub Editjournal1_Changed() Handles Editjournal1.Changed
         cmdSave.Enabled = True
     End Sub
  Public Function Save(ByVal Sielent As Boolean, ByVal NoError As Boolean) As Boolean Implements LATIR2GUIManager.IViewPanel.Save
    if not mReadOnly then
-     EditJournal1.Save()
-     item.Journal.Item(1).Save()
+     Editjournal1.Save()
+     item.journal.Item(1).Save()
      cmdSave.Enabled = false
      Return true
    Else
@@ -119,18 +119,18 @@ Imports System.Diagnostics
    End If
  End Function
  Public Function IsOK() As Boolean Implements LATIR2GUIManager.IViewPanel.IsOK
-     Return EditJournal1.IsOK()
+     Return Editjournal1.IsOK()
  End Function
  Public Function IsChanged() As Boolean Implements LATIR2GUIManager.IViewPanel.IsChanged
    if not mReadOnly then
-     Return EditJournal1.IsChanged()
+     Return Editjournal1.IsChanged()
    else
      Return false
    end if
  End Function
  Public Function Verify(ByVal NoError As Boolean) As Boolean Implements LATIR2GUIManager.IViewPanel.Verify
    if not mReadOnly then
-     Return  EditJournal1.IsOK()
+     Return  Editjournal1.IsOK()
    else
      Return true
    end if

@@ -1,0 +1,41 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRAdmin.exe.config
+C:\LATIR2\Generated\Generated Dlls\LATIRAdmin.exe
+C:\LATIR2\Generated\Generated Dlls\LATIRAdmin.xml
+C:\LATIR2\applications\administrator\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmAbout.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmAppDel.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmCleanBaseTool.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmDeleteTool.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmDicList.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmDocList.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmExportToMySQL.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmFieldCopy.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmJouralList.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmChild.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmGenerator.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmJournalViewIG.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmLoadDesc.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmLoadFT.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmLoadMTD.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmMDI.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmMergeObjTool.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmMergeRowTool.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmPrintPreview.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmSaveDesc.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmSaveFT.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmSaveMTD.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmSaveTool.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmSettings.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmShowID.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmSmartArm.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmTest1.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmTypeList.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.frmUniqueTool.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.Resources.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.StyleSetup.resources
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.testForm.resources
+C:\LATIR2\applications\administrator\obj\Release\ResGen.read.1.tlog
+C:\LATIR2\applications\administrator\obj\Release\ResGen.write.1.tlog
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.exe.licenses
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.exe
+C:\LATIR2\applications\administrator\obj\Release\LATIRAdmin.xml

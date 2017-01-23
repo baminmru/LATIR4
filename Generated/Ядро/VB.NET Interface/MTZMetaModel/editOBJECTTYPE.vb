@@ -54,30 +54,30 @@ Public Class editOBJECTTYPE
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblPackage  as  System.Windows.Forms.Label
-Friend WithEvents txtPackage As System.Windows.Forms.TextBox
+Friend WithEvents txtPackage As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdPackage As System.Windows.Forms.Button
 Friend WithEvents lblthe_Comment  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Comment As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Comment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblIsSingleInstance  as  System.Windows.Forms.Label
 Friend WithEvents cmbIsSingleInstance As System.Windows.Forms.ComboBox
 Friend cmbIsSingleInstanceDATA As DataTable
 Friend cmbIsSingleInstanceDATAROW As DataRow
 Friend WithEvents lblChooseView  as  System.Windows.Forms.Label
-Friend WithEvents txtChooseView As System.Windows.Forms.TextBox
+Friend WithEvents txtChooseView As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdChooseView As System.Windows.Forms.Button
 Friend WithEvents cmdChooseViewClear As System.Windows.Forms.Button
 Friend WithEvents lblOnRun  as  System.Windows.Forms.Label
-Friend WithEvents txtOnRun As System.Windows.Forms.TextBox
+Friend WithEvents txtOnRun As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnRun As System.Windows.Forms.Button
 Friend WithEvents cmdOnRunClear As System.Windows.Forms.Button
 Friend WithEvents lblOnCreate  as  System.Windows.Forms.Label
-Friend WithEvents txtOnCreate As System.Windows.Forms.TextBox
+Friend WithEvents txtOnCreate As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnCreate As System.Windows.Forms.Button
 Friend WithEvents cmdOnCreateClear As System.Windows.Forms.Button
 Friend WithEvents lblOnDelete  as  System.Windows.Forms.Label
-Friend WithEvents txtOnDelete As System.Windows.Forms.TextBox
+Friend WithEvents txtOnDelete As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnDelete As System.Windows.Forms.Button
 Friend WithEvents cmdOnDeleteClear As System.Windows.Forms.Button
 Friend WithEvents lblAllowRefToObject  as  System.Windows.Forms.Label
@@ -93,7 +93,7 @@ Friend WithEvents cmbReplicaType As System.Windows.Forms.ComboBox
 Friend cmbReplicaTypeDATA As DataTable
 Friend cmbReplicaTypeDATAROW As DataRow
 Friend WithEvents lblTheComment  as  System.Windows.Forms.Label
-Friend WithEvents txtTheComment As System.Windows.Forms.TextBox
+Friend WithEvents txtTheComment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblUseOwnership  as  System.Windows.Forms.Label
 Friend WithEvents cmbUseOwnership As System.Windows.Forms.ComboBox
 Friend cmbUseOwnershipDATA As DataTable
@@ -107,7 +107,7 @@ Friend WithEvents cmbCommitFullObject As System.Windows.Forms.ComboBox
 Friend cmbCommitFullObjectDATA As DataTable
 Friend cmbCommitFullObjectDATAROW As DataRow
 Friend WithEvents lblobjIconCls  as  System.Windows.Forms.Label
-Friend WithEvents txtobjIconCls As System.Windows.Forms.TextBox
+Friend WithEvents txtobjIconCls As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -125,28 +125,28 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblPackage = New System.Windows.Forms.Label
-Me.txtPackage = New System.Windows.Forms.TextBox
+Me.txtPackage = New LATIR2GuiManager.TouchTextBox
 Me.cmdPackage = New System.Windows.Forms.Button
 Me.lblthe_Comment = New System.Windows.Forms.Label
-Me.txtthe_Comment = New System.Windows.Forms.TextBox
+Me.txtthe_Comment = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblIsSingleInstance = New System.Windows.Forms.Label
 Me.cmbIsSingleInstance = New System.Windows.Forms.ComboBox
 Me.lblChooseView = New System.Windows.Forms.Label
-Me.txtChooseView = New System.Windows.Forms.TextBox
+Me.txtChooseView = New LATIR2GuiManager.TouchTextBox
 Me.cmdChooseView = New System.Windows.Forms.Button
 Me.cmdChooseViewClear = New System.Windows.Forms.Button
 Me.lblOnRun = New System.Windows.Forms.Label
-Me.txtOnRun = New System.Windows.Forms.TextBox
+Me.txtOnRun = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnRun = New System.Windows.Forms.Button
 Me.cmdOnRunClear = New System.Windows.Forms.Button
 Me.lblOnCreate = New System.Windows.Forms.Label
-Me.txtOnCreate = New System.Windows.Forms.TextBox
+Me.txtOnCreate = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnCreate = New System.Windows.Forms.Button
 Me.cmdOnCreateClear = New System.Windows.Forms.Button
 Me.lblOnDelete = New System.Windows.Forms.Label
-Me.txtOnDelete = New System.Windows.Forms.TextBox
+Me.txtOnDelete = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnDelete = New System.Windows.Forms.Button
 Me.cmdOnDeleteClear = New System.Windows.Forms.Button
 Me.lblAllowRefToObject = New System.Windows.Forms.Label
@@ -156,7 +156,7 @@ Me.cmbAllowSearch = New System.Windows.Forms.ComboBox
 Me.lblReplicaType = New System.Windows.Forms.Label
 Me.cmbReplicaType = New System.Windows.Forms.ComboBox
 Me.lblTheComment = New System.Windows.Forms.Label
-Me.txtTheComment = New System.Windows.Forms.TextBox
+Me.txtTheComment = New LATIR2GuiManager.TouchTextBox
 Me.lblUseOwnership = New System.Windows.Forms.Label
 Me.cmbUseOwnership = New System.Windows.Forms.ComboBox
 Me.lblUseArchiving = New System.Windows.Forms.Label
@@ -164,7 +164,7 @@ Me.cmbUseArchiving = New System.Windows.Forms.ComboBox
 Me.lblCommitFullObject = New System.Windows.Forms.Label
 Me.cmbCommitFullObject = New System.Windows.Forms.ComboBox
 Me.lblobjIconCls = New System.Windows.Forms.Label
-Me.txtobjIconCls = New System.Windows.Forms.TextBox
+Me.txtobjIconCls = New LATIR2GuiManager.TouchTextBox
 
 Me.lblPackage.Location = New System.Drawing.Point(20,5)
 Me.lblPackage.name = "lblPackage"

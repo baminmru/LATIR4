@@ -1,0 +1,20 @@
+C:\LATIR2\Generated\Generated Dlls\MYSQLDBInstall2.exe.config
+C:\LATIR2\Generated\Generated Dlls\MYSQLDBInstall2.exe
+C:\LATIR2\Generated\Generated Dlls\MYSQLDBInstall2.pdb
+C:\LATIR2\Generated\Generated Dlls\MYSQLDBInstall2.xml
+C:\LATIR2\applications\MySQLDBInstal\obj\Debug\MYSQLdbInstall.vbprojResolveAssemblyReference.cache
+C:\LATIR2\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.Form1.resources
+C:\LATIR2\applications\MySQLDBInstal\obj\Debug\MYSQLdbInstall.vbproj.GenerateResource.Cache
+C:\LATIR2\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.exe
+C:\LATIR2\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.xml
+C:\LATIR2\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.pdb
+C:\bin\Debug\MYSQLDBInstall2.exe.config
+C:\bin\Debug\MYSQLDBInstall2.exe
+C:\bin\Debug\MYSQLDBInstall2.pdb
+C:\bin\Debug\MYSQLDBInstall2.xml
+E:\LATIR4\applications\MySQLDBInstal\obj\Debug\MYSQLdbInstall.vbprojResolveAssemblyReference.cache
+E:\LATIR4\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.Form1.resources
+E:\LATIR4\applications\MySQLDBInstal\obj\Debug\MYSQLdbInstall.vbproj.GenerateResource.Cache
+E:\LATIR4\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.exe
+E:\LATIR4\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.xml
+E:\LATIR4\applications\MySQLDBInstal\obj\Debug\MYSQLDBInstall2.pdb

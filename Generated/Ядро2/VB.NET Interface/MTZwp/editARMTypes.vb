@@ -54,7 +54,7 @@ Public Class editARMTypes
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheDocumentType  as  System.Windows.Forms.Label
-Friend WithEvents txtTheDocumentType As System.Windows.Forms.TextBox
+Friend WithEvents txtTheDocumentType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheDocumentType As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -73,7 +73,7 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheDocumentType = New System.Windows.Forms.Label
-Me.txtTheDocumentType = New System.Windows.Forms.TextBox
+Me.txtTheDocumentType = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheDocumentType = New System.Windows.Forms.Button
 
 Me.lblTheDocumentType.Location = New System.Drawing.Point(20,5)

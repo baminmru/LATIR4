@@ -7,6 +7,7 @@ Imports System.Drawing
 
 Public Class LATIRGuiManager
     Private mUserName As String
+    Private mUserPassword As String
     Private mManager As LATIR2.Manager
     Dim mOpenGUI As LoadedGUIs
 
@@ -16,7 +17,11 @@ Public Class LATIRGuiManager
     Public DLLPath As String
 
     Public Function UserName() As String
-        UserName = mUserName
+        Return mUserName
+    End Function
+
+    Public Function UserPassword() As String
+        Return mUserPassword
     End Function
 
     Public Function Attach(ByVal Manager As LATIR2.Manager) As Boolean
@@ -45,7 +50,7 @@ again:
                 GoTo again
             End If
             mUserName = f.txtUser.Text
-            UserName = f.txtUser.Text
+            mUserPassword = f.txtPassword.Text
             UserSiteName = f.cmbProfile.Text
             f = Nothing
             Login = True
@@ -220,6 +225,13 @@ again:
         Frm.Font = New Font(Frm.Font.FontFamily, MyScale)
         Dim sizefNew As SizeF = Frm.GetAutoScaleSize(Frm.Font)
         Frm.Scale(sizefNew.Width / sizefOld.Width, sizefNew.Height / sizefOld.Height)
+
+        'For Each c As Control In Frm.Controls
+        '    If c.Name <> "lblText" And c.Name <> "CloseButton1" Then
+        '        c.Scale(sizefNew.Width / sizefOld.Width, sizefNew.Height / sizefOld.Height)
+        '    End If
+        'Next
+
 
 
         Frm.StartPosition = FormStartPosition.Manual

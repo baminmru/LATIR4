@@ -1,0 +1,32 @@
+..\Generated\Generated Dlls\LATIRJournal.dll
+..\Generated\Generated Dlls\LATIRJournal.xml
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LATIRJournal.frmFormatCardView.resources
+obj\Release\LATIRJournal.frmFormatConditions.resources
+obj\Release\LATIRJournal.frmFormatView.resources
+obj\Release\LATIRJournal.frmGroupBy.resources
+obj\Release\LATIRJournal.frmPrintPreview.resources
+obj\Release\LATIRJournal.frmShowFields.resources
+obj\Release\LATIRJournal.frmSort.resources
+obj\Release\LATIRJournal.frmViewSummary.resources
+obj\Release\LATIRJournal.JournalView.resources
+obj\Release\LATIRJournal.vbproj.GenerateResource.Cache
+obj\Release\LATIRJournal.dll.licenses
+obj\Release\LATIRJournal.dll
+obj\Release\LATIRJournal.xml
+..\Generated\Generated Dlls\LATIRJournal.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\LATIRJournal.frmFormatCardView.resources
+obj\Debug\LATIRJournal.frmFormatConditions.resources
+obj\Debug\LATIRJournal.frmFormatView.resources
+obj\Debug\LATIRJournal.frmGroupBy.resources
+obj\Debug\LATIRJournal.frmPrintPreview.resources
+obj\Debug\LATIRJournal.frmShowFields.resources
+obj\Debug\LATIRJournal.frmSort.resources
+obj\Debug\LATIRJournal.frmViewSummary.resources
+obj\Debug\LATIRJournal.JournalView.resources
+obj\Debug\LATIRJournal.vbproj.GenerateResource.Cache
+obj\Debug\LATIRJournal.dll.licenses
+obj\Debug\LATIRJournal.dll
+obj\Debug\LATIRJournal.xml
+obj\Debug\LATIRJournal.pdb

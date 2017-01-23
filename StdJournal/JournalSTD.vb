@@ -26,30 +26,27 @@ Public Class JournalViewSTD
     Friend WithEvents mnuRefresh As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuSetup As System.Windows.Forms.ToolStripMenuItem
 
-
     Public Event JVOnPrint(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean)
     Public Event JVOnFilter(ByRef UseDefault As Boolean)
     Public Event JVOnClearFilter(ByRef UseDefault As Boolean)
     Public Event JVOnSetup(ByRef UseDefault As Boolean)
-    Public Event JVOnAdd(ByRef UseDefault As Boolean, ByRef Refesh As Boolean)
-    Public Event JVOnEdit(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean)
-    Public Event JVOnRun(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean)
-    Public Event JVOnDel(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean)
+    Public Event JVOnAdd(ByRef UseDefault As Boolean, ByRef Refresh As Boolean)
+    Public Event JVOnEdit(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean)
+    Public Event JVOnRun(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean)
+    Public Event JVOnDel(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean)
     Public Event JVOnRowChange(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String)
-    Public Event JVOnDblClick(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean)
+    Public Event JVOnDblClick(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean)
     Public Event JVOnRefresh(ByRef UseDefault As Boolean)
 
 
     Private mParentForm As System.Windows.Forms.Form
     Private LastCheckDate As DateTime
-    Private WithEvents gv As System.Windows.Forms.DataGridView
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents Panel1 As Panel
     Friend WithEvents cmdExport As Button
-    Friend WithEvents cmdSetup As Button
     Friend WithEvents cmdRefresh As Button
     Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdRun As Button
@@ -58,18 +55,11 @@ Public Class JournalViewSTD
     Friend WithEvents cmdEdit As Button
     Friend WithEvents cmdAdd As Button
     Friend WithEvents cmdDel As Button
+    Friend WithEvents gv As DataGridView
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Private mFilter As JFilters
 
-    'Private Class JFilter
-    '    Public Name As String
-    '    Public FilterString As String
-    'End Class
 
-    'Private Class IDHolder
-    '    Public Id As System.Guid
-    '    Public N1 As String
-    '    Public N2 As String
-    'End Class
 
 #End Region
 #Region "Designer"
@@ -120,11 +110,9 @@ Public Class JournalViewSTD
         Me.mnuNoFilter = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuSetup = New System.Windows.Forms.ToolStripMenuItem()
-        Me.gv = New System.Windows.Forms.DataGridView()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmdExport = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.cmdSetup = New System.Windows.Forms.Button()
         Me.cmdRefresh = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdRun = New System.Windows.Forms.Button()
@@ -135,9 +123,11 @@ Public Class JournalViewSTD
         Me.cmdDel = New System.Windows.Forms.Button()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.gv = New System.Windows.Forms.DataGridView()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.CtlMenu.SuspendLayout()
-        CType(Me.gv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.gv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RefreshTimer
@@ -208,30 +198,13 @@ Public Class JournalViewSTD
         Me.mnuSetup.Text = "Настроить"
         Me.mnuSetup.Visible = False
         '
-        'gv
-        '
-        Me.gv.AllowUserToAddRows = False
-        Me.gv.AllowUserToDeleteRows = False
-        Me.gv.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
-        Me.gv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.gv.ContextMenuStrip = Me.CtlMenu
-        Me.gv.Location = New System.Drawing.Point(0, 44)
-        Me.gv.Name = "gv"
-        Me.gv.ReadOnly = True
-        Me.gv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.gv.Size = New System.Drawing.Size(575, 278)
-        Me.gv.TabIndex = 3
-        Me.gv.Text = "gv"
-        '
         'cmdExport
         '
+        Me.cmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdExport.ImageKey = "xl.ico"
         Me.cmdExport.ImageList = Me.ImageList1
-        Me.cmdExport.Location = New System.Drawing.Point(230, 8)
+        Me.cmdExport.Location = New System.Drawing.Point(201, 8)
         Me.cmdExport.Name = "cmdExport"
         Me.cmdExport.Size = New System.Drawing.Size(27, 24)
         Me.cmdExport.TabIndex = 9
@@ -298,21 +271,9 @@ Public Class JournalViewSTD
         Me.ImageList1.Images.SetKeyName(51, "Справочник.ico")
         Me.ImageList1.Images.SetKeyName(52, "xl.ico")
         '
-        'cmdSetup
-        '
-        Me.cmdSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.cmdSetup.ImageIndex = 41
-        Me.cmdSetup.ImageList = Me.ImageList1
-        Me.cmdSetup.Location = New System.Drawing.Point(198, 8)
-        Me.cmdSetup.Name = "cmdSetup"
-        Me.cmdSetup.Size = New System.Drawing.Size(27, 24)
-        Me.cmdSetup.TabIndex = 8
-        Me.cmdSetup.TabStop = False
-        Me.cmdSetup.Text = "&Н"
-        Me.ToolTip1.SetToolTip(Me.cmdSetup, "Настроить")
-        '
         'cmdRefresh
         '
+        Me.cmdRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdRefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdRefresh.ImageIndex = 44
         Me.cmdRefresh.ImageList = Me.ImageList1
@@ -326,6 +287,7 @@ Public Class JournalViewSTD
         '
         'cmdPrint
         '
+        Me.cmdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdPrint.ImageIndex = 40
         Me.cmdPrint.ImageList = Me.ImageList1
@@ -339,6 +301,7 @@ Public Class JournalViewSTD
         '
         'cmdRun
         '
+        Me.cmdRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdRun.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdRun.ImageIndex = 37
         Me.cmdRun.ImageList = Me.ImageList1
@@ -352,10 +315,11 @@ Public Class JournalViewSTD
         '
         'cmdClearFilter
         '
+        Me.cmdClearFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdClearFilter.ImageIndex = 27
         Me.cmdClearFilter.ImageList = Me.ImageList1
-        Me.cmdClearFilter.Location = New System.Drawing.Point(295, 8)
+        Me.cmdClearFilter.Location = New System.Drawing.Point(266, 8)
         Me.cmdClearFilter.Name = "cmdClearFilter"
         Me.cmdClearFilter.Size = New System.Drawing.Size(27, 24)
         Me.cmdClearFilter.TabIndex = 4
@@ -365,10 +329,11 @@ Public Class JournalViewSTD
         '
         'cmdFilter
         '
+        Me.cmdFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdFilter.ImageIndex = 15
         Me.cmdFilter.ImageList = Me.ImageList1
-        Me.cmdFilter.Location = New System.Drawing.Point(263, 8)
+        Me.cmdFilter.Location = New System.Drawing.Point(234, 8)
         Me.cmdFilter.Name = "cmdFilter"
         Me.cmdFilter.Size = New System.Drawing.Size(27, 24)
         Me.cmdFilter.TabIndex = 3
@@ -378,6 +343,7 @@ Public Class JournalViewSTD
         '
         'cmdEdit
         '
+        Me.cmdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdEdit.ImageIndex = 46
         Me.cmdEdit.ImageList = Me.ImageList1
@@ -393,6 +359,7 @@ Public Class JournalViewSTD
         '
         Me.cmdAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cmdAdd.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.cmdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdAdd.ImageKey = "Создать.ico"
         Me.cmdAdd.ImageList = Me.ImageList1
@@ -408,6 +375,7 @@ Public Class JournalViewSTD
         '
         'cmdDel
         '
+        Me.cmdDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdDel.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.cmdDel.ImageIndex = 35
         Me.cmdDel.ImageList = Me.ImageList1
@@ -427,7 +395,6 @@ Public Class JournalViewSTD
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.cmdExport)
-        Me.Panel1.Controls.Add(Me.cmdSetup)
         Me.Panel1.Controls.Add(Me.cmdRefresh)
         Me.Panel1.Controls.Add(Me.cmdPrint)
         Me.Panel1.Controls.Add(Me.cmdRun)
@@ -442,6 +409,32 @@ Public Class JournalViewSTD
         Me.Panel1.Size = New System.Drawing.Size(575, 38)
         Me.Panel1.TabIndex = 4
         '
+        'gv
+        '
+        Me.gv.AllowUserToAddRows = False
+        Me.gv.AllowUserToDeleteRows = False
+        Me.gv.AllowUserToOrderColumns = True
+        Me.gv.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.gv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.gv.ColumnHeadersHeight = 60
+        Me.gv.ContextMenuStrip = Me.CtlMenu
+        Me.gv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.gv.GridColor = System.Drawing.SystemColors.Control
+        Me.gv.Location = New System.Drawing.Point(0, 44)
+        Me.gv.Name = "gv"
+        Me.gv.ReadOnly = True
+        Me.gv.RowHeadersWidth = 10
+        Me.gv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.gv.ShowCellErrors = False
+        Me.gv.ShowEditingIcon = False
+        Me.gv.ShowRowErrors = False
+        Me.gv.Size = New System.Drawing.Size(575, 278)
+        Me.gv.TabIndex = 3
+        Me.gv.Text = "gv"
+        '
         'JournalViewSTD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -451,8 +444,8 @@ Public Class JournalViewSTD
         Me.Name = "JournalViewSTD"
         Me.Size = New System.Drawing.Size(575, 322)
         Me.CtlMenu.ResumeLayout(False)
-        CType(Me.gv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.gv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -470,6 +463,7 @@ Public Class JournalViewSTD
         CreateFromDef()
         RefreshData()
         RefreshTimer.Enabled = True
+
     End Sub
 
     Private Sub CreateFromDef()
@@ -877,7 +871,7 @@ bye:
             GetRowInfo(InstanceID, RowID, ViewBase)
             RaiseEvent JVOnPrint(InstanceID, RowID, ViewBase, UseDefault)
             If UseDefault Then
-                'gv.PrintPreview()
+                PrintPreview()
 
             End If
         End If
@@ -1105,6 +1099,154 @@ bye:
     Private Sub CtlMenu_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles CtlMenu.Opening
 
     End Sub
+#Region "print support"
+
+    Public Sub PrintPreview()
+        Dim printDialog As PrintPreviewDialog = New PrintPreviewDialog
+        Dim sz As New SizeF(2.0, 2.0)
+
+        printDialog.Scale(sz)
+
+        'PrintDocument1.DefaultPageSettings.PaperSize =  New System.Drawing.Printing.PaperSize()
+        PrintDocument1.DefaultPageSettings.Landscape = True
+        printDialog.WindowState = FormWindowState.Maximized
+
+        printDialog.Document = PrintDocument1
+
+        printDialog.ShowDialog()
+
+    End Sub
+
+    Dim strFormat As StringFormat
+    Dim arrColumnLefts As ArrayList = New ArrayList
+    Dim arrColumnWidths As ArrayList = New ArrayList
+    Dim iCellHeight As Integer = 0
+    Dim iTotalWidth As Integer = 0
+    Dim iRow As Integer = 0
+    Dim bFirstPage As Boolean = False
+    Dim bNewPage As Boolean = False
+    Dim iHeaderHeight As Integer = 0
+
+    Private Sub printDocument1_BeginPrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs) Handles PrintDocument1.BeginPrint
+        Try
+            strFormat = New StringFormat
+            strFormat.Alignment = StringAlignment.Near
+            strFormat.LineAlignment = StringAlignment.Center
+            strFormat.Trimming = StringTrimming.EllipsisCharacter
+            arrColumnLefts.Clear()
+            arrColumnWidths.Clear()
+            iCellHeight = 0
+            iRow = 0
+            bFirstPage = True
+            bNewPage = True
+            ' Calculating Total Widths
+            iTotalWidth = 0
+            For Each dgvGridCol As DataGridViewColumn In gv.Columns
+                If dgvGridCol.Visible = True Then
+                    iTotalWidth = (iTotalWidth + dgvGridCol.Width)
+                End If
+
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    Private Sub printDocument1_PrintPage(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Try
+            'Set the left margin
+            Dim iLeftMargin As Integer = e.MarginBounds.Left
+            'Set the top margin
+            Dim iTopMargin As Integer = e.MarginBounds.Top
+            Dim pw As Double
+            'Whether more pages have to print or not
+            Dim bMorePagesToPrint As Boolean = False
+            Dim iTmpWidth As Integer = 0
+            pw = CType(e.MarginBounds.Width, Double)
+            'pw = CType(e.PageBounds.Width, Double)
+
+            'For the first page to print set the cell width and header height
+            If bFirstPage Then
+                For Each GridCol As DataGridViewColumn In gv.Columns
+                    If GridCol.Visible = True Then
+                        iTmpWidth = CType(System.Math.Floor(CType(GridCol.Width, Double) / CType(iTotalWidth, Double) * CType(pw, Double)), Integer)
+                        iHeaderHeight = (CType(e.Graphics.MeasureString(GridCol.HeaderText, GridCol.InheritedStyle.Font, iTmpWidth).Height, Integer) + 11)
+
+                        ' Save width and height of headres
+                        arrColumnLefts.Add(iLeftMargin)
+                        arrColumnWidths.Add(iTmpWidth)
+                        iLeftMargin = (iLeftMargin + iTmpWidth)
+                    End If
+
+                Next
+            End If
+
+            'Loop till all the grid rows not get printed
+
+            While (iRow _
+                        <= (gv.Rows.Count - 1))
+                Dim GridRow As DataGridViewRow = gv.Rows(iRow)
+                'Set the cell height
+                iCellHeight = (GridRow.Height + 5)
+                Dim iCount As Integer = 0
+                'Check whether the current page settings allo more rows to print
+                If (iTopMargin + iCellHeight >= (e.MarginBounds.Height + e.MarginBounds.Top)) Then
+                    bNewPage = True
+                    bFirstPage = False
+                    bMorePagesToPrint = True
+                    Exit While
+                Else
+                    If bNewPage Then
+
+                        'Draw Columns                 
+                        iTopMargin = e.MarginBounds.Top
+                        For Each GridCol As DataGridViewColumn In gv.Columns
+                            If GridCol.Visible = True Then
+                                e.Graphics.FillRectangle(New SolidBrush(Color.LightGray), New Rectangle(CType(arrColumnLefts(iCount), Integer), iTopMargin, CType(arrColumnWidths(iCount), Integer), iHeaderHeight))
+                                e.Graphics.DrawRectangle(Pens.Black, New Rectangle(CType(arrColumnLefts(iCount), Integer), iTopMargin, CType(arrColumnWidths(iCount), Integer), iHeaderHeight))
+                                e.Graphics.DrawString(GridCol.HeaderText, GridCol.InheritedStyle.Font, New SolidBrush(GridCol.InheritedStyle.ForeColor), New RectangleF(CType(arrColumnLefts(iCount), Integer), iTopMargin, CType(arrColumnWidths(iCount), Integer), iHeaderHeight), strFormat)
+                                iCount = (iCount + 1)
+                            End If
+                        Next
+                        bNewPage = False
+                        iTopMargin = (iTopMargin + iHeaderHeight)
+                    End If
+
+                    iCount = 0
+                    'Draw Columns Contents                
+                    For Each Cel As DataGridViewCell In GridRow.Cells
+                        If Cel.OwningColumn.Visible = True Then
+                            If (Not (Cel.Value) Is Nothing) Then
+                                e.Graphics.DrawString(Cel.Value.ToString, Cel.InheritedStyle.Font, New SolidBrush(Cel.InheritedStyle.ForeColor), New RectangleF(CType(arrColumnLefts(iCount), Integer), CType(iTopMargin, Single), CType(arrColumnWidths(iCount), Integer), CType(iCellHeight, Single)), strFormat)
+                            End If
+
+                            'Drawing Cells Borders 
+                            e.Graphics.DrawRectangle(Pens.Black, New Rectangle(CType(arrColumnLefts(iCount), Integer), iTopMargin, CType(arrColumnWidths(iCount), Integer), iCellHeight))
+                            iCount = (iCount + 1)
+                        End If
+
+                    Next
+                End If
+
+                iRow = (iRow + 1)
+                iTopMargin = (iTopMargin + iCellHeight)
+
+            End While
+
+            'If more lines exist, print another page.
+            If bMorePagesToPrint Then
+                e.HasMorePages = True
+            Else
+                e.HasMorePages = False
+            End If
+
+        Catch exc As Exception
+            MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+#End Region
 
 
 End Class

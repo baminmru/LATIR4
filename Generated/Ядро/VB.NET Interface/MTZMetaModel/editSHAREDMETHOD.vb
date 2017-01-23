@@ -54,11 +54,11 @@ Public Class editSHAREDMETHOD
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblthe_Comment  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Comment As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Comment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblReturnType  as  System.Windows.Forms.Label
-Friend WithEvents txtReturnType As System.Windows.Forms.TextBox
+Friend WithEvents txtReturnType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdReturnType As System.Windows.Forms.Button
 Friend WithEvents cmdReturnTypeClear As System.Windows.Forms.Button
 
@@ -78,11 +78,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblthe_Comment = New System.Windows.Forms.Label
-Me.txtthe_Comment = New System.Windows.Forms.TextBox
+Me.txtthe_Comment = New LATIR2GuiManager.TouchTextBox
 Me.lblReturnType = New System.Windows.Forms.Label
-Me.txtReturnType = New System.Windows.Forms.TextBox
+Me.txtReturnType = New LATIR2GuiManager.TouchTextBox
 Me.cmdReturnType = New System.Windows.Forms.Button
 Me.cmdReturnTypeClear = New System.Windows.Forms.Button
 

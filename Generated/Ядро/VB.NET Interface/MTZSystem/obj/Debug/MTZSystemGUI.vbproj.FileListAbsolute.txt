@@ -1,0 +1,7 @@
+C:\LATIR4\Build\MTZSystemGUI.dll
+C:\LATIR4\Build\MTZSystemGUI.pdb
+C:\LATIR4\Build\MTZSystemGUI.xml
+C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZSystem\obj\Debug\MTZSystemGUI.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZSystem\obj\Debug\MTZSystemGUI.dll
+C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZSystem\obj\Debug\MTZSystemGUI.xml
+C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZSystem\obj\Debug\MTZSystemGUI.pdb

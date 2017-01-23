@@ -14,15 +14,6 @@ Public Class Generator
 
 
 
-    'DateTime vSource;
-    '      DateTime vDest = System.DateTime.MinValue;
-    '      long Ticks;
-    '      vSource = System.DateTime.Now;
-    '      Ticks = vSource.Ticks ;
-    '
-    '      vDest = vDest.AddTicks(Ticks);
-    '      System.Diagnostics.Trace.WriteLine (vSource.ToString());
-    '      System.Diagnostics.Trace.WriteLine (vDest.ToString());
 
     Public ReadOnly Property LATIRManagerPath() As String
         Get

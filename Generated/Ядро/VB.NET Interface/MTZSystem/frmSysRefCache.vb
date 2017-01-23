@@ -1,6 +1,8 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
+Imports System.Drawing
 
 
 ''' <summary>
@@ -87,7 +89,7 @@ Public Class frmSysRefCache
         Me.EditSysRefCache.AutoScroll = True
         Me.EditSysRefCache.Location = New System.Drawing.Point(8, 8)
         Me.EditSysRefCache.name = "EditSysRefCache"
-        Me.EditSysRefCache.Size = New System.Drawing.Size(490, 600)
+        Me.EditSysRefCache.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditSysRefCache.TabIndex = 20
         Me.EditSysRefCache.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -107,7 +109,8 @@ Public Class frmSysRefCache
 #End Region
     Public Item As MTZSystem.MTZSystem.SysRefCache
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
-    Private mReadOnly as boolean
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
+    Private mReadOnly As Boolean
 
 
 
@@ -117,7 +120,7 @@ Public Class frmSysRefCache
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, optional byval FormReadOnly as boolean =false)
+    Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, Optional ByVal FormReadOnly As Boolean =False)
         Item = CType(RowItem, MTZSystem.MTZSystem.SysRefCache)
         GuiManager = gm
         mReadOnly = FormReadOnly
@@ -126,9 +129,9 @@ Public Class frmSysRefCache
     End Sub
 
     Private Sub EditSysRefCache_Changed() Handles EditSysRefCache.Changed
-        if not mReadOnly then
+        If Not mReadOnly Then
           btnOK.Enabled = True
-        end if
+        End If
     End Sub
 
 
@@ -139,22 +142,33 @@ Public Class frmSysRefCache
 '''
 ''' </remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
-      if not mReadOnly then
-        if EditSysRefCache.IsOK() then
+      If Not mReadOnly Then
+        If EditSysRefCache.IsOK() Then
           EditSysRefCache.Save()
-          on error goto bye
+         Try
           Item.Save()
           Me.DialogResult = System.Windows.Forms.DialogResult.OK
           Me.Close
-        else
+        Catch ex As System.Exception
+          MsgBox(ex.Message,vbOKOnly+vbCritical,"Ошибка")
+        End Try
+        Else
           MsgBox("Не все обязательные пля заполнены",vbOKOnly+vbExclamation,"Ошибка")
-        end if
-        exit sub
-        bye:
-          MsgBox(err.description,vbOKOnly+vbCritical,"Ошибка")
-        end if
+        End If
+        Exit Sub
+        End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+    End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.ClientSize() = New System.Drawing.Size(EditSysRefCache.GetMaxX() + 10, EditSysRefCache.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
     End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

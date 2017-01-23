@@ -7,7 +7,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -16,7 +16,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class Journal_col
+    Public Class journal_col
         Inherits LATIR2.Document.DocCollection_Base
 
 
@@ -28,7 +28,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Function ChildPartName() As String
-            ChildPartName = "Journal"
+            ChildPartName = "journal"
         End Function
 
 
@@ -42,15 +42,15 @@ Namespace MTZJrnl
         Protected Overrides Function CreateDataTable() As System.Data.DataTable
             Dim dt As DataTable
             dt = New DataTable
-            dt.TableName="Journal"
+            dt.TableName="journal"
             dt.Columns.Add("ID", GetType(System.guid))
             dt.Columns.Add("Brief", Gettype(System.string))
-            dt.Columns.Add("Name", Gettype(System.string))
-            dt.Columns.Add("the_Alias", Gettype(System.string))
-            dt.Columns.Add("TheComment", Gettype(System.string))
-            dt.Columns.Add("jrnlIconCls", Gettype(System.string))
-            dt.Columns.Add("UseFavorites_VAL" , Gettype(System.Int16))
-            dt.Columns.Add("UseFavorites", Gettype(System.string))
+            dt.Columns.Add("name", Gettype(System.string))
+            dt.Columns.Add("the_alias", Gettype(System.string))
+            dt.Columns.Add("thecomment", Gettype(System.string))
+            dt.Columns.Add("jrnliconcls", Gettype(System.string))
+            dt.Columns.Add("usefavorites_VAL" , Gettype(System.Int16))
+            dt.Columns.Add("usefavorites", Gettype(System.string))
             return dt
         End Function
 
@@ -63,7 +63,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Protected Overrides Function NewItem() As LATIR2.Document.DocRow_Base
-            NewItem = New Journal
+            NewItem = New journal
         End Function
 
 
@@ -73,9 +73,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Function GetItem( vIndex as object ) As MTZJrnl.Journal
+        Public Function GetItem( vIndex as object ) As mtzjrnl.journal
             try
-            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZJrnl.Journal))
+            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(mtzjrnl.journal))
 catch ex as System.Exception
  Debug.Print( ex.Message + " >> " + ex.StackTrace)
 end try
@@ -88,7 +88,7 @@ end try
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Shadows Function Item( vIndex as object ) As MTZJrnl.Journal
+        Public Shadows Function Item( vIndex as object ) As mtzjrnl.journal
           try
             return GetItem(vIndex)
           catch ex as System.Exception
@@ -98,7 +98,7 @@ end try
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
        with application.Session.GetProvider
-       mFieldList=.ID2Base("JournalID")
+       mFieldList=.ID2Base("journalID")
            mFieldList =mFieldList+","+.ID2Base("SecurityStyleID") 
            mFieldList =mFieldList+ ", name" 
            mFieldList =mFieldList+ ", the_alias" 

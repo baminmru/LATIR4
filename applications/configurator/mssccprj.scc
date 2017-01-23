@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[Configurator.sln]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/LATIR/applications/configurator", EDTDAAAA
+
+[Configurator.vbproj]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/LATIR/applications/configurator", EDTDAAAA

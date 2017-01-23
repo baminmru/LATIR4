@@ -1,6 +1,8 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
+Imports System.Drawing
 
 
 ''' <summary>
@@ -87,7 +89,7 @@ Public Class frmReports
         Me.EditReports.AutoScroll = True
         Me.EditReports.Location = New System.Drawing.Point(8, 8)
         Me.EditReports.name = "EditReports"
-        Me.EditReports.Size = New System.Drawing.Size(490, 600)
+        Me.EditReports.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditReports.TabIndex = 20
         Me.EditReports.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -107,7 +109,8 @@ Public Class frmReports
 #End Region
     Public Item As MTZRprt.MTZRprt.Reports
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
-    Private mReadOnly as boolean
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
+    Private mReadOnly As Boolean
 
 
 
@@ -117,7 +120,7 @@ Public Class frmReports
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, optional byval FormReadOnly as boolean =false)
+    Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, Optional ByVal FormReadOnly As Boolean =False)
         Item = CType(RowItem, MTZRprt.MTZRprt.Reports)
         GuiManager = gm
         mReadOnly = FormReadOnly
@@ -126,9 +129,9 @@ Public Class frmReports
     End Sub
 
     Private Sub EditReports_Changed() Handles EditReports.Changed
-        if not mReadOnly then
+        If Not mReadOnly Then
           btnOK.Enabled = True
-        end if
+        End If
     End Sub
 
 
@@ -139,22 +142,33 @@ Public Class frmReports
 '''
 ''' </remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
-      if not mReadOnly then
-        if EditReports.IsOK() then
+      If Not mReadOnly Then
+        If EditReports.IsOK() Then
           EditReports.Save()
-          on error goto bye
+         Try
           Item.Save()
           Me.DialogResult = System.Windows.Forms.DialogResult.OK
           Me.Close
-        else
+        Catch ex As System.Exception
+          MsgBox(ex.Message,vbOKOnly+vbCritical,"Ошибка")
+        End Try
+        Else
           MsgBox("Не все обязательные пля заполнены",vbOKOnly+vbExclamation,"Ошибка")
-        end if
-        exit sub
-        bye:
-          MsgBox(err.description,vbOKOnly+vbCritical,"Ошибка")
-        end if
+        End If
+        Exit Sub
+        End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+    End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.ClientSize() = New System.Drawing.Size(EditReports.GetMaxX() + 10, EditReports.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
     End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

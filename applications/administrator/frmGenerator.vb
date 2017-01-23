@@ -81,14 +81,11 @@ Public Class frmGenerator
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ButtonGenSetup = New System.Windows.Forms.Button()
         Me.ButtonDevEnv = New System.Windows.Forms.Button()
-        Me.TextBoxDevEnv = New LATIR2GuiManager.TouchTextBox()
         Me.LabelDevEnv = New System.Windows.Forms.Label()
         Me.CheckBoxCompile = New System.Windows.Forms.CheckBox()
         Me.ButtonOutDlls = New System.Windows.Forms.Button()
-        Me.TextBoxOutDlls = New LATIR2GuiManager.TouchTextBox()
         Me.LabelOutDlls = New System.Windows.Forms.Label()
         Me.button3 = New System.Windows.Forms.Button()
-        Me.textBoxOutPutFolder = New LATIR2GuiManager.TouchTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.progressBar = New System.Windows.Forms.ProgressBar()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -104,6 +101,9 @@ Public Class frmGenerator
         Me.FolderBrowserDialogDllOutput = New System.Windows.Forms.FolderBrowserDialog()
         Me.cmdDoc = New System.Windows.Forms.Button()
         Me.cDlg = New System.Windows.Forms.SaveFileDialog()
+        Me.TextBoxDevEnv = New LATIR2GuiManager.TouchTextBox()
+        Me.TextBoxOutDlls = New LATIR2GuiManager.TouchTextBox()
+        Me.textBoxOutPutFolder = New LATIR2GuiManager.TouchTextBox()
         Me.SuspendLayout()
         '
         'folderBrowserDialogProjectOutput
@@ -112,7 +112,7 @@ Public Class frmGenerator
         '
         'cmdClearLog
         '
-        Me.cmdClearLog.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdClearLog.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdClearLog.BackColor = System.Drawing.SystemColors.Control
         Me.cmdClearLog.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdClearLog.ForeColor = System.Drawing.SystemColors.ControlText
@@ -126,7 +126,7 @@ Public Class frmGenerator
         '
         'cmdFindErr
         '
-        Me.cmdFindErr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdFindErr.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFindErr.BackColor = System.Drawing.SystemColors.Control
         Me.cmdFindErr.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdFindErr.ForeColor = System.Drawing.SystemColors.ControlText
@@ -154,8 +154,7 @@ Public Class frmGenerator
         '
         'txtLog
         '
-        Me.txtLog.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtLog.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtLog.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.txtLog.Location = New System.Drawing.Point(3, 453)
@@ -180,6 +179,7 @@ Public Class frmGenerator
         '
         'ButtonGenSetup
         '
+        Me.ButtonGenSetup.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonGenSetup.BackColor = System.Drawing.SystemColors.Control
         Me.ButtonGenSetup.Cursor = System.Windows.Forms.Cursors.Default
         Me.ButtonGenSetup.ForeColor = System.Drawing.SystemColors.ControlText
@@ -200,18 +200,9 @@ Public Class frmGenerator
         Me.ButtonDevEnv.TabIndex = 57
         Me.ButtonDevEnv.Text = "..."
         '
-        'TextBoxDevEnv
-        '
-        Me.TextBoxDevEnv.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxDevEnv.Location = New System.Drawing.Point(134, 373)
-        Me.TextBoxDevEnv.Name = "TextBoxDevEnv"
-        Me.TextBoxDevEnv.Size = New System.Drawing.Size(469, 20)
-        Me.TextBoxDevEnv.TabIndex = 56
-        Me.TextBoxDevEnv.Text = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\"
-        '
         'LabelDevEnv
         '
+        Me.LabelDevEnv.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelDevEnv.AutoSize = True
         Me.LabelDevEnv.Location = New System.Drawing.Point(12, 376)
         Me.LabelDevEnv.Name = "LabelDevEnv"
@@ -221,6 +212,7 @@ Public Class frmGenerator
         '
         'CheckBoxCompile
         '
+        Me.CheckBoxCompile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBoxCompile.AutoSize = True
         Me.CheckBoxCompile.Checked = True
         Me.CheckBoxCompile.CheckState = System.Windows.Forms.CheckState.Checked
@@ -240,18 +232,9 @@ Public Class frmGenerator
         Me.ButtonOutDlls.TabIndex = 60
         Me.ButtonOutDlls.Text = "..."
         '
-        'TextBoxOutDlls
-        '
-        Me.TextBoxOutDlls.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxOutDlls.Location = New System.Drawing.Point(134, 396)
-        Me.TextBoxOutDlls.Name = "TextBoxOutDlls"
-        Me.TextBoxOutDlls.Size = New System.Drawing.Size(469, 20)
-        Me.TextBoxOutDlls.TabIndex = 59
-        Me.TextBoxOutDlls.Text = "C:\LATIR4\Build"
-        '
         'LabelOutDlls
         '
+        Me.LabelOutDlls.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelOutDlls.AutoSize = True
         Me.LabelOutDlls.Location = New System.Drawing.Point(14, 401)
         Me.LabelOutDlls.Name = "LabelOutDlls"
@@ -268,18 +251,9 @@ Public Class frmGenerator
         Me.button3.TabIndex = 53
         Me.button3.Text = "..."
         '
-        'textBoxOutPutFolder
-        '
-        Me.textBoxOutPutFolder.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(134, 332)
-        Me.textBoxOutPutFolder.Name = "textBoxOutPutFolder"
-        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(469, 20)
-        Me.textBoxOutPutFolder.TabIndex = 52
-        Me.textBoxOutPutFolder.Text = "C:\LATIR4\Generated\"
-        '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(13, 337)
         Me.Label3.Name = "Label3"
@@ -289,7 +263,7 @@ Public Class frmGenerator
         '
         'progressBar
         '
-        Me.progressBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.progressBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.progressBar.Location = New System.Drawing.Point(12, 302)
         Me.progressBar.Name = "progressBar"
@@ -299,6 +273,7 @@ Public Class frmGenerator
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.BackColor = System.Drawing.SystemColors.Control
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -312,7 +287,8 @@ Public Class frmGenerator
         '
         'chkTypes
         '
-        Me.chkTypes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.chkTypes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkTypes.CheckOnClick = True
         Me.chkTypes.FormattingEnabled = True
@@ -336,6 +312,7 @@ Public Class frmGenerator
         '
         'cmdUnSelectAll
         '
+        Me.cmdUnSelectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdUnSelectAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdUnSelectAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdUnSelectAll.ForeColor = System.Drawing.SystemColors.ControlText
@@ -349,6 +326,7 @@ Public Class frmGenerator
         '
         'cmdSelectAll
         '
+        Me.cmdSelectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdSelectAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdSelectAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdSelectAll.ForeColor = System.Drawing.SystemColors.ControlText
@@ -362,6 +340,8 @@ Public Class frmGenerator
         '
         'chkGenerators
         '
+        Me.chkGenerators.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkGenerators.CheckOnClick = True
         Me.chkGenerators.FormattingEnabled = True
         Me.chkGenerators.Location = New System.Drawing.Point(14, 43)
@@ -421,6 +401,36 @@ Public Class frmGenerator
         Me.cmdDoc.Text = "Документация"
         Me.cmdDoc.UseVisualStyleBackColor = True
         '
+        'TextBoxDevEnv
+        '
+        Me.TextBoxDevEnv.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxDevEnv.Location = New System.Drawing.Point(134, 373)
+        Me.TextBoxDevEnv.Name = "TextBoxDevEnv"
+        Me.TextBoxDevEnv.Size = New System.Drawing.Size(469, 20)
+        Me.TextBoxDevEnv.TabIndex = 56
+        Me.TextBoxDevEnv.Text = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\"
+        '
+        'TextBoxOutDlls
+        '
+        Me.TextBoxOutDlls.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxOutDlls.Location = New System.Drawing.Point(134, 396)
+        Me.TextBoxOutDlls.Name = "TextBoxOutDlls"
+        Me.TextBoxOutDlls.Size = New System.Drawing.Size(469, 20)
+        Me.TextBoxOutDlls.TabIndex = 59
+        Me.TextBoxOutDlls.Text = "C:\LATIR4\Build"
+        '
+        'textBoxOutPutFolder
+        '
+        Me.textBoxOutPutFolder.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(134, 332)
+        Me.textBoxOutPutFolder.Name = "textBoxOutPutFolder"
+        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(469, 20)
+        Me.textBoxOutPutFolder.TabIndex = 52
+        Me.textBoxOutPutFolder.Text = "C:\LATIR4\Generated\"
+        '
         'frmGenerator
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -459,6 +469,7 @@ Public Class frmGenerator
         Me.Name = "frmGenerator"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generate sources"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -486,12 +497,14 @@ Public Class frmGenerator
     Private Const VBMODELFOLDERNAME As String = "\VB.NET Model\"
     Private Const VBINTERFACEFOLDERNAME As String = "\VB.NET Interface\"
     Private Const VBSQLFOLDERNAME As String = "\SQL_Scripts\"
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
+
 
     Private Sub frmGenerator_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim dt As System.Data.DataTable
         Dim oID As System.Guid
         Dim i As Long
-        dt = Manager.Session.GetRowsExDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, "", "", "OBJTYPE='MTZMetaModel'", "")
+        dt = Manager.Session.GetRowsExDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, "", "", "OBJTYPE='mtzmetamodel'", "")
 
         objectTypes = New Hashtable
         generators = New Hashtable
@@ -525,7 +538,8 @@ Public Class frmGenerator
         If (Not String.IsNullOrEmpty(GetSetting("LATIR4", "CFG", "GEN_DENENVFOLDER"))) Then
             TextBoxDevEnv.Text = GetSetting("LATIR4", "CFG", "GEN_DENENVFOLDER")
         End If
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+        'LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+        myResizer.FindAllControls(Me)
     End Sub
 
     Private Sub generateMSSQL()
@@ -897,6 +911,9 @@ Public Class frmGenerator
                 generator.Setup()
             ElseIf (generators(li) = GeneratorType.GeneratorTypeMYSQL) Then
                 Dim generator As LATIR_MYSQLGen.Generator = New LATIR_MYSQLGen.Generator()
+                generator.Setup()
+            ElseIf (generators(li) = GeneratorType.GeneratorTypeORACLESQL) Then
+                Dim generator As Latir_OracleGen.Generator = New Latir_OracleGen.Generator()
                 generator.Setup()
             End If
         End If
@@ -2570,7 +2587,6 @@ nxt:
         H = H - 1
 
 
-
     End Sub
 
 
@@ -2578,4 +2594,7 @@ nxt:
         Notabs = Replace(Replace(Replace(Replace(Replace(s, "</td><td>", " "), vbCrLf, " "), vbCr, " "), vbLf, " "), "  ", " ")
     End Function
 
+    Private Sub frmGenerator_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        myResizer.ResizeAllControls(Me)
+    End Sub
 End Class

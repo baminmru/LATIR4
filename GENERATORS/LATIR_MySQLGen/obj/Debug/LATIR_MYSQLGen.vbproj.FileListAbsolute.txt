@@ -1,0 +1,57 @@
+C:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.dll.config
+C:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.dll
+C:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.pdb
+C:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.xml
+C:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.frmOptions.resources
+C:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbproj.GenerateResource.Cache
+C:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.dll
+C:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.xml
+C:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.pdb
+E:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.dll.config
+E:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.dll
+E:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.pdb
+E:\LATIR2\Generated\Generated Dlls\LATIR_MYSQLGen.xml
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\ResolveAssemblyReference.cache
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.frmOptions.resources
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbproj.GenerateResource.Cache
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.dll
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.xml
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.pdb
+E:\bin\Debug\LATIR_MYSQLGen.dll.config
+E:\bin\Debug\LATIR_MYSQLGen.dll
+E:\bin\Debug\LATIR_MYSQLGen.pdb
+E:\bin\Debug\LATIR_MYSQLGen.xml
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.dll.config
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.dll
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.pdb
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.xml
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.dll
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.dll
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\MTZMetaModel.dll
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.pdb
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.xml
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\MTZMetaModel.pdb
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\MTZMetaModel.xml
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.pdb
+E:\LATIR2\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.xml
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.dll.config
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.pdb
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIR_MYSQLGen.xml
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\MTZMetaModel.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\MySql.Data.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\Oracle.ManagedDataAccess.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\MTZMetaModel.pdb
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.pdb
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.xml
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.pdb
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.xml
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbprojResolveAssemblyReference.cache
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.frmOptions.resources
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbproj.GenerateResource.Cache
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.dll
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.xml
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.pdb

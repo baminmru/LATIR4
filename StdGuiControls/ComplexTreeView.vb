@@ -268,6 +268,7 @@ Public Class ComplexTreeView
                 nodeChild = node.Nodes.Add(Constants.MSG_WAIT)
                 nodeChild.Tag = Nothing
             Next
+            TreeViewControl.tv.Sort()
             RaiseEvent OnGridSetup(PartName)
             ' dt.TableName = PartName
             SetGridData(dt)
@@ -286,6 +287,7 @@ Public Class ComplexTreeView
                         nodeChild = node.Nodes.Add(Constants.MSG_WAIT)
                         nodeChild.Tag = Nothing
                     Next
+                    TreeViewControl.tv.Sort()
                     RaiseEvent OnGridSetup(PartName)
                     ' dt.TableName = PartName
                     SetGridData(dt)

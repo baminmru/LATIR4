@@ -1,0 +1,8 @@
+..\..\Generated\Generated Dlls\LATIRDBInstall.exe.config
+..\..\Generated\Generated Dlls\LATIRDBInstall.exe
+..\..\Generated\Generated Dlls\LATIRDBInstall.xml
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LATIRDBInstall.Form1.resources
+obj\Release\LATIRdbInstall.vbproj.GenerateResource.Cache
+obj\Release\LATIRDBInstall.exe
+obj\Release\LATIRDBInstall.xml

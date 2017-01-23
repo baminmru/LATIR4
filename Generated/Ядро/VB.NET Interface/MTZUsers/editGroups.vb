@@ -11,7 +11,7 @@ Imports System.Diagnostics
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class editGroups
+Public Class editgroups
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IRowEditor
 
@@ -53,10 +53,10 @@ Public Class editGroups
 
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
-Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
-Friend WithEvents lblADGroup  as  System.Windows.Forms.Label
-Friend WithEvents txtADGroup As System.Windows.Forms.TextBox
+Friend WithEvents lblname  as  System.Windows.Forms.Label
+Friend WithEvents txtname As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lbladgroup  as  System.Windows.Forms.Label
+Friend WithEvents txtadgroup As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -73,58 +73,58 @@ Me.HolderPanel.Location = New System.Drawing.Point(0, 0)
 Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
-Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
-Me.lblADGroup = New System.Windows.Forms.Label
-Me.txtADGroup = New System.Windows.Forms.TextBox
+Me.lblname = New System.Windows.Forms.Label
+Me.txtname = New LATIR2GuiManager.TouchTextBox
+Me.lbladgroup = New System.Windows.Forms.Label
+Me.txtadgroup = New LATIR2GuiManager.TouchTextBox
 
-Me.lblName.Location = New System.Drawing.Point(20,5)
-Me.lblName.name = "lblName"
-Me.lblName.Size = New System.Drawing.Size(200, 20)
-Me.lblName.TabIndex = 1
-Me.lblName.Text = "Название"
-Me.lblName.ForeColor = System.Drawing.Color.Black
-Me.txtName.Location = New System.Drawing.Point(20,27)
-Me.txtName.name = "txtName"
-Me.txtName.Size = New System.Drawing.Size(200, 20)
-Me.txtName.TabIndex = 2
-Me.txtName.Text = "" 
-Me.lblADGroup.Location = New System.Drawing.Point(20,52)
-Me.lblADGroup.name = "lblADGroup"
-Me.lblADGroup.Size = New System.Drawing.Size(200, 20)
-Me.lblADGroup.TabIndex = 3
-Me.lblADGroup.Text = "Группа AD"
-Me.lblADGroup.ForeColor = System.Drawing.Color.Blue
-Me.txtADGroup.Location = New System.Drawing.Point(20,74)
-Me.txtADGroup.name = "txtADGroup"
-Me.txtADGroup.Size = New System.Drawing.Size(200, 20)
-Me.txtADGroup.TabIndex = 4
-Me.txtADGroup.Text = "" 
+Me.lblname.Location = New System.Drawing.Point(20,5)
+Me.lblname.name = "lblname"
+Me.lblname.Size = New System.Drawing.Size(200, 20)
+Me.lblname.TabIndex = 1
+Me.lblname.Text = "Название"
+Me.lblname.ForeColor = System.Drawing.Color.Black
+Me.txtname.Location = New System.Drawing.Point(20,27)
+Me.txtname.name = "txtname"
+Me.txtname.Size = New System.Drawing.Size(200, 20)
+Me.txtname.TabIndex = 2
+Me.txtname.Text = "" 
+Me.lbladgroup.Location = New System.Drawing.Point(20,52)
+Me.lbladgroup.name = "lbladgroup"
+Me.lbladgroup.Size = New System.Drawing.Size(200, 20)
+Me.lbladgroup.TabIndex = 3
+Me.lbladgroup.Text = "Группа AD"
+Me.lbladgroup.ForeColor = System.Drawing.Color.Blue
+Me.txtadgroup.Location = New System.Drawing.Point(20,74)
+Me.txtadgroup.name = "txtadgroup"
+Me.txtadgroup.Size = New System.Drawing.Size(200, 20)
+Me.txtadgroup.TabIndex = 4
+Me.txtadgroup.Text = "" 
         Me.AutoScroll = True
 
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblADGroup)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtADGroup)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblname)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtname)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lbladgroup)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtadgroup)
         Me.Controls.Add(Me.HolderPanel)
         Me.HolderPanel.ResumeLayout(False)
         Me.HolderPanel.PerformLayout()
-        Me.name = "editGroups"
+        Me.name = "editgroups"
         Me.Size = New System.Drawing.Size(232, 120)
         Me.ResumeLayout (False)
     End Sub
 #End Region
 
-private sub txtName_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtName.TextChanged
+private sub txtname_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtname.TextChanged
   Changing
 
 end sub
-private sub txtADGroup_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtADGroup.TextChanged
+private sub txtadgroup_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtadgroup.TextChanged
   Changing
 
 end sub
 
-Public Item As MTZUsers.MTZUsers.Groups
+Public Item As mtzusers.mtzusers.groups
 Private mRowReadOnly As Boolean
 Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -136,14 +136,14 @@ Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 '''
 ''' </remarks>
 Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATIR2.Document.DocRow_Base,byval RowReadOnly as boolean  ) Implements LATIR2GUIManager.IRowEditor.Attach
-        Item = Ctype(ri,MTZUsers.MTZUsers.Groups)
+        Item = Ctype(ri,mtzusers.mtzusers.groups)
         GuiManager = gm
         mRowReadOnly = RowReadOnly
         If Item Is Nothing Then Exit Sub
         mOnInit = true
 
-txtName.text = item.Name
-txtADGroup.text = item.ADGroup
+txtname.text = item.name
+txtadgroup.text = item.adgroup
         mOnInit = false
   raiseevent Refreshed()
 end sub
@@ -158,8 +158,8 @@ end sub
 Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
   if mRowReadOnly =false then
 
-item.Name = txtName.text
-item.ADGroup = txtADGroup.text
+item.name = txtname.text
+item.adgroup = txtadgroup.text
   end if
   mChanged = false
   raiseevent saved()
@@ -169,7 +169,7 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  mIsOK=true
  if mRowReadOnly  then return true
 
-if mIsOK then mIsOK =( txtName.text <> "" ) 
+if mIsOK then mIsOK =( txtname.text <> "" ) 
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged

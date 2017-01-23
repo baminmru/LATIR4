@@ -54,15 +54,15 @@ Public Class editGENERATOR_TARGET
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTargetType  as  System.Windows.Forms.Label
 Friend WithEvents cmbTargetType As System.Windows.Forms.ComboBox
 Friend cmbTargetTypeDATA As DataTable
 Friend cmbTargetTypeDATAROW As DataRow
 Friend WithEvents lblQueueName  as  System.Windows.Forms.Label
-Friend WithEvents txtQueueName As System.Windows.Forms.TextBox
+Friend WithEvents txtQueueName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblGeneratorProgID  as  System.Windows.Forms.Label
-Friend WithEvents txtGeneratorProgID As System.Windows.Forms.TextBox
+Friend WithEvents txtGeneratorProgID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblGeneratorStyle  as  System.Windows.Forms.Label
 Friend WithEvents cmbGeneratorStyle As System.Windows.Forms.ComboBox
 Friend cmbGeneratorStyleDATA As DataTable
@@ -88,13 +88,13 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblTargetType = New System.Windows.Forms.Label
 Me.cmbTargetType = New System.Windows.Forms.ComboBox
 Me.lblQueueName = New System.Windows.Forms.Label
-Me.txtQueueName = New System.Windows.Forms.TextBox
+Me.txtQueueName = New LATIR2GuiManager.TouchTextBox
 Me.lblGeneratorProgID = New System.Windows.Forms.Label
-Me.txtGeneratorProgID = New System.Windows.Forms.TextBox
+Me.txtGeneratorProgID = New LATIR2GuiManager.TouchTextBox
 Me.lblGeneratorStyle = New System.Windows.Forms.Label
 Me.cmbGeneratorStyle = New System.Windows.Forms.ComboBox
 Me.lblTheDevelopmentEnv = New System.Windows.Forms.Label

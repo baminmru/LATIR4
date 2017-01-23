@@ -89,7 +89,7 @@ Public Class frmSHAREDMETHOD
         Me.EditSHAREDMETHOD.AutoScroll = True
         Me.EditSHAREDMETHOD.Location = New System.Drawing.Point(8, 8)
         Me.EditSHAREDMETHOD.name = "EditSHAREDMETHOD"
-        Me.EditSHAREDMETHOD.Size = New System.Drawing.Size(490, 600)
+        Me.EditSHAREDMETHOD.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditSHAREDMETHOD.TabIndex = 20
         Me.EditSHAREDMETHOD.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -101,6 +101,7 @@ Public Class frmSHAREDMETHOD
         Me.Controls.Add (Me.btnPanel)
         Me.name = "frmSHAREDMETHOD"
         Me.Text = "Методы и процедуры"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
@@ -108,6 +109,7 @@ Public Class frmSHAREDMETHOD
 #End Region
     Public Item As MTZMetaModel.MTZMetaModel.SHAREDMETHOD
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -156,8 +158,17 @@ Public Class frmSHAREDMETHOD
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditSHAREDMETHOD.GetMaxX() + 10, EditSHAREDMETHOD.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(EditSHAREDMETHOD.GetMaxX() + 10, EditSHAREDMETHOD.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

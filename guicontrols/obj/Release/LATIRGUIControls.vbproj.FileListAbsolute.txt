@@ -1,0 +1,26 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRGUIControls.dll.config
+C:\LATIR2\Generated\Generated Dlls\LATIRGUIControls.dll
+C:\LATIR2\Generated\Generated Dlls\LATIRGUIControls.xml
+C:\LATIR2\guicontrols\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.AutoPanel.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.Buttons.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.CommonControlParent.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.ExtentionControl.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.GridControlParent.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.StatusControl.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.TreeControlParent.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.ComplexTreeView.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.frmFind.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.frmPanelSetup.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.GridGridView.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.GridView.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.Resources.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.PrintPreview.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.PropertyGridForm.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.TreeGridView.resources
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.TreeView.resources
+C:\LATIR2\guicontrols\obj\Release\ResGen.read.1.tlog
+C:\LATIR2\guicontrols\obj\Release\ResGen.write.1.tlog
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.dll.licenses
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.dll
+C:\LATIR2\guicontrols\obj\Release\LATIRGUIControls.xml

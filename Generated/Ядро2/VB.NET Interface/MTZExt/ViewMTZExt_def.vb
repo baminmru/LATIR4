@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
   Public Class viewMTZExt_def
     Inherits System.Windows.Forms.UserControl

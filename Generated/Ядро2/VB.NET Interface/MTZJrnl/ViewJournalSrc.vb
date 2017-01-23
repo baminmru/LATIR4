@@ -4,7 +4,7 @@ Imports Microsoft.VisualBasic
 Imports System.Diagnostics
 
   Imports LATIR2GuiManager
-Public Class viewJournalSrc
+Public Class viewjournalsrc
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IViewPanel
 
@@ -51,17 +51,17 @@ Public Class viewJournalSrc
         Me.gv.Size = New System.Drawing.Size(424, 216)
         Me.gv.TabIndex = 0
         '
-        'viewJournalSrc
+        'viewjournalsrc
         '
         Me.Controls.Add (Me.gv)
-        Me.name = "viewJournalSrc"
+        Me.name = "viewjournalsrc"
         Me.Size = New System.Drawing.Size(424, 216)
         Me.ResumeLayout (False)
 
     End Sub
 
 #End Region
-    Public item As MTZJrnl.MTZJrnl.Application
+    Public item As mtzjrnl.mtzjrnl.Application
     Private mReadOnly as boolean
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -74,7 +74,7 @@ Public Class viewJournalSrc
 ''' </remarks>
     Public Sub Attach(ByVal docItem As LATIR2.Document.Doc_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, byval ReadOnlyView as boolean )  Implements LATIR2GUIManager.IViewPanel.Attach
         mReadOnly = ReadOnlyView
-        item = CType(docItem, MTZJrnl.MTZJrnl.Application)
+        item = CType(docItem, mtzjrnl.mtzjrnl.Application)
         GuiManager = gm
         Init()
     End Sub
@@ -90,11 +90,11 @@ Public Class viewJournalSrc
         Dim ts As DataGridTableStyle
         Dim cs As DataGridTextBoxColumn
         Dim dt As DataTable
-        dt = item.JournalSrc.GetDataTable()
-        dt.TableName = "JournalSrc"
+        dt = item.journalsrc.GetDataTable()
+        dt.TableName = "journalsrc"
 
         ts = New DataGridTableStyle
-        ts.MappingName = "JournalSrc"
+        ts.MappingName = "journalsrc"
         ts.ReadOnly = True
         ts.RowHeaderWidth = 30
 
@@ -102,28 +102,28 @@ Public Class viewJournalSrc
         cs = New DataGridTextBoxColumn
         cs.ReadOnly = True
         cs.HeaderText = "Представление"
-        cs.MappingName = "PartView"
+        cs.MappingName = "spartview"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
         cs.ReadOnly = True
         cs.HeaderText = "При открытии"
-        cs.MappingName = "OnRun"
+        cs.MappingName = "onrun"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
         cs.ReadOnly = True
         cs.HeaderText = "Режим открытия"
-        cs.MappingName = "OpenMode"
+        cs.MappingName = "openmode"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
         cs.ReadOnly = True
         cs.HeaderText = "Псевдоним представления"
-        cs.MappingName = "ViewAlias"
+        cs.MappingName = "viewalias"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
@@ -141,15 +141,15 @@ Public Class viewJournalSrc
 '''
 ''' </remarks>
     Private Sub gv_OnEdit(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridEdit
-        Dim ed As MTZJrnl.MTZJrnl.JournalSrc
-        ed = item.FindRowObject("JournalSrc", ID)
+        Dim ed As mtzjrnl.mtzjrnl.journalsrc
+        ed = item.FindRowObject("journalsrc", ID)
         Dim gui As Doc_GUIBase
 
         gui = GuiManager.GetTypeGUI(ed.Application.TypeName)
         If gui.ShowPartEditForm("", CType(ed, LATIR2.Document.DocRow_Base), mReadOnly ) = True Then
             Dim dt As DataTable
-            dt = item.JournalSrc.GetDataTable()
-            dt.TableName = "JournalSrc"
+            dt = item.journalsrc.GetDataTable()
+            dt.TableName = "journalsrc"
             gv.SetData (dt)
         End If
 
@@ -165,14 +165,14 @@ Public Class viewJournalSrc
 ''' </remarks>
     Private Sub gv_OnDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridDel
       If not mReadOnly Then
-        Dim ed As MTZJrnl.MTZJrnl.JournalSrc
-        ed = item.FindRowObject("JournalSrc", ID)
+        Dim ed As mtzjrnl.mtzjrnl.journalsrc
+        ed = item.FindRowObject("journalsrc", ID)
         If MsgBox("Удалить <" & ed.Brief & "> ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Удаление") = MsgBoxResult.Yes Then
             OK = ed.Parent.Delete(ed.ID.ToString)
             If OK Then
                 Dim dt As DataTable
-                dt = item.JournalSrc.GetDataTable()
-                dt.TableName = "JournalSrc"
+                dt = item.journalsrc.GetDataTable()
+                dt.TableName = "journalsrc"
                 gv.SetData (dt)
             End If
         End If
@@ -189,21 +189,21 @@ Public Class viewJournalSrc
 ''' </remarks>
     Private Sub gv_OnAdd(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridAdd
       If not mReadOnly Then
-        Dim ed As MTZJrnl.MTZJrnl.JournalSrc
+        Dim ed As mtzjrnl.mtzjrnl.journalsrc
         If ID.Equals(System.guid.Empty) Then
-              ed = Item.JournalSrc.Add
+              ed = Item.journalsrc.Add
           Else
-              ed = Item.JournalSrc.Add(ID.ToString())
+              ed = Item.journalsrc.Add(ID.ToString())
           End If
         Dim gui As Doc_GUIBase
         Dim dt As DataTable
         gui = GuiManager.GetTypeGUI(ed.Application.TypeName)
         If gui.ShowPartEditForm("", CType(ed,LATIR2.Document.DocRow_Base) ) = True Then
-            dt = item.JournalSrc.GetDataTable()
-            dt.TableName = "JournalSrc"
+            dt = item.journalsrc.GetDataTable()
+            dt.TableName = "journalsrc"
             gv.SetData (dt)
         Else
-            item.JournalSrc.Refresh()
+            item.journalsrc.Refresh()
         End If
       End If
     End Sub
@@ -218,9 +218,9 @@ Public Class viewJournalSrc
 ''' </remarks>
     Private Sub gv_OnRefresh() Handles gv.OnGridRefresh
         Dim dt As DataTable
-        item.JournalSrc.Refresh()
-        dt = item.JournalSrc.GetDataTable()
-        dt.TableName = "JournalSrc"
+        item.journalsrc.Refresh()
+        dt = item.journalsrc.GetDataTable()
+        dt.TableName = "journalsrc"
         gv.SetData (dt)
     End Sub
  Public Function Save(ByVal Sielent As Boolean, ByVal NoError As Boolean) As Boolean Implements LATIR2GUIManager.IViewPanel.Save

@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,16 +51,16 @@ Public Class editReports
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblReportFile  as  System.Windows.Forms.Label
-Friend WithEvents txtReportFile As System.Windows.Forms.TextBox
+Friend WithEvents txtReportFile As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblPrepareMethod  as  System.Windows.Forms.Label
-Friend WithEvents txtPrepareMethod As System.Windows.Forms.TextBox
+Friend WithEvents txtPrepareMethod As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdPrepareMethod As System.Windows.Forms.Button
 Friend WithEvents cmdPrepareMethodClear As System.Windows.Forms.Button
 Friend WithEvents lblReportType  as  System.Windows.Forms.Label
@@ -67,13 +68,13 @@ Friend WithEvents cmbReportType As System.Windows.Forms.ComboBox
 Friend cmbReportTypeDATA As DataTable
 Friend cmbReportTypeDATAROW As DataRow
 Friend WithEvents lblTheReportExt  as  System.Windows.Forms.Label
-Friend WithEvents txtTheReportExt As System.Windows.Forms.TextBox
+Friend WithEvents txtTheReportExt As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheReportExt As System.Windows.Forms.Button
 Friend WithEvents cmdTheReportExtClear As System.Windows.Forms.Button
 Friend WithEvents lblReportView  as  System.Windows.Forms.Label
-Friend WithEvents txtReportView As System.Windows.Forms.TextBox
+Friend WithEvents txtReportView As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheComment  as  System.Windows.Forms.Label
-Friend WithEvents txtTheComment As System.Windows.Forms.TextBox
+Friend WithEvents txtTheComment As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -91,25 +92,25 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblReportFile = New System.Windows.Forms.Label
-Me.txtReportFile = New System.Windows.Forms.TextBox
+Me.txtReportFile = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblPrepareMethod = New System.Windows.Forms.Label
-Me.txtPrepareMethod = New System.Windows.Forms.TextBox
+Me.txtPrepareMethod = New LATIR2GuiManager.TouchTextBox
 Me.cmdPrepareMethod = New System.Windows.Forms.Button
 Me.cmdPrepareMethodClear = New System.Windows.Forms.Button
 Me.lblReportType = New System.Windows.Forms.Label
 Me.cmbReportType = New System.Windows.Forms.ComboBox
 Me.lblTheReportExt = New System.Windows.Forms.Label
-Me.txtTheReportExt = New System.Windows.Forms.TextBox
+Me.txtTheReportExt = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheReportExt = New System.Windows.Forms.Button
 Me.cmdTheReportExtClear = New System.Windows.Forms.Button
 Me.lblReportView = New System.Windows.Forms.Label
-Me.txtReportView = New System.Windows.Forms.TextBox
+Me.txtReportView = New LATIR2GuiManager.TouchTextBox
 Me.lblTheComment = New System.Windows.Forms.Label
-Me.txtTheComment = New System.Windows.Forms.TextBox
+Me.txtTheComment = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"
@@ -273,7 +274,7 @@ private sub txtPrepareMethod_TextChanged(ByVal sender As Object, ByVal e As Syst
 
 end sub
 private sub cmdPrepareMethod_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPrepareMethod.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -281,23 +282,32 @@ Dim OK as boolean
           txtPrepareMethod.Tag = id
           txtPrepareMethod.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub cmdPrepareMethodClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPrepareMethodClear.Click
-  on error resume next
+  try
           txtPrepareMethod.Tag = Guid.Empty
           txtPrepareMethod.text = ""
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub cmbReportType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbReportType.SelectedIndexChanged
-  on error resume next
-  Changing
+  try
+     Changing
 
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtTheReportExt_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtTheReportExt.TextChanged
   Changing
 
 end sub
 private sub cmdTheReportExt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdTheReportExt.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String  = string.Empty
 Dim OK as boolean
@@ -306,6 +316,9 @@ If OK Then
     txtTheReportExt.Text = brief
     txtTheReportExt.Tag = id
 End If
+        catch ex as system.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 End Sub
 private sub txtReportView_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtReportView.TextChanged
   Changing
@@ -347,7 +360,7 @@ End If
 cmbReportTypeData = New DataTable
 cmbReportTypeData.Columns.Add("name", GetType(System.String))
 cmbReportTypeData.Columns.Add("Value", GetType(System.Int32))
-On Error Resume Next
+try
 cmbReportTypeDataRow = cmbReportTypeData.NewRow
 cmbReportTypeDataRow("name") = "Таблица"
 cmbReportTypeDataRow("Value") = 0
@@ -372,6 +385,9 @@ cmbReportType.DisplayMember = "name"
 cmbReportType.ValueMember = "Value"
 cmbReportType.DataSource = cmbReportTypeData
  cmbReportType.SelectedValue=CInt(Item.ReportType)
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 If Not item.TheReportExt Is Nothing Then
   txtTheReportExt.Tag = item.TheReportExt.id
   txtTheReportExt.text = item.TheReportExt.brief

@@ -3,7 +3,7 @@
   <ProjectType>Local</ProjectType>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>"fe3bb550-d3ea-430b-98a2-ba6974b398dd"</ProjectGuid>
+    <ProjectGuid>"2b1955af-2c58-4a02-84c4-7fb3ac0947a2"</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -200,13 +200,6 @@
       <SubType>UserControl</SubType>
     </Compile>
 
-    <Compile Include="editARMJRNLADD.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="frmARMJRNLADD.vb">
-      <SubType>Form</SubType>
-    </Compile>
-
     <Compile Include="editARMJRNLREP.vb">
       <SubType>UserControl</SubType>
     </Compile>
@@ -218,6 +211,13 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="frmARMJRNLRUN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editARMJRNLADD.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmARMJRNLADD.vb">
       <SubType>Form</SubType>
     </Compile>
 
@@ -274,13 +274,6 @@
       <SubType>UserControl</SubType>
     </Compile>
 
-    <Compile Include="editARMJRNLADDmain.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="frmARMJRNLADDmain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-
     <Compile Include="editARMJRNLREPmain.vb">
       <SubType>UserControl</SubType>
     </Compile>
@@ -292,6 +285,13 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="frmARMJRNLRUNmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Include="editARMJRNLADDmain.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmARMJRNLADDmain.vb">
       <SubType>Form</SubType>
     </Compile>
 

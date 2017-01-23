@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[MTZdbInstall.sln]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/APPLICATIONS/DBInstal", ETWDAAAA
+
+[MTZdbInstall.vbproj]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/APPLICATIONS/DBInstal", ETWDAAAA

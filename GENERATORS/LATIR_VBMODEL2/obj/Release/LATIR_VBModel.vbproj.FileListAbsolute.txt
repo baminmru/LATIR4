@@ -1,0 +1,8 @@
+C:\LATIR2\Generated\Generated Dlls\LATIR_VBModel.dll.config
+C:\LATIR2\Generated\Generated Dlls\LATIR_VBModel.dll
+C:\LATIR2\Generated\Generated Dlls\LATIR_VBModel.xml
+C:\LATIR2\GENERATORS\LATIR_VBMODEL2\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\GENERATORS\LATIR_VBMODEL2\obj\Release\LATIR_VBModel.frmConfig.resources
+C:\LATIR2\GENERATORS\LATIR_VBMODEL2\obj\Release\LATIR_VBModel.vbproj.GenerateResource.Cache
+C:\LATIR2\GENERATORS\LATIR_VBMODEL2\obj\Release\LATIR_VBModel.dll
+C:\LATIR2\GENERATORS\LATIR_VBMODEL2\obj\Release\LATIR_VBModel.xml

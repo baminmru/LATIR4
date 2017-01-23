@@ -29,22 +29,28 @@ Friend Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents FolderBrowserDialogFolderXML As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents CheckBoxDeleteFiles As System.Windows.Forms.CheckBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txtDLLPath As TextBox
     Public WithEvents Label1 As System.Windows.Forms.Label
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cmdLoad = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.buttonOpenFolder = New System.Windows.Forms.Button
-        Me.textBoxOutPutFolder = New System.Windows.Forms.TextBox
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.FolderBrowserDialogFolderXML = New System.Windows.Forms.FolderBrowserDialog
-        Me.CheckBoxDeleteFiles = New System.Windows.Forms.CheckBox
+        Me.cmdLoad = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.buttonOpenFolder = New System.Windows.Forms.Button()
+        Me.textBoxOutPutFolder = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.FolderBrowserDialogFolderXML = New System.Windows.Forms.FolderBrowserDialog()
+        Me.CheckBoxDeleteFiles = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtDLLPath = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Timer1
@@ -58,7 +64,7 @@ Friend Class Form1
         Me.cmdLoad.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdLoad.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdLoad.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdLoad.Location = New System.Drawing.Point(12, 129)
+        Me.cmdLoad.Location = New System.Drawing.Point(13, 175)
         Me.cmdLoad.Name = "cmdLoad"
         Me.cmdLoad.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdLoad.Size = New System.Drawing.Size(409, 33)
@@ -73,7 +79,7 @@ Friend Class Form1
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(12, 94)
+        Me.Label1.Location = New System.Drawing.Point(14, 136)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label1.Size = New System.Drawing.Size(408, 25)
@@ -107,18 +113,45 @@ Friend Class Form1
         'CheckBoxDeleteFiles
         '
         Me.CheckBoxDeleteFiles.AutoSize = True
-        Me.CheckBoxDeleteFiles.Location = New System.Drawing.Point(13, 55)
+        Me.CheckBoxDeleteFiles.Location = New System.Drawing.Point(14, 100)
         Me.CheckBoxDeleteFiles.Name = "CheckBoxDeleteFiles"
         Me.CheckBoxDeleteFiles.Size = New System.Drawing.Size(128, 18)
         Me.CheckBoxDeleteFiles.TabIndex = 57
         Me.CheckBoxDeleteFiles.Text = "Delete files after load"
         Me.CheckBoxDeleteFiles.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(11, 55)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(50, 14)
+        Me.Label2.TabIndex = 58
+        Me.Label2.Text = "DLL Path"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(395, 50)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(26, 22)
+        Me.Button1.TabIndex = 60
+        Me.Button1.Text = "..."
+        '
+        'txtDLLPath
+        '
+        Me.txtDLLPath.Location = New System.Drawing.Point(74, 52)
+        Me.txtDLLPath.Name = "txtDLLPath"
+        Me.txtDLLPath.Size = New System.Drawing.Size(316, 20)
+        Me.txtDLLPath.TabIndex = 59
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(445, 181)
+        Me.ClientSize = New System.Drawing.Size(445, 220)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtDLLPath)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.CheckBoxDeleteFiles)
         Me.Controls.Add(Me.buttonOpenFolder)
         Me.Controls.Add(Me.textBoxOutPutFolder)
@@ -158,6 +191,7 @@ Friend Class Form1
         Dim drs As LATIR2.Document.Doc_Base
 
         Dim typename As String, id As System.Guid, name As String
+        m.DLLPath = txtDLLPath.Text
 
         path = Dir(pathFolder & "\*.xml")
         While path <> ""
@@ -215,8 +249,9 @@ Friend Class Form1
                 drs = m.GetInstanceObject(id)
                 If drs Is Nothing Then
                     m.NewInstance(id, typename, name)
+                    drs = m.GetInstanceObject(id)
                 End If
-                drs = m.GetInstanceObject(id)
+
                 If Not drs Is Nothing Then
 
                     drs.LockResource(True)
@@ -253,7 +288,7 @@ Friend Class Form1
     End Sub
 
     'Private Sub Command17_Click()
-    '    rs = m.Session.GetRowsDT("INSTANCE", "", "", "ObjType='MTZMetaModel'")
+    '    rs = m.Session.GetRowsDT("INSTANCE", "", "", "ObjType='mtzmetamodel'")
     '    Dim drs As Object
     '    Dim id As Guid
     '    If rs.Rows.Count > 0 Then
@@ -346,7 +381,8 @@ Friend Class Form1
 
             s = m.Session
 
-            textBoxOutPutFolder.Text = My.Application.Info.DirectoryPath
+            txtDLLPath.Text = GetSetting("LATIR4", "LOADERCFG", "DLLPATH", "")
+            textBoxOutPutFolder.Text = GetSetting("LATIR4", "LOADERCFG", "DATAPATH", "")
 
             My.Settings.LOGIN_USERNAME = username
             My.Settings.LOGIN_SITENAME = sitename
@@ -367,7 +403,22 @@ Friend Class Form1
 
     Private Sub button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonOpenFolder.Click
         FolderBrowserDialogFolderXML.SelectedPath = textBoxOutPutFolder.Text
-        FolderBrowserDialogFolderXML.ShowDialog()
-        textBoxOutPutFolder.Text = FolderBrowserDialogFolderXML.SelectedPath
+        If FolderBrowserDialogFolderXML.ShowDialog() = DialogResult.OK Then
+            textBoxOutPutFolder.Text = FolderBrowserDialogFolderXML.SelectedPath
+            SaveSetting("LATIR4", "LOADERCFG", "DATAPATH", textBoxOutPutFolder.Text)
+        End If
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        FolderBrowserDialogFolderXML.SelectedPath = txtDLLPath.Text
+        If FolderBrowserDialogFolderXML.ShowDialog() = DialogResult.OK Then
+            txtDLLPath.Text = FolderBrowserDialogFolderXML.SelectedPath
+            SaveSetting("LATIR4", "LOADERCFG", "DLLPATH", txtDLLPath.Text)
+        End If
+    End Sub
+
+    Private Sub Form1_Click(sender As Object, e As EventArgs) Handles Me.Click
+
     End Sub
 End Class

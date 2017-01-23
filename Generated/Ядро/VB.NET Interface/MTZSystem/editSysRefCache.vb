@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,19 +51,19 @@ Public Class editSysRefCache
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblCacheType  as  System.Windows.Forms.Label
 Friend WithEvents cmbCacheType As System.Windows.Forms.ComboBox
 Friend cmbCacheTypeDATA As DataTable
 Friend cmbCacheTypeDATAROW As DataRow
 Friend WithEvents lblObjectOwnerID  as  System.Windows.Forms.Label
-Friend WithEvents txtObjectOwnerID As System.Windows.Forms.TextBox
+Friend WithEvents txtObjectOwnerID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblSessionID  as  System.Windows.Forms.Label
-Friend WithEvents txtSessionID As System.Windows.Forms.TextBox
+Friend WithEvents txtSessionID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdSessionID As System.Windows.Forms.Button
 Friend WithEvents lblmodulename  as  System.Windows.Forms.Label
-Friend WithEvents txtmodulename As System.Windows.Forms.TextBox
+Friend WithEvents txtmodulename As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -82,12 +83,12 @@ Me.HolderPanel.TabIndex = 0
 Me.lblCacheType = New System.Windows.Forms.Label
 Me.cmbCacheType = New System.Windows.Forms.ComboBox
 Me.lblObjectOwnerID = New System.Windows.Forms.Label
-Me.txtObjectOwnerID = New System.Windows.Forms.TextBox
+Me.txtObjectOwnerID = New LATIR2GuiManager.TouchTextBox
 Me.lblSessionID = New System.Windows.Forms.Label
-Me.txtSessionID = New System.Windows.Forms.TextBox
+Me.txtSessionID = New LATIR2GuiManager.TouchTextBox
 Me.cmdSessionID = New System.Windows.Forms.Button
 Me.lblmodulename = New System.Windows.Forms.Label
-Me.txtmodulename = New System.Windows.Forms.TextBox
+Me.txtmodulename = New LATIR2GuiManager.TouchTextBox
 
 Me.lblCacheType.Location = New System.Drawing.Point(20,5)
 Me.lblCacheType.name = "lblCacheType"
@@ -160,9 +161,12 @@ CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtmodulename)
 #End Region
 
 private sub cmbCacheType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCacheType.SelectedIndexChanged
-  on error resume next
-  Changing
+  try
+     Changing
 
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtObjectOwnerID_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtObjectOwnerID.TextChanged
   Changing
@@ -173,7 +177,7 @@ private sub txtSessionID_TextChanged(ByVal sender As Object, ByVal e As System.E
 
 end sub
 private sub cmdSessionID_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSessionID.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
@@ -181,6 +185,9 @@ Dim OK as boolean
           txtSessionID.Tag = id
           txtSessionID.text = brief
         End If
+        catch ex as System.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtmodulename_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtmodulename.TextChanged
   Changing
@@ -208,7 +215,7 @@ Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATI
 cmbCacheTypeData = New DataTable
 cmbCacheTypeData.Columns.Add("name", GetType(System.String))
 cmbCacheTypeData.Columns.Add("Value", GetType(System.Int32))
-On Error Resume Next
+try
 cmbCacheTypeDataRow = cmbCacheTypeData.NewRow
 cmbCacheTypeDataRow("name") = "Только свои"
 cmbCacheTypeDataRow("Value") = 0
@@ -225,6 +232,9 @@ cmbCacheType.DisplayMember = "name"
 cmbCacheType.ValueMember = "Value"
 cmbCacheType.DataSource = cmbCacheTypeData
  cmbCacheType.SelectedValue=CInt(Item.CacheType)
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 txtObjectOwnerID.text = item.ObjectOwnerID.ToString()
 If Not item.SessionID Is Nothing Then
   txtSessionID.Tag = item.SessionID.id

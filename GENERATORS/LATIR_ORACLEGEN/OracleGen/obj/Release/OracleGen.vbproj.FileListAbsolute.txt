@@ -1,0 +1,16 @@
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\ResolveAssemblyReference.cache
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\OracleGen.Resources.resources
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\OracleGen.vbproj.GenerateResource.Cache
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\OracleGen.frmOptions.resources
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\OracleGen.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\OracleGen.pdb
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\OracleGen.xml
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\L2Manager.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\LATIR2Framework.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\LATIRGenerator.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\MTZJrnl.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\MTZMetaModel.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\bin\Release\ROLES.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\OracleGen.dll
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\OracleGen.xml
+E:\LATIR2\GENERATORS\LATIR_ORACLEGEN\OracleGen\obj\Release\OracleGen.pdb

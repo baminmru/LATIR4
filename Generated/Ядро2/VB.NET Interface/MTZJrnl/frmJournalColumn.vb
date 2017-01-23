@@ -11,7 +11,7 @@ Imports System.Drawing
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class frmJournalColumn
+Public Class frmjournalcolumn
     Inherits System.Windows.Forms.Form
 
 #Region " Windows Form Designer generated code "
@@ -46,12 +46,12 @@ Public Class frmJournalColumn
     Friend WithEvents edPanel As System.Windows.Forms.Panel
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnOK As System.Windows.Forms.Button
-    Friend WithEvents EditJournalColumn As MTZJrnlGUI.editJournalColumn
+    Friend WithEvents Editjournalcolumn As mtzjrnlGUI.editjournalcolumn
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.btnPanel = New System.Windows.Forms.Panel
         Me.btnCancel = New System.Windows.Forms.Button
         Me.btnOK = New System.Windows.Forms.Button
-        Me.EditJournalColumn = New MTZJrnlGUI.EditJournalColumn
+        Me.Editjournalcolumn = New mtzjrnlGUI.Editjournalcolumn
         Me.btnPanel.SuspendLayout()
         Me.SuspendLayout()
         'btnOK
@@ -84,30 +84,32 @@ Public Class frmJournalColumn
         Me.btnPanel.Size = New System.Drawing.Size(500, 32)
         Me.btnPanel.TabIndex = 21
         '
-        'EditJournalColumn
+        'Editjournalcolumn
         '
-        Me.EditJournalColumn.AutoScroll = True
-        Me.EditJournalColumn.Location = New System.Drawing.Point(8, 8)
-        Me.EditJournalColumn.name = "EditJournalColumn"
-        Me.EditJournalColumn.Size = New System.Drawing.Size(490, 600)
-        Me.EditJournalColumn.TabIndex = 20
-        Me.EditJournalColumn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Editjournalcolumn.AutoScroll = True
+        Me.Editjournalcolumn.Location = New System.Drawing.Point(8, 8)
+        Me.Editjournalcolumn.name = "Editjournalcolumn"
+        Me.Editjournalcolumn.Size = New System.Drawing.Size(800-40-16, 600-16)
+        Me.Editjournalcolumn.TabIndex = 20
+        Me.Editjournalcolumn.Dock = System.Windows.Forms.DockStyle.Fill
         '
-        'frmJournalColumn
+        'frmjournalcolumn
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(800, 600)
-        Me.Controls.Add (EditJournalColumn)
+        Me.Controls.Add (Editjournalcolumn)
         Me.Controls.Add (Me.btnPanel)
-        Me.name = "frmJournalColumn"
+        Me.name = "frmjournalcolumn"
         Me.Text = "Колонки журнала"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
 
 #End Region
-    Public Item As MTZJrnl.MTZJrnl.JournalColumn
+    Public Item As mtzjrnl.mtzjrnl.journalcolumn
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -119,14 +121,14 @@ Public Class frmJournalColumn
 '''
 ''' </remarks>
     Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, Optional ByVal FormReadOnly As Boolean =False)
-        Item = CType(RowItem, MTZJrnl.MTZJrnl.JournalColumn)
+        Item = CType(RowItem, mtzjrnl.mtzjrnl.journalcolumn)
         GuiManager = gm
         mReadOnly = FormReadOnly
-        EditJournalColumn.Attach(GuiManager, Item, FormReadOnly)
+        Editjournalcolumn.Attach(GuiManager, Item, FormReadOnly)
         btnOK.Enabled = False
     End Sub
 
-    Private Sub EditJournalColumn_Changed() Handles EditJournalColumn.Changed
+    Private Sub Editjournalcolumn_Changed() Handles Editjournalcolumn.Changed
         If Not mReadOnly Then
           btnOK.Enabled = True
         End If
@@ -141,8 +143,8 @@ Public Class frmJournalColumn
 ''' </remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
       If Not mReadOnly Then
-        If EditJournalColumn.IsOK() Then
-          EditJournalColumn.Save()
+        If Editjournalcolumn.IsOK() Then
+          Editjournalcolumn.Save()
          Try
           Item.Save()
           Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -156,8 +158,17 @@ Public Class frmJournalColumn
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditJournalColumn.GetMaxX() + 10, EditJournalColumn.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(Editjournalcolumn.GetMaxX() + 10, Editjournalcolumn.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="MTZdbInstall">
+</Property><Property Name="Solution File" Value="C:\LATIR2\applications\DBInstal\MTZdbInstall.sln">
+</Property><Property Name="User Options File" Value="C:\LATIR2\applications\DBInstal\MTZdbInstall.suo">
+</Property><Property Name="Date" Value="6 августа 2008 г.">
+</Property><Property Name="Time" Value="12:39">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="MTZdbInstall.sln" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\MTZdbInstall.sln">
+</Event><Event ErrorLevel="0" Project="" Source="MTZdbInstall.suo" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\MTZdbInstall.suo">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="LATIRdbInstall.vbproj" Description="Project file successfully backed up as C:\LATIR2\applications\DBInstal\Backup\LATIRdbInstall.vbproj">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="LATIRdbInstall.vbproj.user" Description="Project user file successfully backed up as C:\LATIR2\applications\DBInstal\Backup\LATIRdbInstall.vbproj.user">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="Config.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\Config.Designer.vb">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="Config.vb" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\Config.vb">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="DataSource.vb" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\DataSource.vb">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="app.config" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\app.config">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="MTZdbInstall.ico" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\MTZdbInstall.ico">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="Config.resX" Description="File successfully backed up as C:\LATIR2\applications\DBInstal\Backup\Config.resX">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="LATIRdbInstall.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LATIRdbInstall" Source="LATIRdbInstall.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="MTZdbInstall.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="MTZdbInstall.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LATIRdbInstall" Source="LATIRdbInstall.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -54,11 +54,11 @@ Public Class editEPFilterLinkmain
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblRowSource  as  System.Windows.Forms.Label
-Friend WithEvents txtRowSource As System.Windows.Forms.TextBox
+Friend WithEvents txtRowSource As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheExpression  as  System.Windows.Forms.Label
-Friend WithEvents txtTheExpression As System.Windows.Forms.TextBox
+Friend WithEvents txtTheExpression As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFilterField  as  System.Windows.Forms.Label
-Friend WithEvents txtFilterField As System.Windows.Forms.TextBox
+Friend WithEvents txtFilterField As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -76,11 +76,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblRowSource = New System.Windows.Forms.Label
-Me.txtRowSource = New System.Windows.Forms.TextBox
+Me.txtRowSource = New LATIR2GuiManager.TouchTextBox
 Me.lblTheExpression = New System.Windows.Forms.Label
-Me.txtTheExpression = New System.Windows.Forms.TextBox
+Me.txtTheExpression = New LATIR2GuiManager.TouchTextBox
 Me.lblFilterField = New System.Windows.Forms.Label
-Me.txtFilterField = New System.Windows.Forms.TextBox
+Me.txtFilterField = New LATIR2GuiManager.TouchTextBox
 
 Me.lblRowSource.Location = New System.Drawing.Point(20,5)
 Me.lblRowSource.name = "lblRowSource"

@@ -45,6 +45,7 @@ Public Class GridControlParent
     Public Event OnGridFind(ByVal UseDefault As Boolean) Implements IGridControlInterface.OnGridFind
     Public Event OnGridDel(ByRef OK As Boolean, ByVal ID As System.Guid) Implements IGridControlInterface.OnGridDel
     Public Event OnGridEdit(ByRef OK As Boolean, ByVal ID As System.Guid) Implements IGridControlInterface.OnGridEdit
+    Public Event OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean) Implements IGridControlInterface.OnGridExport
     Public Event OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean) Implements IGridControlInterface.OnGridProp
     Public Event OnGridRun(ByRef OK As Boolean, ByVal ID As System.Guid, ByRef UseDefault As Boolean) Implements IGridControlInterface.OnGridRun
     Public Event OnGridPrint(ByRef OK As Boolean, ByRef UseDefault As Boolean) Implements IGridControlInterface.OnGridPrint
@@ -348,6 +349,29 @@ Public Class GridControlParent
         'End If
     End Function
 
+    Protected Function GridExport(ByVal gr As DataGridView) As Boolean
+        Dim UseDefault As Boolean
+        Dim OK As Boolean
+        UseDefault = True
+        RaiseEvent OnGridExport(OK, UseDefault)
+        'If (UseDefault) Then
+        '    Dim frm As PropertyGridForm
+        '    frm = New PropertyGridForm
+        '    frm.SelectedObject = gr.DisplayLayout.Bands(0)
+        '    If (frm.ShowDialog() = DialogResult.OK) Then
+        '        ' Save...
+        '    End If
+        'End If
+        'gr.ShowColumnChooser("Колонки")
+        'Dim lpath As String
+        'Try
+        '    lpath = GetSetting("MTZ", "CONFIG", "LAYOUTS", My.Application.Info.DirectoryPath & "\Layouts\")
+        '    gr.DisplayLayout.Save(lpath & "\" & CurTableStyle.MappingName & ".ugl")
+        'Catch
+        'End Try
+        Return UseDefault
+    End Function
+
     Protected Function GridProp(ByVal gr As DataGridView) As Boolean
         Dim UseDefault As Boolean
         Dim OK As Boolean
@@ -381,9 +405,7 @@ Public Class GridControlParent
         Dim OK As Boolean
         UseDefault = True
         RaiseEvent OnGridPrint(OK, UseDefault)
-        If (UseDefault) Then
-            ' gr.PrintPreview()
-        End If
+        Return (UseDefault)
     End Function
 
 

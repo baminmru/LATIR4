@@ -155,6 +155,7 @@ Partial Class frmExportToMySQL
         Me.Controls.Add(Me.chkTypes)
         Me.Controls.Add(Me.Label4)
         Me.Name = "frmExportToMySQL"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Экспорт данных в ⁮MySQL"
         Me.ResumeLayout(False)
         Me.PerformLayout()

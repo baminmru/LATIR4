@@ -16,7 +16,7 @@ Friend Class frmJouralList
         lstJournal.Items.Clear()
         OK = False
         Dim rs As DataTable
-        rs = model.Manager.Session.GetRowsDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, , "OBJTYPE='MTZJrnl'")
+        rs = model.Manager.Session.GetRowsDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, , "OBJTYPE='mtzjrnl'")
         If rs Is Nothing Then Exit Sub
         lstJournal.DisplayMember = "Name"
         lstJournal.ValueMember = "InstanceID"

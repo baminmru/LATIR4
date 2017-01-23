@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="LATIRGenerator">
+</Property><Property Name="Solution File" Value="C:\LATIR2\LATIRGENERATOR\LATIRGenerator.sln">
+</Property><Property Name="User Options File" Value="C:\LATIR2\LATIRGENERATOR\LATIRGenerator.suo">
+</Property><Property Name="Date" Value="3 августа 2009 г.">
+</Property><Property Name="Time" Value="15:59">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="LATIRGenerator.sln" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\LATIRGenerator.sln">
+</Event><Event ErrorLevel="0" Project="" Source="LATIRGenerator.suo" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\LATIRGenerator.suo">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="LATIRGenerator.vbproj" Description="Project file successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\LATIRGenerator.vbproj">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="LATIRGenerator.vbproj.user" Description="Project user file successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\LATIRGenerator.vbproj.user">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="AttributeHolder.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\AttributeHolder.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Attributes.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Attributes.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="BlockHolder.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\BlockHolder.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Blocks.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Blocks.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="ControlData.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\ControlData.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="ControlData_col.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\ControlData_col.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="ControlProperty.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\ControlProperty.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="ControlProperty_col.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\ControlProperty_col.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Converter.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Converter.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="FormData.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\FormData.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="ModuleHolder.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\ModuleHolder.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Modules.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Modules.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="ProjectHolder.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\ProjectHolder.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Properties.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Properties.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Properties_col.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Properties_col.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="PropertyData.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\PropertyData.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="PropertyData_col.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\PropertyData_col.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Response.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Response.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="Writer.vb" Description="File successfully backed up as C:\LATIR2\LATIRGENERATOR\Backup\Writer.vb">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="LATIRGenerator.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LATIRGenerator" Source="LATIRGenerator.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LATIRGenerator.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="LATIRGenerator.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LATIRGenerator" Source="LATIRGenerator.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

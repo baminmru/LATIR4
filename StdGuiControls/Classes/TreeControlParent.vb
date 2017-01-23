@@ -72,6 +72,7 @@ Public Class TreeControlParent
                 nodeChild = node.Nodes.Add(Constants.MSG_WAIT)
                 nodeChild.Tag = Nothing
             Next
+            tv.Sort()
         Else
             rootnode = FindNode(tv.Nodes, ID)
             rootnode.Nodes.Clear()
@@ -81,6 +82,7 @@ Public Class TreeControlParent
                 nodeChild = node.Nodes.Add(Constants.MSG_WAIT)
                 nodeChild.Tag = Nothing
             Next
+            tv.Sort()
         End If
     End Sub
 

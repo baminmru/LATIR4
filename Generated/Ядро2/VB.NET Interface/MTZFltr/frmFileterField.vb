@@ -89,7 +89,7 @@ Public Class frmFileterField
         Me.EditFileterField.AutoScroll = True
         Me.EditFileterField.Location = New System.Drawing.Point(8, 8)
         Me.EditFileterField.name = "EditFileterField"
-        Me.EditFileterField.Size = New System.Drawing.Size(490, 600)
+        Me.EditFileterField.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditFileterField.TabIndex = 20
         Me.EditFileterField.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -101,6 +101,7 @@ Public Class frmFileterField
         Me.Controls.Add (Me.btnPanel)
         Me.name = "frmFileterField"
         Me.Text = "Поле фильтра"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
@@ -108,6 +109,7 @@ Public Class frmFileterField
 #End Region
     Public Item As MTZFltr.MTZFltr.FileterField
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -156,8 +158,17 @@ Public Class frmFileterField
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditFileterField.GetMaxX() + 10, EditFileterField.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(EditFileterField.GetMaxX() + 10, EditFileterField.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

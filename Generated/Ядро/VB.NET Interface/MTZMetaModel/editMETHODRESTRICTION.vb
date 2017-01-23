@@ -54,11 +54,11 @@ Public Class editMETHODRESTRICTION
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblPart  as  System.Windows.Forms.Label
-Friend WithEvents txtPart As System.Windows.Forms.TextBox
+Friend WithEvents txtPart As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdPart As System.Windows.Forms.Button
 Friend WithEvents cmdPartClear As System.Windows.Forms.Button
 Friend WithEvents lblMethod  as  System.Windows.Forms.Label
-Friend WithEvents txtMethod As System.Windows.Forms.TextBox
+Friend WithEvents txtMethod As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdMethod As System.Windows.Forms.Button
 Friend WithEvents lblIsRestricted  as  System.Windows.Forms.Label
 Friend WithEvents cmbIsRestricted As System.Windows.Forms.ComboBox
@@ -81,11 +81,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblPart = New System.Windows.Forms.Label
-Me.txtPart = New System.Windows.Forms.TextBox
+Me.txtPart = New LATIR2GuiManager.TouchTextBox
 Me.cmdPart = New System.Windows.Forms.Button
 Me.cmdPartClear = New System.Windows.Forms.Button
 Me.lblMethod = New System.Windows.Forms.Label
-Me.txtMethod = New System.Windows.Forms.TextBox
+Me.txtMethod = New LATIR2GuiManager.TouchTextBox
 Me.cmdMethod = New System.Windows.Forms.Button
 Me.lblIsRestricted = New System.Windows.Forms.Label
 Me.cmbIsRestricted = New System.Windows.Forms.ComboBox

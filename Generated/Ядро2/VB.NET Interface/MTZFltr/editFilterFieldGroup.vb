@@ -54,11 +54,11 @@ Public Class editFilterFieldGroup
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblsequence  as  System.Windows.Forms.Label
-Friend WithEvents txtsequence As System.Windows.Forms.TextBox
+Friend WithEvents txtsequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblAllowIgnore  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowIgnore As System.Windows.Forms.ComboBox
 Friend cmbAllowIgnoreDATA As DataTable
@@ -80,11 +80,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblsequence = New System.Windows.Forms.Label
-Me.txtsequence = New System.Windows.Forms.TextBox
+Me.txtsequence = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblAllowIgnore = New System.Windows.Forms.Label
 Me.cmbAllowIgnore = New System.Windows.Forms.ComboBox
 

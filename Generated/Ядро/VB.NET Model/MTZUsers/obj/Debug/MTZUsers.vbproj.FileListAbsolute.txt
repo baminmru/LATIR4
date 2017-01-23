@@ -1,0 +1,11 @@
+C:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers.dll
+C:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers_doc.xml
+C:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers.pdb
+C:\LATIR4\Build\MTZUsers.dll
+C:\LATIR4\Build\MTZUsers.pdb
+C:\LATIR4\Build\MTZUsers_doc.xml
+E:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers.dll
+E:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers_doc.xml
+E:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers.pdb
+E:\LATIR4\Generated\Ядро\VB.NET Model\MTZUsers\obj\Debug\MTZUsers.vbprojResolveAssemblyReference.cache

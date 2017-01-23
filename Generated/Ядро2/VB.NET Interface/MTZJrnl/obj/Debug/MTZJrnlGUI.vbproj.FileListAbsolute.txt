@@ -1,0 +1,7 @@
+C:\LATIR4\Build\MTZJrnlGUI.dll
+C:\LATIR4\Build\MTZJrnlGUI.pdb
+C:\LATIR4\Build\MTZJrnlGUI.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZJrnl\obj\Debug\MTZJrnlGUI.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZJrnl\obj\Debug\MTZJrnlGUI.dll
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZJrnl\obj\Debug\MTZJrnlGUI.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZJrnl\obj\Debug\MTZJrnlGUI.pdb

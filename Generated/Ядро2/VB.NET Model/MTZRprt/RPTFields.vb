@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZRprt
 
@@ -113,8 +114,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = Caption
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -188,7 +193,7 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              dr("Name") =Name
@@ -202,6 +207,9 @@ End Function
              dr("FieldSize") =FieldSize
              dr("Caption") =Caption
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -247,7 +255,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -266,6 +274,9 @@ End Function
       end if 
           If reader.Table.Columns.Contains("FieldSize") Then m_FieldSize=reader.item("FieldSize")
           If reader.Table.Columns.Contains("Caption") Then m_Caption=reader.item("Caption").ToString()
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -361,12 +372,15 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             Name = node.Attributes.GetNamedItem("Name").Value
             m_FieldType = new system.guid(node.Attributes.GetNamedItem("FieldType").Value)
             FieldSize = node.Attributes.GetNamedItem("FieldSize").Value
             Caption = node.Attributes.GetNamedItem("Caption").Value
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -379,11 +393,14 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
+           try 
           node.SetAttribute("Name", Name)  
           node.SetAttribute("FieldType", m_FieldType.tostring)  
           node.SetAttribute("FieldSize", FieldSize)  
           node.SetAttribute("Caption", Caption)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

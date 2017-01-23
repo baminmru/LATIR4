@@ -1,0 +1,5 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRFramework.dll
+C:\LATIR2\Generated\Generated Dlls\LATIRFramework.pdb
+C:\LATIR2\applications\LATIRFramework\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\applications\LATIRFramework\obj\Debug\LATIRFramework.dll
+C:\LATIR2\applications\LATIRFramework\obj\Debug\LATIRFramework.pdb

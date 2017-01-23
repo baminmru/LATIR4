@@ -11,7 +11,7 @@ Imports System.Drawing
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class frmGroups
+Public Class frmgroups
     Inherits System.Windows.Forms.Form
 
 #Region " Windows Form Designer generated code "
@@ -46,12 +46,12 @@ Public Class frmGroups
     Friend WithEvents edPanel As System.Windows.Forms.Panel
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnOK As System.Windows.Forms.Button
-    Friend WithEvents EditGroups As MTZUsersGUI.editGroups
+    Friend WithEvents Editgroups As mtzusersGUI.editgroups
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.btnPanel = New System.Windows.Forms.Panel
         Me.btnCancel = New System.Windows.Forms.Button
         Me.btnOK = New System.Windows.Forms.Button
-        Me.EditGroups = New MTZUsersGUI.EditGroups
+        Me.Editgroups = New mtzusersGUI.Editgroups
         Me.btnPanel.SuspendLayout()
         Me.SuspendLayout()
         'btnOK
@@ -84,30 +84,32 @@ Public Class frmGroups
         Me.btnPanel.Size = New System.Drawing.Size(500, 32)
         Me.btnPanel.TabIndex = 21
         '
-        'EditGroups
+        'Editgroups
         '
-        Me.EditGroups.AutoScroll = True
-        Me.EditGroups.Location = New System.Drawing.Point(8, 8)
-        Me.EditGroups.name = "EditGroups"
-        Me.EditGroups.Size = New System.Drawing.Size(490, 600)
-        Me.EditGroups.TabIndex = 20
-        Me.EditGroups.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Editgroups.AutoScroll = True
+        Me.Editgroups.Location = New System.Drawing.Point(8, 8)
+        Me.Editgroups.name = "Editgroups"
+        Me.Editgroups.Size = New System.Drawing.Size(800-40-16, 600-16)
+        Me.Editgroups.TabIndex = 20
+        Me.Editgroups.Dock = System.Windows.Forms.DockStyle.Fill
         '
-        'frmGroups
+        'frmgroups
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(800, 600)
-        Me.Controls.Add (EditGroups)
+        Me.Controls.Add (Editgroups)
         Me.Controls.Add (Me.btnPanel)
-        Me.name = "frmGroups"
+        Me.name = "frmgroups"
         Me.Text = "Группы"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout (False)
 
     End Sub
 
 #End Region
-    Public Item As MTZUsers.MTZUsers.Groups
+    Public Item As mtzusers.mtzusers.groups
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
     Private mReadOnly As Boolean
 
 
@@ -119,14 +121,14 @@ Public Class frmGroups
 '''
 ''' </remarks>
     Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, Optional ByVal FormReadOnly As Boolean =False)
-        Item = CType(RowItem, MTZUsers.MTZUsers.Groups)
+        Item = CType(RowItem, mtzusers.mtzusers.groups)
         GuiManager = gm
         mReadOnly = FormReadOnly
-        EditGroups.Attach(GuiManager, Item, FormReadOnly)
+        Editgroups.Attach(GuiManager, Item, FormReadOnly)
         btnOK.Enabled = False
     End Sub
 
-    Private Sub EditGroups_Changed() Handles EditGroups.Changed
+    Private Sub Editgroups_Changed() Handles Editgroups.Changed
         If Not mReadOnly Then
           btnOK.Enabled = True
         End If
@@ -141,8 +143,8 @@ Public Class frmGroups
 ''' </remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
       If Not mReadOnly Then
-        If EditGroups.IsOK() Then
-          EditGroups.Save()
+        If Editgroups.IsOK() Then
+          Editgroups.Save()
          Try
           Item.Save()
           Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -156,8 +158,17 @@ Public Class frmGroups
         Exit Sub
         End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.ClientSize() = New System.Drawing.Size(EditGroups.GetMaxX() + 10, EditGroups.GetMaxY() + 35)
-        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.ClientSize() = New System.Drawing.Size(Editgroups.GetMaxX() + 10, Editgroups.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
+    End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

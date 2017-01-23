@@ -3901,7 +3901,7 @@ bye:
         s.putBufLC("set ahid = G2B('" & GetMap("helper") & "'); ")
         s.putBufLC("select count(*) into aEC from users where usersid=auid;")
         s.putBufLC("if aEC=0 then")
-        s.putBufLC("insert into users(usersid,instanceid,login,password,changestamp) values(auid,null,'init',md5('init'),now());")
+        s.putBufLC("insert into users(usersid,instanceid,login,password,changestamp) values(auid,null,'init','init',now());")
         s.putBufLC("end if;")
 
 
@@ -3936,12 +3936,12 @@ bye:
         s.putBufLC("call Login( asession  , 'init', 'init');")
 
 
-        s.putBufLC("select count(*) into aEC from instance where objtype='MTZUsers';")
+        s.putBufLC("select count(*) into aEC from instance where objtype='mtzusers';")
         s.putBufLC("if aEC=0 then")
         s.putBufLC("   set asecid=G2B('" & GetMap("MTZUsers") & "');")
-        s.putBufLC("   insert into instance(InstanceID,OBJTYPE,Name) values(asecid, 'MTZUsers','Пользователи и группы');")
+        s.putBufLC("   insert into instance(InstanceID,OBJTYPE,Name) values(asecid, 'mtzusers','Пользователи и группы');")
         s.putBufLC("else")
-        s.putBufLC("   select InstanceID into asecid from instance where objtype='MTZUsers';")
+        s.putBufLC("   select InstanceID into asecid from instance where objtype='mtzusers';")
         s.putBufLC("end if;")
 
 
@@ -3950,7 +3950,7 @@ bye:
         s.putBufLC("delete from users where login = 'supervisor';")
         s.putBufLC("set auid=G2B('" & GetMap("supervisor") & "');")
         s.putBufLC("insert into users(usersid,instanceid,password,login,name,changestamp) values(auid, asecid,  ")
-        s.putBufLC(" md5('bami'),  'supervisor', 'Администратор',now());")
+        s.putBufLC(" 'bami',  'supervisor', 'Администратор',now());")
 
 
         s.putBufLC("call Logout(asession);")
@@ -3979,13 +3979,14 @@ bye:
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     ' return phisical type for FIELDTYPE
     Private Function MapFT(ByVal typeID As String) As String
-        Dim i, s As Object
+        Dim i As Integer, s As String = ""
         Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
 
         On Error Resume Next
 
         If ftmap Is Nothing Then ftmap = New Collection
         If ftmap.Item(typeID) Is Nothing Then
+
         Else
             s = ftmap.Item(typeID).StoageType
             If ftmap.Item(typeID).FixedSize <> 0 Then
@@ -5782,23 +5783,31 @@ bye:
         Dim idm As IDMAP
         ff = FreeFile()
         Map = New Collection
-        On Error GoTo bye
-        FileOpen(ff, My.Application.Info.DirectoryPath & "\IDMAP.txt", OpenMode.Input)
-        While Not EOF(ff)
-            Input(ff, ID1S)
-            Input(ff, IDMTZ)
-            idm = New IDMAP
-            If ID1S <> "" Then
-                idm.ID1S = ID1S
-                idm.IDMTZ = IDMTZ
-                On Error Resume Next
-                Map.Add(idm, ID1S)
-                On Error GoTo bye
-            End If
-        End While
-        FileClose(ff)
-bye:
+        Try
 
+
+            FileOpen(ff, My.Application.Info.DirectoryPath & "\IDMAP.txt", OpenMode.Input)
+            While Not EOF(ff)
+                Input(ff, ID1S)
+                Input(ff, IDMTZ)
+                idm = New IDMAP
+                If ID1S <> "" Then
+                    idm.ID1S = ID1S
+                    idm.IDMTZ = IDMTZ
+                    Try
+                        Map.Add(idm, ID1S)
+                    Catch ex As Exception
+
+                    End Try
+
+
+                End If
+            End While
+            FileClose(ff)
+bye:
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub SaveMap()

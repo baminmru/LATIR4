@@ -54,13 +54,13 @@ Public Class editUNIQUECONSTRAINT
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblPerParent  as  System.Windows.Forms.Label
 Friend WithEvents cmbPerParent As System.Windows.Forms.ComboBox
 Friend cmbPerParentDATA As DataTable
 Friend cmbPerParentDATAROW As DataRow
 Friend WithEvents lblTheComment  as  System.Windows.Forms.Label
-Friend WithEvents txtTheComment As System.Windows.Forms.TextBox
+Friend WithEvents txtTheComment As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -78,11 +78,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblPerParent = New System.Windows.Forms.Label
 Me.cmbPerParent = New System.Windows.Forms.ComboBox
 Me.lblTheComment = New System.Windows.Forms.Label
-Me.txtTheComment = New System.Windows.Forms.TextBox
+Me.txtTheComment = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"

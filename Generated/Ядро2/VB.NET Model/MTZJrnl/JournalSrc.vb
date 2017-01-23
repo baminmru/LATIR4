@@ -10,7 +10,7 @@ Imports System.Convert
 Imports System.DateTime
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -19,36 +19,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class JournalSrc
+    Public Class journalsrc
         Inherits LATIR2.Document.DocRow_Base
 
-
-
-''' <summary>
-'''Локальная переменная для поля Псевдоним представления
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_ViewAlias  as String
-
-
-''' <summary>
-'''Локальная переменная для поля При открытии
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_OnRun  as enumOnJournalRowClick
-
-
-''' <summary>
-'''Локальная переменная для поля Режим открытия
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_OpenMode  as String
 
 
 ''' <summary>
@@ -57,7 +30,34 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-            private m_PartView  as Guid
+            private m_spartview  as String
+
+
+''' <summary>
+'''Локальная переменная для поля При открытии
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_onrun  as enumOnJournalRowClick
+
+
+''' <summary>
+'''Локальная переменная для поля Режим открытия
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_openmode  as String
+
+
+''' <summary>
+'''Локальная переменная для поля Псевдоним представления
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_viewalias  as String
 
 
 
@@ -68,10 +68,10 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Sub CleanFields()
-            ' m_ViewAlias=   
-            ' m_OnRun=   
-            ' m_OpenMode=   
-            ' m_PartView=   
+            ' m_spartview=   
+            ' m_onrun=   
+            ' m_openmode=   
+            ' m_viewalias=   
         End Sub
 
 
@@ -105,13 +105,13 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                 Case 0
                     Value = ID
                 Case 1
-                    Value = PartView
+                    Value = spartview
                 Case 2
-                    Value = OnRun
+                    Value = onrun
                 Case 3
-                    Value = OpenMode
+                    Value = openmode
                 Case 4
-                    Value = ViewAlias
+                    Value = viewalias
             End Select
         else
         try
@@ -130,13 +130,13 @@ Public Overrides Property Value(ByVal Index As Object) As Object
             Case 0
                  ID=value
                 Case 1
-                    PartView = value
+                    spartview = value
                 Case 2
-                    OnRun = value
+                    onrun = value
                 Case 3
-                    OpenMode = value
+                    openmode = value
                 Case 4
-                    ViewAlias = value
+                    viewalias = value
         End Select
      Else
         Try
@@ -168,13 +168,13 @@ Public Overrides Function FieldNameByID(ByVal Index As long) As String
                 Case 0
                    Return "ID"
                 Case 1
-                    Return "PartView"
+                    Return "spartview"
                 Case 2
-                    Return "OnRun"
+                    Return "onrun"
                 Case 3
-                    Return "OpenMode"
+                    Return "openmode"
                 Case 4
-                    Return "ViewAlias"
+                    Return "viewalias"
                 Case else
                 return "" 
             End Select
@@ -196,20 +196,20 @@ End Function
             try
             dr("ID") =ID
             dr("Brief") =Brief
-             dr("PartView") =PartView
-             select case OnRun
+             dr("spartview") =spartview
+             select case onrun
             case enumOnJournalRowClick.OnJournalRowClick_Otkrit__dokument
-              dr ("OnRun")  = "Открыть документ"
-              dr ("OnRun_VAL")  = 2
+              dr ("onrun")  = "Открыть документ"
+              dr ("onrun_VAL")  = 2
             case enumOnJournalRowClick.OnJournalRowClick_Nicego_ne_delat_
-              dr ("OnRun")  = "Ничего не делать"
-              dr ("OnRun_VAL")  = 0
+              dr ("onrun")  = "Ничего не делать"
+              dr ("onrun_VAL")  = 0
             case enumOnJournalRowClick.OnJournalRowClick_Otkrit__stroku
-              dr ("OnRun")  = "Открыть строку"
-              dr ("OnRun_VAL")  = 1
-              end select 'OnRun
-             dr("OpenMode") =OpenMode
-             dr("ViewAlias") =ViewAlias
+              dr ("onrun")  = "Открыть строку"
+              dr ("onrun_VAL")  = 1
+              end select 'onrun
+             dr("openmode") =openmode
+             dr("viewalias") =viewalias
             DestDataTable.Rows.Add (dr)
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -238,10 +238,10 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Pack(ByVal nv As LATIR2.NamedValues)
-          nv.Add("PartView", PartView, dbtype.GUID)
-          nv.Add("OnRun", OnRun, dbtype.int16)
-          nv.Add("OpenMode", OpenMode, dbtype.string)
-          nv.Add("ViewAlias", ViewAlias, dbtype.string)
+          nv.Add("spartview", spartview, dbtype.string)
+          nv.Add("onrun", onrun, dbtype.int16)
+          nv.Add("openmode", openmode, dbtype.string)
+          nv.Add("viewalias", viewalias, dbtype.string)
             nv.Add(PartName() & "id", Application.Session.GetProvider.ID2Param(ID),  Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
         End Sub
 
@@ -264,10 +264,10 @@ End Function
 
             RowRetrived = True
             RetriveTime = Now
-          If reader.Table.Columns.Contains("PartView") Then m_PartView=reader.item("PartView")
-          If reader.Table.Columns.Contains("OnRun") Then m_OnRun=reader.item("OnRun")
-          If reader.Table.Columns.Contains("OpenMode") Then m_OpenMode=reader.item("OpenMode").ToString()
-          If reader.Table.Columns.Contains("ViewAlias") Then m_ViewAlias=reader.item("ViewAlias").ToString()
+          If reader.Table.Columns.Contains("spartview") Then m_spartview=reader.item("spartview").ToString()
+          If reader.Table.Columns.Contains("onrun") Then m_onrun=reader.item("onrun")
+          If reader.Table.Columns.Contains("openmode") Then m_openmode=reader.item("openmode").ToString()
+          If reader.Table.Columns.Contains("viewalias") Then m_viewalias=reader.item("viewalias").ToString()
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try
@@ -280,15 +280,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property PartView() As Guid
+        Public Property spartview() As String
             Get
                 LoadFromDatabase()
-                PartView = m_PartView
+                spartview = m_spartview
                 AccessTime = Now
             End Get
-            Set(ByVal Value As Guid )
+            Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_PartView = Value
+                m_spartview = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -300,15 +300,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property OnRun() As enumOnJournalRowClick
+        Public Property onrun() As enumOnJournalRowClick
             Get
                 LoadFromDatabase()
-                OnRun = m_OnRun
+                onrun = m_onrun
                 AccessTime = Now
             End Get
             Set(ByVal Value As enumOnJournalRowClick )
                 LoadFromDatabase()
-                m_OnRun = Value
+                m_onrun = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -320,15 +320,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property OpenMode() As String
+        Public Property openmode() As String
             Get
                 LoadFromDatabase()
-                OpenMode = m_OpenMode
+                openmode = m_openmode
                 AccessTime = Now
             End Get
             Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_OpenMode = Value
+                m_openmode = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -340,15 +340,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property ViewAlias() As String
+        Public Property viewalias() As String
             Get
                 LoadFromDatabase()
-                ViewAlias = m_ViewAlias
+                viewalias = m_viewalias
                 AccessTime = Now
             End Get
             Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_ViewAlias = Value
+                m_viewalias = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -363,10 +363,10 @@ End Function
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
           try 
-            m_PartView =new system.guid(node.Attributes.GetNamedItem("PartView").Value)
-            OnRun = node.Attributes.GetNamedItem("OnRun").Value
-            OpenMode = node.Attributes.GetNamedItem("OpenMode").Value
-            ViewAlias = node.Attributes.GetNamedItem("ViewAlias").Value
+            spartview = node.Attributes.GetNamedItem("spartview").Value
+            onrun = node.Attributes.GetNamedItem("onrun").Value
+            openmode = node.Attributes.GetNamedItem("openmode").Value
+            viewalias = node.Attributes.GetNamedItem("viewalias").Value
              Changed = true
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -384,10 +384,10 @@ End Function
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
            try 
-          node.SetAttribute("PartView", PartView.ToString())  
-          node.SetAttribute("OnRun", OnRun)  
-          node.SetAttribute("OpenMode", OpenMode)  
-          node.SetAttribute("ViewAlias", ViewAlias)  
+          node.SetAttribute("spartview", spartview)  
+          node.SetAttribute("onrun", onrun)  
+          node.SetAttribute("openmode", openmode)  
+          node.SetAttribute("viewalias", viewalias)  
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try

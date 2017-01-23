@@ -4,7 +4,7 @@ Public Class frmJournalViewIG
     Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager)
         GuiManager = gm
 
-        dt = GuiManager.Manager.Session.GetRowsExDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='MTZJrnl'")
+        dt = GuiManager.Manager.Session.GetRowsExDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='mtzjrnl'")
         cmbJournals.Items.Clear()
         'cmbJournals.Sorted = True
 
@@ -28,7 +28,7 @@ Public Class frmJournalViewIG
 
 
 
-    Private Sub jv_JVOnEdit(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean) Handles jv.JVOnEdit
+    Private Sub jv_JVOnEdit(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean) Handles jv.JVOnEdit
         Dim obj As LATIR2.Document.Doc_Base
         Dim dg As LATIR2GuiManager.Doc_GUIBase
         If InstanceID.Equals(System.Guid.Empty) Then Exit Sub
@@ -43,13 +43,13 @@ Public Class frmJournalViewIG
             Exit Sub
         End If
         dg.ShowForm("", obj)
-        Refesh = False
+        Refresh = False
         UseDefault = False
     End Sub
 
 
 
-    Private Sub jv_JVOnDel(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean) Handles jv.JVOnDel
+    Private Sub jv_JVOnDel(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean) Handles jv.JVOnDel
         Dim obj As LATIR2.Document.Doc_Base
         If InstanceID.Equals(System.Guid.Empty) Then Exit Sub
         obj = GuiManager.Manager.GetInstanceObject(InstanceID)
@@ -63,7 +63,7 @@ Public Class frmJournalViewIG
         UseDefault = False
     End Sub
 
-    Private Sub jv_JVOnRun(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refesh As Boolean) Handles jv.JVOnRun
+    Private Sub jv_JVOnRun(ByVal InstanceID As System.Guid, ByVal RowID As System.Guid, ByVal ViewBase As String, ByRef UseDefault As Boolean, ByRef Refresh As Boolean) Handles jv.JVOnRun
         Dim f As frmChild
         f = New frmChild
 

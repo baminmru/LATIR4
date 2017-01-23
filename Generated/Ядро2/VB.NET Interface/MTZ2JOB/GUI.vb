@@ -1,6 +1,7 @@
 
 Imports LATIR2GuiManager
 Imports System.Windows.Forms
+Imports System.Diagnostics
 
 
 ''' <summary>

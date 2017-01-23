@@ -80,7 +80,7 @@ Module MakeCollections
                         s = s & vbCrLf & MakeComment("Основной контрол для просмотра раздела " & p.Caption)
                         s = s & vbCrLf & "    Friend WithEvents Edit" & p.Name & "1 As " & ei.TheName
                         s = s & vbCrLf & "    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()"
-                        s = s & vbCrLf & "        Me.Edit" & p.Name & "1 = New " & ot.Name & "GUI.edit" & p.Name
+                        s = s & vbCrLf & "        Me.Edit" & p.Name & "1 = New " & ot.Name & "GUI.edit" & p.Name & mode
                         's = s & vbCrLf & "        Me.Edit" & p.Name & "1 = New " & ei.TheName
                         s = s & vbCrLf & "        Me.SuspendLayout()"
                         s = s & vbCrLf & "        '"
@@ -194,11 +194,11 @@ Module MakeCollections
                     s = s & vbCrLf & "    'It can be modified using the Windows Form Designer."
                     s = s & vbCrLf & "    'Do not modify it using the code editor."
 
-                    s = s & vbCrLf & "    Friend WithEvents Edit" & p.Name & "1 As " & ot.Name & "GUI.edit" & p.Name
+                    s = s & vbCrLf & "    Friend WithEvents Edit" & p.Name & "1 As " & ot.Name & "GUI.edit" & p.Name & mode
                     's = s & vbCrLf & "    Friend WithEvents Edit" & p.Name & "1 As edit" & p.Name & mode
                     s = s & vbCrLf & "    Friend WithEvents cmdSave As System.Windows.Forms.Button"
                     s = s & vbCrLf & "    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()"
-                    s = s & vbCrLf & "        Me.Edit" & p.Name & "1 = New " & ot.Name & "GUI.edit" & p.Name
+                    s = s & vbCrLf & "        Me.Edit" & p.Name & "1 = New " & ot.Name & "GUI.edit" & p.Name & mode
                     's = s & vbCrLf & "        Me.Edit" & p.Name & "1 = New edit" & p.Name & mode
                     s = s & vbCrLf & "        Me.cmdSave = New System.Windows.Forms.Button"
                     s = s & vbCrLf & "        Me.SuspendLayout()"
@@ -235,6 +235,7 @@ Module MakeCollections
                     s = s & vbCrLf & "    Public item As " & ot.Name & "." & ot.Name & ".Application"
                     's = s & vbCrLf & "    Public item As " & ot.Name & ".Application"
                     s = s & vbCrLf & "    Public GuiManager As LATIR2GuiManager.LATIRGuiManager"
+                    ' s = s & vbCrLf & "    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer"
                     s = s & vbCrLf & "    Private mReadOnly as boolean"
 
                     s = s & vbCrLf & MakeComment("Инициализация")
@@ -392,15 +393,19 @@ Module MakeCollections
                 s = s & vbCrLf & "        ts.RowHeaderWidth = 30"
                 s = s & vbCrLf & ""
                 For i = 1 To p.FIELD.Count
+                        f = p.FIELD.Item(i)
+                        ft = f.FieldType
+                        If ft.Name.ToLower <> "password" Then
+                            s = s & vbCrLf & ""
+                            s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
+                            s = s & vbCrLf & "         cs.ReadOnly = True"
+                            s = s & vbCrLf & "        cs.HeaderText = """ & f.Caption & """"
+                            s = s & vbCrLf & "        cs.MappingName = """ & f.Name & """"
+                            s = s & vbCrLf & "        cs.NullText = """""
+                            s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
+                        End If
 
-                    s = s & vbCrLf & ""
-                    s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
-                    s = s & vbCrLf & "        cs.ReadOnly = True"
-                    s = s & vbCrLf & "        cs.HeaderText = """ & p.FIELD.Item(i).Caption & """"
-                    s = s & vbCrLf & "        cs.MappingName = """ & p.FIELD.Item(i).Name & """"
-                    s = s & vbCrLf & "        cs.NullText = """""
-                    s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
-                Next
+                    Next
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & "        gv.InitFields (ts)"
                 s = s & vbCrLf & "        gv.SetData (dt)"
@@ -427,27 +432,41 @@ Module MakeCollections
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & LATIR2Framework.StringHelper.MakeComment("Обслуживание удаления Delete action")
                 s = s & vbCrLf & "    Private Sub gv_OnDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridDel"
-                s = s & vbCrLf & "      If not mReadOnly Then"
-                's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & p.Name & ""
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
-                s = s & vbCrLf & "        ed = item.FindRowObject(""" & p.Name & """, ID)"
-                s = s & vbCrLf & "        If MsgBox(""Удалить <"" & ed.Brief & ""> ?"", MsgBoxStyle.YesNo + MsgBoxStyle.Question, ""Удаление"") = MsgBoxResult.Yes Then"
-                s = s & vbCrLf & "            OK = ed.Parent.Delete(ed.ID.ToString)"
-                s = s & vbCrLf & "            If OK Then"
-                s = s & vbCrLf & "                Dim dt As DataTable"
-                s = s & vbCrLf & "                dt = item." & p.Name & ".GetDataTable()"
-                s = s & vbCrLf & "                dt.TableName = """ & p.Name & """"
-                s = s & vbCrLf & "                gv.SetData (dt)"
-                s = s & vbCrLf & "            End If"
-                s = s & vbCrLf & "        End If"
-                s = s & vbCrLf & "      End If"
-                s = s & vbCrLf & "    End Sub"
-                s = s & vbCrLf & ""
+                    s = s & vbCrLf & "      If not mReadOnly Then"
+
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowDelete = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
+                    s = s & vbCrLf & "        ed = item.FindRowObject(""" & p.Name & """, ID)"
+                    s = s & vbCrLf & "        If MsgBox(""Удалить <"" & ed.Brief & ""> ?"", MsgBoxStyle.YesNo + MsgBoxStyle.Question, ""Удаление"") = MsgBoxResult.Yes Then"
+                    s = s & vbCrLf & "            OK = ed.Parent.Delete(ed.ID.ToString)"
+                    s = s & vbCrLf & "            If OK Then"
+                    s = s & vbCrLf & "                Dim dt As DataTable"
+                    s = s & vbCrLf & "                dt = item." & p.Name & ".GetDataTable()"
+                    s = s & vbCrLf & "                dt.TableName = """ & p.Name & """"
+                    s = s & vbCrLf & "                gv.SetData (dt)"
+                    s = s & vbCrLf & "            End If"
+                    s = s & vbCrLf & "        End If"
+
+                    s = s & vbCrLf & "      End If"
+                    s = s & vbCrLf & "    End Sub"
+                    s = s & vbCrLf & ""
                 s = s & vbCrLf & LATIR2Framework.StringHelper.MakeComment("Обслуживание создания записи Create action")
                 s = s & vbCrLf & "    Private Sub gv_OnAdd(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridAdd"
-                's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & p.Name & ""
-                s = s & vbCrLf & "      If not mReadOnly Then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
+                    's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & p.Name & ""
+                    s = s & vbCrLf & "      If not mReadOnly Then"
+
+
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & "        If ID.Equals(System.guid.Empty) Then"
                 s = s & vbCrLf & "              ed = Item." & p.Name & ".Add"
                 s = s & vbCrLf & "          Else"
@@ -587,16 +606,21 @@ Module MakeCollections
                 s = s & vbCrLf & "        cs.MappingName = ""Brief"""
                 s = s & vbCrLf & "        cs.NullText = """""
                 s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
-                For i = 1 To p.FIELD.Count
+                    For i = 1 To p.FIELD.Count
+                        f = p.FIELD.Item(i)
+                        ft = f.FieldType
+                        If ft.Name.ToLower <> "password" Then
+                            s = s & vbCrLf & ""
+                            s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
+                            s = s & vbCrLf & "        cs.ReadOnly = True"
+                            s = s & vbCrLf & "        cs.HeaderText = """ & f.Caption & """"
+                            s = s & vbCrLf & "        cs.MappingName = """ & f.Name & """"
+                            s = s & vbCrLf & "        cs.NullText = """""
+                            s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
+                        End If
+
+                    Next
                     s = s & vbCrLf & ""
-                    s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
-                    s = s & vbCrLf & "        cs.ReadOnly = True"
-                    s = s & vbCrLf & "        cs.HeaderText = """ & p.FIELD.Item(i).Caption & """"
-                    s = s & vbCrLf & "        cs.MappingName = """ & p.FIELD.Item(i).Name & """"
-                    s = s & vbCrLf & "        cs.NullText = """""
-                    s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
-                Next
-                s = s & vbCrLf & ""
                 s = s & vbCrLf & "        TreeView1.InitTreeColumns (ts)"
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
@@ -617,8 +641,13 @@ Module MakeCollections
 
                 s = s & vbCrLf & LATIR2Framework.StringHelper.MakeComment("Обслуживание добавления в корневой элемент")
                 s = s & vbCrLf & "    Private Sub TreeView1_OnAddRoot(Byref OK As Boolean) Handles TreeView1.OnTreeAddRoot"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
                 s = s & vbCrLf & "        ed = item." & p.Name & ".Add"
                 s = s & vbCrLf & "        Dim gui As LATIR2GuiManager.Doc_GUIBase"
                 s = s & vbCrLf & "        Dim dt As DataTable"
@@ -648,8 +677,13 @@ Module MakeCollections
 
                 s = s & vbCrLf & LATIR2Framework.StringHelper.MakeComment("Обслуживание удаления")
                 s = s & vbCrLf & "    Private Sub gv_OnDel(Byref OK As Boolean, ByVal ID As System.Guid) Handles TreeView1.OnTreeDel"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowDelete = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
                 s = s & vbCrLf & "        Dim edp As Object"
                 s = s & vbCrLf & "        ed = item.FindRowObject(""" & p.Name & """, ID)"
                 s = s & vbCrLf & "        if ed  is nothing then exit sub"
@@ -669,8 +703,13 @@ Module MakeCollections
 
                 s = s & vbCrLf & LATIR2Framework.StringHelper.MakeComment("Обслуживание добавления в уровень дерева")
                 s = s & vbCrLf & "    Private Sub gv_OnAdd(Byref OK As Boolean, ByVal ID As System.Guid) Handles TreeView1.OnTreeAdd"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
                 s = s & vbCrLf & "        Dim fs As " & ot.Name & "." & ot.Name & "." & p.Name
                 s = s & vbCrLf & "        fs = item.FindRowObject(""" & p.Name & """, ID)"
                 s = s & vbCrLf & "        ed = fs." & p.Name & ".Add()"
@@ -806,16 +845,20 @@ Module MakeCollections
                 s = s & vbCrLf & ""
 
                 child.FIELD.Sort = "sequence"
-                For i = 1 To child.FIELD.Count
-                    s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
-                    s = s & vbCrLf & "        cs.ReadOnly = True"
-                    s = s & vbCrLf & "        cs.HeaderText = """ & child.FIELD.Item(i).Caption & """"
-                    s = s & vbCrLf & "        cs.MappingName = """ & child.FIELD.Item(i).Name & """"
-                    s = s & vbCrLf & "        cs.NullText = """""
-                    s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
-                Next
+                    For i = 1 To child.FIELD.Count
+                        f = child.FIELD.Item(i)
+                        ft = f.FieldType
+                        If ft.Name.ToLower() <> "password" Then
+                            s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
+                            s = s & vbCrLf & "        cs.ReadOnly = True"
+                            s = s & vbCrLf & "        cs.HeaderText = """ & f.Caption & """"
+                            s = s & vbCrLf & "        cs.MappingName = """ & f.Name & """"
+                            s = s & vbCrLf & "        cs.NullText = """""
+                            s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
+                        End If
+                    Next
 
-                s = s & vbCrLf & "        tgv.InitChildFields (ts)"
+                    s = s & vbCrLf & "        tgv.InitChildFields (ts)"
                 s = s & vbCrLf & "    End Sub"
 
 
@@ -836,16 +879,21 @@ Module MakeCollections
                 s = s & vbCrLf & "        cs.MappingName = ""Brief"""
                 s = s & vbCrLf & "        cs.NullText = """""
                 s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
-                For i = 1 To p.FIELD.Count
+                    For i = 1 To p.FIELD.Count
+                        f = p.FIELD.Item(i)
+                        ft = f.FieldType
+                        If ft.Name.ToLower <> "password" Then
+                            s = s & vbCrLf & ""
+                            s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
+                            s = s & vbCrLf & "        cs.ReadOnly = True"
+                            s = s & vbCrLf & "        cs.HeaderText = """ & f.Caption & """"
+                            s = s & vbCrLf & "        cs.MappingName = """ & f.Name & """"
+                            s = s & vbCrLf & "        cs.NullText = """""
+                            s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
+                        End If
+
+                    Next
                     s = s & vbCrLf & ""
-                    s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
-                    s = s & vbCrLf & "        cs.ReadOnly = True"
-                    s = s & vbCrLf & "        cs.HeaderText = """ & p.FIELD.Item(i).Caption & """"
-                    s = s & vbCrLf & "        cs.MappingName = """ & p.FIELD.Item(i).Name & """"
-                    s = s & vbCrLf & "        cs.NullText = """""
-                    s = s & vbCrLf & "        ts.GridColumnStyles.Add (cs)"
-                Next
-                s = s & vbCrLf & ""
                 s = s & vbCrLf & "        tgv.InitTreeColumns (ts)"
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
@@ -867,9 +915,14 @@ Module MakeCollections
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & "    Private Sub tgv_OnAddRoot(Byref OK As Boolean) Handles tgv.OnTreeAddRoot"
-                's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & p.Name & ""
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
+                    's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & p.Name & ""
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & "        ed = item." & p.Name & ".Add"
                 s = s & vbCrLf & "        Dim gui As LATIR2GuiManager.Doc_GUIBase"
                 s = s & vbCrLf & "        Dim dt As DataTable"
@@ -902,8 +955,13 @@ Module MakeCollections
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & "    Private Sub tgv_OnDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles tgv.OnTreeDel"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowDelete = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name
                 s = s & vbCrLf & "        Dim edp As Object"
                 s = s & vbCrLf & "        ed = item.FindRowObject(""" & p.Name & """, ID)"
                 s = s & vbCrLf & "        if ed is nothing then exit sub"
@@ -923,8 +981,13 @@ Module MakeCollections
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & "    Private Sub tgv_OnAdd(ByRef OK As Boolean, ByVal ID As System.Guid) Handles tgv.OnTreeAdd"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                 's = s & vbCrLf & "        Dim fs As " & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & "        Dim fs As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & ""
@@ -955,8 +1018,13 @@ Module MakeCollections
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & "    Private Sub tgv_OnChildAdd(ByRef OK As Boolean, ByVal ParentID As System.Guid) Handles tgv.OnGridAdd"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & child.Name & ""
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & child.Name & ""
                 's = s & vbCrLf & "        Dim fs As " & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & "        Dim fs As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & "        fs = item.FindRowObject(""" & p.Name & """, ParentID)"
@@ -975,8 +1043,14 @@ Module MakeCollections
                 s = s & vbCrLf & "    End Sub"
                 s = s & vbCrLf & ""
                 s = s & vbCrLf & "    Private Sub tgv_OnChildDel(ByRef OK As Boolean, ByVal ParentID As System.Guid, ByVal ID As System.Guid) Handles tgv.OnGridDel"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim fs As " & ot.Name & "." & ot.Name & "." & p.Name & ""
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode).AllowDelete = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+
+                    s = s & vbCrLf & "        Dim fs As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                 s = s & vbCrLf & "        fs = item.FindRowObject(""" & p.Name & """, ParentID)"
                 's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & child.Name & ""
                 s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & child.Name & ""
@@ -1131,13 +1205,18 @@ Module MakeCollections
 
                     p.FIELD.Sort = "sequence"
                     For i = 1 To p.FIELD.Count
-                        s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
-                        s = s & vbCrLf & "        ' TextBoxColumn"
-                        s = s & vbCrLf & "        cs.ReadOnly = True"
-                        s = s & vbCrLf & "        cs.HeaderText = """ & p.FIELD.Item(i).Caption & """"
-                        s = s & vbCrLf & "        cs.MappingName = """ & p.FIELD.Item(i).Name & """"
-                        s = s & vbCrLf & "        cs.NullText = """""
-                        s = s & vbCrLf & "        ts.GridColumnStyles.Add(cs)"
+                        f = p.FIELD.Item(i)
+                        ft = f.FieldType
+                        If ft.Name.ToLower <> "password" Then
+                            s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
+                            s = s & vbCrLf & "        ' TextBoxColumn"
+                            s = s & vbCrLf & "        cs.ReadOnly = True"
+                            s = s & vbCrLf & "        cs.HeaderText = """ & f.Caption & """"
+                            s = s & vbCrLf & "        cs.MappingName = """ & f.Name & """"
+                            s = s & vbCrLf & "        cs.NullText = """""
+                            s = s & vbCrLf & "        ts.GridColumnStyles.Add(cs)"
+                        End If
+
                     Next
                     s = s & vbCrLf & "        gv.InitFieldsMaster(ts)"
 
@@ -1149,13 +1228,17 @@ Module MakeCollections
 
                     child.FIELD.Sort = "sequence"
                     For i = 1 To child.FIELD.Count
-                        s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
-                        s = s & vbCrLf & "        ' TextBoxColumn"
-                        s = s & vbCrLf & "        cs.ReadOnly = True"
-                        s = s & vbCrLf & "        cs.HeaderText = """ & child.FIELD.Item(i).Caption & """"
-                        s = s & vbCrLf & "        cs.MappingName = """ & child.FIELD.Item(i).Name & """"
-                        s = s & vbCrLf & "        cs.NullText = """""
-                        s = s & vbCrLf & "        ts.GridColumnStyles.Add(cs)"
+                        f = child.FIELD.Item(i)
+                        ft = f.FieldType
+                        If ft.Name.ToLower() <> "password" Then
+                            s = s & vbCrLf & "        cs = New DataGridTextBoxColumn"
+                            s = s & vbCrLf & "        ' TextBoxColumn"
+                            s = s & vbCrLf & "        cs.ReadOnly = True"
+                            s = s & vbCrLf & "        cs.HeaderText = """ & f.Caption & """"
+                            s = s & vbCrLf & "        cs.MappingName = """ & f.Name & """"
+                            s = s & vbCrLf & "        cs.NullText = """""
+                            s = s & vbCrLf & "        ts.GridColumnStyles.Add(cs)"
+                        End If
                     Next
 
                     s = s & vbCrLf & "        gv.InitFieldsChild(ts)"
@@ -1183,6 +1266,11 @@ Module MakeCollections
 
                     s = s & vbCrLf & "    Private Sub gv_OnDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnMasterGridDel"
                     s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowDelete = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
                     s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                     s = s & vbCrLf & "        ed = item.FindRowObject(""" & p.Name & """, ID)"
                     s = s & vbCrLf & "        If MsgBox(""Удалить <"" & ed.Brief & ""> ?"", MsgBoxStyle.YesNo + MsgBoxStyle.Question, ""Удаление строки"") = MsgBoxResult.Yes Then"
@@ -1201,6 +1289,11 @@ Module MakeCollections
 
                     s = s & vbCrLf & "    Private Sub gv_OnAdd(ByRef OK As Boolean) Handles gv.OnMasterGridAdd"
                     s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
                     s = s & vbCrLf & "        Dim ed As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                     s = s & vbCrLf & "        ed = item." & p.Name & ".Add"
                     s = s & vbCrLf & "        Dim gui As Doc_GUIBase"
@@ -1243,6 +1336,11 @@ Module MakeCollections
 
                     s = s & vbCrLf & "    Private Sub gv_OnChildDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnChildGridDel"
                     s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode).AllowDelete = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
                     s = s & vbCrLf & "        Dim parent As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                     s = s & vbCrLf & "        parent = item.FindRowObject(""" & p.Name & """, gv.GetMasterID)"
                     's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & child.Name & ""
@@ -1281,6 +1379,11 @@ Module MakeCollections
 
                     s = s & vbCrLf & "    Private Sub gv_OnChildAdd(Byref OK As Boolean) Handles gv.OnChildGridAdd"
                     s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(child, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
                     s = s & vbCrLf & "        Dim parent As " & ot.Name & "." & ot.Name & "." & p.Name & ""
                     s = s & vbCrLf & "        parent = item.FindRowObject(""" & p.Name & """, gv.GetMasterID)"
                     's = s & vbCrLf & "        Dim ed As " & ot.Name & "." & child.Name & ""
@@ -1446,8 +1549,13 @@ Module MakeCollections
                 s = s & vbCrLf & "    End Sub"
 
                 s = s & vbCrLf & "    Private Sub cv_OnAddRoot(ByRef OK As Boolean) Handles cv.OnTreeAddRoot"
-                s = s & vbCrLf & "      if not mReadOnly then"
-                s = s & vbCrLf & "        Dim ed As Object"
+                    s = s & vbCrLf & "      if not mReadOnly then"
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(p, mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+                    s = s & vbCrLf & "        Dim ed As Object"
                 s = s & vbCrLf & "        ed = item." & p.Name & ".Add"
                 s = s & vbCrLf & "        Dim gui As LATIR2GuiManager.Doc_GUIBase"
                 s = s & vbCrLf & "        gui = GuiManager.GetTypeGUI(ed.Application.TypeName)"
@@ -1551,6 +1659,8 @@ Module MakeCollections
     Private Function MakeOnGridSetup(ByRef pc As MTZMetaModel.MTZMetaModel.PART_col, ByVal mode As String) As String
         Dim s As String = String.Empty
         Dim i, j As Short
+        Dim fld As MTZMetaModel.MTZMetaModel.FIELD
+        Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
         pc.Sort = "sequence"
         For i = 1 To pc.Count
             s = s & vbCrLf & "        If PartName.ToUpper() = """ & UCase(pc.Item(i).Name) & """ Then"
@@ -1560,12 +1670,17 @@ Module MakeCollections
             s = s & vbCrLf & "            ts.RowHeaderWidth = 30"
             pc.Item(i).FIELD.Sort = "sequence"
             For j = 1 To pc.Item(i).FIELD.Count
-                s = s & vbCrLf & "            cs = New DataGridTextBoxColumn"
-                s = s & vbCrLf & "            cs.ReadOnly = True"
-                s = s & vbCrLf & "            cs.HeaderText = """ & LATIR2Framework.StringHelper.NoLF(pc.Item(i).FIELD.Item(j).Caption) & """"
-                s = s & vbCrLf & "            cs.MappingName = """ & pc.Item(i).FIELD.Item(j).Name & """"
-                s = s & vbCrLf & "            cs.NullText = """""
-                s = s & vbCrLf & "            ts.GridColumnStyles.Add(cs)"
+                fld = pc.Item(i).FIELD.Item(j)
+                ft = fld.FieldType
+                If ft.Name.ToLower() <> "password" Then
+                    s = s & vbCrLf & "            cs = New DataGridTextBoxColumn"
+                    s = s & vbCrLf & "            cs.ReadOnly = True"
+                    s = s & vbCrLf & "            cs.HeaderText = """ & LATIR2Framework.StringHelper.NoLF(pc.Item(i).FIELD.Item(j).Caption) & """"
+                    s = s & vbCrLf & "            cs.MappingName = """ & pc.Item(i).FIELD.Item(j).Name & """"
+                    s = s & vbCrLf & "            cs.NullText = """""
+                    s = s & vbCrLf & "            ts.GridColumnStyles.Add(cs)"
+                End If
+
             Next
             s = s & vbCrLf & "            cv.GridView.InitFields(ts)"
             s = s & vbCrLf & "        End If"
@@ -1682,6 +1797,13 @@ Module MakeCollections
                 s = s & vbCrLf & "        If ParentPartName.ToUpper() = """ & UCase(pc.Item(i).Name) & """ Then"
                 If pc.Item(i).PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
                     s = s & vbCrLf & "        If RowPartName.ToUpper() = """ & UCase(pc.Item(i).Name) & """ Then"
+
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(pc.Item(i), mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(pc.Item(i), mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+
                     s = s & vbCrLf & "            ed = fs." & pc.Item(i).Name & ".Add()"
                     s = s & vbCrLf & "            gui = GuiManager.GetTypeGUI(ed.Application.TypeName)"
                     s = s & vbCrLf & "            If gui.ShowPartEditForm("""", CType(ed, LATIR2.Document.DocRow_Base)) = True Then"
@@ -1696,6 +1818,14 @@ Module MakeCollections
                 pc.Item(i).PART.Sort = "sequence"
                 For j = 1 To pc.Item(i).PART.Count
                     s = s & vbCrLf & "        If RowPartName.ToUpper() = """ & UCase(pc.Item(i).PART.Item(j).Name) & """ Then"
+
+                    If Not LATIR2Framework.ObjectHelper.GetPartRestriction(pc.Item(i).PART.Item(j), mode) Is Nothing Then
+                        If LATIR2Framework.ObjectHelper.GetPartRestriction(pc.Item(i).PART.Item(j), mode).AllowAdd = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                            s = s & vbCrLf & "    Exit Sub"
+                        End If
+                    End If
+
+
                     s = s & vbCrLf & "            ed = fs." & pc.Item(i).PART.Item(j).Name & ".Add()"
                     s = s & vbCrLf & "            gui = GuiManager.GetTypeGUI(ed.Application.TypeName)"
                     s = s & vbCrLf & "            If gui.ShowPartEditForm("""", CType( ed,LATIR2.Document.DocRow_Base )) = True Then"

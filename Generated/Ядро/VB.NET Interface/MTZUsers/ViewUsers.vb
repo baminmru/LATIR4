@@ -4,7 +4,7 @@ Imports Microsoft.VisualBasic
 Imports System.Diagnostics
 
   Imports LATIR2GuiManager
-Public Class viewUsers
+Public Class viewusers
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IViewPanel
 
@@ -51,17 +51,17 @@ Public Class viewUsers
         Me.gv.Size = New System.Drawing.Size(424, 216)
         Me.gv.TabIndex = 0
         '
-        'viewUsers
+        'viewusers
         '
         Me.Controls.Add (Me.gv)
-        Me.name = "viewUsers"
+        Me.name = "viewusers"
         Me.Size = New System.Drawing.Size(424, 216)
         Me.ResumeLayout (False)
 
     End Sub
 
 #End Region
-    Public item As MTZUsers.MTZUsers.Application
+    Public item As mtzusers.mtzusers.Application
     Private mReadOnly as boolean
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -74,7 +74,7 @@ Public Class viewUsers
 ''' </remarks>
     Public Sub Attach(ByVal docItem As LATIR2.Document.Doc_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, byval ReadOnlyView as boolean )  Implements LATIR2GUIManager.IViewPanel.Attach
         mReadOnly = ReadOnlyView
-        item = CType(docItem, MTZUsers.MTZUsers.Application)
+        item = CType(docItem, mtzusers.mtzusers.Application)
         GuiManager = gm
         Init()
     End Sub
@@ -90,75 +90,68 @@ Public Class viewUsers
         Dim ts As DataGridTableStyle
         Dim cs As DataGridTextBoxColumn
         Dim dt As DataTable
-        dt = item.Users.GetDataTable()
-        dt.TableName = "Users"
+        dt = item.users.GetDataTable()
+        dt.TableName = "users"
 
         ts = New DataGridTableStyle
-        ts.MappingName = "Users"
+        ts.MappingName = "users"
         ts.ReadOnly = True
         ts.RowHeaderWidth = 30
 
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Фамилия"
-        cs.MappingName = "Family"
+        cs.MappingName = "family"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Имя"
-        cs.MappingName = "Name"
+        cs.MappingName = "name"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Отчество"
-        cs.MappingName = "SurName"
+        cs.MappingName = "surname"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Имя для входа"
-        cs.MappingName = "Login"
+        cs.MappingName = "login"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
-        cs.HeaderText = "Пароль"
-        cs.MappingName = "Password"
-        cs.NullText = ""
-        ts.GridColumnStyles.Add (cs)
-
-        cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Доменное имя"
-        cs.MappingName = "DomaiName"
+        cs.MappingName = "domainame"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "e-mail"
-        cs.MappingName = "EMail"
+        cs.MappingName = "email"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Телефон"
-        cs.MappingName = "Phone"
+        cs.MappingName = "phone"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
         cs = New DataGridTextBoxColumn
-        cs.ReadOnly = True
+         cs.ReadOnly = True
         cs.HeaderText = "Местный телефон"
-        cs.MappingName = "LocalPhone"
+        cs.MappingName = "localphone"
         cs.NullText = ""
         ts.GridColumnStyles.Add (cs)
 
@@ -176,15 +169,15 @@ Public Class viewUsers
 '''
 ''' </remarks>
     Private Sub gv_OnEdit(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridEdit
-        Dim ed As MTZUsers.MTZUsers.Users
-        ed = item.FindRowObject("Users", ID)
+        Dim ed As mtzusers.mtzusers.users
+        ed = item.FindRowObject("users", ID)
         Dim gui As Doc_GUIBase
 
         gui = GuiManager.GetTypeGUI(ed.Application.TypeName)
         If gui.ShowPartEditForm("", CType(ed, LATIR2.Document.DocRow_Base), mReadOnly ) = True Then
             Dim dt As DataTable
-            dt = item.Users.GetDataTable()
-            dt.TableName = "Users"
+            dt = item.users.GetDataTable()
+            dt.TableName = "users"
             gv.SetData (dt)
         End If
 
@@ -200,14 +193,14 @@ Public Class viewUsers
 ''' </remarks>
     Private Sub gv_OnDel(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridDel
       If not mReadOnly Then
-        Dim ed As MTZUsers.MTZUsers.Users
-        ed = item.FindRowObject("Users", ID)
+        Dim ed As mtzusers.mtzusers.users
+        ed = item.FindRowObject("users", ID)
         If MsgBox("Удалить <" & ed.Brief & "> ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Удаление") = MsgBoxResult.Yes Then
             OK = ed.Parent.Delete(ed.ID.ToString)
             If OK Then
                 Dim dt As DataTable
-                dt = item.Users.GetDataTable()
-                dt.TableName = "Users"
+                dt = item.users.GetDataTable()
+                dt.TableName = "users"
                 gv.SetData (dt)
             End If
         End If
@@ -224,21 +217,21 @@ Public Class viewUsers
 ''' </remarks>
     Private Sub gv_OnAdd(ByRef OK As Boolean, ByVal ID As System.Guid) Handles gv.OnGridAdd
       If not mReadOnly Then
-        Dim ed As MTZUsers.MTZUsers.Users
+        Dim ed As mtzusers.mtzusers.users
         If ID.Equals(System.guid.Empty) Then
-              ed = Item.Users.Add
+              ed = Item.users.Add
           Else
-              ed = Item.Users.Add(ID.ToString())
+              ed = Item.users.Add(ID.ToString())
           End If
         Dim gui As Doc_GUIBase
         Dim dt As DataTable
         gui = GuiManager.GetTypeGUI(ed.Application.TypeName)
         If gui.ShowPartEditForm("", CType(ed,LATIR2.Document.DocRow_Base) ) = True Then
-            dt = item.Users.GetDataTable()
-            dt.TableName = "Users"
+            dt = item.users.GetDataTable()
+            dt.TableName = "users"
             gv.SetData (dt)
         Else
-            item.Users.Refresh()
+            item.users.Refresh()
         End If
       End If
     End Sub
@@ -253,9 +246,9 @@ Public Class viewUsers
 ''' </remarks>
     Private Sub gv_OnRefresh() Handles gv.OnGridRefresh
         Dim dt As DataTable
-        item.Users.Refresh()
-        dt = item.Users.GetDataTable()
-        dt.TableName = "Users"
+        item.users.Refresh()
+        dt = item.users.GetDataTable()
+        dt.TableName = "users"
         gv.SetData (dt)
     End Sub
  Public Function Save(ByVal Sielent As Boolean, ByVal NoError As Boolean) As Boolean Implements LATIR2GUIManager.IViewPanel.Save

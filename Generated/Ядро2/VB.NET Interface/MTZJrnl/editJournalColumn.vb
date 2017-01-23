@@ -11,7 +11,7 @@ Imports System.Diagnostics
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class editJournalColumn
+Public Class editjournalcolumn
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IRowEditor
 
@@ -54,21 +54,21 @@ Public Class editJournalColumn
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblsequence  as  System.Windows.Forms.Label
-Friend WithEvents txtsequence As System.Windows.Forms.TextBox
+Friend WithEvents txtsequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblname  as  System.Windows.Forms.Label
-Friend WithEvents txtname As System.Windows.Forms.TextBox
-Friend WithEvents lblColumnAlignment  as  System.Windows.Forms.Label
-Friend WithEvents cmbColumnAlignment As System.Windows.Forms.ComboBox
-Friend cmbColumnAlignmentDATA As DataTable
-Friend cmbColumnAlignmentDATAROW As DataRow
-Friend WithEvents lblColSort  as  System.Windows.Forms.Label
-Friend WithEvents cmbColSort As System.Windows.Forms.ComboBox
-Friend cmbColSortDATA As DataTable
-Friend cmbColSortDATAROW As DataRow
-Friend WithEvents lblGroupAggregation  as  System.Windows.Forms.Label
-Friend WithEvents cmbGroupAggregation As System.Windows.Forms.ComboBox
-Friend cmbGroupAggregationDATA As DataTable
-Friend cmbGroupAggregationDATAROW As DataRow
+Friend WithEvents txtname As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblcolumnalignment  as  System.Windows.Forms.Label
+Friend WithEvents cmbcolumnalignment As System.Windows.Forms.ComboBox
+Friend cmbcolumnalignmentDATA As DataTable
+Friend cmbcolumnalignmentDATAROW As DataRow
+Friend WithEvents lblcolsort  as  System.Windows.Forms.Label
+Friend WithEvents cmbcolsort As System.Windows.Forms.ComboBox
+Friend cmbcolsortDATA As DataTable
+Friend cmbcolsortDATAROW As DataRow
+Friend WithEvents lblgroupaggregation  as  System.Windows.Forms.Label
+Friend WithEvents cmbgroupaggregation As System.Windows.Forms.ComboBox
+Friend cmbgroupaggregationDATA As DataTable
+Friend cmbgroupaggregationDATAROW As DataRow
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -86,15 +86,15 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblsequence = New System.Windows.Forms.Label
-Me.txtsequence = New System.Windows.Forms.TextBox
+Me.txtsequence = New LATIR2GuiManager.TouchTextBox
 Me.lblname = New System.Windows.Forms.Label
-Me.txtname = New System.Windows.Forms.TextBox
-Me.lblColumnAlignment = New System.Windows.Forms.Label
-Me.cmbColumnAlignment = New System.Windows.Forms.ComboBox
-Me.lblColSort = New System.Windows.Forms.Label
-Me.cmbColSort = New System.Windows.Forms.ComboBox
-Me.lblGroupAggregation = New System.Windows.Forms.Label
-Me.cmbGroupAggregation = New System.Windows.Forms.ComboBox
+Me.txtname = New LATIR2GuiManager.TouchTextBox
+Me.lblcolumnalignment = New System.Windows.Forms.Label
+Me.cmbcolumnalignment = New System.Windows.Forms.ComboBox
+Me.lblcolsort = New System.Windows.Forms.Label
+Me.cmbcolsort = New System.Windows.Forms.ComboBox
+Me.lblgroupaggregation = New System.Windows.Forms.Label
+Me.cmbgroupaggregation = New System.Windows.Forms.ComboBox
 
 Me.lblsequence.Location = New System.Drawing.Point(20,5)
 Me.lblsequence.name = "lblsequence"
@@ -120,55 +120,55 @@ Me.txtname.name = "txtname"
 Me.txtname.Size = New System.Drawing.Size(200, 20)
 Me.txtname.TabIndex = 4
 Me.txtname.Text = "" 
-Me.lblColumnAlignment.Location = New System.Drawing.Point(20,99)
-Me.lblColumnAlignment.name = "lblColumnAlignment"
-Me.lblColumnAlignment.Size = New System.Drawing.Size(200, 20)
-Me.lblColumnAlignment.TabIndex = 5
-Me.lblColumnAlignment.Text = "Выравнивание"
-Me.lblColumnAlignment.ForeColor = System.Drawing.Color.Black
-Me.cmbColumnAlignment.Location = New System.Drawing.Point(20,121)
-Me.cmbColumnAlignment.name = "cmbColumnAlignment"
-Me.cmbColumnAlignment.Size = New System.Drawing.Size(200,  20)
-Me.cmbColumnAlignment.TabIndex = 6
-Me.cmbColumnAlignment.DropDownStyle = ComboBoxStyle.DropDownList
-Me.lblColSort.Location = New System.Drawing.Point(20,146)
-Me.lblColSort.name = "lblColSort"
-Me.lblColSort.Size = New System.Drawing.Size(200, 20)
-Me.lblColSort.TabIndex = 7
-Me.lblColSort.Text = "Сортировка колонки"
-Me.lblColSort.ForeColor = System.Drawing.Color.Black
-Me.cmbColSort.Location = New System.Drawing.Point(20,168)
-Me.cmbColSort.name = "cmbColSort"
-Me.cmbColSort.Size = New System.Drawing.Size(200,  20)
-Me.cmbColSort.TabIndex = 8
-Me.cmbColSort.DropDownStyle = ComboBoxStyle.DropDownList
-Me.lblGroupAggregation.Location = New System.Drawing.Point(20,193)
-Me.lblGroupAggregation.name = "lblGroupAggregation"
-Me.lblGroupAggregation.Size = New System.Drawing.Size(200, 20)
-Me.lblGroupAggregation.TabIndex = 9
-Me.lblGroupAggregation.Text = "Аггрегация при группировке"
-Me.lblGroupAggregation.ForeColor = System.Drawing.Color.Black
-Me.cmbGroupAggregation.Location = New System.Drawing.Point(20,215)
-Me.cmbGroupAggregation.name = "cmbGroupAggregation"
-Me.cmbGroupAggregation.Size = New System.Drawing.Size(200,  20)
-Me.cmbGroupAggregation.TabIndex = 10
-Me.cmbGroupAggregation.DropDownStyle = ComboBoxStyle.DropDownList
+Me.lblcolumnalignment.Location = New System.Drawing.Point(20,99)
+Me.lblcolumnalignment.name = "lblcolumnalignment"
+Me.lblcolumnalignment.Size = New System.Drawing.Size(200, 20)
+Me.lblcolumnalignment.TabIndex = 5
+Me.lblcolumnalignment.Text = "Выравнивание"
+Me.lblcolumnalignment.ForeColor = System.Drawing.Color.Black
+Me.cmbcolumnalignment.Location = New System.Drawing.Point(20,121)
+Me.cmbcolumnalignment.name = "cmbcolumnalignment"
+Me.cmbcolumnalignment.Size = New System.Drawing.Size(200,  20)
+Me.cmbcolumnalignment.TabIndex = 6
+Me.cmbcolumnalignment.DropDownStyle = ComboBoxStyle.DropDownList
+Me.lblcolsort.Location = New System.Drawing.Point(20,146)
+Me.lblcolsort.name = "lblcolsort"
+Me.lblcolsort.Size = New System.Drawing.Size(200, 20)
+Me.lblcolsort.TabIndex = 7
+Me.lblcolsort.Text = "Сортировка колонки"
+Me.lblcolsort.ForeColor = System.Drawing.Color.Black
+Me.cmbcolsort.Location = New System.Drawing.Point(20,168)
+Me.cmbcolsort.name = "cmbcolsort"
+Me.cmbcolsort.Size = New System.Drawing.Size(200,  20)
+Me.cmbcolsort.TabIndex = 8
+Me.cmbcolsort.DropDownStyle = ComboBoxStyle.DropDownList
+Me.lblgroupaggregation.Location = New System.Drawing.Point(20,193)
+Me.lblgroupaggregation.name = "lblgroupaggregation"
+Me.lblgroupaggregation.Size = New System.Drawing.Size(200, 20)
+Me.lblgroupaggregation.TabIndex = 9
+Me.lblgroupaggregation.Text = "Аггрегация при группировке"
+Me.lblgroupaggregation.ForeColor = System.Drawing.Color.Black
+Me.cmbgroupaggregation.Location = New System.Drawing.Point(20,215)
+Me.cmbgroupaggregation.name = "cmbgroupaggregation"
+Me.cmbgroupaggregation.Size = New System.Drawing.Size(200,  20)
+Me.cmbgroupaggregation.TabIndex = 10
+Me.cmbgroupaggregation.DropDownStyle = ComboBoxStyle.DropDownList
         Me.AutoScroll = True
 
 CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblsequence)
 CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtsequence)
 CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblname)
 CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtname)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblColumnAlignment)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbColumnAlignment)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblColSort)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbColSort)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblGroupAggregation)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbGroupAggregation)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblcolumnalignment)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbcolumnalignment)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblcolsort)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbcolsort)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblgroupaggregation)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbgroupaggregation)
         Me.Controls.Add(Me.HolderPanel)
         Me.HolderPanel.ResumeLayout(False)
         Me.HolderPanel.PerformLayout()
-        Me.name = "editJournalColumn"
+        Me.name = "editjournalcolumn"
         Me.Size = New System.Drawing.Size(232, 120)
         Me.ResumeLayout (False)
     End Sub
@@ -197,7 +197,7 @@ private sub txtname_TextChanged(ByVal sender As Object, ByVal e As System.EventA
   Changing
 
 end sub
-private sub cmbColumnAlignment_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbColumnAlignment.SelectedIndexChanged
+private sub cmbcolumnalignment_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbcolumnalignment.SelectedIndexChanged
   try
      Changing
 
@@ -205,7 +205,7 @@ private sub cmbColumnAlignment_SelectedIndexChanged(ByVal sender As System.Objec
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 end sub
-private sub cmbColSort_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbColSort.SelectedIndexChanged
+private sub cmbcolsort_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbcolsort.SelectedIndexChanged
   try
      Changing
 
@@ -213,7 +213,7 @@ private sub cmbColSort_SelectedIndexChanged(ByVal sender As System.Object, ByVal
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 end sub
-private sub cmbGroupAggregation_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbGroupAggregation.SelectedIndexChanged
+private sub cmbgroupaggregation_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbgroupaggregation.SelectedIndexChanged
   try
      Changing
 
@@ -222,7 +222,7 @@ private sub cmbGroupAggregation_SelectedIndexChanged(ByVal sender As System.Obje
         end try
 end sub
 
-Public Item As MTZJrnl.MTZJrnl.JournalColumn
+Public Item As mtzjrnl.mtzjrnl.journalcolumn
 Private mRowReadOnly As Boolean
 Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -234,7 +234,7 @@ Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 '''
 ''' </remarks>
 Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATIR2.Document.DocRow_Base,byval RowReadOnly as boolean  ) Implements LATIR2GUIManager.IRowEditor.Attach
-        Item = Ctype(ri,MTZJrnl.MTZJrnl.JournalColumn)
+        Item = Ctype(ri,mtzjrnl.mtzjrnl.journalcolumn)
         GuiManager = gm
         mRowReadOnly = RowReadOnly
         If Item Is Nothing Then Exit Sub
@@ -242,112 +242,112 @@ Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATI
 
 txtsequence.text = item.sequence.toString()
 txtname.text = item.name
-cmbColumnAlignmentData = New DataTable
-cmbColumnAlignmentData.Columns.Add("name", GetType(System.String))
-cmbColumnAlignmentData.Columns.Add("Value", GetType(System.Int32))
+cmbcolumnalignmentData = New DataTable
+cmbcolumnalignmentData.Columns.Add("name", GetType(System.String))
+cmbcolumnalignmentData.Columns.Add("Value", GetType(System.Int32))
 try
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Left Top"
-cmbColumnAlignmentDataRow("Value") = 0
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Left Center"
-cmbColumnAlignmentDataRow("Value") = 1
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Left Bottom"
-cmbColumnAlignmentDataRow("Value") = 2
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Center Top"
-cmbColumnAlignmentDataRow("Value") = 3
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Center Center"
-cmbColumnAlignmentDataRow("Value") = 4
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Center Bottom"
-cmbColumnAlignmentDataRow("Value") = 5
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Right Top"
-cmbColumnAlignmentDataRow("Value") = 6
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Right Center"
-cmbColumnAlignmentDataRow("Value") = 7
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignmentDataRow = cmbColumnAlignmentData.NewRow
-cmbColumnAlignmentDataRow("name") = "Right Bottom"
-cmbColumnAlignmentDataRow("Value") = 8
-cmbColumnAlignmentData.Rows.Add (cmbColumnAlignmentDataRow)
-cmbColumnAlignment.DisplayMember = "name"
-cmbColumnAlignment.ValueMember = "Value"
-cmbColumnAlignment.DataSource = cmbColumnAlignmentData
- cmbColumnAlignment.SelectedValue=CInt(Item.ColumnAlignment)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Left Top"
+cmbcolumnalignmentDataRow("Value") = 0
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Left Center"
+cmbcolumnalignmentDataRow("Value") = 1
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Left Bottom"
+cmbcolumnalignmentDataRow("Value") = 2
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Center Top"
+cmbcolumnalignmentDataRow("Value") = 3
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Center Center"
+cmbcolumnalignmentDataRow("Value") = 4
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Center Bottom"
+cmbcolumnalignmentDataRow("Value") = 5
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Right Top"
+cmbcolumnalignmentDataRow("Value") = 6
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Right Center"
+cmbcolumnalignmentDataRow("Value") = 7
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignmentDataRow = cmbcolumnalignmentData.NewRow
+cmbcolumnalignmentDataRow("name") = "Right Bottom"
+cmbcolumnalignmentDataRow("Value") = 8
+cmbcolumnalignmentData.Rows.Add (cmbcolumnalignmentDataRow)
+cmbcolumnalignment.DisplayMember = "name"
+cmbcolumnalignment.ValueMember = "Value"
+cmbcolumnalignment.DataSource = cmbcolumnalignmentData
+ cmbcolumnalignment.SelectedValue=CInt(Item.columnalignment)
         catch ex as System.Exception
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
-cmbColSortData = New DataTable
-cmbColSortData.Columns.Add("name", GetType(System.String))
-cmbColSortData.Columns.Add("Value", GetType(System.Int32))
+cmbcolsortData = New DataTable
+cmbcolsortData.Columns.Add("name", GetType(System.String))
+cmbcolsortData.Columns.Add("Value", GetType(System.Int32))
 try
-cmbColSortDataRow = cmbColSortData.NewRow
-cmbColSortDataRow("name") = "As String"
-cmbColSortDataRow("Value") = 0
-cmbColSortData.Rows.Add (cmbColSortDataRow)
-cmbColSortDataRow = cmbColSortData.NewRow
-cmbColSortDataRow("name") = "As Numeric"
-cmbColSortDataRow("Value") = 1
-cmbColSortData.Rows.Add (cmbColSortDataRow)
-cmbColSortDataRow = cmbColSortData.NewRow
-cmbColSortDataRow("name") = "As Date"
-cmbColSortDataRow("Value") = 2
-cmbColSortData.Rows.Add (cmbColSortDataRow)
-cmbColSort.DisplayMember = "name"
-cmbColSort.ValueMember = "Value"
-cmbColSort.DataSource = cmbColSortData
- cmbColSort.SelectedValue=CInt(Item.ColSort)
+cmbcolsortDataRow = cmbcolsortData.NewRow
+cmbcolsortDataRow("name") = "As String"
+cmbcolsortDataRow("Value") = 0
+cmbcolsortData.Rows.Add (cmbcolsortDataRow)
+cmbcolsortDataRow = cmbcolsortData.NewRow
+cmbcolsortDataRow("name") = "As Numeric"
+cmbcolsortDataRow("Value") = 1
+cmbcolsortData.Rows.Add (cmbcolsortDataRow)
+cmbcolsortDataRow = cmbcolsortData.NewRow
+cmbcolsortDataRow("name") = "As Date"
+cmbcolsortDataRow("Value") = 2
+cmbcolsortData.Rows.Add (cmbcolsortDataRow)
+cmbcolsort.DisplayMember = "name"
+cmbcolsort.ValueMember = "Value"
+cmbcolsort.DataSource = cmbcolsortData
+ cmbcolsort.SelectedValue=CInt(Item.colsort)
         catch ex as System.Exception
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
-cmbGroupAggregationData = New DataTable
-cmbGroupAggregationData.Columns.Add("name", GetType(System.String))
-cmbGroupAggregationData.Columns.Add("Value", GetType(System.Int32))
+cmbgroupaggregationData = New DataTable
+cmbgroupaggregationData.Columns.Add("name", GetType(System.String))
+cmbgroupaggregationData.Columns.Add("Value", GetType(System.Int32))
 try
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "none"
-cmbGroupAggregationDataRow("Value") = 0
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "AVG"
-cmbGroupAggregationDataRow("Value") = 1
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "COUNT"
-cmbGroupAggregationDataRow("Value") = 2
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "SUM"
-cmbGroupAggregationDataRow("Value") = 3
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "MIN"
-cmbGroupAggregationDataRow("Value") = 4
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "MAX"
-cmbGroupAggregationDataRow("Value") = 5
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregationDataRow = cmbGroupAggregationData.NewRow
-cmbGroupAggregationDataRow("name") = "CUSTOM"
-cmbGroupAggregationDataRow("Value") = 6
-cmbGroupAggregationData.Rows.Add (cmbGroupAggregationDataRow)
-cmbGroupAggregation.DisplayMember = "name"
-cmbGroupAggregation.ValueMember = "Value"
-cmbGroupAggregation.DataSource = cmbGroupAggregationData
- cmbGroupAggregation.SelectedValue=CInt(Item.GroupAggregation)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "none"
+cmbgroupaggregationDataRow("Value") = 0
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "AVG"
+cmbgroupaggregationDataRow("Value") = 1
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "COUNT"
+cmbgroupaggregationDataRow("Value") = 2
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "SUM"
+cmbgroupaggregationDataRow("Value") = 3
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "MIN"
+cmbgroupaggregationDataRow("Value") = 4
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "MAX"
+cmbgroupaggregationDataRow("Value") = 5
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregationDataRow = cmbgroupaggregationData.NewRow
+cmbgroupaggregationDataRow("name") = "CUSTOM"
+cmbgroupaggregationDataRow("Value") = 6
+cmbgroupaggregationData.Rows.Add (cmbgroupaggregationDataRow)
+cmbgroupaggregation.DisplayMember = "name"
+cmbgroupaggregation.ValueMember = "Value"
+cmbgroupaggregation.DataSource = cmbgroupaggregationData
+ cmbgroupaggregation.SelectedValue=CInt(Item.groupaggregation)
         catch ex as System.Exception
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
@@ -367,9 +367,9 @@ Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
 
 item.sequence = val(txtsequence.text)
 item.name = txtname.text
-   item.ColumnAlignment = cmbColumnAlignment.SelectedValue
-   item.ColSort = cmbColSort.SelectedValue
-   item.GroupAggregation = cmbGroupAggregation.SelectedValue
+   item.columnalignment = cmbcolumnalignment.SelectedValue
+   item.colsort = cmbcolsort.SelectedValue
+   item.groupaggregation = cmbgroupaggregation.SelectedValue
   end if
   mChanged = false
   raiseevent saved()
@@ -380,9 +380,9 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  if mRowReadOnly  then return true
 
 if mIsOK then mIsOK =( txtname.text <> "" ) 
-if mIsOK then mIsOK =(cmbColumnAlignment.SelectedIndex >=0)
-if mIsOK then mIsOK =(cmbColSort.SelectedIndex >=0)
-if mIsOK then mIsOK =(cmbGroupAggregation.SelectedIndex >=0)
+if mIsOK then mIsOK =(cmbcolumnalignment.SelectedIndex >=0)
+if mIsOK then mIsOK =(cmbcolsort.SelectedIndex >=0)
+if mIsOK then mIsOK =(cmbgroupaggregation.SelectedIndex >=0)
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged

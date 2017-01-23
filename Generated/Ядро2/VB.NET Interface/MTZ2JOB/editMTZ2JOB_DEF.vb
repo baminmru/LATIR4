@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,19 +51,19 @@ Public Class editMTZ2JOB_DEF
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblEventDate  as  System.Windows.Forms.Label
 Friend WithEvents dtpEventDate As System.Windows.Forms.DateTimePicker
 Friend WithEvents lblEvenType  as  System.Windows.Forms.Label
-Friend WithEvents txtEvenType As System.Windows.Forms.TextBox
+Friend WithEvents txtEvenType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblThruObject  as  System.Windows.Forms.Label
-Friend WithEvents txtThruObject As System.Windows.Forms.TextBox
+Friend WithEvents txtThruObject As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdThruObject As System.Windows.Forms.Button
 Friend WithEvents lblThruState  as  System.Windows.Forms.Label
-Friend WithEvents txtThruState As System.Windows.Forms.TextBox
+Friend WithEvents txtThruState As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblNextState  as  System.Windows.Forms.Label
-Friend WithEvents txtNextState As System.Windows.Forms.TextBox
+Friend WithEvents txtNextState As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblProcessDate  as  System.Windows.Forms.Label
 Friend WithEvents dtpProcessDate As System.Windows.Forms.DateTimePicker
 Friend WithEvents lblProcessed  as  System.Windows.Forms.Label
@@ -88,14 +89,14 @@ Me.HolderPanel.TabIndex = 0
 Me.lblEventDate = New System.Windows.Forms.Label
 Me.dtpEventDate = New System.Windows.Forms.DateTimePicker
 Me.lblEvenType = New System.Windows.Forms.Label
-Me.txtEvenType = New System.Windows.Forms.TextBox
+Me.txtEvenType = New LATIR2GuiManager.TouchTextBox
 Me.lblThruObject = New System.Windows.Forms.Label
-Me.txtThruObject = New System.Windows.Forms.TextBox
+Me.txtThruObject = New LATIR2GuiManager.TouchTextBox
 Me.cmdThruObject = New System.Windows.Forms.Button
 Me.lblThruState = New System.Windows.Forms.Label
-Me.txtThruState = New System.Windows.Forms.TextBox
+Me.txtThruState = New LATIR2GuiManager.TouchTextBox
 Me.lblNextState = New System.Windows.Forms.Label
-Me.txtNextState = New System.Windows.Forms.TextBox
+Me.txtNextState = New LATIR2GuiManager.TouchTextBox
 Me.lblProcessDate = New System.Windows.Forms.Label
 Me.dtpProcessDate = New System.Windows.Forms.DateTimePicker
 Me.lblProcessed = New System.Windows.Forms.Label
@@ -226,7 +227,7 @@ private sub txtThruObject_TextChanged(ByVal sender As Object, ByVal e As System.
 
 end sub
 private sub cmdThruObject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdThruObject.Click
-  on error resume next
+  try
 Dim id As guid
 Dim brief As String  = string.Empty
 Dim OK as boolean
@@ -235,6 +236,9 @@ If OK Then
     txtThruObject.Text = brief
     txtThruObject.Tag = id
 End If
+        catch ex as system.Exception
+        Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 End Sub
 private sub txtThruState_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtThruState.TextChanged
   Changing
@@ -249,9 +253,12 @@ private sub dtpProcessDate_Change(ByVal sender As System.Object, ByVal e As Syst
 
 end sub
 private sub cmbProcessed_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbProcessed.SelectedIndexChanged
-  on error resume next
+  try
   Changing
 
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 
 Public Item As MTZ2JOB.MTZ2JOB.MTZ2JOB_DEF
@@ -274,7 +281,11 @@ Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATI
 
 dtpEventDate.value = System.DateTime.Now
 if item.EventDate <> System.DateTime.MinValue then
- dtpEventDate.value = item.EventDate
+  try
+     dtpEventDate.value = item.EventDate
+  catch
+   dtpEventDate.value = System.DateTime.MinValue
+  end try
 end if
 txtEvenType.text = item.EvenType
 If Not item.ThruObject Is Nothing Then
@@ -288,14 +299,19 @@ txtThruState.text = item.ThruState.ToString()
 txtNextState.text = item.NextState.ToString()
 dtpProcessDate.value = System.DateTime.Now
 if item.ProcessDate <> System.DateTime.MinValue then
- dtpProcessDate.value = item.ProcessDate
+  try
+     dtpProcessDate.value = item.ProcessDate
+  catch
+   dtpProcessDate.value = System.DateTime.MinValue
+  end try
 else
- dtpProcessDate.value = System.DateTime.today
+   dtpProcessDate.value = System.DateTime.Today
+   dtpProcessDate.Checked =false
 end if
 cmbProcessedData = New DataTable
 cmbProcessedData.Columns.Add("name", GetType(System.String))
 cmbProcessedData.Columns.Add("Value", GetType(System.Int32))
-On Error Resume Next
+try
 cmbProcessedDataRow = cmbProcessedData.NewRow
 cmbProcessedDataRow("name") = "Да"
 cmbProcessedDataRow("Value") = -1
@@ -308,6 +324,9 @@ cmbProcessed.DisplayMember = "name"
 cmbProcessed.ValueMember = "Value"
 cmbProcessed.DataSource = cmbProcessedData
  cmbProcessed.SelectedValue=CInt(Item.Processed)
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
         mOnInit = false
   raiseevent Refreshed()
 end sub
@@ -322,11 +341,11 @@ end sub
 Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
   if mRowReadOnly =false then
 
-  if  dtpEventDate.value=System.DateTime.MinValue then
-    item.EventDate = System.DateTime.MinValue
-  else
+  try
     item.EventDate = dtpEventDate.value
-  end if
+  catch
+    item.EventDate = System.DateTime.MinValue
+  end try
 item.EvenType = txtEvenType.text
 If not txtThruObject.Tag.Equals(System.Guid.Empty) Then
    item.ThruObject = GuiManager.Manager.GetInstanceObject(txtThruObject.Tag)
@@ -335,10 +354,14 @@ Else
 End If
 item.ThruState = new System.Guid(txtThruState.text)
 item.NextState = new System.Guid(txtNextState.text)
-  if  dtpProcessDate.value=System.DateTime.MinValue then
-    item.ProcessDate = System.DateTime.MinValue
-  else
+  if dtpProcessDate.checked=false then
+       item.ProcessDate = System.DateTime.MinValue
+  else 
+  try
     item.ProcessDate = dtpProcessDate.value
+  catch
+    item.ProcessDate = System.DateTime.MinValue
+  end try
   end if
    item.Processed = cmbProcessed.SelectedValue
   end if
@@ -350,7 +373,7 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  mIsOK=true
  if mRowReadOnly  then return true
 
-if mIsOK then mIsOK = (dtpEventDate.value <> nothing)
+if mIsOK then mIsOK = (dtpEventDate.value <> System.DateTime.MinValue)
 if mIsOK then mIsOK =( txtEvenType.text <> "" ) 
 if mIsOK then mIsOK = not txtThruObject.Tag.Equals(System.Guid.Empty)
 if mIsOK then mIsOK =(cmbProcessed.SelectedIndex >=0)

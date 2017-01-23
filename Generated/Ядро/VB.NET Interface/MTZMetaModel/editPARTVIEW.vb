@@ -54,21 +54,21 @@ Public Class editPARTVIEW
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblthe_Alias  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Alias As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Alias As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblForChoose  as  System.Windows.Forms.Label
 Friend WithEvents cmbForChoose As System.Windows.Forms.ComboBox
 Friend cmbForChooseDATA As DataTable
 Friend cmbForChooseDATAROW As DataRow
 Friend WithEvents lblFilterField0  as  System.Windows.Forms.Label
-Friend WithEvents txtFilterField0 As System.Windows.Forms.TextBox
+Friend WithEvents txtFilterField0 As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFilterField1  as  System.Windows.Forms.Label
-Friend WithEvents txtFilterField1 As System.Windows.Forms.TextBox
+Friend WithEvents txtFilterField1 As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFilterField2  as  System.Windows.Forms.Label
-Friend WithEvents txtFilterField2 As System.Windows.Forms.TextBox
+Friend WithEvents txtFilterField2 As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFilterField3  as  System.Windows.Forms.Label
-Friend WithEvents txtFilterField3 As System.Windows.Forms.TextBox
+Friend WithEvents txtFilterField3 As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -86,19 +86,19 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblthe_Alias = New System.Windows.Forms.Label
-Me.txtthe_Alias = New System.Windows.Forms.TextBox
+Me.txtthe_Alias = New LATIR2GuiManager.TouchTextBox
 Me.lblForChoose = New System.Windows.Forms.Label
 Me.cmbForChoose = New System.Windows.Forms.ComboBox
 Me.lblFilterField0 = New System.Windows.Forms.Label
-Me.txtFilterField0 = New System.Windows.Forms.TextBox
+Me.txtFilterField0 = New LATIR2GuiManager.TouchTextBox
 Me.lblFilterField1 = New System.Windows.Forms.Label
-Me.txtFilterField1 = New System.Windows.Forms.TextBox
+Me.txtFilterField1 = New LATIR2GuiManager.TouchTextBox
 Me.lblFilterField2 = New System.Windows.Forms.Label
-Me.txtFilterField2 = New System.Windows.Forms.TextBox
+Me.txtFilterField2 = New LATIR2GuiManager.TouchTextBox
 Me.lblFilterField3 = New System.Windows.Forms.Label
-Me.txtFilterField3 = New System.Windows.Forms.TextBox
+Me.txtFilterField3 = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"

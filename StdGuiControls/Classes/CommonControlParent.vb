@@ -70,6 +70,16 @@ Public Class CommonControlParent
             Return mPartName
         End Get
     End Property
+
+    Private Sub InitializeComponent()
+        Me.SuspendLayout()
+        '
+        'CommonControlParent
+        '
+        Me.Name = "CommonControlParent"
+        Me.ResumeLayout(False)
+
+    End Sub
 #End Region
 
 End Class

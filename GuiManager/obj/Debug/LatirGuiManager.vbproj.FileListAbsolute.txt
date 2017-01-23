@@ -1,0 +1,12 @@
+C:\LATIR2\GuiManager\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\GuiManager\obj\Debug\ResGen.read.1.tlog
+C:\LATIR2\GuiManager\obj\Debug\ResGen.write.1.tlog
+C:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.dll
+C:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.pdb
+C:\LATIR2\Generated\Generated Dlls\LATIR2GuiManager.xml
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmLogin.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmObjectDialog.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.frmRefDialog.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.dll
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.xml
+C:\LATIR2\GuiManager\obj\Debug\LATIR2GuiManager.pdb

@@ -1,0 +1,11 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRDBInstall.exe.config
+C:\LATIR2\applications\DBInstal\obj\Release\LATIRDBInstall.exe
+C:\LATIR2\applications\DBInstal\obj\Release\LATIRDBInstall.xml
+C:\LATIR2\Generated\Generated Dlls\LATIRDBInstall.exe
+C:\LATIR2\Generated\Generated Dlls\LATIRDBInstall.xml
+C:\LATIR2\applications\DBInstal\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\applications\DBInstal\obj\Release\LATIRDBInstall.Form1.resources
+C:\LATIR2\applications\DBInstal\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\LATIR2\applications\DBInstal\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\LATIR2\applications\DBInstal\obj\Release\ResGen.read.1.tlog
+C:\LATIR2\applications\DBInstal\obj\Release\ResGen.write.1.tlog

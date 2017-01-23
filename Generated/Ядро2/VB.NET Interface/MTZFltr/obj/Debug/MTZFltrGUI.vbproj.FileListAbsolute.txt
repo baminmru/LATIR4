@@ -1,0 +1,7 @@
+C:\LATIR4\Build\MTZFltrGUI.dll
+C:\LATIR4\Build\MTZFltrGUI.pdb
+C:\LATIR4\Build\MTZFltrGUI.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZFltr\obj\Debug\MTZFltrGUI.vbprojResolveAssemblyReference.cache
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZFltr\obj\Debug\MTZFltrGUI.dll
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZFltr\obj\Debug\MTZFltrGUI.xml
+C:\LATIR4\Generated\Ядро2\VB.NET Interface\MTZFltr\obj\Debug\MTZFltrGUI.pdb

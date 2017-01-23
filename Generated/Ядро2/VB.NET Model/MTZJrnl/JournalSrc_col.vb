@@ -7,7 +7,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -16,7 +16,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class JournalSrc_col
+    Public Class journalsrc_col
         Inherits LATIR2.Document.DocCollection_Base
 
 
@@ -28,7 +28,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Function ChildPartName() As String
-            ChildPartName = "JournalSrc"
+            ChildPartName = "journalsrc"
         End Function
 
 
@@ -42,14 +42,14 @@ Namespace MTZJrnl
         Protected Overrides Function CreateDataTable() As System.Data.DataTable
             Dim dt As DataTable
             dt = New DataTable
-            dt.TableName="JournalSrc"
+            dt.TableName="journalsrc"
             dt.Columns.Add("ID", GetType(System.guid))
             dt.Columns.Add("Brief", Gettype(System.string))
-            dt.Columns.Add("PartView", GetType(System.guid))
-            dt.Columns.Add("OnRun_VAL" , Gettype(System.Int16))
-            dt.Columns.Add("OnRun", Gettype(System.string))
-            dt.Columns.Add("OpenMode", Gettype(System.string))
-            dt.Columns.Add("ViewAlias", Gettype(System.string))
+            dt.Columns.Add("spartview", Gettype(System.string))
+            dt.Columns.Add("onrun_VAL" , Gettype(System.Int16))
+            dt.Columns.Add("onrun", Gettype(System.string))
+            dt.Columns.Add("openmode", Gettype(System.string))
+            dt.Columns.Add("viewalias", Gettype(System.string))
             return dt
         End Function
 
@@ -62,7 +62,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Protected Overrides Function NewItem() As LATIR2.Document.DocRow_Base
-            NewItem = New JournalSrc
+            NewItem = New journalsrc
         End Function
 
 
@@ -72,9 +72,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Function GetItem( vIndex as object ) As MTZJrnl.JournalSrc
+        Public Function GetItem( vIndex as object ) As mtzjrnl.journalsrc
             try
-            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZJrnl.JournalSrc))
+            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(mtzjrnl.journalsrc))
 catch ex as System.Exception
  Debug.Print( ex.Message + " >> " + ex.StackTrace)
 end try
@@ -87,7 +87,7 @@ end try
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Shadows Function Item( vIndex as object ) As MTZJrnl.JournalSrc
+        Public Shadows Function Item( vIndex as object ) As mtzjrnl.journalsrc
           try
             return GetItem(vIndex)
           catch ex as System.Exception
@@ -97,9 +97,9 @@ end try
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
        with application.Session.GetProvider
-       mFieldList=.ID2Base("JournalSrcID")
+       mFieldList=.ID2Base("journalsrcID")
            mFieldList =mFieldList+","+.ID2Base("SecurityStyleID") 
-           mFieldList =mFieldList+ ", partview" 
+           mFieldList =mFieldList+ ", spartview" 
            mFieldList =mFieldList+ ", onrun" 
            mFieldList =mFieldList+ ", openmode" 
            mFieldList =mFieldList+ ", viewalias" 

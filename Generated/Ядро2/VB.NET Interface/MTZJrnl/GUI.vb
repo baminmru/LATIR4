@@ -24,7 +24,7 @@ Public Class GUI
 '''Код типа в метамодели
 ''' </remarks>
     Public Overrides Function TypeName() As String
-        Return "MTZJrnl"
+        Return "mtzjrnl"
     End Function
 
 
@@ -42,32 +42,32 @@ Public Class GUI
         If Mode = "" Then
 
             If RowItem.PartName.ToUpper = "JOURNAL" Then
-                Dim f As frmJournal
-                f = New frmJournal
+                Dim f As frmjournal
+                f = New frmjournal
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
             End If
 
             If RowItem.PartName.ToUpper = "JOURNALSRC" Then
-                Dim f As frmJournalSrc
-                f = New frmJournalSrc
+                Dim f As frmjournalsrc
+                f = New frmjournalsrc
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
             End If
 
             If RowItem.PartName.ToUpper = "JOURNALCOLUMN" Then
-                Dim f As frmJournalColumn
-                f = New frmJournalColumn
+                Dim f As frmjournalcolumn
+                f = New frmjournalcolumn
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
             End If
 
             If RowItem.PartName.ToUpper = "JCOLUMNSOURCE" Then
-                Dim f As frmJColumnSource
-                f = New frmJColumnSource
+                Dim f As frmjcolumnsource
+                f = New frmjcolumnsource
                 f.Attach(RowItem, Me.GUIManager,FormReadOnly)
                 ShowPartEditForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing
@@ -90,8 +90,8 @@ Public Class GUI
     Public Overrides Function ShowForm(ByVal Mode As String, ByRef DocItem As LATIR2.Document.Doc_Base, optional byval FormReadOnly as boolean = false) As Boolean
         If DocItem.TypeName.ToUpper = TypeName.ToUpper() Then
             If mode = "" Then
-                Dim f As frmMTZJrnl
-                f = New frmMTZJrnl
+                Dim f As frmmtzjrnl
+                f = New frmmtzjrnl
                 f.Attach(DocItem, Me.GUIManager, FormReadOnly)
                 ShowForm = (f.ShowDialog() = System.Windows.Forms.DialogResult.OK)
                 f = Nothing

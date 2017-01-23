@@ -82,6 +82,15 @@ Module MakeApp
         s = s & vbCrLf & "    End Function"
         s = s & vbCrLf & MakeComment("Получить контрол, реализующий работу в заданном режиме")
         s = s & vbCrLf & "    Public Overrides Function GetObjectControl(ByVal Mode As String, ByVal TypeName As String) As Object"
+
+        For i = 1 To ot.OBJECTMODE.Count
+            mode = ot.OBJECTMODE.Item(i).Name
+            s = s & vbCrLf & "            If Mode = """ & mode & """ Then"
+            s = s & vbCrLf & "                Return New Tabview" & mode
+            s = s & vbCrLf & "            End If"
+        Next
+
+
         s = s & vbCrLf & "      Return New Tabview"
         s = s & vbCrLf & "    End Function"
 
@@ -385,11 +394,9 @@ Module MakeApp
         s = s & vbCrLf & "    'NOTE: The following procedure is required by the Windows Form Designer"
         s = s & vbCrLf & "    'It can be modified using the Windows Form Designer."
         s = s & vbCrLf & "    'Do not modify it using the code editor."
-        s = s & vbCrLf & "    Friend WithEvents tv As " & ot.Name & "GUI.Tabview"
-        's = s & vbCrLf & "    Friend WithEvents tv As Tabview" & mode
+        s = s & vbCrLf & "    Friend WithEvents tv As " & ot.Name & "GUI.Tabview" & mode
         s = s & vbCrLf & "    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()"
-        s = s & vbCrLf & "        Me.tv = New " & ot.Name & "GUI.TabView"
-        's = s & vbCrLf & "        Me.tv = New TabView" & mode
+        s = s & vbCrLf & "        Me.tv = New " & ot.Name & "GUI.TabView" & mode
         s = s & vbCrLf & "        Me.SuspendLayout()"
         s = s & vbCrLf & "        '"
         s = s & vbCrLf & "        'tv"
@@ -412,23 +419,29 @@ Module MakeApp
         s = s & vbCrLf & "    End Sub"
         s = s & vbCrLf & "#End Region"
         s = s & vbCrLf & "    Public item As " & ot.Name & "." & ot.Name & ".Application"
-        's = s & vbCrLf & "    Public item As " & ot.Name & ".Application"
         s = s & vbCrLf & "    Public GuiManager As LATIR2GuiManager.LATIRGuiManager"
         s = s & vbCrLf & MakeComment("Инициализация", "Процедура инициализации формы", "", "")
         s = s & vbCrLf & "    Public Sub Attach(ByVal docItem As LATIR2.Document.Doc_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, optional byval FormReadOnly as boolean =false)"
         s = s & vbCrLf & "        item = CType(docItem, " & ot.Name & "." & ot.Name & ".Application)"
-        's = s & vbCrLf & "        item = CType(docItem, " & ot.Name & ".Application)"
         s = s & vbCrLf & "        GuiManager = gm"
         s = s & vbCrLf & "        tv.Attach(item, GuiManager,FormReadOnly)"
         s = s & vbCrLf & "        Me.Text = item.name"
         s = s & vbCrLf & "    End Sub"
-
-        s = s & vbCrLf & "         Private Sub frmChild_Load(sender As Object, e As EventArgs) Handles Me.Load"
+        s = s & vbCrLf & "    ' Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer"
+        s = s & vbCrLf & "   Private Sub frm_Load(sender As Object, e As EventArgs) Handles Me.Load"
         s = s & vbCrLf & "        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)"
-        s = s & vbCrLf & "        End Sub"
+        s = s & vbCrLf & "       ' myResizer.FindAllControls(Me) "
+        s = s & vbCrLf & "          Me.StartPosition = FormStartPosition.Manual"
+        s = s & vbCrLf & "          Me.WindowState = FormWindowState.Normal"
+        s = s & vbCrLf & "          Me.Location = Screen.PrimaryScreen.WorkingArea.Location"
+        s = s & vbCrLf & "          Me.Size = Screen.PrimaryScreen.WorkingArea.Size"
+        s = s & vbCrLf & "   End Sub"
 
+        s = s & vbCrLf & "   Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize"
+        s = s & vbCrLf & "   '   myResizer.ResizeAllControls(Me)"
+        s = s & vbCrLf & "   End Sub"
 
-        s = s & vbCrLf & "        Private Sub frmChild_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing"
+        s = s & vbCrLf & "        Private Sub frm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing"
         s = s & vbCrLf & "        If e.CloseReason = CloseReason.FormOwnerClosing Then"
         s = s & vbCrLf & "            e.Cancel = Not CheckAndSave(False)"
         s = s & vbCrLf & "        End If"

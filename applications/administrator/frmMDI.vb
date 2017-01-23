@@ -1,4 +1,4 @@
-Imports LATIRGuiManager
+Imports LATIR2GuiManager
 Imports LATIR2
 Imports System.Drawing.Printing
 
@@ -105,6 +105,7 @@ Public Class frmMDI
     Friend WithEvents MenuItem10 As System.Windows.Forms.MenuItem
     Friend WithEvents mnuSequenceTool As System.Windows.Forms.MenuItem
     Friend WithEvents mnuPartCopy As System.Windows.Forms.MenuItem
+    Friend WithEvents mnuScale As MenuItem
     Friend WithEvents mnuInitDict As System.Windows.Forms.MenuItem
 
 
@@ -176,6 +177,7 @@ Public Class frmMDI
         Me.cdlgOpen = New System.Windows.Forms.OpenFileDialog()
         Me.cdlgSave = New System.Windows.Forms.SaveFileDialog()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.mnuScale = New System.Windows.Forms.MenuItem()
         Me.SuspendLayout()
         '
         'MainMenu1
@@ -293,7 +295,7 @@ Public Class frmMDI
         'mnutoolS
         '
         Me.mnutoolS.Index = 2
-        Me.mnutoolS.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuUniqTool, Me.mnuSetupModes, Me.mnuSequenceTool, Me.MenuItem10, Me.mnuUnlockAll, Me.mnuPrepareARM, Me.mnuGenerator, Me.mnuARMGenerator, Me.MenuItem11, Me.mnuFieldCopy, Me.mnuPartCopy, Me.MenuItem15, Me.mnuFormEditTest, Me.MenuItem13})
+        Me.mnutoolS.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuUniqTool, Me.mnuSetupModes, Me.mnuSequenceTool, Me.MenuItem10, Me.mnuUnlockAll, Me.mnuPrepareARM, Me.mnuGenerator, Me.mnuARMGenerator, Me.MenuItem11, Me.mnuFieldCopy, Me.mnuPartCopy, Me.MenuItem15, Me.mnuScale, Me.mnuFormEditTest, Me.MenuItem13})
         Me.mnutoolS.Text = "Инструменты"
         '
         'mnuUniqTool
@@ -359,12 +361,12 @@ Public Class frmMDI
         '
         'mnuFormEditTest
         '
-        Me.mnuFormEditTest.Index = 12
+        Me.mnuFormEditTest.Index = 13
         Me.mnuFormEditTest.Text = "Тест настройки формы"
         '
         'MenuItem13
         '
-        Me.MenuItem13.Index = 13
+        Me.MenuItem13.Index = 14
         Me.MenuItem13.Text = "MyTest"
         '
         'mnuDataExchange
@@ -503,6 +505,11 @@ Public Class frmMDI
         '
         Me.Timer2.Interval = 60000
         '
+        'mnuScale
+        '
+        Me.mnuScale.Index = 12
+        Me.mnuScale.Text = "Шрифт"
+        '
         'frmMDI
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -552,7 +559,7 @@ Public Class frmMDI
         f = New frmChild
         Dim ObjTypeName As String = "MTZMetaModel.MTZMetaModel"
         Try
-            dt = guiManager.Manager.Session.GetRowsExDT("INSTANCE", guiManager.Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='MTZMetaModel'")
+            dt = guiManager.Manager.Session.GetRowsExDT("INSTANCE", guiManager.Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='mtzmetamodel'")
             oID = New System.Guid(dt.Rows.Item(0).Item("INSTANCEID").ToString())
             Dim meta As MTZMetaModel.MTZMetaModel.Application
             meta = CType(guiManager.Manager.GetInstanceObject(oID), MTZMetaModel.MTZMetaModel.Application)
@@ -611,7 +618,7 @@ Public Class frmMDI
     Private Sub mnuPrintPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         If pDOc Is Nothing Then
-            dt = guiManager.Manager.Session.GetRowsExDT("INSTANCE", guiManager.Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='MTZMetaModel'")
+            dt = guiManager.Manager.Session.GetRowsExDT("INSTANCE", guiManager.Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='mtzmetamodel'")
             oID = New Guid(dt.Rows.Item(0).Item("INSTANCEID").ToString)
             MyMeta = CType(guiManager.Manager.GetInstanceObject(oID), MTZMetaModel.MTZMetaModel.Application)
             pDOc = New PrintDocument
@@ -1636,7 +1643,7 @@ bye:
         SaveSetting("LATIRADMIN", "SETTING", "SITE", sitename)
 
         Dim dt As DataTable, oID As Guid
-        dt = guiManager.Manager.Session.GetRowsExDT("INSTANCE", guiManager.Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='MTZMetaModel'")
+        dt = guiManager.Manager.Session.GetRowsExDT("INSTANCE", guiManager.Manager.Session.GetProvider.InstanceFieldList, , , "OBJTYPE='mtzmetamodel'")
         oID = New System.Guid(dt.Rows.Item(0).Item("INSTANCEID").ToString())
         model = CType(guiManager.Manager.GetInstanceObject(oID), MTZMetaModel.MTZMetaModel.Application)
 
@@ -1875,6 +1882,13 @@ bye:
         frm.ShowDialog()
         frm.Close()
         frm = Nothing
+
+    End Sub
+
+    Private Sub mnuScale_Click(sender As Object, e As EventArgs) Handles mnuScale.Click
+        Dim f As frmScale
+        f = New frmScale
+        f.ShowDialog()
 
     End Sub
 End Class

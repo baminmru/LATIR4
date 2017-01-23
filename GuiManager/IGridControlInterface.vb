@@ -5,6 +5,7 @@ Public Interface IGridControlInterface
     Event OnGridDel(ByRef OK As Boolean, ByVal ID As System.Guid)
     Event OnGridEdit(ByRef OK As Boolean, ByVal ID As System.Guid)
     Event OnGridProp(ByRef OK As Boolean, ByRef UseDefault As Boolean)
+    Event OnGridExport(ByRef OK As Boolean, ByRef UseDefault As Boolean)
     Event OnGridRun(ByRef OK As Boolean, ByVal ID As System.Guid, ByRef UseDefault As Boolean)
     Event OnGridPrint(ByRef OK As Boolean, ByRef UseDefault As Boolean)
 

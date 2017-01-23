@@ -11,7 +11,7 @@ Imports System.Diagnostics
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class editGroupUser
+Public Class editgroupuser
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IRowEditor
 
@@ -53,9 +53,9 @@ Public Class editGroupUser
 
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
-Friend WithEvents lblTheUser  as  System.Windows.Forms.Label
-Friend WithEvents txtTheUser As System.Windows.Forms.TextBox
-Friend WithEvents cmdTheUser As System.Windows.Forms.Button
+Friend WithEvents lbltheuser  as  System.Windows.Forms.Label
+Friend WithEvents txttheuser As LATIR2GuiManager.TouchTextBox
+Friend WithEvents cmdtheuser As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -72,60 +72,60 @@ Me.HolderPanel.Location = New System.Drawing.Point(0, 0)
 Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
-Me.lblTheUser = New System.Windows.Forms.Label
-Me.txtTheUser = New System.Windows.Forms.TextBox
-Me.cmdTheUser = New System.Windows.Forms.Button
+Me.lbltheuser = New System.Windows.Forms.Label
+Me.txttheuser = New LATIR2GuiManager.TouchTextBox
+Me.cmdtheuser = New System.Windows.Forms.Button
 
-Me.lblTheUser.Location = New System.Drawing.Point(20,5)
-Me.lblTheUser.name = "lblTheUser"
-Me.lblTheUser.Size = New System.Drawing.Size(200, 20)
-Me.lblTheUser.TabIndex = 1
-Me.lblTheUser.Text = "Пользователь"
-Me.lblTheUser.ForeColor = System.Drawing.Color.Black
-Me.txtTheUser.Location = New System.Drawing.Point(20,27)
-Me.txtTheUser.name = "txtTheUser"
-Me.txtTheUser.ReadOnly = True
-Me.txtTheUser.Size = New System.Drawing.Size(176, 20)
-Me.txtTheUser.TabIndex = 2
-Me.txtTheUser.Text = "" 
-Me.cmdTheUser.Location = New System.Drawing.Point(198,27)
-Me.cmdTheUser.name = "cmdTheUser"
-Me.cmdTheUser.Size = New System.Drawing.Size(22, 20)
-Me.cmdTheUser.TabIndex = 3
-Me.cmdTheUser.Text = "..." 
+Me.lbltheuser.Location = New System.Drawing.Point(20,5)
+Me.lbltheuser.name = "lbltheuser"
+Me.lbltheuser.Size = New System.Drawing.Size(200, 20)
+Me.lbltheuser.TabIndex = 1
+Me.lbltheuser.Text = "Пользователь"
+Me.lbltheuser.ForeColor = System.Drawing.Color.Black
+Me.txttheuser.Location = New System.Drawing.Point(20,27)
+Me.txttheuser.name = "txttheuser"
+Me.txttheuser.ReadOnly = True
+Me.txttheuser.Size = New System.Drawing.Size(176, 20)
+Me.txttheuser.TabIndex = 2
+Me.txttheuser.Text = "" 
+Me.cmdtheuser.Location = New System.Drawing.Point(198,27)
+Me.cmdtheuser.name = "cmdtheuser"
+Me.cmdtheuser.Size = New System.Drawing.Size(22, 20)
+Me.cmdtheuser.TabIndex = 3
+Me.cmdtheuser.Text = "..." 
         Me.AutoScroll = True
 
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblTheUser)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtTheUser)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmdTheUser)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lbltheuser)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txttheuser)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmdtheuser)
         Me.Controls.Add(Me.HolderPanel)
         Me.HolderPanel.ResumeLayout(False)
         Me.HolderPanel.PerformLayout()
-        Me.name = "editGroupUser"
+        Me.name = "editgroupuser"
         Me.Size = New System.Drawing.Size(232, 120)
         Me.ResumeLayout (False)
     End Sub
 #End Region
 
-private sub txtTheUser_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtTheUser.TextChanged
+private sub txttheuser_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txttheuser.TextChanged
   Changing
 
 end sub
-private sub cmdTheUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdTheUser.Click
+private sub cmdtheuser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdtheuser.Click
   try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
-        If GuiManager.GetReferenceDialog("Users","",System.guid.Empty, id, brief) Then
-          txtTheUser.Tag = id
-          txtTheUser.text = brief
+        If GuiManager.GetReferenceDialog("users","",System.guid.Empty, id, brief) Then
+          txttheuser.Tag = id
+          txttheuser.text = brief
         End If
         catch ex as System.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 end sub
 
-Public Item As MTZUsers.MTZUsers.GroupUser
+Public Item As mtzusers.mtzusers.groupuser
 Private mRowReadOnly As Boolean
 Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -137,18 +137,18 @@ Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 '''
 ''' </remarks>
 Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATIR2.Document.DocRow_Base,byval RowReadOnly as boolean  ) Implements LATIR2GUIManager.IRowEditor.Attach
-        Item = Ctype(ri,MTZUsers.MTZUsers.GroupUser)
+        Item = Ctype(ri,mtzusers.mtzusers.groupuser)
         GuiManager = gm
         mRowReadOnly = RowReadOnly
         If Item Is Nothing Then Exit Sub
         mOnInit = true
 
-If Not item.TheUser Is Nothing Then
-  txtTheUser.Tag = item.TheUser.id
-  txtTheUser.text = item.TheUser.brief
+If Not item.theuser Is Nothing Then
+  txttheuser.Tag = item.theuser.id
+  txttheuser.text = item.theuser.brief
 else
-  txtTheUser.Tag = System.Guid.Empty 
-  txtTheUser.text = "" 
+  txttheuser.Tag = System.Guid.Empty 
+  txttheuser.text = "" 
 End If
         mOnInit = false
   raiseevent Refreshed()
@@ -164,10 +164,10 @@ end sub
 Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
   if mRowReadOnly =false then
 
-If not txtTheUser.Tag.Equals(System.Guid.Empty) Then
-  item.TheUser = Item.Application.FindRowObject("Users",txtTheUser.Tag)
+If not txttheuser.Tag.Equals(System.Guid.Empty) Then
+  item.theuser = Item.Application.FindRowObject("users",txttheuser.Tag)
 Else
-   item.TheUser = Nothing
+   item.theuser = Nothing
 End If
   end if
   mChanged = false
@@ -178,7 +178,7 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  mIsOK=true
  if mRowReadOnly  then return true
 
-if mIsOK then mIsOK = not txtTheUser.Tag.Equals(System.Guid.Empty)
+if mIsOK then mIsOK = not txttheuser.Tag.Equals(System.Guid.Empty)
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged

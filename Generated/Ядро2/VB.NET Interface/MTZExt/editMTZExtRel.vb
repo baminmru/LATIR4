@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,16 +51,16 @@ Public Class editMTZExtRel
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblThePlatform  as  System.Windows.Forms.Label
 Friend WithEvents cmbThePlatform As System.Windows.Forms.ComboBox
 Friend cmbThePlatformDATA As DataTable
 Friend cmbThePlatformDATAROW As DataRow
 Friend WithEvents lblTheClassName  as  System.Windows.Forms.Label
-Friend WithEvents txtTheClassName As System.Windows.Forms.TextBox
+Friend WithEvents txtTheClassName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheLibraryName  as  System.Windows.Forms.Label
-Friend WithEvents txtTheLibraryName As System.Windows.Forms.TextBox
+Friend WithEvents txtTheLibraryName As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -79,9 +80,9 @@ Me.HolderPanel.TabIndex = 0
 Me.lblThePlatform = New System.Windows.Forms.Label
 Me.cmbThePlatform = New System.Windows.Forms.ComboBox
 Me.lblTheClassName = New System.Windows.Forms.Label
-Me.txtTheClassName = New System.Windows.Forms.TextBox
+Me.txtTheClassName = New LATIR2GuiManager.TouchTextBox
 Me.lblTheLibraryName = New System.Windows.Forms.Label
-Me.txtTheLibraryName = New System.Windows.Forms.TextBox
+Me.txtTheLibraryName = New LATIR2GuiManager.TouchTextBox
 
 Me.lblThePlatform.Location = New System.Drawing.Point(20,5)
 Me.lblThePlatform.name = "lblThePlatform"
@@ -134,9 +135,12 @@ CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtTheLibraryName)
 #End Region
 
 private sub cmbThePlatform_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbThePlatform.SelectedIndexChanged
-  on error resume next
-  Changing
+  try
+     Changing
 
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtTheClassName_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtTheClassName.TextChanged
   Changing
@@ -168,7 +172,7 @@ Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATI
 cmbThePlatformData = New DataTable
 cmbThePlatformData.Columns.Add("name", GetType(System.String))
 cmbThePlatformData.Columns.Add("Value", GetType(System.Int32))
-On Error Resume Next
+try
 cmbThePlatformDataRow = cmbThePlatformData.NewRow
 cmbThePlatformDataRow("name") = "VB6"
 cmbThePlatformDataRow("Value") = 0
@@ -189,6 +193,9 @@ cmbThePlatform.DisplayMember = "name"
 cmbThePlatform.ValueMember = "Value"
 cmbThePlatform.DataSource = cmbThePlatformData
  cmbThePlatform.SelectedValue=CInt(Item.ThePlatform)
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 txtTheClassName.text = item.TheClassName
 txtTheLibraryName.text = item.TheLibraryName
         mOnInit = false

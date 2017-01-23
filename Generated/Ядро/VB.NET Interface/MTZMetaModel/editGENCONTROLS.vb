@@ -54,13 +54,13 @@ Public Class editGENCONTROLS
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblControlProgID  as  System.Windows.Forms.Label
-Friend WithEvents txtControlProgID As System.Windows.Forms.TextBox
+Friend WithEvents txtControlProgID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblControlClassID  as  System.Windows.Forms.Label
-Friend WithEvents txtControlClassID As System.Windows.Forms.TextBox
+Friend WithEvents txtControlClassID As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblVersionMajor  as  System.Windows.Forms.Label
-Friend WithEvents txtVersionMajor As System.Windows.Forms.TextBox
+Friend WithEvents txtVersionMajor As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblVersionMinor  as  System.Windows.Forms.Label
-Friend WithEvents txtVersionMinor As System.Windows.Forms.TextBox
+Friend WithEvents txtVersionMinor As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -78,13 +78,13 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblControlProgID = New System.Windows.Forms.Label
-Me.txtControlProgID = New System.Windows.Forms.TextBox
+Me.txtControlProgID = New LATIR2GuiManager.TouchTextBox
 Me.lblControlClassID = New System.Windows.Forms.Label
-Me.txtControlClassID = New System.Windows.Forms.TextBox
+Me.txtControlClassID = New LATIR2GuiManager.TouchTextBox
 Me.lblVersionMajor = New System.Windows.Forms.Label
-Me.txtVersionMajor = New System.Windows.Forms.TextBox
+Me.txtVersionMajor = New LATIR2GuiManager.TouchTextBox
 Me.lblVersionMinor = New System.Windows.Forms.Label
-Me.txtVersionMinor = New System.Windows.Forms.TextBox
+Me.txtVersionMinor = New LATIR2GuiManager.TouchTextBox
 
 Me.lblControlProgID.Location = New System.Drawing.Point(20,5)
 Me.lblControlProgID.name = "lblControlProgID"

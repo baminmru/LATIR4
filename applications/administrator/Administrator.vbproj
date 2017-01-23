@@ -94,10 +94,6 @@
       <HintPath>..\..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="STDLATIRGUIControls, Version=1.0.6096.25753, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\LATIR4\Build\STDLATIRGUIControls.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -277,6 +273,12 @@
     <Compile Include="frmSaveTool.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmScale.Designer.vb">
+      <DependentUpon>frmScale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmScale.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSequenceTool.Designer.vb">
       <DependentUpon>frmSequenceTool.vb</DependentUpon>
     </Compile>
@@ -436,6 +438,9 @@
       <DependentUpon>frmSaveTool.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmScale.resx">
+      <DependentUpon>frmScale.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSequenceTool.resx">
       <DependentUpon>frmSequenceTool.vb</DependentUpon>
     </EmbeddedResource>
@@ -588,6 +593,14 @@
       <Project>{C2AED02B-2ED8-497A-B79E-AFC4E5967F29}</Project>
       <Name>L2Manager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SpreadSheetLight1\SpreadSheetLight1.csproj">
+      <Project>{d6987fb2-92ed-41c9-8d61-0ce555ae62d7}</Project>
+      <Name>SpreadSheetLight1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StdGuiControls\STDLATIRGUIControls.vbproj">
+      <Project>{1cb10a3b-3341-4e1d-b5b7-531919d79944}</Project>
+      <Name>STDLATIRGUIControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\StdJournal\STDJournal.vbproj">
       <Project>{e40d6710-c21d-444d-8e81-3f8d07cd8260}</Project>
       <Name>STDJournal</Name>
@@ -595,6 +608,10 @@
     <ProjectReference Include="..\modelloader\ModelLoader.vbproj">
       <Project>{48376712-0dfb-412d-ba0e-927c38fa6325}</Project>
       <Name>ModelLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySQLDBInstal\MYSQLdbInstall.vbproj">
+      <Project>{4422206e-3fbf-42ad-bae5-426e38e78693}</Project>
+      <Name>MYSQLdbInstall</Name>
     </ProjectReference>
     <ProjectReference Include="..\ORADBInstal\ORAdbInstall.vbproj">
       <Project>{c8dd25bf-d7a6-48f7-b94c-e9fbc33dbe31}</Project>

@@ -54,10 +54,10 @@ Public Class editFIELDRESTRICTION
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblThePart  as  System.Windows.Forms.Label
-Friend WithEvents txtThePart As System.Windows.Forms.TextBox
+Friend WithEvents txtThePart As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdThePart As System.Windows.Forms.Button
 Friend WithEvents lblTheField  as  System.Windows.Forms.Label
-Friend WithEvents txtTheField As System.Windows.Forms.TextBox
+Friend WithEvents txtTheField As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheField As System.Windows.Forms.Button
 Friend WithEvents lblAllowRead  as  System.Windows.Forms.Label
 Friend WithEvents cmbAllowRead As System.Windows.Forms.ComboBox
@@ -88,10 +88,10 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblThePart = New System.Windows.Forms.Label
-Me.txtThePart = New System.Windows.Forms.TextBox
+Me.txtThePart = New LATIR2GuiManager.TouchTextBox
 Me.cmdThePart = New System.Windows.Forms.Button
 Me.lblTheField = New System.Windows.Forms.Label
-Me.txtTheField = New System.Windows.Forms.TextBox
+Me.txtTheField = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheField = New System.Windows.Forms.Button
 Me.lblAllowRead = New System.Windows.Forms.Label
 Me.cmbAllowRead = New System.Windows.Forms.ComboBox

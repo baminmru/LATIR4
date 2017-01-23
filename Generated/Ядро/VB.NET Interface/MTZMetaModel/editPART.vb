@@ -54,17 +54,17 @@ Public Class editPART
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblSequence  as  System.Windows.Forms.Label
-Friend WithEvents txtSequence As System.Windows.Forms.TextBox
+Friend WithEvents txtSequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblPartType  as  System.Windows.Forms.Label
 Friend WithEvents cmbPartType As System.Windows.Forms.ComboBox
 Friend cmbPartTypeDATA As DataTable
 Friend cmbPartTypeDATAROW As DataRow
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblthe_Comment  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Comment As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Comment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblNoLog  as  System.Windows.Forms.Label
 Friend WithEvents cmbNoLog As System.Windows.Forms.ComboBox
 Friend cmbNoLogDATA As DataTable
@@ -74,19 +74,19 @@ Friend WithEvents cmbManualRegister As System.Windows.Forms.ComboBox
 Friend cmbManualRegisterDATA As DataTable
 Friend cmbManualRegisterDATAROW As DataRow
 Friend WithEvents lblOnCreate  as  System.Windows.Forms.Label
-Friend WithEvents txtOnCreate As System.Windows.Forms.TextBox
+Friend WithEvents txtOnCreate As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnCreate As System.Windows.Forms.Button
 Friend WithEvents cmdOnCreateClear As System.Windows.Forms.Button
 Friend WithEvents lblOnSave  as  System.Windows.Forms.Label
-Friend WithEvents txtOnSave As System.Windows.Forms.TextBox
+Friend WithEvents txtOnSave As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnSave As System.Windows.Forms.Button
 Friend WithEvents cmdOnSaveClear As System.Windows.Forms.Button
 Friend WithEvents lblOnRun  as  System.Windows.Forms.Label
-Friend WithEvents txtOnRun As System.Windows.Forms.TextBox
+Friend WithEvents txtOnRun As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnRun As System.Windows.Forms.Button
 Friend WithEvents cmdOnRunClear As System.Windows.Forms.Button
 Friend WithEvents lblOnDelete  as  System.Windows.Forms.Label
-Friend WithEvents txtOnDelete As System.Windows.Forms.TextBox
+Friend WithEvents txtOnDelete As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdOnDelete As System.Windows.Forms.Button
 Friend WithEvents cmdOnDeleteClear As System.Windows.Forms.Button
 Friend WithEvents lblAddBehaivor  as  System.Windows.Forms.Label
@@ -94,13 +94,13 @@ Friend WithEvents cmbAddBehaivor As System.Windows.Forms.ComboBox
 Friend cmbAddBehaivorDATA As DataTable
 Friend cmbAddBehaivorDATAROW As DataRow
 Friend WithEvents lblExtenderObject  as  System.Windows.Forms.Label
-Friend WithEvents txtExtenderObject As System.Windows.Forms.TextBox
+Friend WithEvents txtExtenderObject As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdExtenderObject As System.Windows.Forms.Button
 Friend WithEvents cmdExtenderObjectClear As System.Windows.Forms.Button
 Friend WithEvents lblshablonBrief  as  System.Windows.Forms.Label
-Friend WithEvents txtshablonBrief As System.Windows.Forms.TextBox
+Friend WithEvents txtshablonBrief As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblruleBrief  as  System.Windows.Forms.Label
-Friend WithEvents txtruleBrief As System.Windows.Forms.TextBox
+Friend WithEvents txtruleBrief As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblIsJormalChange  as  System.Windows.Forms.Label
 Friend WithEvents cmbIsJormalChange As System.Windows.Forms.ComboBox
 Friend cmbIsJormalChangeDATA As DataTable
@@ -114,7 +114,7 @@ Friend WithEvents cmbintegerpkey As System.Windows.Forms.ComboBox
 Friend cmbintegerpkeyDATA As DataTable
 Friend cmbintegerpkeyDATAROW As DataRow
 Friend WithEvents lblpartIconCls  as  System.Windows.Forms.Label
-Friend WithEvents txtpartIconCls As System.Windows.Forms.TextBox
+Friend WithEvents txtpartIconCls As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -132,45 +132,45 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblSequence = New System.Windows.Forms.Label
-Me.txtSequence = New System.Windows.Forms.TextBox
+Me.txtSequence = New LATIR2GuiManager.TouchTextBox
 Me.lblPartType = New System.Windows.Forms.Label
 Me.cmbPartType = New System.Windows.Forms.ComboBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblthe_Comment = New System.Windows.Forms.Label
-Me.txtthe_Comment = New System.Windows.Forms.TextBox
+Me.txtthe_Comment = New LATIR2GuiManager.TouchTextBox
 Me.lblNoLog = New System.Windows.Forms.Label
 Me.cmbNoLog = New System.Windows.Forms.ComboBox
 Me.lblManualRegister = New System.Windows.Forms.Label
 Me.cmbManualRegister = New System.Windows.Forms.ComboBox
 Me.lblOnCreate = New System.Windows.Forms.Label
-Me.txtOnCreate = New System.Windows.Forms.TextBox
+Me.txtOnCreate = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnCreate = New System.Windows.Forms.Button
 Me.cmdOnCreateClear = New System.Windows.Forms.Button
 Me.lblOnSave = New System.Windows.Forms.Label
-Me.txtOnSave = New System.Windows.Forms.TextBox
+Me.txtOnSave = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnSave = New System.Windows.Forms.Button
 Me.cmdOnSaveClear = New System.Windows.Forms.Button
 Me.lblOnRun = New System.Windows.Forms.Label
-Me.txtOnRun = New System.Windows.Forms.TextBox
+Me.txtOnRun = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnRun = New System.Windows.Forms.Button
 Me.cmdOnRunClear = New System.Windows.Forms.Button
 Me.lblOnDelete = New System.Windows.Forms.Label
-Me.txtOnDelete = New System.Windows.Forms.TextBox
+Me.txtOnDelete = New LATIR2GuiManager.TouchTextBox
 Me.cmdOnDelete = New System.Windows.Forms.Button
 Me.cmdOnDeleteClear = New System.Windows.Forms.Button
 Me.lblAddBehaivor = New System.Windows.Forms.Label
 Me.cmbAddBehaivor = New System.Windows.Forms.ComboBox
 Me.lblExtenderObject = New System.Windows.Forms.Label
-Me.txtExtenderObject = New System.Windows.Forms.TextBox
+Me.txtExtenderObject = New LATIR2GuiManager.TouchTextBox
 Me.cmdExtenderObject = New System.Windows.Forms.Button
 Me.cmdExtenderObjectClear = New System.Windows.Forms.Button
 Me.lblshablonBrief = New System.Windows.Forms.Label
-Me.txtshablonBrief = New System.Windows.Forms.TextBox
+Me.txtshablonBrief = New LATIR2GuiManager.TouchTextBox
 Me.lblruleBrief = New System.Windows.Forms.Label
-Me.txtruleBrief = New System.Windows.Forms.TextBox
+Me.txtruleBrief = New LATIR2GuiManager.TouchTextBox
 Me.lblIsJormalChange = New System.Windows.Forms.Label
 Me.cmbIsJormalChange = New System.Windows.Forms.ComboBox
 Me.lblUseArchiving = New System.Windows.Forms.Label
@@ -178,7 +178,7 @@ Me.cmbUseArchiving = New System.Windows.Forms.ComboBox
 Me.lblintegerpkey = New System.Windows.Forms.Label
 Me.cmbintegerpkey = New System.Windows.Forms.ComboBox
 Me.lblpartIconCls = New System.Windows.Forms.Label
-Me.txtpartIconCls = New System.Windows.Forms.TextBox
+Me.txtpartIconCls = New LATIR2GuiManager.TouchTextBox
 
 Me.lblSequence.Location = New System.Drawing.Point(20,5)
 Me.lblSequence.name = "lblSequence"

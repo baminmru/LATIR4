@@ -1,6 +1,7 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
 
 
 
@@ -50,16 +51,16 @@ Public Class editMTZExt_def
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
- dim iii as integer
+ Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblExtType  as  System.Windows.Forms.Label
 Friend WithEvents cmbExtType As System.Windows.Forms.ComboBox
 Friend cmbExtTypeDATA As DataTable
 Friend cmbExtTypeDATAROW As DataRow
 Friend WithEvents lblTheDescription  as  System.Windows.Forms.Label
-Friend WithEvents txtTheDescription As System.Windows.Forms.TextBox
+Friend WithEvents txtTheDescription As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -77,11 +78,11 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblExtType = New System.Windows.Forms.Label
 Me.cmbExtType = New System.Windows.Forms.ComboBox
 Me.lblTheDescription = New System.Windows.Forms.Label
-Me.txtTheDescription = New System.Windows.Forms.TextBox
+Me.txtTheDescription = New LATIR2GuiManager.TouchTextBox
 
 Me.lblName.Location = New System.Drawing.Point(20,5)
 Me.lblName.name = "lblName"
@@ -140,9 +141,12 @@ private sub txtName_TextChanged(ByVal sender As Object, ByVal e As System.EventA
 
 end sub
 private sub cmbExtType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbExtType.SelectedIndexChanged
-  on error resume next
-  Changing
+  try
+     Changing
 
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 end sub
 private sub txtTheDescription_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtTheDescription.TextChanged
   Changing
@@ -171,7 +175,7 @@ txtName.text = item.Name
 cmbExtTypeData = New DataTable
 cmbExtTypeData.Columns.Add("name", GetType(System.String))
 cmbExtTypeData.Columns.Add("Value", GetType(System.Int32))
-On Error Resume Next
+try
 cmbExtTypeDataRow = cmbExtTypeData.NewRow
 cmbExtTypeDataRow("name") = "StatusExt"
 cmbExtTypeDataRow("Value") = 0
@@ -212,6 +216,9 @@ cmbExtType.DisplayMember = "name"
 cmbExtType.ValueMember = "Value"
 cmbExtType.DataSource = cmbExtTypeData
  cmbExtType.SelectedValue=CInt(Item.ExtType)
+        catch ex as System.Exception
+             Debug.Print(ex.Message +" >> " + ex.StackTrace)
+        end try
 txtTheDescription.text = item.TheDescription
         mOnInit = false
   raiseevent Refreshed()

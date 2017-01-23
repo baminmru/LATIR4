@@ -1,0 +1,930 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZSystem
+</name>
+</assembly>
+<members>
+<member name="M:MTZSystem.MTZSystem.SysLog_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.SysLog_col">
+	<summary>
+Реализация раздела Журнал событийв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysLog.m_the_Resource">
+	<summary>
+Локальная переменная для поля Ресурс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysLog.m_VERB">
+	<summary>
+Локальная переменная для поля Действие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysLog.m_LogInstanceID">
+	<summary>
+Локальная переменная для поля Идентификатор документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysLog.m_LogStructID">
+	<summary>
+Локальная переменная для поля Раздел с которым происхоит действие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysLog.m_TheSession">
+	<summary>
+Локальная переменная для поля Сессия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.TheSession">
+	<summary>
+Доступ к полю Сессия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.the_Resource">
+	<summary>
+Доступ к полю Ресурс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.LogStructID">
+	<summary>
+Доступ к полю Раздел с которым происхоит действие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.VERB">
+	<summary>
+Доступ к полю Действие
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.LogInstanceID">
+	<summary>
+Доступ к полю Идентификатор документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysLog.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysLog.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.SysLog">
+	<summary>
+Реализация строки раздела Журнал событий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.SysRefCache_col">
+	<summary>
+Реализация раздела Разрешенные владельцыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysRefCache.m_modulename">
+	<summary>
+Локальная переменная для поля модуль
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysRefCache.m_ObjectOwnerID">
+	<summary>
+Локальная переменная для поля Идентификатор владельца
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysRefCache.m_SessionID">
+	<summary>
+Локальная переменная для поля Сессия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.SysRefCache.m_CacheType">
+	<summary>
+Локальная переменная для поля Тип кеширования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.CacheType">
+	<summary>
+Доступ к полю Тип кеширования
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.ObjectOwnerID">
+	<summary>
+Доступ к полю Идентификатор владельца
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.SessionID">
+	<summary>
+Доступ к полю Сессия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.modulename">
+	<summary>
+Доступ к полю модуль
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.SysRefCache.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.SysRefCache.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.SysRefCache">
+	<summary>
+Реализация строки раздела Разрешенные владельцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.the_Session_col">
+	<summary>
+Реализация раздела Сессия пользователяв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_Login">
+	<summary>
+Локальная переменная для поля Login
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_UserRole">
+	<summary>
+Локальная переменная для поля Текущая роль пользователя
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_LastAccess">
+	<summary>
+Локальная переменная для поля Последнее подтверждение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_Usersid">
+	<summary>
+Локальная переменная для поля Пользователь
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_Closed">
+	<summary>
+Локальная переменная для поля Закрыта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_StartAt">
+	<summary>
+Локальная переменная для поля Момент открытия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_ClosedAt">
+	<summary>
+Локальная переменная для поля Момент закрытия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_ApplicationID">
+	<summary>
+Локальная переменная для поля Приложение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.the_Session.m_Lang">
+	<summary>
+Локальная переменная для поля Локализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.Pack(LATIR2.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.ApplicationID">
+	<summary>
+Доступ к полю Приложение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.UserRole">
+	<summary>
+Доступ к полю Текущая роль пользователя
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.ClosedAt">
+	<summary>
+Доступ к полю Момент закрытия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.Closed">
+	<summary>
+Доступ к полю Закрыта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.Usersid">
+	<summary>
+Доступ к полю Пользователь
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.LastAccess">
+	<summary>
+Доступ к полю Последнее подтверждение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.StartAt">
+	<summary>
+Доступ к полю Момент открытия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.Lang">
+	<summary>
+Доступ к полю Локализация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.Login">
+	<summary>
+Доступ к полю Login
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.the_Session.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.the_Session.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.the_Session">
+	<summary>
+Реализация строки раздела Сессия пользователя
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumQuarter">
+	<summary>
+Перечисление Квартал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumCacheType">
+	<summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumExportType">
+	<summary>
+Перечисление Тип экспорта
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.Application.m_the_Session">
+	<summary>
+ Внутренняя переменная для раздела Сессия пользователя
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.Application.the_Session">
+	<summary>
+Свойство для доступа к строкам раздела Сессия пользователя
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.Application.m_SysRefCache">
+	<summary>
+ Внутренняя переменная для раздела Разрешенные владельцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.Application.SysRefCache">
+	<summary>
+Свойство для доступа к строкам раздела Разрешенные владельцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZSystem.MTZSystem.Application.m_SysLog">
+	<summary>
+ Внутренняя переменная для раздела Журнал событий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.Application.SysLog">
+	<summary>
+Свойство для доступа к строкам раздела Журнал событий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZSystem.MTZSystem.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZSystem.MTZSystem.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZSystem.MTZSystem.Application">
+	<summary>
+Реализация документа Документ заполняется системой автоматически. Он содержит журнал активности пользователей системы, в который заносится вся информация о действиях пользователей.
+ </summary>
+	<remarks>
+Спец.: Системные данные
+ </remarks>
+</member>
+</members>
+</doc>

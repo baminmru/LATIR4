@@ -1,0 +1,315 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZUsersGUI
+</name>
+</assembly>
+<members>
+<member name="T:MTZUsersGUI.GUI">
+ <summary>
+Основной класс компонента
+ </summary>
+ <remarks>
+Класс обслуживает визуальное редактирование 
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.GUI.TypeName">
+ <summary>
+Имя типа
+ </summary>
+ <returns>
+Строковое значение кода типа объекта 
+ </returns>
+ <remarks>
+Код типа в метамодели
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.GUI.ShowPartEditForm(System.String,LATIR2.Document.DocRow_Base@,System.Boolean)">
+ <summary>
+Форма редактирования раздела
+ </summary>
+ <returns>
+Результат работы формы редактирования
+ </returns>
+ <remarks>
+Определяется какая форма должна быть вызвана, происходит инициализация и вызов формы
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.GUI.ShowForm(System.String,LATIR2.Document.Doc_Base@,System.Boolean)">
+ <summary>
+Форма редактирования документа
+ </summary>
+ <returns>
+Резултат работы формы редактирования
+ </returns>
+ <remarks>
+Определяется какая форма должна быть вызвана, происходит инициализация и вызов формы в модальном режиме
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.GUI.GetObjectControl(System.String,System.String)">
+ <summary>
+Получить контрол, реализующий работу в заданном режиме
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsersGUI.Tabview.item">
+ <summary>
+Редактируемый объект
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsersGUI.Tabview.GuiManager">
+ <summary>
+Объект управления визуальными компонентами
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.Tabview.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+ <summary>
+Инициализация контрольного элемента
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.Tabview.Save(System.Boolean,System.Boolean)">
+ <summary>
+Сохранение всех изменений
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.Tabview.IsOK">
+ <summary>
+Корректны ли измененные данные проверка после Verify
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.Tabview.IsChanged">
+ <summary>
+Были ли изменения данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.Tabview.Verify(System.Boolean)">
+ <summary>
+Проверить корректность данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmmtzusers.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+Процедура инициализации формы
+ </remarks>
+</member>
+<member name="T:MTZUsersGUI.editusers">
+ <summary>
+Контрол редактирования раздела Пользователи режим:
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.editusers.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.editusers.Save">
+ <summary>
+Сохранения данных в полях объекта
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsersGUI.frmusers">
+ <summary>
+Форма редактирования раздела Пользователи режим:
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmusers.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmusers.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+Завершение редактирования
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.viewusers.Attach(LATIR2.Document.Doc_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.viewusers.Init">
+ <summary>
+Load table settings
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.viewusers.gv_OnEdit(System.Boolean@,System.Guid)">
+ <summary>
+Обслуживание редактирования Edit action
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.viewusers.gv_OnDel(System.Boolean@,System.Guid)">
+ <summary>
+Обслуживание удаления Delete action
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.viewusers.gv_OnAdd(System.Boolean@,System.Guid)">
+ <summary>
+Обслуживание создания записи Create action
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.viewusers.gv_OnRefresh">
+ <summary>
+Обслуживание кнопки (обновить) refresh action
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsersGUI.editgroups">
+ <summary>
+Контрол редактирования раздела Группы режим:
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.editgroups.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.editgroups.Save">
+ <summary>
+Сохранения данных в полях объекта
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsersGUI.frmgroups">
+ <summary>
+Форма редактирования раздела Группы режим:
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmgroups.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmgroups.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+Завершение редактирования
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsersGUI.editgroupuser">
+ <summary>
+Контрол редактирования раздела Состав группы режим:
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.editgroupuser.Attach(LATIR2GuiManager.LATIRGuiManager,LATIR2.Document.DocRow_Base,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.editgroupuser.Save">
+ <summary>
+Сохранения данных в полях объекта
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsersGUI.frmgroupuser">
+ <summary>
+Форма редактирования раздела Состав группы режим:
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmgroupuser.Attach(LATIR2.Document.DocRow_Base,LATIR2GuiManager.LATIRGuiManager,System.Boolean)">
+ <summary>
+Инициализация
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsersGUI.frmgroupuser.btnOK_Click(System.Object,System.EventArgs)">
+ <summary>
+Завершение редактирования
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="MTZModelLoader">
+</Property><Property Name="Solution File" Value="C:\LATIR\NEW\Applications\MODELLOADER.NET\MTZModelLoader.sln">
+</Property><Property Name="Date" Value="20 февраля 2006 г.">
+</Property><Property Name="Time" Value="18:29">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="MTZModelLoader.sln" Description="File successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\MTZModelLoader.sln">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="MTZModelLoader.vbproj" Description="Project file successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\MTZModelLoader.vbproj">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="MTZModelLoader.vbproj.user" Description="Project user file successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\MTZModelLoader.vbproj.user">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="Form1.vb" Description="File successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\Form1.vb">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="MTZModelLoader.ico" Description="File successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\MTZModelLoader.ico">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="Form1.resX" Description="File successfully backed up as C:\LATIR\NEW\Applications\MODELLOADER.NET\Backup\Form1.resX">
+</Event><Event ErrorLevel="0" Project="MTZModelLoader" Source="MTZModelLoader.vbproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="MTZModelLoader" Source="MTZModelLoader.vbproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="MTZModelLoader.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="MTZModelLoader.sln" Description="Converted">
+</Event></UpgradeLog>

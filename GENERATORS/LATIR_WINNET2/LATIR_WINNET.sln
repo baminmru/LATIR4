@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LATIR_WINNET", "LATIR_WINNET.vbproj", "{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MTZMetaModelGUI", "..\..\Generated\Ядро\VB.NET Interface\MTZMetaModel\MTZMetaModelGUI.vbproj", "{BCB79B6F-FB24-46E4-87F4-408D1CFB1ABF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ABFA76CF-338B-455B-B4BF-D1ABF94939FB} = {ABFA76CF-338B-455B-B4BF-D1ABF94939FB}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB79B6F-FB24-46E4-87F4-408D1CFB1ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB79B6F-FB24-46E4-87F4-408D1CFB1ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB79B6F-FB24-46E4-87F4-408D1CFB1ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB79B6F-FB24-46E4-87F4-408D1CFB1ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

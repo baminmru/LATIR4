@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ModelLoader">
+</Property><Property Name="Solution File" Value="C:\LATIR\applications\modelloader\ModelLoader.sln">
+</Property><Property Name="User Options File" Value="C:\LATIR\applications\modelloader\ModelLoader.suo">
+</Property><Property Name="Date" Value="10 июня 2011 г.">
+</Property><Property Name="Time" Value="9:08">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ModelLoader.sln" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\ModelLoader.sln">
+</Event><Event ErrorLevel="0" Project="" Source="ModelLoader.suo" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\ModelLoader.suo">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="ModelLoader.vbproj" Description="Project file successfully backed up as C:\LATIR\applications\modelloader\Backup\ModelLoader.vbproj">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="Form1.vb" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\Form1.vb">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="My Project\Settings.Designer.vb" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="app.config" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\app.config">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="My Project\Settings.settings" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="MTZModelLoader.ico" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\MTZModelLoader.ico">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="Form1.resX" Description="File successfully backed up as C:\LATIR\applications\modelloader\Backup\Form1.resX">
+</Event><Event ErrorLevel="1" Project="ModelLoader" Source="ModelLoader.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="ModelLoader.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ModelLoader" Source="ModelLoader.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ModelLoader.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="ModelLoader.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ModelLoader" Source="ModelLoader.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

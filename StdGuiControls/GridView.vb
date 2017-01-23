@@ -314,6 +314,9 @@ Public Class GridView
     End Sub
     Public Sub PrintPreview()
         Dim printDialog As PrintPreviewDialog = New PrintPreviewDialog
+        Dim sz As New SizeF(2.0, 2.0)
+
+        printDialog.Scale(sz)
         'PrintDocument1.DefaultPageSettings.PaperSize =  New System.Drawing.Printing.PaperSize()
         PrintDocument1.DefaultPageSettings.Landscape = True
         printDialog.WindowState = FormWindowState.Maximized
@@ -408,7 +411,18 @@ Public Class GridView
             For row = 0 To gr.Rows.Count - 1
                 For col = 0 To visibleCount - 1
                     Try
-                        SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+
+                        If IsDate(gr.Rows.Item(row).Cells.Item(cols(col)).Value) Then
+                            If gr.Rows.Item(row).Cells.Item(cols(col)).Value.Equals(DateTime.MinValue) Then
+                                SLD.SetCellValue(row + 2, col + 1, "")
+                            Else
+                                SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+                            End If
+                        Else
+                            SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+                        End If
+
+
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try

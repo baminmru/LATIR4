@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="LATIR_ASPNET">
+</Property><Property Name="Solution File" Value="C:\LATIR2\GENERATORS\LATIR_ASPNET2\LATIR_ASPNET.sln">
+</Property><Property Name="User Options File" Value="C:\LATIR2\GENERATORS\LATIR_ASPNET2\LATIR_ASPNET.suo">
+</Property><Property Name="Date" Value="19 января 2009 г.">
+</Property><Property Name="Time" Value="21:24">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="LATIR_ASPNET.sln" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\LATIR_ASPNET.sln">
+</Event><Event ErrorLevel="0" Project="" Source="LATIR_ASPNET.suo" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\LATIR_ASPNET.suo">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="LATIR_ASPNET.vbproj" Description="Project file successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\LATIR_ASPNET.vbproj">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="LATIR_ASPNET.vbproj.user" Description="Project user file successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\LATIR_ASPNET.vbproj.user">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="frmConfig.Designer.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\frmConfig.Designer.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="frmConfig.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\frmConfig.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="Generator.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\Generator.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="MakeApp.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\MakeApp.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="MakeCollections.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\MakeCollections.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="MakeProject.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\MakeProject.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="MakeRow.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\MakeRow.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="My Project\Settings.Designer.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="Utils.vb" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\Utils.vb">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="app.config" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\app.config">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="My Project\Settings.settings" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="frmConfig.resX" Description="File successfully backed up as C:\LATIR2\GENERATORS\LATIR_ASPNET2\Backup\frmConfig.resX">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="LATIR_ASPNET.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LATIR_ASPNET" Source="LATIR_ASPNET.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LATIR_ASPNET.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="LATIR_ASPNET.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LATIR_ASPNET" Source="LATIR_ASPNET.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

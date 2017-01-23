@@ -10,7 +10,7 @@ Imports System.Convert
 Imports System.DateTime
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -19,18 +19,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class JColumnSource
+    Public Class jcolumnsource
         Inherits LATIR2.Document.DocRow_Base
 
-
-
-''' <summary>
-'''Локальная переменная для поля Поле представления
-''' </summary>
-''' <remarks>
-'''
-''' </remarks>
-            private m_ViewField  as String
 
 
 ''' <summary>
@@ -39,7 +30,16 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-            private m_SrcPartView  as System.Guid
+            private m_srcpartview  as System.Guid
+
+
+''' <summary>
+'''Локальная переменная для поля Поле представления
+''' </summary>
+''' <remarks>
+'''
+''' </remarks>
+            private m_viewfield  as String
 
 
 
@@ -50,8 +50,8 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Sub CleanFields()
-            ' m_ViewField=   
-            ' m_SrcPartView=   
+            ' m_srcpartview=   
+            ' m_viewfield=   
         End Sub
 
 
@@ -85,9 +85,9 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                 Case 0
                     Value = ID
                 Case 1
-                    Value = SrcPartView
+                    Value = srcpartview
                 Case 2
-                    Value = ViewField
+                    Value = viewfield
             End Select
         else
         try
@@ -106,9 +106,9 @@ Public Overrides Property Value(ByVal Index As Object) As Object
             Case 0
                  ID=value
                 Case 1
-                    SrcPartView = value
+                    srcpartview = value
                 Case 2
-                    ViewField = value
+                    viewfield = value
         End Select
      Else
         Try
@@ -140,9 +140,9 @@ Public Overrides Function FieldNameByID(ByVal Index As long) As String
                 Case 0
                    Return "ID"
                 Case 1
-                    Return "SrcPartView"
+                    Return "srcpartview"
                 Case 2
-                    Return "ViewField"
+                    Return "viewfield"
                 Case else
                 return "" 
             End Select
@@ -164,14 +164,14 @@ End Function
             try
             dr("ID") =ID
             dr("Brief") =Brief
-             if SrcPartView is nothing then
-               dr("SrcPartView") =system.dbnull.value
-               dr("SrcPartView_ID") =System.Guid.Empty
+             if srcpartview is nothing then
+               dr("srcpartview") =system.dbnull.value
+               dr("srcpartview_ID") =System.Guid.Empty
              else
-               dr("SrcPartView") =SrcPartView.BRIEF
-               dr("SrcPartView_ID") =SrcPartView.ID
+               dr("srcpartview") =srcpartview.BRIEF
+               dr("srcpartview_ID") =srcpartview.ID
              end if 
-             dr("ViewField") =ViewField
+             dr("viewfield") =viewfield
             DestDataTable.Rows.Add (dr)
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -200,12 +200,12 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Pack(ByVal nv As LATIR2.NamedValues)
-          if m_SrcPartView.Equals(System.Guid.Empty) then
-            nv.Add("SrcPartView", system.dbnull.value, Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
+          if m_srcpartview.Equals(System.Guid.Empty) then
+            nv.Add("srcpartview", system.dbnull.value, Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
           else
-            nv.Add("SrcPartView", Application.Session.GetProvider.ID2Param(m_SrcPartView), Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
+            nv.Add("srcpartview", Application.Session.GetProvider.ID2Param(m_srcpartview), Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
           end if 
-          nv.Add("ViewField", ViewField, dbtype.string)
+          nv.Add("viewfield", viewfield, dbtype.string)
             nv.Add(PartName() & "id", Application.Session.GetProvider.ID2Param(ID),  Application.Session.GetProvider.ID2DbType, Application.Session.GetProvider.ID2Size)
         End Sub
 
@@ -228,14 +228,14 @@ End Function
 
             RowRetrived = True
             RetriveTime = Now
-      If reader.Table.Columns.Contains("SrcPartView") Then
-          if isdbnull(reader.item("SrcPartView")) then
-            If reader.Table.Columns.Contains("SrcPartView") Then m_SrcPartView = System.GUID.Empty
+      If reader.Table.Columns.Contains("srcpartview") Then
+          if isdbnull(reader.item("srcpartview")) then
+            If reader.Table.Columns.Contains("srcpartview") Then m_srcpartview = System.GUID.Empty
           else
-            If reader.Table.Columns.Contains("SrcPartView") Then m_SrcPartView= New System.Guid(reader.item("SrcPartView").ToString())
+            If reader.Table.Columns.Contains("srcpartview") Then m_srcpartview= New System.Guid(reader.item("srcpartview").ToString())
           end if 
       end if 
-          If reader.Table.Columns.Contains("ViewField") Then m_ViewField=reader.item("ViewField").ToString()
+          If reader.Table.Columns.Contains("viewfield") Then m_viewfield=reader.item("viewfield").ToString()
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try
@@ -248,18 +248,18 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property SrcPartView() As LATIR2.Document.docrow_base
+        Public Property srcpartview() As LATIR2.Document.docrow_base
             Get
                 LoadFromDatabase()
-                SrcPartView = me.application.Findrowobject("JournalSrc",m_SrcPartView)
+                srcpartview = me.application.Findrowobject("journalsrc",m_srcpartview)
                 AccessTime = Now
             End Get
             Set(ByVal Value As LATIR2.Document.docrow_base )
                 LoadFromDatabase()
                 if not Value is nothing then
-                    m_SrcPartView = Value.id
+                    m_srcpartview = Value.id
                 else
-                   m_SrcPartView=System.Guid.Empty
+                   m_srcpartview=System.Guid.Empty
                 end if
                 ChangeTime = Now
             End Set
@@ -272,15 +272,15 @@ End Function
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Property ViewField() As String
+        Public Property viewfield() As String
             Get
                 LoadFromDatabase()
-                ViewField = m_ViewField
+                viewfield = m_viewfield
                 AccessTime = Now
             End Get
             Set(ByVal Value As String )
                 LoadFromDatabase()
-                m_ViewField = Value
+                m_viewfield = Value
                 ChangeTime = Now
             End Set
         End Property
@@ -295,8 +295,8 @@ End Function
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
           try 
-            m_SrcPartView = new system.guid(node.Attributes.GetNamedItem("SrcPartView").Value)
-            ViewField = node.Attributes.GetNamedItem("ViewField").Value
+            m_srcpartview = new system.guid(node.Attributes.GetNamedItem("srcpartview").Value)
+            viewfield = node.Attributes.GetNamedItem("viewfield").Value
              Changed = true
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
@@ -314,8 +314,8 @@ End Function
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
            try 
-          node.SetAttribute("SrcPartView", m_SrcPartView.tostring)  
-          node.SetAttribute("ViewField", ViewField)  
+          node.SetAttribute("srcpartview", m_srcpartview.tostring)  
+          node.SetAttribute("viewfield", viewfield)  
            catch ex as System.Exception
               Debug.Print( ex.Message + " >> " + ex.StackTrace)
           end try

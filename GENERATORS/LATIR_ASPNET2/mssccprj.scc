@@ -1,0 +1,13 @@
+SCC = This is a Source Code Control file
+
+[LATIR_ASPNET.sln]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/GENERATORS/LATIR_ASPNET2", BSSDAAAA
+
+[LATIR_ASPNET.vbproj]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/GENERATORS/LATIR_ASPNET2", BSSDAAAA
+
+[MTZ_ASPNET.sln]
+SCC_Aux_Path = "\\192.168.3.11\vss2\"
+SCC_Project_Name = "$/LATIR/GENERATORS/LATIR_ASPNET2", BSSDAAAA

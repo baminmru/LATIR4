@@ -1,7 +1,11 @@
-C:\LATIR4\Build\MTZJrnl.dll
-C:\LATIR4\Build\MTZJrnl.pdb
-C:\LATIR4\Build\MTZJrnl_doc.xml
 C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\MTZJrnl.vbprojResolveAssemblyReference.cache
 C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\MTZJrnl.dll
 C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\MTZJrnl_doc.xml
 C:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\MTZJrnl.pdb
+C:\LATIR4\Build\mtzjrnl.dll
+E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\mtzjrnl.dll
+E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\mtzjrnl_doc.xml
+E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\mtzjrnl.pdb
+C:\LATIR4\Build\mtzjrnl.pdb
+C:\LATIR4\Build\mtzjrnl_doc.xml
+E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZJrnl\obj\Debug\MTZJrnl.vbprojResolveAssemblyReference.cache

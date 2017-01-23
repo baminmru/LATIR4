@@ -52,14 +52,11 @@ Module MakeRowProc
             s = s & vbCrLf & "    Friend WithEvents btnCancel As System.Windows.Forms.Button"
             s = s & vbCrLf & "    Friend WithEvents btnOK As System.Windows.Forms.Button"
             s = s & vbCrLf & "    Friend WithEvents Edit" & p.Name & " As " & ot.Name & "GUI.edit" & p.Name & mode
-            's = s & vbCrLf & "    Friend WithEvents Edit" & p.Name & " As edit" & p.Name & mode
             s = s & vbCrLf & "    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()"
             s = s & vbCrLf & "        Me.btnPanel = New System.Windows.Forms.Panel"
             s = s & vbCrLf & "        Me.btnCancel = New System.Windows.Forms.Button"
             s = s & vbCrLf & "        Me.btnOK = New System.Windows.Forms.Button"
             s = s & vbCrLf & "        Me.Edit" & p.Name & " = New " & ot.Name & "GUI.Edit" & p.Name & mode
-            's = s & vbCrLf & "        Me.Edit" & p.Name & " = New Edit" & p.Name & mode
-
             s = s & vbCrLf & "        Me.btnPanel.SuspendLayout()"
             s = s & vbCrLf & "        Me.SuspendLayout()"
 
@@ -103,7 +100,7 @@ Module MakeRowProc
             s = s & vbCrLf & "        Me.Edit" & p.Name & ".AutoScroll = True"
             s = s & vbCrLf & "        Me.Edit" & p.Name & ".Location = New System.Drawing.Point(8, 8)"
             s = s & vbCrLf & "        Me.Edit" & p.Name & ".name = ""Edit" & p.Name & """"
-            s = s & vbCrLf & "        Me.Edit" & p.Name & ".Size = New System.Drawing.Size(490, 600)"
+            s = s & vbCrLf & "        Me.Edit" & p.Name & ".Size = New System.Drawing.Size(800-40-16, 600-16)"
             s = s & vbCrLf & "        Me.Edit" & p.Name & ".TabIndex = 20"
             s = s & vbCrLf & "        Me.Edit" & p.Name & ".Dock = System.Windows.Forms.DockStyle.Fill"
 
@@ -117,15 +114,18 @@ Module MakeRowProc
             s = s & vbCrLf & "        Me.Controls.Add (Me.btnPanel)"
             s = s & vbCrLf & "        Me.name = ""frm" & p.Name & """"
             s = s & vbCrLf & "        Me.Text = """ & p.Caption & """"
-            ' s = s & vbCrLf & "        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen"
+            s = s & vbCrLf & "        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen"
             s = s & vbCrLf & "        Me.ResumeLayout (False)"
             s = s & vbCrLf & ""
             s = s & vbCrLf & "    End Sub"
             s = s & vbCrLf & ""
             s = s & vbCrLf & "#End Region"
+
+
             s = s & vbCrLf & "    Public Item As " & ot.Name & "." & ot.Name & "." & p.Name & ""
             's = s & vbCrLf & "    Public Item As " &  ot.Name & "." & p.Name & ""
             s = s & vbCrLf & "    Public GuiManager As LATIR2GuiManager.LATIRGuiManager"
+            s = s & vbCrLf & "    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer"
             s = s & vbCrLf & "    Private mReadOnly As Boolean"
             s = s & vbCrLf & ""
             s = s & vbCrLf & MakeComment("Инициализация")
@@ -165,10 +165,36 @@ Module MakeRowProc
             s = s & vbCrLf & "        End If"
             s = s & vbCrLf & "    End Sub"
 
-            s = s & vbCrLf & "    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load"
-            s = s & vbCrLf & "        Me.ClientSize() = New System.Drawing.Size(Edit" & p.Name & ".GetMaxX() + 10, Edit" & p.Name & ".GetMaxY() + 35)"
-            s = s & vbCrLf & "        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)"
+
+
+            s = s & vbCrLf & "    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated"
+            ' s = s & vbCrLf & "        if GetSetting(""LATIR4"", ""CFG"", ""TABTIP"", ""true"")=""false"" then "
+            's = s & vbCrLf & "          Me.ClientSize() = New System.Drawing.Size(Edit" & p.Name & ".GetMaxX() + 10, Edit" & p.Name & ".GetMaxY() + 35)"
+            's = s & vbCrLf & "        else "
+            s = s & vbCrLf & "          Me.StartPosition = FormStartPosition.Manual"
+            s = s & vbCrLf & "          Me.WindowState = FormWindowState.Normal"
+            s = s & vbCrLf & "          Me.Location = Screen.PrimaryScreen.WorkingArea.Location"
+            s = s & vbCrLf & "          Me.Size = Screen.PrimaryScreen.WorkingArea.Size"
+            's = s & vbCrLf & "        end if "
+            ' s = s & vbCrLf & "        myResizer.ResizeAllControls(Me)"
             s = s & vbCrLf & "    End Sub"
+
+
+            s = s & vbCrLf & "    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load"
+            s = s & vbCrLf & "        Me.ClientSize() = New System.Drawing.Size(Edit" & p.Name & ".GetMaxX() + 10, Edit" & p.Name & ".GetMaxY() + 35)"
+            ' s = s & vbCrLf & "        LATIR2GuiManager.LATIRGuiManager.ScaleForm(Me)"
+            s = s & vbCrLf & "        myResizer.FindAllControls(Me) "
+            's = s & vbCrLf & "        Me.StartPosition = FormStartPosition.Manual"
+            's = s & vbCrLf & "        Me.WindowState = FormWindowState.Normal"
+            's = s & vbCrLf & "        Me.Location = Screen.PrimaryScreen.WorkingArea.Location"
+            's = s & vbCrLf & "        Me.Size = Screen.PrimaryScreen.WorkingArea.Size"
+            ' s = s & vbCrLf & "        myResizer.ResizeAllControls(Me)"
+            s = s & vbCrLf & "    End Sub"
+
+
+            s = s & vbCrLf & "    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize"
+            s = s & vbCrLf & "      myResizer.ResizeAllControls(Me)"
+            s = s & vbCrLf & "   End Sub"
 
             s = s & vbCrLf & "End Class"
 
@@ -983,12 +1009,9 @@ Module MakeRowProc
 
                         If f.AllowNull Then
                             s = s & vbCrLf & "Me.dtp" & f.Name & ".ShowCheckBox=True"
-                            's = s & vbCrLf & "Me.dtp" & f.Name & ".NullText = ""???????"""
-                            's = s & vbCrLf & "Me.dtp" & f.Name & ".Nullable = True"
+
                         Else
                             s = s & vbCrLf & "Me.dtp" & f.Name & ".ShowCheckBox=False"
-                            's = s & vbCrLf & "Me.dtp" & f.Name & ".NullText = ""???????"""
-                            's = s & vbCrLf & "Me.dtp" & f.Name & ".Nullable = False"
                         End If
 
                         sp = sp & vbCrLf & "private sub dtp" & f.Name & "_Change(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp" & f.Name & ".ValueChanged"
@@ -998,25 +1021,40 @@ Module MakeRowProc
 
 
                         If Not IsFieldReadOnly Then
-                            saveFields = saveFields & vbCrLf & "  if  dtp" & f.Name & ".value=System.DateTime.MinValue then"
-                            saveFields = saveFields & vbCrLf & "    item." & f.Name & " = System.DateTime.MinValue"
-                            saveFields = saveFields & vbCrLf & "  else"
+                            If f.AllowNull Then
+                                saveFields = saveFields & vbCrLf & "  if dtp" & f.Name & ".checked=false then"
+                                saveFields = saveFields & vbCrLf & "       item." & f.Name & " = System.DateTime.MinValue"
+                                saveFields = saveFields & vbCrLf & "  else "
+                            End If
+                            saveFields = saveFields & vbCrLf & "  try"
                             saveFields = saveFields & vbCrLf & "    item." & f.Name & " = dtp" & f.Name & ".value"
-                            saveFields = saveFields & vbCrLf & "  end if"
+                            saveFields = saveFields & vbCrLf & "  catch"
+                            saveFields = saveFields & vbCrLf & "    item." & f.Name & " = System.DateTime.MinValue"
+                            saveFields = saveFields & vbCrLf & "  end try"
+
+
+                            If f.AllowNull Then
+                                saveFields = saveFields & vbCrLf & "  end if"
+                            End If
                         End If
 
                         loadFields = loadFields & vbCrLf & "if item." & f.Name & " <> System.DateTime.MinValue then"
-                        loadFields = loadFields & vbCrLf & " dtp" & f.Name & ".value = item." & f.Name
+                        loadFields = loadFields & vbCrLf & "  try"
+                        loadFields = loadFields & vbCrLf & "     dtp" & f.Name & ".value = item." & f.Name
+                        loadFields = loadFields & vbCrLf & "  catch"
+                        loadFields = loadFields & vbCrLf & "   dtp" & f.Name & ".value = System.DateTime.MinValue"
+                        loadFields = loadFields & vbCrLf & "  end try"
                         If f.AllowNull Then
                             loadFields = loadFields & vbCrLf & "else"
-                            loadFields = loadFields & vbCrLf & " dtp" & f.Name & ".value = System.DateTime.today"
-                            'loadFields = loadFields & vbCrLf & " dtp" & f.Name & ".value =nothing"
+                            loadFields = loadFields & vbCrLf & "   dtp" & f.Name & ".value = System.DateTime.Today"
+                            loadFields = loadFields & vbCrLf & "   dtp" & f.Name & ".Checked =false"
                         End If
+
                         loadFields = loadFields & vbCrLf & "end if"
                         pos = pos + 25
 
                         If Not f.AllowNull Then
-                            IsOK = IsOK & vbCrLf & "if mIsOK then mIsOK = (dtp" & f.Name & ".value <> nothing)"
+                            IsOK = IsOK & vbCrLf & "if mIsOK then mIsOK = (dtp" & f.Name & ".value <> System.DateTime.MinValue)"
                         End If
 
 

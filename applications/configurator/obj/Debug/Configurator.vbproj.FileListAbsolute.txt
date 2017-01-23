@@ -1,0 +1,23 @@
+C:\LATIR2\Generated\Generated Dlls\Configurator.exe
+C:\LATIR2\Generated\Generated Dlls\Configurator.pdb
+C:\LATIR2\Generated\Generated Dlls\Configurator.xml
+C:\LATIR2\applications\configurator\obj\Debug\Configurator.frmMain.resources
+C:\LATIR2\applications\configurator\obj\Debug\Configurator.Resources.resources
+C:\LATIR2\applications\configurator\obj\Debug\Configurator.exe
+C:\LATIR2\applications\configurator\obj\Debug\Configurator.xml
+C:\LATIR2\applications\configurator\obj\Debug\Configurator.pdb
+C:\LATIR2\applications\configurator\obj\Debug\Configurator.vbproj.GenerateResource.Cache
+E:\LATIR4\Generated\Generated Dlls\Configurator.exe.config
+E:\LATIR4\applications\configurator\obj\Debug\Configurator.exe
+E:\LATIR4\applications\configurator\obj\Debug\Configurator.xml
+E:\LATIR4\applications\configurator\obj\Debug\Configurator.pdb
+E:\LATIR4\applications\configurator\obj\Debug\Configurator.frmMain.resources
+E:\LATIR4\applications\configurator\obj\Debug\Configurator.Resources.resources
+E:\LATIR4\applications\configurator\obj\Debug\Configurator.vbproj.GenerateResource.Cache
+E:\LATIR4\Generated\Generated Dlls\Configurator.exe
+E:\LATIR4\Generated\Generated Dlls\Configurator.pdb
+E:\LATIR4\Generated\Generated Dlls\Configurator.xml
+E:\LATIR4\applications\configurator\bin\Debug\Configurator.exe.config
+E:\LATIR4\applications\configurator\bin\Debug\Configurator.exe
+E:\LATIR4\applications\configurator\bin\Debug\Configurator.pdb
+E:\LATIR4\applications\configurator\bin\Debug\Configurator.xml

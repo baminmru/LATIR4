@@ -5,6 +5,7 @@ Imports LATIR2
 Imports System
 Imports System.xml
 Imports System.Data
+Imports System.Diagnostics
 
 Namespace MTZRprt
 
@@ -71,8 +72,11 @@ Namespace MTZRprt
 '''
 ''' </remarks>
         Public Function GetItem( vIndex as object ) As MTZRprt.RPTFormula
-            on error resume next
+            try
             GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZRprt.RPTFormula))
+catch ex as System.Exception
+ Debug.Print( ex.Message + " >> " + ex.StackTrace)
+end try
         End Function
 
 
@@ -83,8 +87,11 @@ Namespace MTZRprt
 '''
 ''' </remarks>
         Public Shadows Function Item( vIndex as object ) As MTZRprt.RPTFormula
-            on error resume next
+          try
             return GetItem(vIndex)
+          catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Function
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then

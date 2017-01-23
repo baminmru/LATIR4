@@ -1,64 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion = "14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
- <Import Project = "$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /> 
- <PropertyGroup>
- <Configuration Condition = " '$(Configuration)' == '' ">Debug</Configuration>
-      <Platform Condition = " '$(Platform)' == '' ">AnyCPU</Platform>
- <ProjectGuid>1fd3ea4c-8f26-48a6-8749-7923a5892d24</ProjectGuid>
- <OutputType>Library</OutputType>
- <RootNamespace>MTZUsers</RootNamespace>
- <AssemblyName>MTZUsers</AssemblyName>
- <FileAlignment>512</FileAlignment>
- <MyType>Windows</MyType>
- <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
- <TargetFrameworkProfile />
-    </PropertyGroup>
- <PropertyGroup Condition = " '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
- <DebugSymbols>True</DebugSymbols>
- <DebugType>full</DebugType>
- <DefineDebug>True</DefineDebug>
- <DefineTrace>True</DefineTrace>
- <OutputPath>C:\LATIR4\Build\</OutputPath>
- <DocumentationFile>MTZUsers_doc.xml</DocumentationFile>
- <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    </PropertyGroup>
- <PropertyGroup Condition = " '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-      <DebugType>pdbonly</DebugType>
- <DefineDebug>False</DefineDebug>
-      <DefineTrace>true</DefineTrace>
- <Optimize> True</Optimize>
-      <OutputPath>C:\LATIR4\Build\</OutputPath>
- <DocumentationFile>MTZUsers_doc.xml</DocumentationFile>
-      <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    </PropertyGroup>
-    <PropertyGroup>
- <OptionExplicit>On</OptionExplicit>
-    </PropertyGroup>
- <PropertyGroup>
-      <OptionCompare>Binary</OptionCompare>
-    </PropertyGroup>
-    <PropertyGroup>
- <OptionStrict>Off</OptionStrict>
-    </PropertyGroup>
- <PropertyGroup>
-      <OptionInfer>On</OptionInfer>
-    </PropertyGroup>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE4B362E-88E2-4E42-BE6E-BC5C96EDCA5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MTZUsers</RootNamespace>
+    <AssemblyName>MTZUsers</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>True</DefineDebug>
+    <DefineTrace>True</DefineTrace>
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>MTZUsers_doc.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>False</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize> True</Optimize>
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>MTZUsers_doc.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="L2Manager">
       <Name>L2Manager</Name>
       <HintPath>C:\LATIR4\Build\L2Manager.dll</HintPath>
-       <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="System"/>
-    <Reference Include="System.Data"/>
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-      <Import Include="System" />
-      <Import Include="System.Collections" />
-      <Import Include="System.Data" />
-      <Import Include="System.Xml" />
-    </ItemGroup>
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Xml" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.vb">
       <SubType>Code</SubType>
@@ -66,28 +66,24 @@
     <Compile Include="AssemblyInfo.vb">
       <SubType>Code</SubType>
     </Compile>
-
-                <Compile Include="Users.vb">
-                    <SubType>Code</SubType>
-                </Compile>
-                <Compile Include="Users_col.vb">
-                    <SubType>Code</SubType>
-                </Compile>
-
-                <Compile Include="Groups.vb">
-                    <SubType>Code</SubType>
-                </Compile>
-                <Compile Include="Groups_col.vb">
-                    <SubType>Code</SubType>
-                </Compile>
-
-                <Compile Include="GroupUser.vb">
-                    <SubType>Code</SubType>
-                </Compile>
-                <Compile Include="GroupUser_col.vb">
-                    <SubType>Code</SubType>
-                </Compile>
-
+    <Compile Include="Users.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Groups.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Groups_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GroupUser.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GroupUser_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

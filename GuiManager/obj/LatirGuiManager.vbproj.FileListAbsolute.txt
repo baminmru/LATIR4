@@ -1,0 +1,18 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRGuiManager.dll
+C:\LATIR2\Generated\Generated Dlls\LATIRGuiManager.xml
+C:\LATIR2\GuiManager\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\GuiManager\obj\Release\LATIRGuiManager.frmLogin.resources
+C:\LATIR2\GuiManager\obj\Release\LATIRGuiManager.frmObjectDialog.resources
+C:\LATIR2\GuiManager\obj\Release\LATIRGuiManager.frmRefDialog.resources
+C:\LATIR2\GuiManager\obj\Release\LatirGuiManager.vbproj.GenerateResource.Cache
+C:\LATIR2\GuiManager\obj\Release\LATIRGuiManager.dll
+C:\LATIR2\GuiManager\obj\Release\LATIRGuiManager.xml
+C:\LATIR2\Generated\Generated Dlls\LATIRGuiManager.pdb
+C:\LATIR2\GuiManager\obj\Debug\ResolveAssemblyReference.cache
+C:\LATIR2\GuiManager\obj\Debug\LATIRGuiManager.frmLogin.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIRGuiManager.frmObjectDialog.resources
+C:\LATIR2\GuiManager\obj\Debug\LATIRGuiManager.frmRefDialog.resources
+C:\LATIR2\GuiManager\obj\Debug\LatirGuiManager.vbproj.GenerateResource.Cache
+C:\LATIR2\GuiManager\obj\Debug\LATIRGuiManager.dll
+C:\LATIR2\GuiManager\obj\Debug\LATIRGuiManager.xml
+C:\LATIR2\GuiManager\obj\Debug\LATIRGuiManager.pdb

@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZSystem
 
@@ -173,8 +174,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = Login
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -268,7 +273,7 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              if ApplicationID is nothing then
@@ -306,6 +311,9 @@ End Function
              dr("Lang") =Lang
              dr("Login") =Login
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -376,7 +384,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -430,6 +438,9 @@ End Function
       end if 
           If reader.Table.Columns.Contains("Lang") Then m_Lang=reader.item("Lang").ToString()
           If reader.Table.Columns.Contains("Login") Then m_Login=reader.item("Login").ToString()
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -633,7 +644,7 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             m_ApplicationID = new system.guid(node.Attributes.GetNamedItem("ApplicationID").Value)
             m_UserRole = new system.guid(node.Attributes.GetNamedItem("UserRole").Value)
             m_ClosedAt = System.DateTime.MinValue
@@ -647,6 +658,9 @@ End Function
             Lang = node.Attributes.GetNamedItem("Lang").Value
             Login = node.Attributes.GetNamedItem("Login").Value
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -659,19 +673,22 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
+           try 
           node.SetAttribute("ApplicationID", m_ApplicationID.tostring)  
           node.SetAttribute("UserRole", m_UserRole.tostring)  
-          if ClosedAt = System.DateTime.MinValue then ClosedAt=System.DateTime.Parse("12/30/1899")
+         ' if ClosedAt = System.DateTime.MinValue then ClosedAt=new Date(1899,12,30)  ' SQL Server trouble
           node.SetAttribute("ClosedAt", ClosedAt.Ticks)  
           node.SetAttribute("Closed", Closed)  
           node.SetAttribute("Usersid", m_Usersid.tostring)  
-          if LastAccess = System.DateTime.MinValue then LastAccess=System.DateTime.Parse("12/30/1899")
+         ' if LastAccess = System.DateTime.MinValue then LastAccess=new Date(1899,12,30)  ' SQL Server trouble
           node.SetAttribute("LastAccess", LastAccess.Ticks)  
-          if StartAt = System.DateTime.MinValue then StartAt=System.DateTime.Parse("12/30/1899")
+         ' if StartAt = System.DateTime.MinValue then StartAt=new Date(1899,12,30)  ' SQL Server trouble
           node.SetAttribute("StartAt", StartAt.Ticks)  
           node.SetAttribute("Lang", Lang)  
           node.SetAttribute("Login", Login)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

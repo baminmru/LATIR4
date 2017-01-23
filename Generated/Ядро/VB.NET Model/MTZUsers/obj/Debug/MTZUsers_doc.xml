@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZUsers
+</name>
+</assembly>
+<members>
+<member name="T:MTZUsers.MTZUsers.enumStructType">
+ <summary>
+Перечисление Тип раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumWFFuncParam">
+ <summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumReportType">
+ <summary>
+Перечисление Вариант отчета
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumEducation">
+ <summary>
+Перечисление Образование
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumTypeStyle">
+ <summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumReplicationType">
+ <summary>
+Перечисление Вариант репликации докуента
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumNumerationRule">
+ <summary>
+Перечисление Правило нумерации
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumWFProcessState">
+ <summary>
+Перечисление Состояния процесса
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumMenuActionType">
+ <summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumWFShortcutType">
+ <summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumVHAlignment">
+ <summary>
+Перечисление Выравнивание
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumCurrencyType">
+ <summary>
+Перечисление Валюта платежа
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumInfoStoreType">
+ <summary>
+Перечисление Тип каталога
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumDevelopmentBase">
+ <summary>
+Перечисление Платформа разработки
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumQuarter">
+ <summary>
+Перечисление Квартал
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumMonths">
+ <summary>
+Перечисление Месяцы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumColumnSortType">
+ <summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumBoolean">
+ <summary>
+Перечисление Да / Нет
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumJournalLinkType">
+ <summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumTargetType">
+ <summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumCacheType">
+ <summary>
+Перечисление Тип кеширования для расчета прав на объекты
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumMesureFormat">
+ <summary>
+Перечисление Формат индикатора
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumExportType">
+ <summary>
+Перечисление Тип экспорта
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumWFStepClass">
+ <summary>
+Перечисление Тип шага процесса
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumDayInWeek">
+ <summary>
+Перечисление День недели
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumGeneratorStyle">
+ <summary>
+Перечисление GeneratorStyle
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumPlatType">
+ <summary>
+Перечисление Тип плательщика
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enummsgState">
+ <summary>
+Перечисление Состояние заявки
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumOnJournalRowClick">
+ <summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumPartType">
+ <summary>
+Перечисление PartType
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumReferenceType">
+ <summary>
+Перечисление ReferenceType
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumstateNomen">
+ <summary>
+Перечисление 
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumConditionType">
+ <summary>
+Перечисление Варианты условий
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumFolderType">
+ <summary>
+Перечисление Тип папки
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enummsgResult">
+ <summary>
+Перечисление Результат
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumPartAddBehaivor">
+ <summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumExtentionType">
+ <summary>
+Перечисление Тип расширения
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumSex">
+ <summary>
+Перечисление Мужской / Женский
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumYesNo">
+ <summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumAggregationType">
+ <summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumWFFuncState">
+ <summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumEmployment">
+ <summary>
+Перечисление Занятость
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.enumTriState">
+ <summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.Application">
+ <summary>
+Реализация документа Документ содержит списки пользователей и состав групп пользователей системы.
+ </summary>
+ <remarks>
+Справочник: пользователи
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Application.MyTypeName">
+ <summary>
+Название типа документа
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Application.m_Users">
+ <summary>
+ Внутренняя переменная для раздела Пользователи
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Application.Users">
+ <summary>
+Свойство для доступа к строкам раздела Пользователи
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Application.m_Groups">
+ <summary>
+ Внутренняя переменная для раздела Группы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Application.Groups">
+ <summary>
+Свойство для доступа к строкам раздела Группы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Application.CountOfParts">
+ <summary>
+Количество разделов в объекте
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Application.GetDocCollection_Base(System.Int64)">
+ <summary>
+Получить раздел по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Application.FindInCollections(System.String,System.String)">
+ <summary>
+Поиск элемента в коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+ <summary>
+Загрузка данных из XML  файла
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+ <summary>
+Сохранение данных в XML  файле
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Application.BatchUpdate">
+ <summary>
+Сохранение изменений в базе данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.Users">
+ <summary>
+Реализация строки раздела Пользователи
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_Family">
+ <summary>
+Локальная переменная для поля Фамилия
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_Login">
+ <summary>
+Локальная переменная для поля Имя для входа
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_Password">
+ <summary>
+Локальная переменная для поля Пароль
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_EMail">
+ <summary>
+Локальная переменная для поля e-mail
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_Phone">
+ <summary>
+Локальная переменная для поля Телефон
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_Name">
+ <summary>
+Локальная переменная для поля Имя
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_DomaiName">
+ <summary>
+Локальная переменная для поля Доменное имя
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_LocalPhone">
+ <summary>
+Локальная переменная для поля Местный телефон
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Users.m_SurName">
+ <summary>
+Локальная переменная для поля Отчество
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.CleanFields">
+ <summary>
+Очистить поля раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Count">
+ <summary>
+Количество полей в строке раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Value(System.Object)">
+ <summary>
+Получить \Задать поле по номеру 
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.FieldNameByID(System.Int64)">
+ <summary>
+Название поля по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.FillDataTable(System.Data.DataTable@)">
+ <summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.FindInside(System.String,System.String)">
+ <summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.Pack(LATIR2.NamedValues)">
+ <summary>
+Заполнить коллекцю именованных полей
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.Unpack(System.Data.DataRow)">
+ <summary>
+Заполнить поля из именованной коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Family">
+ <summary>
+Доступ к полю Фамилия
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Name">
+ <summary>
+Доступ к полю Имя
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.SurName">
+ <summary>
+Доступ к полю Отчество
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Login">
+ <summary>
+Доступ к полю Имя для входа
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Password">
+ <summary>
+Доступ к полю Пароль
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.DomaiName">
+ <summary>
+Доступ к полю Доменное имя
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.EMail">
+ <summary>
+Доступ к полю e-mail
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.Phone">
+ <summary>
+Доступ к полю Телефон
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.LocalPhone">
+ <summary>
+Доступ к полю Местный телефон
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+ <summary>
+Заполнить поля данными из XML
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+ <summary>
+Записать данные раздела в XML файл
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.BatchUpdate">
+ <summary>
+Записать изменения в базу данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Users.CountOfParts">
+ <summary>
+Количество дочерних разделов
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users.GetDocCollection_Base(System.Int64)">
+ <summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.Users_col">
+ <summary>
+Реализация раздела Пользователив виде коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users_col.ChildPartName">
+ <summary>
+Имя раздела в базе данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users_col.CreateDataTable">
+ <summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users_col.NewItem">
+ <summary>
+Создание нового элемента коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users_col.GetItem(System.Object)">
+ <summary>
+Получить элемент коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Users_col.Item(System.Object)">
+ <summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.Groups">
+ <summary>
+Реализация строки раздела Группы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Groups.m_ADGroup">
+ <summary>
+Локальная переменная для поля Группа AD
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Groups.m_Name">
+ <summary>
+Локальная переменная для поля Название
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.Groups.m_GroupUser">
+ <summary>
+Локальная переменная для дочернего раздела Состав группы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.CleanFields">
+ <summary>
+Очистить поля раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Groups.Count">
+ <summary>
+Количество полей в строке раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Groups.Value(System.Object)">
+ <summary>
+Получить \Задать поле по номеру 
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.FieldNameByID(System.Int64)">
+ <summary>
+Название поля по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.FillDataTable(System.Data.DataTable@)">
+ <summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.FindInside(System.String,System.String)">
+ <summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.Pack(LATIR2.NamedValues)">
+ <summary>
+Заполнить коллекцю именованных полей
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.Unpack(System.Data.DataRow)">
+ <summary>
+Заполнить поля из именованной коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Groups.Name">
+ <summary>
+Доступ к полю Название
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Groups.ADGroup">
+ <summary>
+Доступ к полю Группа AD
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Groups.GroupUser">
+ <summary>
+Доступ к дочернему разделу Состав группы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+ <summary>
+Заполнить поля данными из XML
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+ <summary>
+Записать данные раздела в XML файл
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.BatchUpdate">
+ <summary>
+Записать изменения в базу данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.Groups.CountOfParts">
+ <summary>
+Количество дочерних разделов
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups.GetDocCollection_Base(System.Int64)">
+ <summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.Groups_col">
+ <summary>
+Реализация раздела Группыв виде коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups_col.ChildPartName">
+ <summary>
+Имя раздела в базе данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups_col.CreateDataTable">
+ <summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups_col.NewItem">
+ <summary>
+Создание нового элемента коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups_col.GetItem(System.Object)">
+ <summary>
+Получить элемент коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.Groups_col.Item(System.Object)">
+ <summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.GroupUser">
+ <summary>
+Реализация строки раздела Состав группы
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="F:MTZUsers.MTZUsers.GroupUser.m_TheUser">
+ <summary>
+Локальная переменная для поля Пользователь
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.CleanFields">
+ <summary>
+Очистить поля раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.GroupUser.Count">
+ <summary>
+Количество полей в строке раздела
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.GroupUser.Value(System.Object)">
+ <summary>
+Получить \Задать поле по номеру 
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.FieldNameByID(System.Int64)">
+ <summary>
+Название поля по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.FillDataTable(System.Data.DataTable@)">
+ <summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.FindInside(System.String,System.String)">
+ <summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.Pack(LATIR2.NamedValues)">
+ <summary>
+Заполнить коллекцю именованных полей
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.Unpack(System.Data.DataRow)">
+ <summary>
+Заполнить поля из именованной коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.GroupUser.TheUser">
+ <summary>
+Доступ к полю Пользователь
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+ <summary>
+Заполнить поля данными из XML
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+ <summary>
+Записать данные раздела в XML файл
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.BatchUpdate">
+ <summary>
+Записать изменения в базу данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="P:MTZUsers.MTZUsers.GroupUser.CountOfParts">
+ <summary>
+Количество дочерних разделов
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser.GetDocCollection_Base(System.Int64)">
+ <summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="T:MTZUsers.MTZUsers.GroupUser_col">
+ <summary>
+Реализация раздела Состав группыв виде коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser_col.ChildPartName">
+ <summary>
+Имя раздела в базе данных
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser_col.CreateDataTable">
+ <summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser_col.NewItem">
+ <summary>
+Создание нового элемента коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser_col.GetItem(System.Object)">
+ <summary>
+Получить элемент коллекции
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+<member name="M:MTZUsers.MTZUsers.GroupUser_col.Item(System.Object)">
+ <summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+ <remarks>
+
+ </remarks>
+</member>
+</members>
+</doc>

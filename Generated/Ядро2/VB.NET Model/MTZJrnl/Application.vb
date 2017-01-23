@@ -6,7 +6,7 @@ Imports LATIR2
 Imports LATIR2.Document
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 
@@ -677,7 +677,7 @@ end enum
 '''
 ''' </remarks>
         Protected Overrides Function MyTypeName() As String
-            MyTypeName = "MTZJrnl"
+            MyTypeName = "mtzjrnl"
         End Function
 
 
@@ -688,7 +688,7 @@ end enum
 ''' <remarks>
 '''
 ''' </remarks>
-  Private m_JournalColumn As JournalColumn_col
+  Private m_journalcolumn As journalcolumn_col
 
 
 ''' <summary>
@@ -697,15 +697,15 @@ end enum
 ''' <remarks>
 '''
 ''' </remarks>
-        Public ReadOnly Property JournalColumn() As JournalColumn_col
+        Public ReadOnly Property journalcolumn() As journalcolumn_col
             Get
-                If m_JournalColumn Is Nothing Then
-                    m_JournalColumn = New JournalColumn_col
-                    m_JournalColumn.Application = Me
-                    m_JournalColumn.Parent = Me
-                    m_JournalColumn.Refresh()
+                If m_journalcolumn Is Nothing Then
+                    m_journalcolumn = New journalcolumn_col
+                    m_journalcolumn.Application = Me
+                    m_journalcolumn.Parent = Me
+                    m_journalcolumn.Refresh()
                 End If
-                JournalColumn = m_JournalColumn
+                journalcolumn = m_journalcolumn
             End Get
         End Property
 
@@ -716,7 +716,7 @@ end enum
 ''' <remarks>
 '''
 ''' </remarks>
-  Private m_JournalSrc As JournalSrc_col
+  Private m_journalsrc As journalsrc_col
 
 
 ''' <summary>
@@ -725,15 +725,15 @@ end enum
 ''' <remarks>
 '''
 ''' </remarks>
-        Public ReadOnly Property JournalSrc() As JournalSrc_col
+        Public ReadOnly Property journalsrc() As journalsrc_col
             Get
-                If m_JournalSrc Is Nothing Then
-                    m_JournalSrc = New JournalSrc_col
-                    m_JournalSrc.Application = Me
-                    m_JournalSrc.Parent = Me
-                    m_JournalSrc.Refresh()
+                If m_journalsrc Is Nothing Then
+                    m_journalsrc = New journalsrc_col
+                    m_journalsrc.Application = Me
+                    m_journalsrc.Parent = Me
+                    m_journalsrc.Refresh()
                 End If
-                JournalSrc = m_JournalSrc
+                journalsrc = m_journalsrc
             End Get
         End Property
 
@@ -744,7 +744,7 @@ end enum
 ''' <remarks>
 '''
 ''' </remarks>
-  Private m_Journal As Journal_col
+  Private m_journal As journal_col
 
 
 ''' <summary>
@@ -753,15 +753,15 @@ end enum
 ''' <remarks>
 '''
 ''' </remarks>
-        Public ReadOnly Property Journal() As Journal_col
+        Public ReadOnly Property journal() As journal_col
             Get
-                If m_Journal Is Nothing Then
-                    m_Journal = New Journal_col
-                    m_Journal.Application = Me
-                    m_Journal.Parent = Me
-                    m_Journal.Refresh()
+                If m_journal Is Nothing Then
+                    m_journal = New journal_col
+                    m_journal.Application = Me
+                    m_journal.Parent = Me
+                    m_journal.Refresh()
                 End If
-                Journal = m_Journal
+                journal = m_journal
             End Get
         End Property
 
@@ -789,19 +789,19 @@ end enum
         Public Overrides Function GetDocCollection_Base(ByVal Index As Long) As DocCollection_Base
             Select Case Index
          Case 1
-            return Journal
+            return journal
          Case 2
-            return JournalSrc
+            return journalsrc
          Case 3
-            return JournalColumn
+            return journalcolumn
             End Select
             return nothing
         End Function
 
         Public Overrides Sub Dispose()
-            Journal.Dispose()
-            JournalSrc.Dispose()
-            JournalColumn.Dispose()
+            journal.Dispose()
+            journalsrc.Dispose()
+            journalcolumn.Dispose()
         End Sub
 
 
@@ -815,11 +815,11 @@ end enum
         Protected Overrides Function FindInCollections(ByVal Table As String, ByVal InstID As String) As LATIR2.Document.DocRow_Base
         FindInCollections = Nothing
             dim mFindInCollections As LATIR2.Document.DocRow_Base
-            mFindInCollections = Journal.FindObject(Table, InstID)
+            mFindInCollections = journal.FindObject(Table, InstID)
             if not mFindInCollections is nothing then return mFindInCollections
-            mFindInCollections = JournalSrc.FindObject(Table, InstID)
+            mFindInCollections = journalsrc.FindObject(Table, InstID)
             if not mFindInCollections is nothing then return mFindInCollections
-            mFindInCollections = JournalColumn.FindObject(Table, InstID)
+            mFindInCollections = journalcolumn.FindObject(Table, InstID)
             if not mFindInCollections is nothing then return mFindInCollections
         End Function
 
@@ -834,12 +834,12 @@ end enum
         Protected Overrides Sub XMLLoadCollections(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
             Dim e_list As XmlNodeList
            try
-            e_list = node.SelectNodes("Journal_COL")
-            Journal.XMLLoad(e_list, LoadMode)
-            e_list = node.SelectNodes("JournalSrc_COL")
-            JournalSrc.XMLLoad(e_list, LoadMode)
-            e_list = node.SelectNodes("JournalColumn_COL")
-            JournalColumn.XMLLoad(e_list, LoadMode)
+            e_list = node.SelectNodes("journal_COL")
+            journal.XMLLoad(e_list, LoadMode)
+            e_list = node.SelectNodes("journalsrc_COL")
+            journalsrc.XMLLoad(e_list, LoadMode)
+            e_list = node.SelectNodes("journalcolumn_COL")
+            journalcolumn.XMLLoad(e_list, LoadMode)
 catch ex as System.Exception
  Debug.Print( ex.Message + " >> " + ex.StackTrace)
 end try
@@ -854,9 +854,9 @@ end try
 '''
 ''' </remarks>
         Public Overrides Sub XMLSaveCollections(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-            Journal.XMLSave(node, Xdom)
-            JournalSrc.XMLSave(node, Xdom)
-            JournalColumn.XMLSave(node, Xdom)
+            journal.XMLSave(node, Xdom)
+            journalsrc.XMLSave(node, Xdom)
+            journalcolumn.XMLSave(node, Xdom)
         End Sub
 
 
@@ -868,9 +868,9 @@ end try
 '''
 ''' </remarks>
 Public Overrides Sub BatchUpdate()
-    Journal.BatchUpdate
-    JournalSrc.BatchUpdate
-    JournalColumn.BatchUpdate
+    journal.BatchUpdate
+    journalsrc.BatchUpdate
+    journalcolumn.BatchUpdate
 End Sub
     End Class
 End Namespace

@@ -1,0 +1,8 @@
+C:\LATIR2\Generated\Generated Dlls\LATIR_MSSQLGen.dll.config
+C:\LATIR2\Generated\Generated Dlls\LATIR_MSSQLGen.dll
+C:\LATIR2\Generated\Generated Dlls\LATIR_MSSQLGen.xml
+C:\LATIR2\GENERATORS\LATIR_SQLGen2\obj\Release\ResolveAssemblyReference.cache
+C:\LATIR2\GENERATORS\LATIR_SQLGen2\obj\Release\LATIR_MSSQLGen.frmOptions.resources
+C:\LATIR2\GENERATORS\LATIR_SQLGen2\obj\Release\LATIR_MSSQLGen.vbproj.GenerateResource.Cache
+C:\LATIR2\GENERATORS\LATIR_SQLGen2\obj\Release\LATIR_MSSQLGen.dll
+C:\LATIR2\GENERATORS\LATIR_SQLGen2\obj\Release\LATIR_MSSQLGen.xml

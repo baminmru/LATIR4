@@ -54,9 +54,9 @@ Public Class editARMJRNLREP
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblrepname  as  System.Windows.Forms.Label
-Friend WithEvents txtrepname As System.Windows.Forms.TextBox
+Friend WithEvents txtrepname As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheReport  as  System.Windows.Forms.Label
-Friend WithEvents txtTheReport As System.Windows.Forms.TextBox
+Friend WithEvents txtTheReport As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheReport As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -75,9 +75,9 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblrepname = New System.Windows.Forms.Label
-Me.txtrepname = New System.Windows.Forms.TextBox
+Me.txtrepname = New LATIR2GuiManager.TouchTextBox
 Me.lblTheReport = New System.Windows.Forms.Label
-Me.txtTheReport = New System.Windows.Forms.TextBox
+Me.txtTheReport = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheReport = New System.Windows.Forms.Button
 
 Me.lblrepname.Location = New System.Drawing.Point(20,5)
@@ -142,7 +142,7 @@ If OK Then
     txtTheReport.Text = brief
     txtTheReport.Tag = id
 End If
-        catch ex as systm.Exception
+        catch ex as system.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 End Sub

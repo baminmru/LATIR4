@@ -5,6 +5,7 @@ Imports LATIR2
 Imports System
 Imports System.xml
 Imports System.Data
+Imports System.Diagnostics
 
 Namespace MTZ2JOB
 
@@ -76,8 +77,11 @@ Namespace MTZ2JOB
 '''
 ''' </remarks>
         Public Function GetItem( vIndex as object ) As MTZ2JOB.MTZ2JOB_DEF
-            on error resume next
+            try
             GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZ2JOB.MTZ2JOB_DEF))
+catch ex as System.Exception
+ Debug.Print( ex.Message + " >> " + ex.StackTrace)
+end try
         End Function
 
 
@@ -88,8 +92,11 @@ Namespace MTZ2JOB
 '''
 ''' </remarks>
         Public Shadows Function Item( vIndex as object ) As MTZ2JOB.MTZ2JOB_DEF
-            on error resume next
+          try
             return GetItem(vIndex)
+          catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Function
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
@@ -99,8 +106,8 @@ Public Overrides Function FieldList() As String
            mFieldList =mFieldList+","+.Date2Base("EventDate") 
            mFieldList =mFieldList+ ", eventype" 
            mFieldList =mFieldList+","+.ID2Base("ThruObject") 
-           mFieldList =mFieldList+ ", thrustate" 
-           mFieldList =mFieldList+ ", nextstate" 
+           mFieldList =mFieldList+","+.ID2Base("ThruState") 
+           mFieldList =mFieldList+","+.ID2Base("NextState") 
            mFieldList =mFieldList+","+.Date2Base("ProcessDate") 
            mFieldList =mFieldList+ ", processed" 
        end with

@@ -1,3 +1,5 @@
+Imports System.IO
+
 
 Public Class Utils
 
@@ -176,6 +178,15 @@ Public Class Utils
     End Sub
 
 
+    Public Shared Function GetFile(ByVal filePath As String) As Byte()
+        Dim fs As FileStream = New FileStream(filePath, FileMode.Open, FileAccess.Read)
+        Dim br As BinaryReader = New BinaryReader(fs)
+        Dim data() As Byte = br.ReadBytes(CInt(fs.Length))
 
+        br.Close()
+        fs.Close()
+
+        Return data
+    End Function
 
 End Class

@@ -1,0 +1,29 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\LATIR_WINNET2.Form1.resources
+obj\Debug\LATIR_WINNET.vbproj.GenerateResource.Cache
+obj\Debug\LATIR_WINNET2.dll
+obj\Debug\LATIR_WINNET2.xml
+obj\Debug\LATIR_WINNET2.pdb
+.\bin\LATIR_WINNET2.dll.config
+.\bin\LATIR_WINNET2.dll
+.\bin\LATIR_WINNET2.xml
+.\bin\LATIRFramework.dll
+.\bin\LATIRGenerator.dll
+.\bin\MTZMetaModel.dll
+.\bin\LATIRFramework.pdb
+.\bin\LTOBJMan.xml
+.\bin\LATIRGuiManager.xml
+.\bin\LATIRGenerator.xml
+.\bin\LATIR_WINNET2.pdb
+.\bin\MTZMetaModel.pdb
+.\bin\MTZMetaModel.xml
+.\bin\LTOBJMan.pdb
+.\bin\LATIRGuiManager.pdb
+..\..\Generated\Generated Dlls\LATIR_WINNET2.dll.config
+..\..\Generated\Generated Dlls\LATIR_WINNET2.dll
+..\..\Generated\Generated Dlls\LATIR_WINNET2.xml
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LATIR_WINNET2.Form1.resources
+obj\Release\LATIR_WINNET.vbproj.GenerateResource.Cache
+obj\Release\LATIR_WINNET2.dll
+obj\Release\LATIR_WINNET2.xml

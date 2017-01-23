@@ -28,19 +28,20 @@
 	'It can be modified using the Windows Form Designer.
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.chkNoExec = New System.Windows.Forms.CheckBox
-        Me.txtLog = New LATIR2GuiManager.TouchTextBox
-        Me.cmdCleanBase = New System.Windows.Forms.Button
-        Me.lstTypes = New System.Windows.Forms.CheckedListBox
-        Me.cmdSelAll = New System.Windows.Forms.Button
-        Me.cmdClearAll = New System.Windows.Forms.Button
-        Me.Label4 = New System.Windows.Forms.Label
+        Me.chkNoExec = New System.Windows.Forms.CheckBox()
+        Me.txtLog = New LATIR2GuiManager.TouchTextBox()
+        Me.cmdCleanBase = New System.Windows.Forms.Button()
+        Me.lstTypes = New System.Windows.Forms.CheckedListBox()
+        Me.cmdSelAll = New System.Windows.Forms.Button()
+        Me.cmdClearAll = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'chkNoExec
         '
+        Me.chkNoExec.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkNoExec.BackColor = System.Drawing.SystemColors.Control
         Me.chkNoExec.Cursor = System.Windows.Forms.Cursors.Default
         Me.chkNoExec.ForeColor = System.Drawing.SystemColors.ControlText
@@ -55,6 +56,9 @@
         'txtLog
         '
         Me.txtLog.AcceptsReturn = True
+        Me.txtLog.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtLog.BackColor = System.Drawing.SystemColors.Window
         Me.txtLog.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtLog.ForeColor = System.Drawing.SystemColors.WindowText
@@ -69,6 +73,7 @@
         '
         'cmdCleanBase
         '
+        Me.cmdCleanBase.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdCleanBase.BackColor = System.Drawing.SystemColors.Control
         Me.cmdCleanBase.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdCleanBase.ForeColor = System.Drawing.SystemColors.ControlText
@@ -82,6 +87,8 @@
         '
         'lstTypes
         '
+        Me.lstTypes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstTypes.BackColor = System.Drawing.SystemColors.Window
         Me.lstTypes.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstTypes.ForeColor = System.Drawing.SystemColors.WindowText
@@ -95,6 +102,7 @@
         '
         'cmdSelAll
         '
+        Me.cmdSelAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdSelAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdSelAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdSelAll.ForeColor = System.Drawing.SystemColors.ControlText
@@ -108,6 +116,7 @@
         '
         'cmdClearAll
         '
+        Me.cmdClearAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdClearAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdClearAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdClearAll.ForeColor = System.Drawing.SystemColors.ControlText
@@ -151,10 +160,11 @@
         Me.MinimizeBox = False
         Me.Name = "frmCleanBaseTool"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Очистка базы данных"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-#End Region 
+#End Region
 End Class

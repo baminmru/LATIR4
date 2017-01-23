@@ -1,1 +1,1 @@
-"C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBUILD.exe " "C:\LATIR4\Generated\Ÿ¤à®2\VB.NET Interface\MTZJrnl\MTZJrnlGUI.vbproj" /t:Rebuild
+"C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBUILD.exe " "C:\LATIR4\Generated\Ÿ¤à®2\VB.NET Interface\mtzjrnl\mtzjrnlGUI.vbproj" /t:Rebuild

@@ -15,7 +15,7 @@ Public Class frmExportToMySQL
         Dim dt As System.Data.DataTable
         Dim oID As System.Guid
         Dim i As Long
-        dt = Manager.Session.GetRowsExDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, "", "", "OBJTYPE='MTZMetaModel'", "")
+        dt = Manager.Session.GetRowsExDT("INSTANCE", Manager.Session.GetProvider.InstanceFieldList, "", "", "OBJTYPE='mtzmetamodel'", "")
 
         oID = New Guid(dt.Rows(0)("INSTANCEID").ToString())
         model = CType(Manager.GetInstanceObject(oID), MTZMetaModel.MTZMetaModel.Application)

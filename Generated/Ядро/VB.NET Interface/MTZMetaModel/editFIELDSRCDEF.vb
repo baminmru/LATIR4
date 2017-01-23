@@ -54,21 +54,21 @@ Public Class editFIELDSRCDEF
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblProvider  as  System.Windows.Forms.Label
-Friend WithEvents txtProvider As System.Windows.Forms.TextBox
+Friend WithEvents txtProvider As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblConnectionString  as  System.Windows.Forms.Label
-Friend WithEvents txtConnectionString As System.Windows.Forms.TextBox
+Friend WithEvents txtConnectionString As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblDataSource  as  System.Windows.Forms.Label
-Friend WithEvents txtDataSource As System.Windows.Forms.TextBox
+Friend WithEvents txtDataSource As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblIDField  as  System.Windows.Forms.Label
-Friend WithEvents txtIDField As System.Windows.Forms.TextBox
+Friend WithEvents txtIDField As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblBriefString  as  System.Windows.Forms.Label
-Friend WithEvents txtBriefString As System.Windows.Forms.TextBox
+Friend WithEvents txtBriefString As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFilterString  as  System.Windows.Forms.Label
-Friend WithEvents txtFilterString As System.Windows.Forms.TextBox
+Friend WithEvents txtFilterString As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblSortField  as  System.Windows.Forms.Label
-Friend WithEvents txtSortField As System.Windows.Forms.TextBox
+Friend WithEvents txtSortField As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblDescriptionString  as  System.Windows.Forms.Label
-Friend WithEvents txtDescriptionString As System.Windows.Forms.TextBox
+Friend WithEvents txtDescriptionString As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblDontShowDialog  as  System.Windows.Forms.Label
 Friend WithEvents cmbDontShowDialog As System.Windows.Forms.ComboBox
 Friend cmbDontShowDialogDATA As DataTable
@@ -90,21 +90,21 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblProvider = New System.Windows.Forms.Label
-Me.txtProvider = New System.Windows.Forms.TextBox
+Me.txtProvider = New LATIR2GuiManager.TouchTextBox
 Me.lblConnectionString = New System.Windows.Forms.Label
-Me.txtConnectionString = New System.Windows.Forms.TextBox
+Me.txtConnectionString = New LATIR2GuiManager.TouchTextBox
 Me.lblDataSource = New System.Windows.Forms.Label
-Me.txtDataSource = New System.Windows.Forms.TextBox
+Me.txtDataSource = New LATIR2GuiManager.TouchTextBox
 Me.lblIDField = New System.Windows.Forms.Label
-Me.txtIDField = New System.Windows.Forms.TextBox
+Me.txtIDField = New LATIR2GuiManager.TouchTextBox
 Me.lblBriefString = New System.Windows.Forms.Label
-Me.txtBriefString = New System.Windows.Forms.TextBox
+Me.txtBriefString = New LATIR2GuiManager.TouchTextBox
 Me.lblFilterString = New System.Windows.Forms.Label
-Me.txtFilterString = New System.Windows.Forms.TextBox
+Me.txtFilterString = New LATIR2GuiManager.TouchTextBox
 Me.lblSortField = New System.Windows.Forms.Label
-Me.txtSortField = New System.Windows.Forms.TextBox
+Me.txtSortField = New LATIR2GuiManager.TouchTextBox
 Me.lblDescriptionString = New System.Windows.Forms.Label
-Me.txtDescriptionString = New System.Windows.Forms.TextBox
+Me.txtDescriptionString = New LATIR2GuiManager.TouchTextBox
 Me.lblDontShowDialog = New System.Windows.Forms.Label
 Me.cmbDontShowDialog = New System.Windows.Forms.ComboBox
 

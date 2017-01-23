@@ -181,10 +181,6 @@
       <Project>{3E351770-05C0-4569-B7D7-EBD6F5EE49C4}</Project>
       <Name>MTZMetaModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\guicontrols\LATIRGUIControls.vbproj">
-      <Project>{E4E7ECF4-3CA4-46C6-BDFB-02C60263B704}</Project>
-      <Name>LATIRGUIControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\GuiManager\Latir2GuiManager.vbproj">
       <Project>{60996302-32D9-4636-9695-4046E51779BE}</Project>
       <Name>Latir2GuiManager</Name>

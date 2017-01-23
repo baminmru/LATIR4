@@ -54,17 +54,17 @@ Public Class editFIELD
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTabName  as  System.Windows.Forms.Label
-Friend WithEvents txtTabName As System.Windows.Forms.TextBox
+Friend WithEvents txtTabName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFieldGroupBox  as  System.Windows.Forms.Label
-Friend WithEvents txtFieldGroupBox As System.Windows.Forms.TextBox
+Friend WithEvents txtFieldGroupBox As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblSequence  as  System.Windows.Forms.Label
-Friend WithEvents txtSequence As System.Windows.Forms.TextBox
+Friend WithEvents txtSequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblCaption  as  System.Windows.Forms.Label
-Friend WithEvents txtCaption As System.Windows.Forms.TextBox
+Friend WithEvents txtCaption As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFieldType  as  System.Windows.Forms.Label
-Friend WithEvents txtFieldType As System.Windows.Forms.TextBox
+Friend WithEvents txtFieldType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdFieldType As System.Windows.Forms.Button
 Friend WithEvents lblIsBrief  as  System.Windows.Forms.Label
 Friend WithEvents cmbIsBrief As System.Windows.Forms.ComboBox
@@ -79,21 +79,21 @@ Friend WithEvents cmbAllowNull As System.Windows.Forms.ComboBox
 Friend cmbAllowNullDATA As DataTable
 Friend cmbAllowNullDATAROW As DataRow
 Friend WithEvents lblDataSize  as  System.Windows.Forms.Label
-Friend WithEvents txtDataSize As System.Windows.Forms.TextBox
+Friend WithEvents txtDataSize As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblReferenceType  as  System.Windows.Forms.Label
 Friend WithEvents cmbReferenceType As System.Windows.Forms.ComboBox
 Friend cmbReferenceTypeDATA As DataTable
 Friend cmbReferenceTypeDATAROW As DataRow
 Friend WithEvents lblRefToType  as  System.Windows.Forms.Label
-Friend WithEvents txtRefToType As System.Windows.Forms.TextBox
+Friend WithEvents txtRefToType As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdRefToType As System.Windows.Forms.Button
 Friend WithEvents cmdRefToTypeClear As System.Windows.Forms.Button
 Friend WithEvents lblRefToPart  as  System.Windows.Forms.Label
-Friend WithEvents txtRefToPart As System.Windows.Forms.TextBox
+Friend WithEvents txtRefToPart As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdRefToPart As System.Windows.Forms.Button
 Friend WithEvents cmdRefToPartClear As System.Windows.Forms.Button
 Friend WithEvents lblTheStyle  as  System.Windows.Forms.Label
-Friend WithEvents txtTheStyle As System.Windows.Forms.TextBox
+Friend WithEvents txtTheStyle As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblInternalReference  as  System.Windows.Forms.Label
 Friend WithEvents cmbInternalReference As System.Windows.Forms.ComboBox
 Friend cmbInternalReferenceDATA As DataTable
@@ -107,23 +107,23 @@ Friend WithEvents cmbIsAutoNumber As System.Windows.Forms.ComboBox
 Friend cmbIsAutoNumberDATA As DataTable
 Friend cmbIsAutoNumberDATAROW As DataRow
 Friend WithEvents lblTheNumerator  as  System.Windows.Forms.Label
-Friend WithEvents txtTheNumerator As System.Windows.Forms.TextBox
+Friend WithEvents txtTheNumerator As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheNumerator As System.Windows.Forms.Button
 Friend WithEvents cmdTheNumeratorClear As System.Windows.Forms.Button
 Friend WithEvents lblZoneTemplate  as  System.Windows.Forms.Label
-Friend WithEvents txtZoneTemplate As System.Windows.Forms.TextBox
+Friend WithEvents txtZoneTemplate As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblNumberDateField  as  System.Windows.Forms.Label
-Friend WithEvents txtNumberDateField As System.Windows.Forms.TextBox
+Friend WithEvents txtNumberDateField As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdNumberDateField As System.Windows.Forms.Button
 Friend WithEvents cmdNumberDateFieldClear As System.Windows.Forms.Button
 Friend WithEvents lblTheComment  as  System.Windows.Forms.Label
-Friend WithEvents txtTheComment As System.Windows.Forms.TextBox
+Friend WithEvents txtTheComment As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblshablonBrief  as  System.Windows.Forms.Label
-Friend WithEvents txtshablonBrief As System.Windows.Forms.TextBox
+Friend WithEvents txtshablonBrief As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lbltheNameClass  as  System.Windows.Forms.Label
-Friend WithEvents txttheNameClass As System.Windows.Forms.TextBox
+Friend WithEvents txttheNameClass As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheMask  as  System.Windows.Forms.Label
-Friend WithEvents txtTheMask As System.Windows.Forms.TextBox
+Friend WithEvents txtTheMask As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -141,17 +141,17 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTabName = New System.Windows.Forms.Label
-Me.txtTabName = New System.Windows.Forms.TextBox
+Me.txtTabName = New LATIR2GuiManager.TouchTextBox
 Me.lblFieldGroupBox = New System.Windows.Forms.Label
-Me.txtFieldGroupBox = New System.Windows.Forms.TextBox
+Me.txtFieldGroupBox = New LATIR2GuiManager.TouchTextBox
 Me.lblSequence = New System.Windows.Forms.Label
-Me.txtSequence = New System.Windows.Forms.TextBox
+Me.txtSequence = New LATIR2GuiManager.TouchTextBox
 Me.lblCaption = New System.Windows.Forms.Label
-Me.txtCaption = New System.Windows.Forms.TextBox
+Me.txtCaption = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblFieldType = New System.Windows.Forms.Label
-Me.txtFieldType = New System.Windows.Forms.TextBox
+Me.txtFieldType = New LATIR2GuiManager.TouchTextBox
 Me.cmdFieldType = New System.Windows.Forms.Button
 Me.lblIsBrief = New System.Windows.Forms.Label
 Me.cmbIsBrief = New System.Windows.Forms.ComboBox
@@ -160,19 +160,19 @@ Me.cmbIsTabBrief = New System.Windows.Forms.ComboBox
 Me.lblAllowNull = New System.Windows.Forms.Label
 Me.cmbAllowNull = New System.Windows.Forms.ComboBox
 Me.lblDataSize = New System.Windows.Forms.Label
-Me.txtDataSize = New System.Windows.Forms.TextBox
+Me.txtDataSize = New LATIR2GuiManager.TouchTextBox
 Me.lblReferenceType = New System.Windows.Forms.Label
 Me.cmbReferenceType = New System.Windows.Forms.ComboBox
 Me.lblRefToType = New System.Windows.Forms.Label
-Me.txtRefToType = New System.Windows.Forms.TextBox
+Me.txtRefToType = New LATIR2GuiManager.TouchTextBox
 Me.cmdRefToType = New System.Windows.Forms.Button
 Me.cmdRefToTypeClear = New System.Windows.Forms.Button
 Me.lblRefToPart = New System.Windows.Forms.Label
-Me.txtRefToPart = New System.Windows.Forms.TextBox
+Me.txtRefToPart = New LATIR2GuiManager.TouchTextBox
 Me.cmdRefToPart = New System.Windows.Forms.Button
 Me.cmdRefToPartClear = New System.Windows.Forms.Button
 Me.lblTheStyle = New System.Windows.Forms.Label
-Me.txtTheStyle = New System.Windows.Forms.TextBox
+Me.txtTheStyle = New LATIR2GuiManager.TouchTextBox
 Me.lblInternalReference = New System.Windows.Forms.Label
 Me.cmbInternalReference = New System.Windows.Forms.ComboBox
 Me.lblCreateRefOnly = New System.Windows.Forms.Label
@@ -180,23 +180,23 @@ Me.cmbCreateRefOnly = New System.Windows.Forms.ComboBox
 Me.lblIsAutoNumber = New System.Windows.Forms.Label
 Me.cmbIsAutoNumber = New System.Windows.Forms.ComboBox
 Me.lblTheNumerator = New System.Windows.Forms.Label
-Me.txtTheNumerator = New System.Windows.Forms.TextBox
+Me.txtTheNumerator = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheNumerator = New System.Windows.Forms.Button
 Me.cmdTheNumeratorClear = New System.Windows.Forms.Button
 Me.lblZoneTemplate = New System.Windows.Forms.Label
-Me.txtZoneTemplate = New System.Windows.Forms.TextBox
+Me.txtZoneTemplate = New LATIR2GuiManager.TouchTextBox
 Me.lblNumberDateField = New System.Windows.Forms.Label
-Me.txtNumberDateField = New System.Windows.Forms.TextBox
+Me.txtNumberDateField = New LATIR2GuiManager.TouchTextBox
 Me.cmdNumberDateField = New System.Windows.Forms.Button
 Me.cmdNumberDateFieldClear = New System.Windows.Forms.Button
 Me.lblTheComment = New System.Windows.Forms.Label
-Me.txtTheComment = New System.Windows.Forms.TextBox
+Me.txtTheComment = New LATIR2GuiManager.TouchTextBox
 Me.lblshablonBrief = New System.Windows.Forms.Label
-Me.txtshablonBrief = New System.Windows.Forms.TextBox
+Me.txtshablonBrief = New LATIR2GuiManager.TouchTextBox
 Me.lbltheNameClass = New System.Windows.Forms.Label
-Me.txttheNameClass = New System.Windows.Forms.TextBox
+Me.txttheNameClass = New LATIR2GuiManager.TouchTextBox
 Me.lblTheMask = New System.Windows.Forms.Label
-Me.txtTheMask = New System.Windows.Forms.TextBox
+Me.txtTheMask = New LATIR2GuiManager.TouchTextBox
 
 Me.lblTabName.Location = New System.Drawing.Point(20,5)
 Me.lblTabName.name = "lblTabName"

@@ -1,0 +1,20 @@
+C:\LATIR2\Generated\Generated Dlls\LATIRGenerator.dll
+C:\LATIR2\Generated\Generated Dlls\LATIRGenerator.pdb
+C:\LATIR2\Generated\Generated Dlls\LATIRGenerator.xml
+C:\LATIR2\LATIRGENERATOR\obj\Debug\LATIRGenerator.dll
+C:\LATIR2\LATIRGENERATOR\obj\Debug\LATIRGenerator.xml
+C:\LATIR2\LATIRGENERATOR\obj\Debug\LATIRGenerator.pdb
+E:\LATIR2\LATIRGENERATOR\bin\Debug\LATIRGenerator.dll
+E:\LATIR2\LATIRGENERATOR\bin\Debug\LATIRGenerator.pdb
+E:\LATIR2\LATIRGENERATOR\bin\Debug\LATIRGenerator.xml
+E:\LATIR2\LATIRGENERATOR\obj\Debug\ResolveAssemblyReference.cache
+E:\LATIR2\LATIRGENERATOR\obj\Debug\LATIRGenerator.dll
+E:\LATIR2\LATIRGENERATOR\obj\Debug\LATIRGenerator.xml
+E:\LATIR2\LATIRGENERATOR\obj\Debug\LATIRGenerator.pdb
+E:\LATIR4\LATIRGENERATOR\bin\Debug\LATIRGenerator.dll
+E:\LATIR4\LATIRGENERATOR\bin\Debug\LATIRGenerator.pdb
+E:\LATIR4\LATIRGENERATOR\bin\Debug\LATIRGenerator.xml
+E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.dll
+E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.xml
+E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.pdb
+E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.vbprojResolveAssemblyReference.cache

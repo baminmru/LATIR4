@@ -1,0 +1,1956 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MTZwp
+</name>
+</assembly>
+<members>
+<member name="M:MTZwp.MTZwp.ARMTypes_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMTypes_col">
+	<summary>
+Реализация раздела Список типовв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMTypes.m_TheDocumentType">
+	<summary>
+Локальная переменная для поля Тип документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMTypes.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMTypes.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMTypes.TheDocumentType">
+	<summary>
+Доступ к полю Тип документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMTypes.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMTypes.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMTypes">
+	<summary>
+Реализация строки раздела Список типов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.WorkPlace.m_TheVersion">
+	<summary>
+Локальная переменная для поля Версия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.WorkPlace.m_TheComment">
+	<summary>
+Локальная переменная для поля Примечание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.WorkPlace.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.WorkPlace.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.WorkPlace.m_ThePlatform">
+	<summary>
+Локальная переменная для поля Платформа реализации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.TheVersion">
+	<summary>
+Доступ к полю Версия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.ThePlatform">
+	<summary>
+Доступ к полю Платформа реализации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.TheComment">
+	<summary>
+Доступ к полю Примечание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.WorkPlace.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.WorkPlace">
+	<summary>
+Реализация строки раздела Арм
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EPFilterLink.m_FilterField">
+	<summary>
+Локальная переменная для поля Поле фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EPFilterLink.m_RowSource">
+	<summary>
+Локальная переменная для поля Источник
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EPFilterLink.m_TheExpression">
+	<summary>
+Локальная переменная для поля Выражение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EPFilterLink.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EPFilterLink.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EPFilterLink.RowSource">
+	<summary>
+Доступ к полю Источник
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EPFilterLink.TheExpression">
+	<summary>
+Доступ к полю Выражение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EPFilterLink.FilterField">
+	<summary>
+Доступ к полю Поле фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EPFilterLink.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.EPFilterLink">
+	<summary>
+Реализация строки раздела Привязка фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJRNLRUN.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJRNLRUN.m_TheExtention">
+	<summary>
+Локальная переменная для поля Расширение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLRUN.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLRUN.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLRUN.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLRUN.TheExtention">
+	<summary>
+Доступ к полю Расширение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLRUN.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJRNLRUN">
+	<summary>
+Реализация строки раздела Действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EPFilterLink_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.EPFilterLink_col">
+	<summary>
+Реализация раздела Привязка фильтрав виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJRNLREP.m_TheReport">
+	<summary>
+Локальная переменная для поля Отчет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJRNLREP.m_repname">
+	<summary>
+Локальная переменная для поля Название отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLREP.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLREP.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLREP.repname">
+	<summary>
+Доступ к полю Название отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLREP.TheReport">
+	<summary>
+Доступ к полю Отчет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLREP.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJRNLREP">
+	<summary>
+Реализация строки раздела Отчеты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumHACCPStep">
+	<summary>
+Перечисление Тип шага в ХАССП процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPCB_FileType">
+	<summary>
+Перечисление Тип файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumHaccpIdent">
+	<summary>
+Перечисление Идентификация
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeFace">
+	<summary>
+Перечисление Физическое лицо \ Юрифическое лицо
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumWFStepClass">
+	<summary>
+Перечисление Тип шага процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumMonths">
+	<summary>
+Перечисление Месяцы
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumTypeStyle">
+	<summary>
+Перечисление Вариант трактовки типа поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumAggregationType">
+	<summary>
+Перечисление Вариант агрегации по полю
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumVHAlignment">
+	<summary>
+Перечисление Выравнивание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypePackage">
+	<summary>
+Перечисление Тип отправления
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPCB_HoleType">
+	<summary>
+Перечисление Тип отверстия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumWEBS_PageType">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumWFProcessState">
+	<summary>
+Перечисление Состояния процесса
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumNumerationRule">
+	<summary>
+Перечисление Правило нумерации
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumMenuActionType">
+	<summary>
+Перечисление Вариант действия при выборе пункта меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumColumnSortType">
+	<summary>
+Перечисление Вариант сортиовки данных колонки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumAdditionType">
+	<summary>
+Перечисление Тип надбавки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumTypeSempling">
+	<summary>
+Перечисление Тип выборки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumStructType">
+	<summary>
+Перечисление Тип раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumTargetType">
+	<summary>
+Перечисление Вариант уровня приложения, куда может генерироваться код
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumDeliveryOn">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeOperatorSystem">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumstateNomen">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPartAddBehaivor">
+	<summary>
+Перечисление Поведение при добавлении строки раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumFolderType">
+	<summary>
+Перечисление Тип папки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enummsgState">
+	<summary>
+Перечисление Состояние заявки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumWFShortcutType">
+	<summary>
+Перечисление Варианты ярлыков, которые может размещать процесс
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumReferenceType">
+	<summary>
+Перечисление ReferenceType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumSex">
+	<summary>
+Перечисление Мужской / Женский
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumMesureFormat">
+	<summary>
+Перечисление Формат индикатора
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumWFFuncParam">
+	<summary>
+Перечисление Вариант расшифровки параметра функции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumYesNo">
+	<summary>
+Перечисление Да / Нет (0 или 1)
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeOrder">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enummsgResult">
+	<summary>
+Перечисление Результат
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumGeneratorStyle">
+	<summary>
+Перечисление GeneratorStyle
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumReportType">
+	<summary>
+Перечисление Вариант отчета
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumHACCPPStep">
+	<summary>
+Перечисление Тип шага в ХАССП процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeDocOrder">
+	<summary>
+Перечисление Тип документов для печати заказчику
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPCB_LayerP">
+	<summary>
+Перечисление Представление поля
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumDayInWeek">
+	<summary>
+Перечисление День недели
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPlatType">
+	<summary>
+Перечисление Тип плательщика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPartType">
+	<summary>
+Перечисление PartType
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumEmployment">
+	<summary>
+Перечисление Занятость
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeClient">
+	<summary>
+Перечисление Тип заказчика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeNomen">
+	<summary>
+Перечисление Тип номенкатуры
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumKONTR_TYPE">
+	<summary>
+Перечисление Тип контрагента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypePersonPay">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumJournalLinkType">
+	<summary>
+Перечисление Для связи журналов друг с другом
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumConditionType">
+	<summary>
+Перечисление Варианты условий
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypePay">
+	<summary>
+Перечисление Сдельная \ Ставка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPCB_TaskType">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumVRTaskType">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeReceiv">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPCB_CustomerType">
+	<summary>
+Перечисление Статус заказчика
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumOnJournalRowClick">
+	<summary>
+Перечисление действие при открытии строки журнала
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeRowCheque">
+	<summary>
+Перечисление Тип строки чека
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumPCB_clear">
+	<summary>
+Перечисление Тип задачи
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeTariff">
+	<summary>
+Перечисление 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumEducation">
+	<summary>
+Перечисление Образование
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumDCType">
+	<summary>
+Перечисление Остатки/Дебит/Кредит
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumDevelopmentBase">
+	<summary>
+Перечисление Платформа разработки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumBoolean">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumTriState">
+	<summary>
+Перечисление Да / Нет / Не определено
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeTRF">
+	<summary>
+Перечисление Тип тарифа СС
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumCurrencyType">
+	<summary>
+Перечисление Валюта платежа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumWFFuncState">
+	<summary>
+Перечисление Состояние функции в бизнес процессе
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumtypeCourier">
+	<summary>
+Перечисление Договор \ ТрудКнижка
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumEmployment_">
+	<summary>
+Перечисление осталось для совместимости
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumKONTR_STATUS">
+	<summary>
+Перечисление Состояние партнера
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumMailSenderType">
+	<summary>
+Перечисление Да / Нет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumExtentionType">
+	<summary>
+Перечисление Тип расширения
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumReplicationType">
+	<summary>
+Перечисление Вариант репликации докуента
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.enumInfoStoreType">
+	<summary>
+Перечисление Тип каталога
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.Application.MyTypeName">
+	<summary>
+Название типа документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.Application.m_WorkPlace">
+	<summary>
+ Внутренняя переменная для раздела Арм
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.Application.WorkPlace">
+	<summary>
+Свойство для доступа к строкам раздела Арм
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.Application.m_EntryPoints">
+	<summary>
+ Внутренняя переменная для раздела Меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.Application.EntryPoints">
+	<summary>
+Свойство для доступа к строкам раздела Меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.Application.m_ARMTypes">
+	<summary>
+ Внутренняя переменная для раздела Список типов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.Application.ARMTypes">
+	<summary>
+Свойство для доступа к строкам раздела Список типов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.Application.m_ARMJournal">
+	<summary>
+ Внутренняя переменная для раздела Поведение журналов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.Application.ARMJournal">
+	<summary>
+Свойство для доступа к строкам раздела Поведение журналов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.Application.CountOfParts">
+	<summary>
+Количество разделов в объекте
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.Application.GetDocCollection_Base(System.Int64)">
+	<summary>
+Получить раздел по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.Application.FindInCollections(System.String,System.String)">
+	<summary>
+Поиск элемента в коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.Application.XMLLoadCollections(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Загрузка данных из XML  файла
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.Application.XMLSaveCollections(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Сохранение данных в XML  файле
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.Application.BatchUpdate">
+	<summary>
+Сохранение изменений в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.Application">
+	<summary>
+Реализация документа Документ описывает структуру автоматизированного рабочего места и особенности его функционирования.
+ </summary>
+	<remarks>
+Описание АРМ
+ </remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_ActionType">
+	<summary>
+Локальная переменная для поля Вариант действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_ObjectType">
+	<summary>
+Локальная переменная для поля Тип документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_Caption">
+	<summary>
+Локальная переменная для поля Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_Journal">
+	<summary>
+Локальная переменная для поля Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_Method">
+	<summary>
+Локальная переменная для поля Метод
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_sequence">
+	<summary>
+Локальная переменная для поля Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_JournalFixedQuery">
+	<summary>
+Локальная переменная для поля Ограничения к журналу
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_ARM">
+	<summary>
+Локальная переменная для поля АРМ
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_TheExtention">
+	<summary>
+Локальная переменная для поля Расширение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_TheFilter">
+	<summary>
+Локальная переменная для поля Фильтр
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_Report">
+	<summary>
+Локальная переменная для поля Отчет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_IconFile">
+	<summary>
+Локальная переменная для поля Файл картинки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_Document">
+	<summary>
+Локальная переменная для поля Документ
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_TheComment">
+	<summary>
+Локальная переменная для поля Примечание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_AsToolbarItem">
+	<summary>
+Локальная переменная для поля Включить в тулбар
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_EPFilterLink">
+	<summary>
+Локальная переменная для дочернего раздела Привязка фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.EntryPoints.m_EntryPoints">
+	<summary>
+Локальная переменная для дочерних записей раздела Меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.sequence">
+	<summary>
+Доступ к полю Последовательность
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Caption">
+	<summary>
+Доступ к полю Заголовок
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.AsToolbarItem">
+	<summary>
+Доступ к полю Включить в тулбар
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.ActionType">
+	<summary>
+Доступ к полю Вариант действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.TheFilter">
+	<summary>
+Доступ к полю Фильтр
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Journal">
+	<summary>
+Доступ к полю Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Report">
+	<summary>
+Доступ к полю Отчет
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Document">
+	<summary>
+Доступ к полю Документ
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.Method">
+	<summary>
+Доступ к полю Метод
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.IconFile">
+	<summary>
+Доступ к полю Файл картинки
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.TheExtention">
+	<summary>
+Доступ к полю Расширение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.ARM">
+	<summary>
+Доступ к полю АРМ
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.TheComment">
+	<summary>
+Доступ к полю Примечание
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.ObjectType">
+	<summary>
+Доступ к полю Тип документа
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.JournalFixedQuery">
+	<summary>
+Доступ к полю Ограничения к журналу
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.EPFilterLink">
+	<summary>
+Доступ к дочернему разделу Привязка фильтра
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.EntryPoints">
+	<summary>
+Доступ к дочернему разделу Меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.EntryPoints.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.EntryPoints">
+	<summary>
+Реализация строки раздела Меню
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJournal_col">
+	<summary>
+Реализация раздела Поведение журналовв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLRUN_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJRNLRUN_col">
+	<summary>
+Реализация раздела Действияв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJRNLADD.m_TheExtention">
+	<summary>
+Локальная переменная для поля Расширение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJRNLADD.m_Name">
+	<summary>
+Локальная переменная для поля Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLADD.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLADD.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLADD.Name">
+	<summary>
+Доступ к полю Название
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLADD.TheExtention">
+	<summary>
+Доступ к полю Расширение
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJRNLADD.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJRNLADD">
+	<summary>
+Реализация строки раздела Добавление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLREP_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJRNLREP_col">
+	<summary>
+Реализация раздела Отчетыв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.WorkPlace_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.WorkPlace_col">
+	<summary>
+Реализация раздела Армв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJournal.m_TheJournal">
+	<summary>
+Локальная переменная для поля Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJournal.m_ARMJRNLADD">
+	<summary>
+Локальная переменная для дочернего раздела Добавление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJournal.m_ARMJRNLREP">
+	<summary>
+Локальная переменная для дочернего раздела Отчеты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="F:MTZwp.MTZwp.ARMJournal.m_ARMJRNLRUN">
+	<summary>
+Локальная переменная для дочернего раздела Действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.CleanFields">
+	<summary>
+Очистить поля раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.Count">
+	<summary>
+Количество полей в строке раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.Value(System.Object)">
+	<summary>
+Получить \Задать поле по номеру 
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.FieldNameByID(System.Int64)">
+	<summary>
+Название поля по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.FillDataTable(System.Data.DataTable@)">
+	<summary>
+Заполнить строку таблицы данными из полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.FindInside(System.String,System.String)">
+	<summary>
+Найти строку в коллекции по идентификатору
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.Pack(LATIR.NamedValues)">
+	<summary>
+Заполнить коллекцю именованных полей
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.Unpack(System.Data.DataRow)">
+	<summary>
+Заполнить поля из именованной коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.TheJournal">
+	<summary>
+Доступ к полю Журнал
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.ARMJRNLADD">
+	<summary>
+Доступ к дочернему разделу Добавление
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.ARMJRNLREP">
+	<summary>
+Доступ к дочернему разделу Отчеты
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.ARMJRNLRUN">
+	<summary>
+Доступ к дочернему разделу Действия
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.XMLUnpack(System.Xml.XmlNode,System.Int32)">
+	<summary>
+Заполнить поля данными из XML
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.XLMPack(System.Xml.XmlElement,System.Xml.XmlDocument)">
+	<summary>
+Записать данные раздела в XML файл
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.BatchUpdate">
+	<summary>
+Записать изменения в базу данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="P:MTZwp.MTZwp.ARMJournal.CountOfParts">
+	<summary>
+Количество дочерних разделов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJournal.GetDocCollection_Base(System.Int64)">
+	<summary>
+Доступ к дочернему разделу по номеру
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJournal">
+	<summary>
+Реализация строки раздела Поведение журналов
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.ARMJRNLADD_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.ARMJRNLADD_col">
+	<summary>
+Реализация раздела Добавлениев виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints_col.ChildPartName">
+	<summary>
+Имя раздела в базе данных
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints_col.IsTree">
+	<summary>
+Признак древовидного раздела
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints_col.CreateDataTable">
+	<summary>
+Вернуть даные текущей коллекции в виде DataTable
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints_col.NewItem">
+	<summary>
+Создание нового элемента коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints_col.GetItem(System.Object)">
+	<summary>
+Получить элемент коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="M:MTZwp.MTZwp.EntryPoints_col.Item(System.Object)">
+	<summary>
+Получить элемент коллекции, более свежий вариант
+ </summary>
+	<remarks>
+	</remarks>
+</member><member name="T:MTZwp.MTZwp.EntryPoints_col">
+	<summary>
+Реализация раздела Менюв виде коллекции
+ </summary>
+	<remarks>
+	</remarks>
+</member>
+</members>
+</doc>

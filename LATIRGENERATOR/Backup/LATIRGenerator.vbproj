@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DE43AAE4-1C37-47EB-A4C3-00A5619D08F8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>LATIRGenerator</AssemblyName>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Text</OptionCompare>
+    <RootNamespace>LATIRGenerator</RootNamespace>
+    <MyType>Windows</MyType>
+    <SignAssembly>false</SignAssembly>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <DocumentationFile>LATIRGenerator.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <DefineConstants>Win32 = True</DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42024,42032,42036</NoWarn>
+    <AdditionalParameters />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <DocumentationFile>LATIRGenerator.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <DefineConstants>Win32 = True</DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42024,42032,42036</NoWarn>
+    <DebugType>none</DebugType>
+    <AdditionalParameters />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Microsoft.VisualBasic.Compatibility" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AttributeHolder.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlockHolder.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Blocks.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlData.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlData_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlProperty.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlProperty_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converter.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FormData.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModuleHolder.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProjectHolder.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PropertyData.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PropertyData_col.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Response.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Writer.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelSupport\" />
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+</Project>

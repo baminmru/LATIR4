@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Administrator">
+</Property><Property Name="Solution File" Value="C:\latir2\applications\administrator\Administrator.sln">
+</Property><Property Name="Date" Value="28 марта 2014 г.">
+</Property><Property Name="Time" Value="15:30:13">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj" Description="Project file successfully backed up as C:\latir2\applications\administrator\Backup1\MTZJrnl.vbproj">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\Application.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\Application.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\AssemblyInfo.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\JournalColumn.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\JournalColumn.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\JournalColumn_col.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\JournalColumn_col.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\JColumnSource.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\JColumnSource.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\JColumnSource_col.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\JColumnSource_col.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\JournalSrc.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\JournalSrc.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\JournalSrc_col.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\JournalSrc_col.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\Journal.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\Journal.vb">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\Journal_col.vb" Description="File successfully backed up as C:\latir2\applications\administrator\Backup1\Journal_col.vb">
+</Event><Event ErrorLevel="1" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MTZJrnl" Source="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

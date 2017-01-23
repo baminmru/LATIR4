@@ -1,0 +1,16 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\LATIRFramework.dll
+bin\Debug\LATIRFramework.pdb
+bin\Debug\LTOBJMan.dll
+bin\Debug\MTZMetaModel.dll
+obj\Debug\LATIRFramework.dll
+obj\Debug\LATIRFramework.pdb
+bin\Debug\LATIRGenerator.dll
+bin\Debug\LATIRGenerator.pdb
+bin\Debug\LATIRGenerator.xml
+bin\Debug\LTOBJMan.pdb
+bin\Debug\LTOBJMan.xml
+bin\Debug\MTZMetaModel.pdb
+bin\Debug\MTZMetaModel.xml
+..\..\Generated\Generated Dlls\LATIRFramework.dll
+..\..\Generated\Generated Dlls\LATIRFramework.pdb

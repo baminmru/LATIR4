@@ -124,4 +124,57 @@ Public Class AutoPanel
         End Get
     End Property
 
+
+
+
+    Dim mouseDownPoint As Point
+    Private Sub me_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseDown
+        If (e.Button = MouseButtons.Left) Then
+            Me.mouseDownPoint = Me.PointToClient(MousePosition)
+        End If
+
+    End Sub
+
+    Private Sub me_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove
+        If (e.Button <> MouseButtons.Left) Then
+            Return
+        End If
+
+        If ((mouseDownPoint.X = Me.PointToClient(MousePosition).X) _
+                    AndAlso (mouseDownPoint.Y = Me.PointToClient(MousePosition).Y)) Then
+            Return
+        End If
+
+        Dim currAutoS As Point = Me.AutoScrollPosition
+        If (mouseDownPoint.Y > Me.PointToClient(MousePosition).Y) Then
+            'finger slide UP
+            If (currAutoS.Y <> 0) Then
+                currAutoS.Y = (Math.Abs(currAutoS.Y) - 1)
+            End If
+
+        ElseIf (mouseDownPoint.Y < Me.PointToClient(MousePosition).Y) Then
+            'finger slide down
+            currAutoS.Y = (Math.Abs(currAutoS.Y) + 1)
+        Else
+            currAutoS.Y = Math.Abs(currAutoS.Y)
+        End If
+
+        If (mouseDownPoint.X > Me.PointToClient(MousePosition).X) Then
+            'finger slide left
+            If (currAutoS.X <> 0) Then
+                currAutoS.X = (Math.Abs(currAutoS.X) - 1)
+            End If
+
+        ElseIf (mouseDownPoint.X < Me.PointToClient(MousePosition).X) Then
+            'finger slide right
+            currAutoS.X = (Math.Abs(currAutoS.X) + 1)
+        Else
+            currAutoS.X = Math.Abs(currAutoS.X)
+        End If
+
+        Me.AutoScrollPosition = currAutoS
+        mouseDownPoint = Me.PointToClient(MousePosition)
+        'IMPORTANT
+    End Sub
+
 End Class

@@ -54,23 +54,23 @@ Public Class editViewColumn
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblsequence  as  System.Windows.Forms.Label
-Friend WithEvents txtsequence As System.Windows.Forms.TextBox
+Friend WithEvents txtsequence As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
+Friend WithEvents txtName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblthe_Alias  as  System.Windows.Forms.Label
-Friend WithEvents txtthe_Alias As System.Windows.Forms.TextBox
+Friend WithEvents txtthe_Alias As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblFromPart  as  System.Windows.Forms.Label
-Friend WithEvents txtFromPart As System.Windows.Forms.TextBox
+Friend WithEvents txtFromPart As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdFromPart As System.Windows.Forms.Button
 Friend WithEvents lblField  as  System.Windows.Forms.Label
-Friend WithEvents txtField As System.Windows.Forms.TextBox
+Friend WithEvents txtField As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdField As System.Windows.Forms.Button
 Friend WithEvents lblAggregation  as  System.Windows.Forms.Label
 Friend WithEvents cmbAggregation As System.Windows.Forms.ComboBox
 Friend cmbAggregationDATA As DataTable
 Friend cmbAggregationDATAROW As DataRow
 Friend WithEvents lblExpression  as  System.Windows.Forms.Label
-Friend WithEvents txtExpression As System.Windows.Forms.TextBox
+Friend WithEvents txtExpression As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblForCombo  as  System.Windows.Forms.Label
 Friend WithEvents cmbForCombo As System.Windows.Forms.ComboBox
 Friend cmbForComboDATA As DataTable
@@ -92,21 +92,21 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblsequence = New System.Windows.Forms.Label
-Me.txtsequence = New System.Windows.Forms.TextBox
+Me.txtsequence = New LATIR2GuiManager.TouchTextBox
 Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
+Me.txtName = New LATIR2GuiManager.TouchTextBox
 Me.lblthe_Alias = New System.Windows.Forms.Label
-Me.txtthe_Alias = New System.Windows.Forms.TextBox
+Me.txtthe_Alias = New LATIR2GuiManager.TouchTextBox
 Me.lblFromPart = New System.Windows.Forms.Label
-Me.txtFromPart = New System.Windows.Forms.TextBox
+Me.txtFromPart = New LATIR2GuiManager.TouchTextBox
 Me.cmdFromPart = New System.Windows.Forms.Button
 Me.lblField = New System.Windows.Forms.Label
-Me.txtField = New System.Windows.Forms.TextBox
+Me.txtField = New LATIR2GuiManager.TouchTextBox
 Me.cmdField = New System.Windows.Forms.Button
 Me.lblAggregation = New System.Windows.Forms.Label
 Me.cmbAggregation = New System.Windows.Forms.ComboBox
 Me.lblExpression = New System.Windows.Forms.Label
-Me.txtExpression = New System.Windows.Forms.TextBox
+Me.txtExpression = New LATIR2GuiManager.TouchTextBox
 Me.lblForCombo = New System.Windows.Forms.Label
 Me.cmbForCombo = New System.Windows.Forms.ComboBox
 

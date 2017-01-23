@@ -58,9 +58,13 @@ Option Explicit On
 	' Set variable = me.Item(<параметры>)
 	Default Public ReadOnly Property Item(ByVal vntIndexKey As Object) As AttributeHolder
 		Get
-            On Error Resume Next
-			Item = mcol.Item(vntIndexKey)
-		End Get
+            Try
+                Return mcol.Item(vntIndexKey)
+            Catch ex As Exception
+                Return Nothing
+            End Try
+
+        End Get
 	End Property
 	
 	'Parameters:

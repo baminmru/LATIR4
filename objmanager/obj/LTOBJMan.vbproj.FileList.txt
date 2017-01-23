@@ -1,0 +1,10 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\LTOBJMan.dll
+obj\Debug\LTOBJMan.xml
+obj\Debug\LTOBJMan.pdb
+..\Generated\Generated Dlls\LTOBJMan.dll
+..\Generated\Generated Dlls\LTOBJMan.xml
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LTOBJMan.dll
+obj\Release\LTOBJMan.xml
+..\Generated\Generated Dlls\LTOBJMan.pdb

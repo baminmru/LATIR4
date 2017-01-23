@@ -1,6 +1,8 @@
 
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
+Imports System.Diagnostics
+Imports System.Drawing
 
 
 ''' <summary>
@@ -87,7 +89,7 @@ Public Class frmMTZExtRel
         Me.EditMTZExtRel.AutoScroll = True
         Me.EditMTZExtRel.Location = New System.Drawing.Point(8, 8)
         Me.EditMTZExtRel.name = "EditMTZExtRel"
-        Me.EditMTZExtRel.Size = New System.Drawing.Size(490, 600)
+        Me.EditMTZExtRel.Size = New System.Drawing.Size(800-40-16, 600-16)
         Me.EditMTZExtRel.TabIndex = 20
         Me.EditMTZExtRel.Dock = System.Windows.Forms.DockStyle.Fill
         '
@@ -107,7 +109,8 @@ Public Class frmMTZExtRel
 #End Region
     Public Item As MTZExt.MTZExt.MTZExtRel
     Public GuiManager As LATIR2GuiManager.LATIRGuiManager
-    Private mReadOnly as boolean
+    Private myResizer As LATIR2GuiManager.Resizer = New LATIR2GuiManager.Resizer
+    Private mReadOnly As Boolean
 
 
 
@@ -117,7 +120,7 @@ Public Class frmMTZExtRel
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, optional byval FormReadOnly as boolean =false)
+    Public Sub Attach(ByVal RowItem As LATIR2.Document.DocRow_Base, ByVal gm As LATIR2GuiManager.LATIRGuiManager, Optional ByVal FormReadOnly As Boolean =False)
         Item = CType(RowItem, MTZExt.MTZExt.MTZExtRel)
         GuiManager = gm
         mReadOnly = FormReadOnly
@@ -126,9 +129,9 @@ Public Class frmMTZExtRel
     End Sub
 
     Private Sub EditMTZExtRel_Changed() Handles EditMTZExtRel.Changed
-        if not mReadOnly then
+        If Not mReadOnly Then
           btnOK.Enabled = True
-        end if
+        End If
     End Sub
 
 
@@ -139,22 +142,33 @@ Public Class frmMTZExtRel
 '''
 ''' </remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
-      if not mReadOnly then
-        if EditMTZExtRel.IsOK() then
+      If Not mReadOnly Then
+        If EditMTZExtRel.IsOK() Then
           EditMTZExtRel.Save()
-          on error goto bye
+         Try
           Item.Save()
           Me.DialogResult = System.Windows.Forms.DialogResult.OK
           Me.Close
-        else
+        Catch ex As System.Exception
+          MsgBox(ex.Message,vbOKOnly+vbCritical,"Ошибка")
+        End Try
+        Else
           MsgBox("Не все обязательные пля заполнены",vbOKOnly+vbExclamation,"Ошибка")
-        end if
-        exit sub
-        bye:
-          MsgBox(err.description,vbOKOnly+vbCritical,"Ошибка")
-        end if
+        End If
+        Exit Sub
+        End If
     End Sub
-    Private Sub frmUsers_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+          Me.StartPosition = FormStartPosition.Manual
+          Me.WindowState = FormWindowState.Normal
+          Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+          Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+    End Sub
+    Private Sub frm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.ClientSize() = New System.Drawing.Size(EditMTZExtRel.GetMaxX() + 10, EditMTZExtRel.GetMaxY() + 35)
+        myResizer.FindAllControls(Me) 
     End Sub
+    Private Sub frm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+      myResizer.ResizeAllControls(Me)
+   End Sub
 End Class

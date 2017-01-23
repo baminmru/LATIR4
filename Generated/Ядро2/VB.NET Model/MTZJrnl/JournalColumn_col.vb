@@ -7,7 +7,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Diagnostics
 
-Namespace MTZJrnl
+Namespace mtzjrnl
 
 
 ''' <summary>
@@ -16,7 +16,7 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-    Public Class JournalColumn_col
+    Public Class journalcolumn_col
         Inherits LATIR2.Document.DocCollection_Base
 
 
@@ -28,7 +28,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Public Overrides Function ChildPartName() As String
-            ChildPartName = "JournalColumn"
+            ChildPartName = "journalcolumn"
         End Function
 
 
@@ -42,17 +42,17 @@ Namespace MTZJrnl
         Protected Overrides Function CreateDataTable() As System.Data.DataTable
             Dim dt As DataTable
             dt = New DataTable
-            dt.TableName="JournalColumn"
+            dt.TableName="journalcolumn"
             dt.Columns.Add("ID", GetType(System.guid))
             dt.Columns.Add("Brief", Gettype(System.string))
             dt.Columns.Add("sequence", Gettype(System.Int32))
             dt.Columns.Add("name", Gettype(System.string))
-            dt.Columns.Add("ColumnAlignment_VAL" , Gettype(System.Int16))
-            dt.Columns.Add("ColumnAlignment", Gettype(System.string))
-            dt.Columns.Add("ColSort_VAL" , Gettype(System.Int16))
-            dt.Columns.Add("ColSort", Gettype(System.string))
-            dt.Columns.Add("GroupAggregation_VAL" , Gettype(System.Int16))
-            dt.Columns.Add("GroupAggregation", Gettype(System.string))
+            dt.Columns.Add("columnalignment_VAL" , Gettype(System.Int16))
+            dt.Columns.Add("columnalignment", Gettype(System.string))
+            dt.Columns.Add("colsort_VAL" , Gettype(System.Int16))
+            dt.Columns.Add("colsort", Gettype(System.string))
+            dt.Columns.Add("groupaggregation_VAL" , Gettype(System.Int16))
+            dt.Columns.Add("groupaggregation", Gettype(System.string))
             return dt
         End Function
 
@@ -65,7 +65,7 @@ Namespace MTZJrnl
 '''
 ''' </remarks>
         Protected Overrides Function NewItem() As LATIR2.Document.DocRow_Base
-            NewItem = New JournalColumn
+            NewItem = New journalcolumn
         End Function
 
 
@@ -75,9 +75,9 @@ Namespace MTZJrnl
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Function GetItem( vIndex as object ) As MTZJrnl.JournalColumn
+        Public Function GetItem( vIndex as object ) As mtzjrnl.journalcolumn
             try
-            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(MTZJrnl.JournalColumn))
+            GetItem = Convert.ChangeType(mybase.Item(vIndex), GetType(mtzjrnl.journalcolumn))
 catch ex as System.Exception
  Debug.Print( ex.Message + " >> " + ex.StackTrace)
 end try
@@ -90,7 +90,7 @@ end try
 ''' <remarks>
 '''
 ''' </remarks>
-        Public Shadows Function Item( vIndex as object ) As MTZJrnl.JournalColumn
+        Public Shadows Function Item( vIndex as object ) As mtzjrnl.journalcolumn
           try
             return GetItem(vIndex)
           catch ex as System.Exception
@@ -100,7 +100,7 @@ end try
 Public Overrides Function FieldList() As String
     If mFieldList = "*" Then
        with application.Session.GetProvider
-       mFieldList=.ID2Base("JournalColumnID")
+       mFieldList=.ID2Base("journalcolumnID")
            mFieldList =mFieldList+","+.ID2Base("SecurityStyleID") 
            mFieldList =mFieldList+ ", sequence" 
            mFieldList =mFieldList+ ", name" 

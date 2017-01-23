@@ -89,7 +89,7 @@ Public Class Session
     Public Property XmlFile() As String
         Get
             If mXmlFile = "" Then
-                mXmlFile = System.IO.Path.GetDirectoryName(Me.GetType().Assembly.Location) & "\latir_sites.xml"
+                mXmlFile = System.IO.Path.GetDirectoryName(Me.GetType().Assembly.Location) & "\latir_sites.xml.zzz"
             End If
             Return mXmlFile
         End Get
@@ -116,12 +116,20 @@ Public Class Session
         End Set
     End Property
 
+    Public ReadOnly Property Connection() As DbConnection
+        Get
+            Return mTheDataSource.Connection
+        End Get
+    End Property
+
     ' класс,реализующий доступ к базе даных
     Friend ReadOnly Property TheDataSource() As TheDataSource
         Get
             Return mTheDataSource
         End Get
     End Property
+
+
 
 
     Public ReadOnly Property TheFinder() As Finder
@@ -136,7 +144,10 @@ Public Class Session
 
 
     Public ReadOnly Property Connected() As Boolean
+
         Get
+            If isClosed Then Return False
+            If mTheDataSource.Connection Is Nothing Then Return False
             If (mTheDataSource.Connection.State = ConnectionState.Open) Then
                 Return Not SessionID.Equals(System.Guid.Empty)
             Else
@@ -162,8 +173,16 @@ Public Class Session
                 Dim xdom As XmlDocument
                 Dim I As Integer
                 xdom = New XmlDocument
-                'If (XmlFile <> String.Empty) Then
-                xdom.Load(XmlFile)
+                If XmlFile.EndsWith("zzz") Then
+                    Dim s As String
+                    s = File.ReadAllText(XmlFile)
+                    s = CryptoZ.Decrypt(s, "LATIR4")
+                    xdom.LoadXml(s)
+
+                Else
+                    xdom.Load(XmlFile)
+                End If
+
 
 
                 For I = 0 To xdom.LastChild.ChildNodes.Count - 1
@@ -189,9 +208,11 @@ Public Class Session
 
                 ServerLogIn()
 
+                If mTheDataSource.Connection IsNot Nothing Then
 
+                    LoadMap()
+                End If
 
-                LoadMap()
 
 
             Catch
@@ -220,6 +241,10 @@ Public Class Session
             p = GetProviderByName(mProvider)
             mConnectString = p.BuildCN(mServer, mDataBaseName, mUserName, mPassword, CStr(mLoginTimeOut), mProvider, Integrated)
             mTheDataSource = New TheDataSource(mConnectString, p, Me)
+            If mTheDataSource.Connection IsNot Nothing Then
+                isClosed = False
+            End If
+
             Return Connected
         Catch ex As System.Exception
             _errorMessage = ex.Message
@@ -245,6 +270,13 @@ Public Class Session
 
     End Sub
 
+    Private isClosed As Boolean = False
+    Public Sub Close()
+        If Not mTheDataSource Is Nothing Then
+            mTheDataSource.Close()
+        End If
+        isClosed = True
+    End Sub
 
     Protected Overrides Sub Finalize()
         mvarMap = Nothing
@@ -253,8 +285,33 @@ Public Class Session
         MyBase.Finalize()
     End Sub
 
+
+    Public Function AttachToSession(ByVal OpenSessionID As Guid) As Boolean
+        If isClosed Then Return False
+        Try
+
+            If Not (mTheDataSource.Connection.State = ConnectionState.Open) Then
+                Throw New System.Exception("Set valid site name before login")
+
+            End If
+
+            SessionID = OpenSessionID
+
+            Return True
+
+        Catch ex As System.Exception
+
+            Return False
+        End Try
+
+
+    End Function
+
     Public Function Login(ByVal UID As String, ByVal PWD As String) As Boolean
         Dim cursession As Guid
+        If isClosed Then Return False
+
+        If mTheDataSource.Connection Is Nothing Then Return False
         Try
 
             If Not (mTheDataSource.Connection.State = ConnectionState.Open) Then
@@ -295,6 +352,7 @@ Public Class Session
     End Function
 
     Public Function IntegratedLogin() As Boolean
+        If isClosed Then Return False
         Dim cursession As Guid
         Try
 
@@ -370,6 +428,7 @@ Public Class Session
     ' dim variable as Boolean
     '  variable = me.Logout()
     Public Function Logout() As Boolean
+        If isClosed Then Return False
         Try
             Dim p As LATIR2.NamedValues
             Dim ok As Boolean
@@ -386,6 +445,7 @@ Public Class Session
     End Function
 
     Private Sub LoadMap()
+        If isClosed Then Exit Sub
         Try
             Dim rs As DataTable
             Dim s, mn As String, i As Integer
@@ -394,8 +454,8 @@ Public Class Session
             Else
                 rs = TheDataSource.ExecuteReader("select name,thevalue,optiontype from sysoptions order by optiontype,name")
             End If
-            
-        
+
+
             mvarMap = New LATIR2.NamedValues
             If rs Is Nothing Then Exit Sub
             For i = 0 To rs.Rows.Count - 1
@@ -406,9 +466,9 @@ Public Class Session
                 'End Try
 
 
-                mn = rs.Rows(i)("optiontype").ToString.ToUpper & "." & rs.Rows(i)("Name").ToString.ToUpper
+                mn = rs.Rows(i)("optiontype").ToString.ToLower & "." & rs.Rows(i)("Name").ToString.ToLower
                 Try
-                    mvarMap.Add(mn, s.ToUpper)
+                    mvarMap.Add(mn, s.ToLower)
                 Catch
                 End Try
 
@@ -419,7 +479,8 @@ Public Class Session
         End Try
     End Sub
 
-    Public Function GetIDsDT(ByVal Table As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal Filter_Renamed As String = "") As DataTable
+    Public Function GetIDsDT(ByVal Table As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal sFilter As String = "") As DataTable
+        If isClosed Then Return Nothing
         Dim rs As DataTable
         Dim qry As String
         ParentID = ID2String(ParentID)
@@ -439,8 +500,8 @@ Public Class Session
                 qry = qry & " and ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID))
             End If
 
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteSQL(qry & " and ( " & Filter_Renamed & ")")
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteSQL(qry & " and ( " & sFilter & ")")
             Else
                 rs = TheDataSource.ExecuteSQL(qry)
             End If
@@ -457,8 +518,8 @@ Public Class Session
             Else
                 qry = qry & " where 1=1 "
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteSQL(qry & " and ( " & Filter_Renamed & ")")
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteSQL(qry & " and ( " & sFilter & ")")
             Else
                 rs = TheDataSource.ExecuteSQL(qry)
             End If
@@ -479,7 +540,7 @@ Public Class Session
         rs = TheDataSource.ExecuteReader("select " + FieldList + " from " & Table & " where " & Table & "id=" + GetProvider.ID2Const(RowID))
 
         Return rs
-   
+
 
     End Function
 
@@ -494,12 +555,15 @@ Public Class Session
 
     End Function
 
-    Public Function GetView(ByVal View As String, Optional ByVal Filter_Renamed As String = "", Optional ByVal SortEx As String = "") As DataTable
+    Public Function GetView(ByVal View As String, Optional ByVal sFilter As String = "", Optional ByVal SortEx As String = "") As DataTable
+        If Not Connected Then
+            Return Nothing
+        End If
         Dim dc As System.Data.Common.DbCommand
         Dim QRY As String
         QRY = "select * from v_" & View & " "
-        If Filter_Renamed <> "" Then
-            QRY = QRY & "WHERE ( " & Filter_Renamed & ")"
+        If sFilter <> "" Then
+            QRY = QRY & "WHERE ( " & sFilter & ")"
         End If
         If SortEx <> "" Then
             QRY = QRY & " order by " & SortEx
@@ -510,7 +574,7 @@ Public Class Session
 
 
 
-    Public Function GetRows(ByVal Table As String, ByVal FieldList As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal Filter_Renamed As String = "") As DataTable
+    Public Function GetRows(ByVal Table As String, ByVal FieldList As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal sFilter As String = "") As DataTable
         If Not Connected Then
             Return Nothing
         End If
@@ -534,8 +598,8 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " and ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID))
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteReader(qry & " and ( " & Filter_Renamed & ")")
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteReader(qry & " and ( " & sFilter & ")")
             Else
                 rs = TheDataSource.ExecuteReader(qry)
             End If
@@ -548,10 +612,10 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " where ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID))
             Else
-                If Filter_Renamed <> "" Then qry = qry & " where 1=1 "
+                If sFilter <> "" Then qry = qry & " where 1=1 "
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteReader(qry & " and ( " & Filter_Renamed & ")")
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteReader(qry & " and ( " & sFilter & ")")
             Else
                 rs = TheDataSource.ExecuteReader(qry)
             End If
@@ -559,7 +623,7 @@ Public Class Session
         End If
     End Function
 
-    Public Function GetRowsDT(ByVal Table As String, ByVal FieldList As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal Filter_Renamed As String = "") As DataTable
+    Public Function GetRowsDT(ByVal Table As String, ByVal FieldList As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal sFilter As String = "") As DataTable
         If Not Connected Then
             Return Nothing
         End If
@@ -584,8 +648,8 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " and ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID))
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteSQL(qry & " and ( " & Filter_Renamed & ")")
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteSQL(qry & " and ( " & sFilter & ")")
             Else
                 rs = TheDataSource.ExecuteSQL(qry)
             End If
@@ -598,19 +662,19 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " where ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID))
             Else
-                If Filter_Renamed <> "" Then qry = qry & " where 1=1 "
+                If sFilter <> "" Then qry = qry & " where 1=1 "
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteSQL(qry & " and ( " & Filter_Renamed & ")")
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteSQL(qry & " and ( " & sFilter & ")")
             Else
                 rs = TheDataSource.ExecuteSQL(qry)
             End If
-           Return rs
+            Return rs
         End If
     End Function
 
 
-    Public Function GetRowsEx(ByVal Table As String, ByVal fieldlist As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal Filter_Renamed As String = "", Optional ByVal SortOrder As String = "") As DataTable
+    Public Function GetRowsEx(ByVal Table As String, ByVal fieldlist As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal sFilter As String = "", Optional ByVal SortOrder As String = "") As DataTable
         Dim rs As DataTable
         Dim qry As String
         If Not Connected Then
@@ -634,8 +698,8 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " and ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID.ToString))
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteReader(qry & " and ( " & Filter_Renamed & ")" & " " & SortOrder)
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteReader(qry & " and ( " & sFilter & ")" & " " & SortOrder)
             Else
                 rs = TheDataSource.ExecuteReader(qry & " " & SortOrder)
             End If
@@ -647,10 +711,10 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " where ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID.ToString))
             Else
-                If Filter_Renamed <> "" Then qry = qry & " where 1=1 "
+                If sFilter <> "" Then qry = qry & " where 1=1 "
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteReader(qry & " and ( " & Filter_Renamed & ")" & " " & SortOrder)
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteReader(qry & " and ( " & sFilter & ")" & " " & SortOrder)
             Else
                 rs = TheDataSource.ExecuteReader(qry & " " & SortOrder)
             End If
@@ -658,7 +722,7 @@ Public Class Session
         End If
     End Function
 
-    Public Function GetRowsExDT(ByVal Table As String, ByVal FieldList As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal Filter_Renamed As String = "", Optional ByVal SortOrder As String = "") As DataTable
+    Public Function GetRowsExDT(ByVal Table As String, ByVal FieldList As String, Optional ByVal ParentID As String = "", Optional ByVal ParentRowID As String = "", Optional ByVal sFilter As String = "", Optional ByVal SortOrder As String = "") As DataTable
         Dim rs As DataTable
         Dim qry As String
         If Not Connected Then
@@ -684,8 +748,8 @@ Public Class Session
 
                 qry = qry & " and ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID.ToString))
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteSQL(qry & " and ( " & Filter_Renamed & ")" & " " & SortOrder)
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteSQL(qry & " and ( " & sFilter & ")" & " " & SortOrder)
             Else
                 rs = TheDataSource.ExecuteSQL(qry & " " & SortOrder)
             End If
@@ -697,10 +761,10 @@ Public Class Session
             ElseIf ParentRowID <> "" Then
                 qry = qry & " where ParentrowID=" + GetProvider.ID2Const(New Guid(ParentRowID.ToString))
             Else
-                If Filter_Renamed <> "" Then qry = qry & " where 1=1 "
+                If sFilter <> "" Then qry = qry & " where 1=1 "
             End If
-            If Filter_Renamed <> "" Then
-                rs = TheDataSource.ExecuteSQL(qry & " and ( " & Filter_Renamed & ")" & " " & SortOrder)
+            If sFilter <> "" Then
+                rs = TheDataSource.ExecuteSQL(qry & " and ( " & sFilter & ")" & " " & SortOrder)
             Else
                 rs = TheDataSource.ExecuteSQL(qry & " " & SortOrder)
             End If
@@ -795,6 +859,11 @@ Public Class Session
     Public Function SaveRow(ByVal Table As String, ByVal RowID As Guid, ByVal ParentID As Guid, ByVal Values As LATIR2.NamedValues) As Boolean
         Dim nv As LATIR2.NamedValues
         Dim I As Integer
+
+        If Not Connected Then
+            Return False
+        End If
+
         nv = New LATIR2.NamedValues
 
 
@@ -836,6 +905,11 @@ Public Class Session
     Public Function SaveRow2(ByVal Table As String, ByVal RowID As Guid, ByVal ParentID As Guid, ByVal Values As LATIR2.NamedValues, ByVal InstanceID As System.Guid) As Boolean
         Dim nv As LATIR2.NamedValues
         Dim I As Integer
+
+        If Not Connected Then
+            Return False
+        End If
+
         nv = New LATIR2.NamedValues
 
 
@@ -913,7 +987,9 @@ Public Class Session
     ' dim variable as Boolean
     ' variable = me.Exec(<параметры>)
     Public Function Exec(ByVal Method As String, ByVal Values As LATIR2.NamedValues) As Boolean
-
+        If Not Connected Then
+            Return False
+        End If
         Return TheDataSource.ExecuteProc(Method, Values)
 
     End Function
@@ -1014,11 +1090,14 @@ Public Class Session
     ' dim variable as Boolean
     ' variable = me.NewInstance(<параметры>)
     Public Function NewInstance(ByVal InstanceID As Guid, ByVal ObjType As String, ByVal Name As String) As Boolean
+        If Not Connected Then
+            Return False
+        End If
         Dim nv As LATIR2.NamedValues
         nv = New LATIR2.NamedValues
         nv.Add("CURSESSION", GetProvider.ID2Param(SessionID), GetProvider.ID2DbType(), GetProvider.ID2Size())
         nv.Add("InstanceID", GetProvider.ID2Param(InstanceID), GetProvider.ID2DbType(), GetProvider.ID2Size())
-        nv.Add("ObjType", ObjType, DbType.String)
+        nv.Add("ObjType", ObjType.ToLower(), DbType.String)
         nv.Add("Name", Name, DbType.String)
         Return TheDataSource.ExecuteProc(KernelPrefix & "Instance_SAVE", nv)
         nv = Nothing
@@ -1066,6 +1145,9 @@ Public Class Session
     ' variable = me.DeleteInstance(<параметры>)
     Public Function DeleteInstance(ByVal InstanceID As Guid) As Boolean
         Dim nv As LATIR2.NamedValues
+        If Not Connected Then
+            Return False
+        End If
         nv = New LATIR2.NamedValues
 
         nv.Add("CURSESSION", GetProvider.ID2Param(SessionID), GetProvider.ID2DbType(), GetProvider.ID2Size())
@@ -1138,8 +1220,14 @@ Public Class Session
     Public Function GetBrief(ByVal Table As String, ByVal RowID As Guid, ByRef Brief As String) As Boolean
 
         Dim nv As LATIR2.NamedValues
+
+
         'PMOD
         Brief = ""
+
+        If Not Connected Then
+            Return False
+        End If
         nv = New LATIR2.NamedValues
         Dim nvi As LATIR2.NamedValue
 
@@ -1220,6 +1308,10 @@ Public Class Session
         p = New LATIR2.NamedValues
         Dim access As Short
 
+        If Not Connected Then
+            Return False
+        End If
+
         p.Add("resource", Resource, DbType.String)
         p.Add("verb", Verb, DbType.String)
         p.Add("access", access, DbType.Int16)
@@ -1274,16 +1366,16 @@ Public Class Session
     Public Function IsDescendant(ByVal ChildStructID As String, ByVal CheckID As String) As Boolean
         Dim tmp As String
         Try
-            tmp = ChildStructID.ToUpper
+            tmp = ChildStructID.ToLower
             While tmp <> ""
-                If CheckID.ToUpper = tmp.ToUpper Then
+                If CheckID.ToLower = tmp.ToLower Then
                     Return True
 
                 End If
-                If MAP.Item("PARENT." & tmp.ToUpper) Is Nothing Then
+                If MAP.Item("PARENT." & tmp.ToLower) Is Nothing Then
                     tmp = ""
                 Else
-                    tmp = CStr(MAP.Item("PARENT." & tmp.ToUpper).Value).ToUpper
+                    tmp = CStr(MAP.Item("PARENT." & tmp.ToLower).Value).ToLower
                 End If
             End While
             Return False
@@ -1335,6 +1427,9 @@ Public Class Session
     ' variable = me.IsRowExists(<параметры>)
     Public Function IsRowExists(ByVal Table As String, ByVal RowID As Guid) As Boolean
         Dim rs As DataTable
+        If Not Connected Then
+            Return False
+        End If
 
         rs = TheDataSource.ExecuteReader("select 1 from " & Table & " where " & Table & "ID=" & GUID2String(Me, RowID) & "")
         If rs Is Nothing Then Return False
@@ -1388,7 +1483,7 @@ Public Class Session
         Dim s As String
         Try
             'UPGRADE_WARNING: Couldn't resolve default property of object MAP.Item().Value. Click for more: 'ms-help://MS.VSCC.2003/commoner/redir/redirect.htm?keyword="vbup1037"'
-            s = CStr(MAP.Item("STRUCT_TYPE." & Table).Value)
+            s = CStr(MAP.Item("STRUCT_TYPE." & Table.ToLower).Value)
             Return s
         Catch
             Return ""
@@ -1436,6 +1531,9 @@ Public Class Session
     '  variable = me.GetSessionUserID()
     Public Function GetSessionUserID() As Guid
         Dim rs As DataTable
+        If Not Connected Then
+            Return Guid.Empty
+        End If
 
         If Not SessionID.Equals(System.Guid.Empty) Then
             rs = TheDataSource.ExecuteReader("select UsersID from The_Session where closed =0 and The_sessionID=" & GUID2String(Me, SessionID) & "")
@@ -1487,6 +1585,9 @@ Public Class Session
     Public Sub SetDefaultSecurityStyle(ByVal TypeName_Renamed As String, ByVal SecurityStyleid As String)
         Dim rs As DataTable
         Dim oldStyle As String
+        If Not Connected Then
+            Return
+        End If
         Try
             If Not SessionID.Equals(System.Guid.Empty) Then
 
@@ -1514,6 +1615,10 @@ Public Class Session
 
     Public Function SetOwner(ByVal InstanceID As Guid, ByVal OwnerTable As String, ByVal OwnerRowID As Guid) As Boolean
         Dim nv As LATIR2.NamedValues
+
+        If Not Connected Then
+            Return False
+        End If
         nv = New LATIR2.NamedValues
 
 
@@ -1527,25 +1632,25 @@ Public Class Session
     End Function
 
     Public Function GetServerTime() As Date
-        Try
-            Dim nv As LATIR2.NamedValues
-            Dim nvi As LATIR2.NamedValue
-            Dim dd As Date
-            dd = System.DateTime.Now
-            nv = New LATIR2.NamedValues
-            nvi = nv.Add("ServerTime", dd, DbType.DateTime, ParameterDirection.Output)
-            nvi.Size = 20
-
-
-            If TheDataSource.ExecuteProcNoSession("GetServerTime", nv) Then
-                dd = CDate(nv.Item("ServerTime").Value)
-            Else
-                dd = Now
-            End If
+        Dim dd As Date
+        dd = System.DateTime.Now
+        If Not Connected Then
             Return dd
+        End If
+        Try
+
+            Dim dt As DataTable
+            Try
+                dt = GetData(GetProvider.GetServerDate())
+                If dt.Rows.Count = 1 Then
+                    dd = CType(dt.Rows(0)("SRV_DATE"), Date)
+                End If
+            Catch ex As Exception
+            End Try
+
         Catch ex As System.Exception
-            Throw ex
         End Try
+        Return dd
     End Function
 
     Public Function GetPartViewAlias(ByVal TableName As String) As String
@@ -1564,8 +1669,8 @@ Public Class Session
     Public Function GetTypeViewAlias(ByVal TypeName As String) As String
         Try
             Dim s As String = Nothing
-            If (Not MAP.Item("TDEFVIEW." & TypeName) Is Nothing) Then
-                s = CStr(MAP.Item("TDEFVIEW." & TypeName).Value)
+            If (Not MAP.Item("TDEFVIEW." & TypeName.ToLower) Is Nothing) Then
+                s = CStr(MAP.Item("TDEFVIEW." & TypeName.ToLower).Value)
             End If
             Return s
         Catch ex As System.Exception
@@ -1573,99 +1678,7 @@ Public Class Session
         End Try
     End Function
 
-    Public Function SaveFileFromField(ByVal filepath As String, ByVal table As String, ByVal field As String, ByVal RowID As Guid) As Long
-        Dim fs As FileStream                 ' Writes the BLOB to a file (*.bmp).
-        Dim bw As BinaryWriter               ' Streams the binary data to the FileStream object.
-        Dim bufferSize As Integer = 32000      ' The size of the BLOB buffer.
-        Dim outbyte(bufferSize - 1) As Byte  ' The BLOB byte() buffer to be filled by GetBytes.
-        Dim retval As Long                 ' The bytes returned from GetBytes.
-        Dim startIndex As Long = 0           ' The starting position in the BLOB output.
-        Dim cmd As System.Data.Common.DbCommand
 
-        cmd = TheDataSource.CreateCommand("select " & field & " from " & table & " where " & table & "id='" & RowID.ToString() & "'")
-        Dim myReader As System.Data.SqlClient.SqlDataReader = Nothing
-        Try
-            fs = New FileStream(filepath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite)
-        Catch
-            Return 0
-        End Try
-        Try
-            myReader = CType(cmd.ExecuteReader(CommandBehavior.SequentialAccess), SqlClient.SqlDataReader)
-            Do While myReader.Read()
-
-                bw = New BinaryWriter(fs)
-                startIndex = 0
-                retval = myReader.GetBytes(0, startIndex, outbyte, 0, bufferSize)
-                Do While retval = bufferSize
-                    bw.Write(outbyte)
-                    bw.Flush()
-                    startIndex += bufferSize
-                    Try
-                        retval = myReader.GetBytes(0, startIndex, outbyte, 0, bufferSize)
-                    Catch ex As Exception
-                        retval = 0
-                    End Try
-                Loop
-                'bw.Write(outbyte, 0, retval - 1)
-                bw.Write(outbyte, 0, CInt(retval))
-                bw.Flush()
-                bw.Close()
-            Loop
-        Catch
-
-        Finally
-            If (Not myReader Is Nothing) Then
-                myReader.Dispose()
-            End If
-            If (Not cmd Is Nothing) Then
-                cmd.Dispose()
-            End If
-        End Try
-
-        Try
-            fs.Close()
-        Catch
-        End Try
-        Return retval
-    End Function
-
-
-
-   
-
-    Public Sub LoadFileToField(ByVal filepath As String, ByVal table As String, ByVal field As String, ByVal RowID As Guid)
-
-
-        If filepath <> "" Then
-            Dim file As IO.FileStream
-            Try
-                Dim strSQL As String = _
-                        "UPDATE " + table + " SET " + field + " = @Data WHERE " + table + "ID = @ID"
-                Dim cmd As System.Data.Common.DbCommand
-                cmd = TheDataSource.CreateCommand(strSQL)
-                Dim aBytes() As Byte
-                'cmd.Parameters("@ID").Value = RowID
-                file = New IO.FileStream(filepath, IO.FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
-                ReDim aBytes(CInt(file.Length))
-                file.Read(aBytes, 0, CInt(file.Length))
-                cmd.Parameters.Add(New SqlClient.SqlParameter("@Data", SqlDbType.Image, CInt(file.Length)))
-                cmd.Parameters("@Data").Value = aBytes
-                cmd.Parameters.Add(New SqlClient.SqlParameter("@ID", RowID))
-                cmd.ExecuteNonQuery()
-                file.Close()
-            Catch ex As Exception
-            Finally
-            End Try
-        Else
-            Dim strSQL As String = _
-                        "UPDATE " + table + " SET " + field + " = null WHERE " + table + "ID = @ID"
-            Dim cmd As System.Data.Common.DbCommand
-            cmd = TheDataSource.CreateCommand(strSQL)
-            cmd.Parameters.Add(New SqlClient.SqlParameter("@ID", RowID))
-            cmd.ExecuteNonQuery()
-        End If
-
-    End Sub
 
 
     Public Function GetProcName(ByVal Table As String) As String
@@ -1683,7 +1696,9 @@ Public Class Session
     'PMOD
     Public Sub EraseLostNumbers()
 
-
+        If Not Connected Then
+            Return
+        End If
         Dim nvs As NamedValues
 
         nvs = New NamedValues
@@ -1698,6 +1713,9 @@ Public Class Session
 
 #Region "NumSupport"
     Public Function ChangeNumber(ByVal Item As Document.DocRow_Base, ByRef NumField As String, ByVal NumeratorID As Guid, ByVal zoneTemplate As String, ByVal oldDate As Date, Optional ByVal oldORG As String = "", Optional ByRef newDate As Date = #12:00:00 AM#, Optional ByRef newOrg As String = "") As Object
+        If Not Connected Then
+            Return Nothing
+        End If
         If FreeNumValue(Item, NumField, NumeratorID, zoneTemplate, oldDate, oldORG) Then
             Return GetNumValue(Item, NumField, NumeratorID, CDate(zoneTemplate), CStr(newDate), newOrg)
         End If
@@ -1708,6 +1726,9 @@ Public Class Session
         Dim oldval As Double
 
         If Item Is Nothing Then Return False
+        If Not Connected Then
+            Return False
+        End If
         Try
 
             oldval = CDbl(CallByName(Item, NumField, CallType.Get))
@@ -1743,7 +1764,9 @@ Public Class Session
         If Item Is Nothing Then
             Return False
         End If
-
+        If Not Connected Then
+            Return False
+        End If
 
         Dim nvs As NamedValues
         Dim n As Integer

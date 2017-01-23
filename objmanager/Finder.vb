@@ -543,13 +543,17 @@ nxt:
         p.Add("CURSESSION", Application.GetProvider.ID2Param(Application.SessionID), Application.GetProvider.ID2DbType, Application.GetProvider.ID2Size)
         Try
             Application.TheDataSource.ExecuteProc(Application.KernelPrefix & "RowParents", p)
+            Dim qry As String
 
             Try
-                rs = Application.TheDataSource.ExecuteReader("select PARTNAME," + Application.GetProvider.ID2Base("ROWID", "THEROWID") + ",PARENTLEVEL from RPRESULT where RPRESULTID=" + Application.GetProvider.ID2Const(queryid) + " order by parentlevel desc")
+                qry = "select PARTNAME," + Application.GetProvider.ID2Base("THEROWID") + ",PARENTLEVEL from RPRESULT where RPRESULTID=" + Application.GetProvider.ID2Const(queryid) + " order by parentlevel desc"
+                rs = Application.TheDataSource.ExecuteReader(qry)
 
-               
+
             Catch ex As Exception
-                rs = Application.TheDataSource.ExecuteReader("select PARTNAME," + Application.GetProvider.ID2Base("THEROWID") + ",PARENTLEVEL from RPRESULT where RPRESULTID=" + Application.GetProvider.ID2Const(queryid) + " order by parentlevel desc")
+                qry = "select PARTNAME," + Application.GetProvider.ID2Base("ROWID", "THEROWID") + ",PARENTLEVEL from RPRESULT where RPRESULTID=" + Application.GetProvider.ID2Const(queryid) + " order by parentlevel desc"
+
+                rs = Application.TheDataSource.ExecuteReader(qry)
 
             End Try
            

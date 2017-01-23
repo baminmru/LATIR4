@@ -19,6 +19,7 @@ Public Class TheDataSource
     Private _transaction As System.Data.Common.DbTransaction
     Private Application As Session
     Private m_reader As DataTable
+    Private m_Connected As Boolean = False
 
     'Public Function IsOracle() As LATIR2.DBProvider
     '    _provider = _provider
@@ -35,8 +36,15 @@ Public Class TheDataSource
         _connection = _provider.CreateConnection(_cn)
         Try
             _connection.Open()
+            If _connection.State = ConnectionState.Open Then
+                _provider.ConnectSetup(_connection)
+
+                m_Connected = True
+            End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ' MsgBox(ex.Message)
+            _connection = Nothing
+            m_Connected = False
         End Try
 
     End Sub
@@ -44,6 +52,7 @@ Public Class TheDataSource
     Public Overridable Function ExecuteReader(ByVal command As System.Data.Common.DbCommand) As DataTable
         Dim da As DbDataAdapter
         Dim dt As DataTable
+        If (m_Connected = False) Then Return Nothing
         da = _provider.CreateDataAdapter()
         da.SelectCommand = command
         dt = New DataTable
@@ -52,6 +61,7 @@ Public Class TheDataSource
     End Function
 
     Public Overridable Function ExecuteReader(ByVal sqltext As String) As DataTable
+        If (m_Connected = False) Then Return Nothing
         Dim command As System.Data.Common.DbCommand
         command = CreateCommand(sqltext)
         Dim da As DbDataAdapter
@@ -106,27 +116,32 @@ Public Class TheDataSource
 
     Public ReadOnly Property Connection() As DbConnection
         Get
+            If (m_Connected = False) Then Return Nothing
             If _connection.State = ConnectionState.Open Then
                 Return _connection
             End If
+            m_Connected = False
             InitConnection()
             Return _connection
         End Get
     End Property
 
     Public Function BeginTransaction() As DbTransaction
+        If (m_Connected = False) Then Return Nothing
         CheckTransactionState(False)
         _transaction = _connection.BeginTransaction()
         Return _transaction
     End Function
 
     Public Function BeginTransaction(ByVal isolationLevel As IsolationLevel) As DbTransaction
+        If (m_Connected = False) Then Return Nothing
         CheckTransactionState(False)
         _transaction = _connection.BeginTransaction(isolationLevel)
         Return _transaction
     End Function
 
     Public Overridable Function Execute(ByVal sqltext As String) As Long
+        If (m_Connected = False) Then Return -1
         Dim cmd As System.Data.Common.DbCommand
 
         Debug.Print(sqltext)
@@ -141,6 +156,7 @@ Public Class TheDataSource
 
 
     Public Overridable Function ExecuteProc(ByVal sqltext As String, ByVal Params As LATIR2.NamedValues, Optional ByVal AddCurSession As Boolean = True) As Boolean
+        If (m_Connected = False) Then Return False
         Dim cmd As System.Data.Common.DbCommand, i As Long
         Dim IsSessionWas As Boolean = False
         Dim bNeedAppendChunk As Boolean = False
@@ -179,7 +195,11 @@ Public Class TheDataSource
                         AddParameter(cmd, CreateSqlParameterName(Params.Item(i).TheName), Params.Item(i).DataType, Nothing, Params.Item(i).Direction, 0)
                         Debug.Print(Params.Item(i).TheName + "->" + Params.Item(i).Value.ToString)
                         bNeedAppendChunk = True
+                    ElseIf Params.Item(i).DataType = DbType.Guid Then
+                        AddParameter(cmd, CreateSqlParameterName(Params.Item(i).TheName), _provider.ID2DbType(), Utils.GUID2String(New Guid(Params.Item(i).Value.ToString())), Params.Item(i).Direction, _provider.ID2Size)
+                        Debug.Print(Params.Item(i).TheName + "->" + Params.Item(i).Value.ToString)
                     Else
+
                         AddParameter(cmd, CreateSqlParameterName(Params.Item(i).TheName), Params.Item(i).DataType, Params.Item(i).Value, Params.Item(i).Direction, Params.Item(i).Size)
                         Debug.Print(Params.Item(i).TheName + "->" + Params.Item(i).Value.ToString)
                     End If
@@ -281,6 +301,7 @@ Public Class TheDataSource
     End Function
 
     Public Overridable Function ExecuteProcNoSession(ByVal sqltext As String, ByVal Params As LATIR2.NamedValues) As Boolean
+        If (m_Connected = False) Then Return False
         Dim cmd As System.Data.Common.DbCommand, i As Long
         cmd = CreateCommand(sqltext, True)
         For i = 1 To Params.Count
@@ -334,12 +355,14 @@ Public Class TheDataSource
 
 
     Public Sub CommitTransaction()
+        If (m_Connected = False) Then Return
         CheckTransactionState(True)
         _transaction.Commit()
         _transaction = Nothing
     End Sub
 
     Public Sub RollbackTransaction()
+        If (m_Connected = False) Then Return
         CheckTransactionState(True)
         _transaction.Rollback()
         _transaction = Nothing
@@ -390,6 +413,8 @@ Public Class TheDataSource
     End Sub
 
     Public Function CreateDataTable(ByVal command As System.Data.Common.DbCommand) As DataTable
+
+        If (m_Connected = False) Then Return Nothing
         Dim DataTable As DataTable = New DataTable
         Dim dataAdapter As DbDataAdapter
         dataAdapter = _provider.CreateDataAdapter()
@@ -405,6 +430,8 @@ Public Class TheDataSource
         Return DataTable
     End Function
     Public Function ExecuteSQL(ByVal sqltext As String) As DataTable
+
+        If (m_Connected = False) Then Return Nothing
         Dim cmd As System.Data.Common.DbCommand
         cmd = CreateCommand(sqltext)
         Dim DataTable As DataTable
@@ -435,7 +462,7 @@ Public Class TheDataSource
 
 
     Public Sub LoadFileToField(ByVal filepath As String, ByVal table As String, ByVal field As String, ByVal idField As String, ByVal RowID As Guid)
-
+        If (m_Connected = False) Then Return
 
         If filepath <> "" Then
             Dim file As IO.FileStream
@@ -497,6 +524,7 @@ Public Class TheDataSource
     End Sub
 
     Public Function SaveFileFromField(ByVal filepath As String, ByVal table As String, ByVal field As String, ByVal idField As String, ByVal RowID As Guid) As Long
+        If (m_Connected = False) Then Return 0
         Dim fs As FileStream                 ' Writes the BLOB to a file (*.bmp).
         Dim bw As BinaryWriter               ' Streams the binary data to the FileStream object.
         Dim bufferSize As Integer = 32000      ' The size of the BLOB buffer.

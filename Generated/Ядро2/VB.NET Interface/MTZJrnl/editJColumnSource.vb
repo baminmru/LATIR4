@@ -11,7 +11,7 @@ Imports System.Diagnostics
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class editJColumnSource
+Public Class editjcolumnsource
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IRowEditor
 
@@ -53,11 +53,11 @@ Public Class editJColumnSource
 
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
-Friend WithEvents lblSrcPartView  as  System.Windows.Forms.Label
-Friend WithEvents txtSrcPartView As System.Windows.Forms.TextBox
-Friend WithEvents cmdSrcPartView As System.Windows.Forms.Button
-Friend WithEvents lblViewField  as  System.Windows.Forms.Label
-Friend WithEvents txtViewField As System.Windows.Forms.TextBox
+Friend WithEvents lblsrcpartview  as  System.Windows.Forms.Label
+Friend WithEvents txtsrcpartview As LATIR2GuiManager.TouchTextBox
+Friend WithEvents cmdsrcpartview As System.Windows.Forms.Button
+Friend WithEvents lblviewfield  as  System.Windows.Forms.Label
+Friend WithEvents txtviewfield As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -74,79 +74,79 @@ Me.HolderPanel.Location = New System.Drawing.Point(0, 0)
 Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
-Me.lblSrcPartView = New System.Windows.Forms.Label
-Me.txtSrcPartView = New System.Windows.Forms.TextBox
-Me.cmdSrcPartView = New System.Windows.Forms.Button
-Me.lblViewField = New System.Windows.Forms.Label
-Me.txtViewField = New System.Windows.Forms.TextBox
+Me.lblsrcpartview = New System.Windows.Forms.Label
+Me.txtsrcpartview = New LATIR2GuiManager.TouchTextBox
+Me.cmdsrcpartview = New System.Windows.Forms.Button
+Me.lblviewfield = New System.Windows.Forms.Label
+Me.txtviewfield = New LATIR2GuiManager.TouchTextBox
 
-Me.lblSrcPartView.Location = New System.Drawing.Point(20,5)
-Me.lblSrcPartView.name = "lblSrcPartView"
-Me.lblSrcPartView.Size = New System.Drawing.Size(200, 20)
-Me.lblSrcPartView.TabIndex = 1
-Me.lblSrcPartView.Text = "Представление"
-Me.lblSrcPartView.ForeColor = System.Drawing.Color.Black
-Me.txtSrcPartView.Location = New System.Drawing.Point(20,27)
-Me.txtSrcPartView.name = "txtSrcPartView"
-Me.txtSrcPartView.ReadOnly = True
-Me.txtSrcPartView.Size = New System.Drawing.Size(176, 20)
-Me.txtSrcPartView.TabIndex = 2
-Me.txtSrcPartView.Text = "" 
-Me.cmdSrcPartView.Location = New System.Drawing.Point(198,27)
-Me.cmdSrcPartView.name = "cmdSrcPartView"
-Me.cmdSrcPartView.Size = New System.Drawing.Size(22, 20)
-Me.cmdSrcPartView.TabIndex = 3
-Me.cmdSrcPartView.Text = "..." 
-Me.lblViewField.Location = New System.Drawing.Point(20,52)
-Me.lblViewField.name = "lblViewField"
-Me.lblViewField.Size = New System.Drawing.Size(200, 20)
-Me.lblViewField.TabIndex = 4
-Me.lblViewField.Text = "Поле представления"
-Me.lblViewField.ForeColor = System.Drawing.Color.Black
-Me.txtViewField.Location = New System.Drawing.Point(20,74)
-Me.txtViewField.name = "txtViewField"
-Me.txtViewField.Size = New System.Drawing.Size(200, 20)
-Me.txtViewField.TabIndex = 5
-Me.txtViewField.Text = "" 
+Me.lblsrcpartview.Location = New System.Drawing.Point(20,5)
+Me.lblsrcpartview.name = "lblsrcpartview"
+Me.lblsrcpartview.Size = New System.Drawing.Size(200, 20)
+Me.lblsrcpartview.TabIndex = 1
+Me.lblsrcpartview.Text = "Представление"
+Me.lblsrcpartview.ForeColor = System.Drawing.Color.Black
+Me.txtsrcpartview.Location = New System.Drawing.Point(20,27)
+Me.txtsrcpartview.name = "txtsrcpartview"
+Me.txtsrcpartview.ReadOnly = True
+Me.txtsrcpartview.Size = New System.Drawing.Size(176, 20)
+Me.txtsrcpartview.TabIndex = 2
+Me.txtsrcpartview.Text = "" 
+Me.cmdsrcpartview.Location = New System.Drawing.Point(198,27)
+Me.cmdsrcpartview.name = "cmdsrcpartview"
+Me.cmdsrcpartview.Size = New System.Drawing.Size(22, 20)
+Me.cmdsrcpartview.TabIndex = 3
+Me.cmdsrcpartview.Text = "..." 
+Me.lblviewfield.Location = New System.Drawing.Point(20,52)
+Me.lblviewfield.name = "lblviewfield"
+Me.lblviewfield.Size = New System.Drawing.Size(200, 20)
+Me.lblviewfield.TabIndex = 4
+Me.lblviewfield.Text = "Поле представления"
+Me.lblviewfield.ForeColor = System.Drawing.Color.Black
+Me.txtviewfield.Location = New System.Drawing.Point(20,74)
+Me.txtviewfield.name = "txtviewfield"
+Me.txtviewfield.Size = New System.Drawing.Size(200, 20)
+Me.txtviewfield.TabIndex = 5
+Me.txtviewfield.Text = "" 
         Me.AutoScroll = True
 
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblSrcPartView)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtSrcPartView)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmdSrcPartView)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblViewField)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtViewField)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblsrcpartview)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtsrcpartview)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmdsrcpartview)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblviewfield)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtviewfield)
         Me.Controls.Add(Me.HolderPanel)
         Me.HolderPanel.ResumeLayout(False)
         Me.HolderPanel.PerformLayout()
-        Me.name = "editJColumnSource"
+        Me.name = "editjcolumnsource"
         Me.Size = New System.Drawing.Size(232, 120)
         Me.ResumeLayout (False)
     End Sub
 #End Region
 
-private sub txtSrcPartView_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSrcPartView.TextChanged
+private sub txtsrcpartview_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtsrcpartview.TextChanged
   Changing
 
 end sub
-private sub cmdSrcPartView_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSrcPartView.Click
+private sub cmdsrcpartview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdsrcpartview.Click
   try
 Dim id As guid
 Dim brief As String = string.Empty
 Dim OK as boolean 
-        If GuiManager.GetReferenceDialog("JournalSrc","",item.application.ID, id, brief) Then
-          txtSrcPartView.Tag = id
-          txtSrcPartView.text = brief
+        If GuiManager.GetReferenceDialog("journalsrc","",item.application.ID, id, brief) Then
+          txtsrcpartview.Tag = id
+          txtsrcpartview.text = brief
         End If
         catch ex as System.Exception
         Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 end sub
-private sub txtViewField_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtViewField.TextChanged
+private sub txtviewfield_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtviewfield.TextChanged
   Changing
 
 end sub
 
-Public Item As MTZJrnl.MTZJrnl.JColumnSource
+Public Item As mtzjrnl.mtzjrnl.jcolumnsource
 Private mRowReadOnly As Boolean
 Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -158,20 +158,20 @@ Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 '''
 ''' </remarks>
 Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATIR2.Document.DocRow_Base,byval RowReadOnly as boolean  ) Implements LATIR2GUIManager.IRowEditor.Attach
-        Item = Ctype(ri,MTZJrnl.MTZJrnl.JColumnSource)
+        Item = Ctype(ri,mtzjrnl.mtzjrnl.jcolumnsource)
         GuiManager = gm
         mRowReadOnly = RowReadOnly
         If Item Is Nothing Then Exit Sub
         mOnInit = true
 
-If Not item.SrcPartView Is Nothing Then
-  txtSrcPartView.Tag = item.SrcPartView.id
-  txtSrcPartView.text = item.SrcPartView.brief
+If Not item.srcpartview Is Nothing Then
+  txtsrcpartview.Tag = item.srcpartview.id
+  txtsrcpartview.text = item.srcpartview.brief
 else
-  txtSrcPartView.Tag = System.Guid.Empty 
-  txtSrcPartView.text = "" 
+  txtsrcpartview.Tag = System.Guid.Empty 
+  txtsrcpartview.text = "" 
 End If
-txtViewField.text = item.ViewField
+txtviewfield.text = item.viewfield
         mOnInit = false
   raiseevent Refreshed()
 end sub
@@ -186,12 +186,12 @@ end sub
 Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
   if mRowReadOnly =false then
 
-If not txtSrcPartView.Tag.Equals(System.Guid.Empty) Then
-  item.SrcPartView = Item.Application.FindRowObject("JournalSrc",txtSrcPartView.Tag)
+If not txtsrcpartview.Tag.Equals(System.Guid.Empty) Then
+  item.srcpartview = Item.Application.FindRowObject("journalsrc",txtsrcpartview.Tag)
 Else
-   item.SrcPartView = Nothing
+   item.srcpartview = Nothing
 End If
-item.ViewField = txtViewField.text
+item.viewfield = txtviewfield.text
   end if
   mChanged = false
   raiseevent saved()
@@ -201,8 +201,8 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  mIsOK=true
  if mRowReadOnly  then return true
 
-if mIsOK then mIsOK = not txtSrcPartView.Tag.Equals(System.Guid.Empty)
-if mIsOK then mIsOK =( txtViewField.text <> "" ) 
+if mIsOK then mIsOK = not txtsrcpartview.Tag.Equals(System.Guid.Empty)
+if mIsOK then mIsOK =( txtviewfield.text <> "" ) 
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged

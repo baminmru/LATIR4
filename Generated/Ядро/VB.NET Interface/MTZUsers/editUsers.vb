@@ -11,7 +11,7 @@ Imports System.Diagnostics
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class editUsers
+Public Class editusers
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IRowEditor
 
@@ -53,24 +53,24 @@ Public Class editUsers
 
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
-Friend WithEvents lblFamily  as  System.Windows.Forms.Label
-Friend WithEvents txtFamily As System.Windows.Forms.TextBox
-Friend WithEvents lblName  as  System.Windows.Forms.Label
-Friend WithEvents txtName As System.Windows.Forms.TextBox
-Friend WithEvents lblSurName  as  System.Windows.Forms.Label
-Friend WithEvents txtSurName As System.Windows.Forms.TextBox
-Friend WithEvents lblLogin  as  System.Windows.Forms.Label
-Friend WithEvents txtLogin As System.Windows.Forms.TextBox
-Friend WithEvents lblPassword  as  System.Windows.Forms.Label
-Friend WithEvents txtPassword As System.Windows.Forms.TextBox
-Friend WithEvents lblDomaiName  as  System.Windows.Forms.Label
-Friend WithEvents txtDomaiName As System.Windows.Forms.TextBox
-Friend WithEvents lblEMail  as  System.Windows.Forms.Label
-Friend WithEvents txtEMail As System.Windows.Forms.TextBox
-Friend WithEvents lblPhone  as  System.Windows.Forms.Label
-Friend WithEvents txtPhone As System.Windows.Forms.TextBox
-Friend WithEvents lblLocalPhone  as  System.Windows.Forms.Label
-Friend WithEvents txtLocalPhone As System.Windows.Forms.TextBox
+Friend WithEvents lblfamily  as  System.Windows.Forms.Label
+Friend WithEvents txtfamily As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblname  as  System.Windows.Forms.Label
+Friend WithEvents txtname As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblsurname  as  System.Windows.Forms.Label
+Friend WithEvents txtsurname As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lbllogin  as  System.Windows.Forms.Label
+Friend WithEvents txtlogin As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblpassword  as  System.Windows.Forms.Label
+Friend WithEvents txtpassword As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lbldomainame  as  System.Windows.Forms.Label
+Friend WithEvents txtdomainame As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblemail  as  System.Windows.Forms.Label
+Friend WithEvents txtemail As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblphone  as  System.Windows.Forms.Label
+Friend WithEvents txtphone As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lbllocalphone  as  System.Windows.Forms.Label
+Friend WithEvents txtlocalphone As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -87,192 +87,192 @@ Me.HolderPanel.Location = New System.Drawing.Point(0, 0)
 Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
-Me.lblFamily = New System.Windows.Forms.Label
-Me.txtFamily = New System.Windows.Forms.TextBox
-Me.lblName = New System.Windows.Forms.Label
-Me.txtName = New System.Windows.Forms.TextBox
-Me.lblSurName = New System.Windows.Forms.Label
-Me.txtSurName = New System.Windows.Forms.TextBox
-Me.lblLogin = New System.Windows.Forms.Label
-Me.txtLogin = New System.Windows.Forms.TextBox
-Me.lblPassword = New System.Windows.Forms.Label
-Me.txtPassword = New System.Windows.Forms.TextBox
-Me.lblDomaiName = New System.Windows.Forms.Label
-Me.txtDomaiName = New System.Windows.Forms.TextBox
-Me.lblEMail = New System.Windows.Forms.Label
-Me.txtEMail = New System.Windows.Forms.TextBox
-Me.lblPhone = New System.Windows.Forms.Label
-Me.txtPhone = New System.Windows.Forms.TextBox
-Me.lblLocalPhone = New System.Windows.Forms.Label
-Me.txtLocalPhone = New System.Windows.Forms.TextBox
+Me.lblfamily = New System.Windows.Forms.Label
+Me.txtfamily = New LATIR2GuiManager.TouchTextBox
+Me.lblname = New System.Windows.Forms.Label
+Me.txtname = New LATIR2GuiManager.TouchTextBox
+Me.lblsurname = New System.Windows.Forms.Label
+Me.txtsurname = New LATIR2GuiManager.TouchTextBox
+Me.lbllogin = New System.Windows.Forms.Label
+Me.txtlogin = New LATIR2GuiManager.TouchTextBox
+Me.lblpassword = New System.Windows.Forms.Label
+Me.txtpassword = New LATIR2GuiManager.TouchTextBox
+Me.lbldomainame = New System.Windows.Forms.Label
+Me.txtdomainame = New LATIR2GuiManager.TouchTextBox
+Me.lblemail = New System.Windows.Forms.Label
+Me.txtemail = New LATIR2GuiManager.TouchTextBox
+Me.lblphone = New System.Windows.Forms.Label
+Me.txtphone = New LATIR2GuiManager.TouchTextBox
+Me.lbllocalphone = New System.Windows.Forms.Label
+Me.txtlocalphone = New LATIR2GuiManager.TouchTextBox
 
-Me.lblFamily.Location = New System.Drawing.Point(20,5)
-Me.lblFamily.name = "lblFamily"
-Me.lblFamily.Size = New System.Drawing.Size(200, 20)
-Me.lblFamily.TabIndex = 1
-Me.lblFamily.Text = "Фамилия"
-Me.lblFamily.ForeColor = System.Drawing.Color.Black
-Me.txtFamily.Location = New System.Drawing.Point(20,27)
-Me.txtFamily.name = "txtFamily"
-Me.txtFamily.Size = New System.Drawing.Size(200, 20)
-Me.txtFamily.TabIndex = 2
-Me.txtFamily.Text = "" 
-Me.lblName.Location = New System.Drawing.Point(20,52)
-Me.lblName.name = "lblName"
-Me.lblName.Size = New System.Drawing.Size(200, 20)
-Me.lblName.TabIndex = 3
-Me.lblName.Text = "Имя"
-Me.lblName.ForeColor = System.Drawing.Color.Black
-Me.txtName.Location = New System.Drawing.Point(20,74)
-Me.txtName.name = "txtName"
-Me.txtName.Size = New System.Drawing.Size(200, 20)
-Me.txtName.TabIndex = 4
-Me.txtName.Text = "" 
-Me.lblSurName.Location = New System.Drawing.Point(20,99)
-Me.lblSurName.name = "lblSurName"
-Me.lblSurName.Size = New System.Drawing.Size(200, 20)
-Me.lblSurName.TabIndex = 5
-Me.lblSurName.Text = "Отчество"
-Me.lblSurName.ForeColor = System.Drawing.Color.Black
-Me.txtSurName.Location = New System.Drawing.Point(20,121)
-Me.txtSurName.name = "txtSurName"
-Me.txtSurName.Size = New System.Drawing.Size(200, 20)
-Me.txtSurName.TabIndex = 6
-Me.txtSurName.Text = "" 
-Me.lblLogin.Location = New System.Drawing.Point(20,146)
-Me.lblLogin.name = "lblLogin"
-Me.lblLogin.Size = New System.Drawing.Size(200, 20)
-Me.lblLogin.TabIndex = 7
-Me.lblLogin.Text = "Имя для входа"
-Me.lblLogin.ForeColor = System.Drawing.Color.Black
-Me.txtLogin.Location = New System.Drawing.Point(20,168)
-Me.txtLogin.name = "txtLogin"
-Me.txtLogin.Size = New System.Drawing.Size(200, 20)
-Me.txtLogin.TabIndex = 8
-Me.txtLogin.Text = "" 
-Me.lblPassword.Location = New System.Drawing.Point(20,193)
-Me.lblPassword.name = "lblPassword"
-Me.lblPassword.Size = New System.Drawing.Size(200, 20)
-Me.lblPassword.TabIndex = 9
-Me.lblPassword.Text = "Пароль"
-Me.lblPassword.ForeColor = System.Drawing.Color.Blue
-Me.txtPassword.Location = New System.Drawing.Point(20,215)
-Me.txtPassword.name = "txtPassword"
-Me.txtPassword.Size = New System.Drawing.Size(200, 20)
-Me.txtPassword.TabIndex = 10
-Me.txtPassword.Text = "" 
-Me.txtPassword.PasswordChar = Microsoft.VisualBasic.ChrW(42)
-Me.lblDomaiName.Location = New System.Drawing.Point(20,240)
-Me.lblDomaiName.name = "lblDomaiName"
-Me.lblDomaiName.Size = New System.Drawing.Size(200, 20)
-Me.lblDomaiName.TabIndex = 11
-Me.lblDomaiName.Text = "Доменное имя"
-Me.lblDomaiName.ForeColor = System.Drawing.Color.Blue
-Me.txtDomaiName.Location = New System.Drawing.Point(20,262)
-Me.txtDomaiName.name = "txtDomaiName"
-Me.txtDomaiName.Size = New System.Drawing.Size(200, 20)
-Me.txtDomaiName.TabIndex = 12
-Me.txtDomaiName.Text = "" 
-Me.lblEMail.Location = New System.Drawing.Point(20,287)
-Me.lblEMail.name = "lblEMail"
-Me.lblEMail.Size = New System.Drawing.Size(200, 20)
-Me.lblEMail.TabIndex = 13
-Me.lblEMail.Text = "e-mail"
-Me.lblEMail.ForeColor = System.Drawing.Color.Blue
-Me.txtEMail.Location = New System.Drawing.Point(20,309)
-Me.txtEMail.name = "txtEMail"
-Me.txtEMail.Size = New System.Drawing.Size(200, 20)
-Me.txtEMail.TabIndex = 14
-Me.txtEMail.Text = "" 
-Me.lblPhone.Location = New System.Drawing.Point(20,334)
-Me.lblPhone.name = "lblPhone"
-Me.lblPhone.Size = New System.Drawing.Size(200, 20)
-Me.lblPhone.TabIndex = 15
-Me.lblPhone.Text = "Телефон"
-Me.lblPhone.ForeColor = System.Drawing.Color.Blue
-Me.txtPhone.Location = New System.Drawing.Point(20,356)
-Me.txtPhone.name = "txtPhone"
-Me.txtPhone.Size = New System.Drawing.Size(200, 20)
-Me.txtPhone.TabIndex = 16
-Me.txtPhone.Text = "" 
-Me.lblLocalPhone.Location = New System.Drawing.Point(20,381)
-Me.lblLocalPhone.name = "lblLocalPhone"
-Me.lblLocalPhone.Size = New System.Drawing.Size(200, 20)
-Me.lblLocalPhone.TabIndex = 17
-Me.lblLocalPhone.Text = "Местный телефон"
-Me.lblLocalPhone.ForeColor = System.Drawing.Color.Blue
-Me.txtLocalPhone.Location = New System.Drawing.Point(20,403)
-Me.txtLocalPhone.name = "txtLocalPhone"
-Me.txtLocalPhone.Size = New System.Drawing.Size(200, 20)
-Me.txtLocalPhone.TabIndex = 18
-Me.txtLocalPhone.Text = "" 
+Me.lblfamily.Location = New System.Drawing.Point(20,5)
+Me.lblfamily.name = "lblfamily"
+Me.lblfamily.Size = New System.Drawing.Size(200, 20)
+Me.lblfamily.TabIndex = 1
+Me.lblfamily.Text = "Фамилия"
+Me.lblfamily.ForeColor = System.Drawing.Color.Black
+Me.txtfamily.Location = New System.Drawing.Point(20,27)
+Me.txtfamily.name = "txtfamily"
+Me.txtfamily.Size = New System.Drawing.Size(200, 20)
+Me.txtfamily.TabIndex = 2
+Me.txtfamily.Text = "" 
+Me.lblname.Location = New System.Drawing.Point(20,52)
+Me.lblname.name = "lblname"
+Me.lblname.Size = New System.Drawing.Size(200, 20)
+Me.lblname.TabIndex = 3
+Me.lblname.Text = "Имя"
+Me.lblname.ForeColor = System.Drawing.Color.Black
+Me.txtname.Location = New System.Drawing.Point(20,74)
+Me.txtname.name = "txtname"
+Me.txtname.Size = New System.Drawing.Size(200, 20)
+Me.txtname.TabIndex = 4
+Me.txtname.Text = "" 
+Me.lblsurname.Location = New System.Drawing.Point(20,99)
+Me.lblsurname.name = "lblsurname"
+Me.lblsurname.Size = New System.Drawing.Size(200, 20)
+Me.lblsurname.TabIndex = 5
+Me.lblsurname.Text = "Отчество"
+Me.lblsurname.ForeColor = System.Drawing.Color.Black
+Me.txtsurname.Location = New System.Drawing.Point(20,121)
+Me.txtsurname.name = "txtsurname"
+Me.txtsurname.Size = New System.Drawing.Size(200, 20)
+Me.txtsurname.TabIndex = 6
+Me.txtsurname.Text = "" 
+Me.lbllogin.Location = New System.Drawing.Point(20,146)
+Me.lbllogin.name = "lbllogin"
+Me.lbllogin.Size = New System.Drawing.Size(200, 20)
+Me.lbllogin.TabIndex = 7
+Me.lbllogin.Text = "Имя для входа"
+Me.lbllogin.ForeColor = System.Drawing.Color.Black
+Me.txtlogin.Location = New System.Drawing.Point(20,168)
+Me.txtlogin.name = "txtlogin"
+Me.txtlogin.Size = New System.Drawing.Size(200, 20)
+Me.txtlogin.TabIndex = 8
+Me.txtlogin.Text = "" 
+Me.lblpassword.Location = New System.Drawing.Point(20,193)
+Me.lblpassword.name = "lblpassword"
+Me.lblpassword.Size = New System.Drawing.Size(200, 20)
+Me.lblpassword.TabIndex = 9
+Me.lblpassword.Text = "Пароль"
+Me.lblpassword.ForeColor = System.Drawing.Color.Blue
+Me.txtpassword.Location = New System.Drawing.Point(20,215)
+Me.txtpassword.name = "txtpassword"
+Me.txtpassword.Size = New System.Drawing.Size(200, 20)
+Me.txtpassword.TabIndex = 10
+Me.txtpassword.Text = "" 
+Me.txtpassword.PasswordChar = Microsoft.VisualBasic.ChrW(42)
+Me.lbldomainame.Location = New System.Drawing.Point(20,240)
+Me.lbldomainame.name = "lbldomainame"
+Me.lbldomainame.Size = New System.Drawing.Size(200, 20)
+Me.lbldomainame.TabIndex = 11
+Me.lbldomainame.Text = "Доменное имя"
+Me.lbldomainame.ForeColor = System.Drawing.Color.Blue
+Me.txtdomainame.Location = New System.Drawing.Point(20,262)
+Me.txtdomainame.name = "txtdomainame"
+Me.txtdomainame.Size = New System.Drawing.Size(200, 20)
+Me.txtdomainame.TabIndex = 12
+Me.txtdomainame.Text = "" 
+Me.lblemail.Location = New System.Drawing.Point(20,287)
+Me.lblemail.name = "lblemail"
+Me.lblemail.Size = New System.Drawing.Size(200, 20)
+Me.lblemail.TabIndex = 13
+Me.lblemail.Text = "e-mail"
+Me.lblemail.ForeColor = System.Drawing.Color.Blue
+Me.txtemail.Location = New System.Drawing.Point(20,309)
+Me.txtemail.name = "txtemail"
+Me.txtemail.Size = New System.Drawing.Size(200, 20)
+Me.txtemail.TabIndex = 14
+Me.txtemail.Text = "" 
+Me.lblphone.Location = New System.Drawing.Point(20,334)
+Me.lblphone.name = "lblphone"
+Me.lblphone.Size = New System.Drawing.Size(200, 20)
+Me.lblphone.TabIndex = 15
+Me.lblphone.Text = "Телефон"
+Me.lblphone.ForeColor = System.Drawing.Color.Blue
+Me.txtphone.Location = New System.Drawing.Point(20,356)
+Me.txtphone.name = "txtphone"
+Me.txtphone.Size = New System.Drawing.Size(200, 20)
+Me.txtphone.TabIndex = 16
+Me.txtphone.Text = "" 
+Me.lbllocalphone.Location = New System.Drawing.Point(20,381)
+Me.lbllocalphone.name = "lbllocalphone"
+Me.lbllocalphone.Size = New System.Drawing.Size(200, 20)
+Me.lbllocalphone.TabIndex = 17
+Me.lbllocalphone.Text = "Местный телефон"
+Me.lbllocalphone.ForeColor = System.Drawing.Color.Blue
+Me.txtlocalphone.Location = New System.Drawing.Point(20,403)
+Me.txtlocalphone.name = "txtlocalphone"
+Me.txtlocalphone.Size = New System.Drawing.Size(200, 20)
+Me.txtlocalphone.TabIndex = 18
+Me.txtlocalphone.Text = "" 
         Me.AutoScroll = True
 
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblFamily)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtFamily)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblSurName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtSurName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblLogin)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtLogin)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblPassword)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtPassword)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblDomaiName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtDomaiName)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblEMail)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtEMail)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblPhone)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtPhone)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblLocalPhone)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtLocalPhone)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblfamily)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtfamily)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblname)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtname)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblsurname)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtsurname)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lbllogin)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtlogin)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblpassword)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtpassword)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lbldomainame)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtdomainame)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblemail)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtemail)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblphone)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtphone)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lbllocalphone)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtlocalphone)
         Me.Controls.Add(Me.HolderPanel)
         Me.HolderPanel.ResumeLayout(False)
         Me.HolderPanel.PerformLayout()
-        Me.name = "editUsers"
+        Me.name = "editusers"
         Me.Size = New System.Drawing.Size(232, 120)
         Me.ResumeLayout (False)
     End Sub
 #End Region
 
-private sub txtFamily_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtFamily.TextChanged
+private sub txtfamily_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtfamily.TextChanged
   Changing
 
 end sub
-private sub txtName_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtName.TextChanged
+private sub txtname_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtname.TextChanged
   Changing
 
 end sub
-private sub txtSurName_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSurName.TextChanged
+private sub txtsurname_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtsurname.TextChanged
   Changing
 
 end sub
-private sub txtLogin_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLogin.TextChanged
+private sub txtlogin_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtlogin.TextChanged
   Changing
 
 end sub
-private sub txtPassword_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPassword.TextChanged
+private sub txtpassword_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtpassword.TextChanged
   Changing
 
 end sub
-private sub txtDomaiName_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtDomaiName.TextChanged
+private sub txtdomainame_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtdomainame.TextChanged
   Changing
 
 end sub
-private sub txtEMail_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEMail.TextChanged
+private sub txtemail_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtemail.TextChanged
   Changing
 
 end sub
-private sub txtPhone_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPhone.TextChanged
+private sub txtphone_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtphone.TextChanged
   Changing
 
 end sub
-private sub txtLocalPhone_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLocalPhone.TextChanged
+private sub txtlocalphone_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtlocalphone.TextChanged
   Changing
 
 end sub
 
-Public Item As MTZUsers.MTZUsers.Users
+Public Item As mtzusers.mtzusers.users
 Private mRowReadOnly As Boolean
 Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -284,21 +284,21 @@ Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 '''
 ''' </remarks>
 Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATIR2.Document.DocRow_Base,byval RowReadOnly as boolean  ) Implements LATIR2GUIManager.IRowEditor.Attach
-        Item = Ctype(ri,MTZUsers.MTZUsers.Users)
+        Item = Ctype(ri,mtzusers.mtzusers.users)
         GuiManager = gm
         mRowReadOnly = RowReadOnly
         If Item Is Nothing Then Exit Sub
         mOnInit = true
 
-txtFamily.text = item.Family
-txtName.text = item.Name
-txtSurName.text = item.SurName
-txtLogin.text = item.Login
-txtPassword.text = item.Password
-txtDomaiName.text = item.DomaiName
-txtEMail.text = item.EMail
-txtPhone.text = item.Phone
-txtLocalPhone.text = item.LocalPhone
+txtfamily.text = item.family
+txtname.text = item.name
+txtsurname.text = item.surname
+txtlogin.text = item.login
+txtpassword.text = item.password
+txtdomainame.text = item.domainame
+txtemail.text = item.email
+txtphone.text = item.phone
+txtlocalphone.text = item.localphone
         mOnInit = false
   raiseevent Refreshed()
 end sub
@@ -313,15 +313,15 @@ end sub
 Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
   if mRowReadOnly =false then
 
-item.Family = txtFamily.text
-item.Name = txtName.text
-item.SurName = txtSurName.text
-item.Login = txtLogin.text
-item.Password = txtPassword.text
-item.DomaiName = txtDomaiName.text
-item.EMail = txtEMail.text
-item.Phone = txtPhone.text
-item.LocalPhone = txtLocalPhone.text
+item.family = txtfamily.text
+item.name = txtname.text
+item.surname = txtsurname.text
+item.login = txtlogin.text
+item.password = txtpassword.text
+item.domainame = txtdomainame.text
+item.email = txtemail.text
+item.phone = txtphone.text
+item.localphone = txtlocalphone.text
   end if
   mChanged = false
   raiseevent saved()
@@ -331,10 +331,10 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  mIsOK=true
  if mRowReadOnly  then return true
 
-if mIsOK then mIsOK =( txtFamily.text <> "" ) 
-if mIsOK then mIsOK =( txtName.text <> "" ) 
-if mIsOK then mIsOK =( txtSurName.text <> "" ) 
-if mIsOK then mIsOK =( txtLogin.text <> "" ) 
+if mIsOK then mIsOK =( txtfamily.text <> "" ) 
+if mIsOK then mIsOK =( txtname.text <> "" ) 
+if mIsOK then mIsOK =( txtsurname.text <> "" ) 
+if mIsOK then mIsOK =( txtlogin.text <> "" ) 
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged

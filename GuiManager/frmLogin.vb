@@ -1,5 +1,6 @@
 Imports System.Xml
 Imports System.Drawing
+Imports System.IO
 Imports System.Windows.Forms
 
 Public Class frmLogin
@@ -182,7 +183,16 @@ Public Class frmLogin
         Dim xdom As XmlDocument
         Dim I As Integer
         xdom = New XmlDocument
-        xdom.Load(Manager.XmlFile)
+        If Manager.XmlFile.EndsWith("zzz") Then
+            Dim s As String
+            s = File.ReadAllText(Manager.XmlFile)
+            s = LATIR2.CryptoZ.Decrypt(s, "LATIR4")
+            xdom.LoadXml(s)
+
+        Else
+            xdom.Load(Manager.XmlFile)
+        End If
+        'xdom.Load(Manager.XmlFile)
         cmbProfile.Items.Clear()
 
         For I = 0 To xdom.LastChild.ChildNodes.Count - 1

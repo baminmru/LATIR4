@@ -8,6 +8,7 @@ Imports System.xml
 Imports System.Data
 Imports System.Convert
 Imports System.DateTime
+Imports System.Diagnostics
 
 Namespace MTZExt
 
@@ -101,8 +102,12 @@ Public Overrides Property Value(ByVal Index As Object) As Object
                     Value = TheLibraryName
             End Select
         else
-        On Error Resume Next
-        Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+        try
+          Value = Microsoft.VisualBasic.CallByName(Me, Index.ToString(), Microsoft.VisualBasic.CallType.Get, Nothing)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+              Value=nothing
+          end try
         End If
     End Get
     Set(ByVal value As Object)
@@ -172,26 +177,29 @@ End Function
         Public Overrides Sub FillDataTable(ByRef DestDataTable As System.Data.DataTable)
             Dim dr As  DataRow
             dr = destdatatable.NewRow
-            on error resume next
+            try
             dr("ID") =ID
             dr("Brief") =Brief
              select case ThePlatform
-            case enumDevelopmentBase.DevelopmentBase_VB6
-              dr ("ThePlatform")  = "VB6"
-              dr ("ThePlatform_VAL")  = 0
+            case enumDevelopmentBase.DevelopmentBase_OTHER
+              dr ("ThePlatform")  = "OTHER"
+              dr ("ThePlatform_VAL")  = 3
             case enumDevelopmentBase.DevelopmentBase_DOTNET
               dr ("ThePlatform")  = "DOTNET"
               dr ("ThePlatform_VAL")  = 1
             case enumDevelopmentBase.DevelopmentBase_JAVA
               dr ("ThePlatform")  = "JAVA"
               dr ("ThePlatform_VAL")  = 2
-            case enumDevelopmentBase.DevelopmentBase_OTHER
-              dr ("ThePlatform")  = "OTHER"
-              dr ("ThePlatform_VAL")  = 3
+            case enumDevelopmentBase.DevelopmentBase_VB6
+              dr ("ThePlatform")  = "VB6"
+              dr ("ThePlatform_VAL")  = 0
               end select 'ThePlatform
              dr("TheClassName") =TheClassName
              dr("TheLibraryName") =TheLibraryName
             DestDataTable.Rows.Add (dr)
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -232,7 +240,7 @@ End Function
 '''
 ''' </remarks>
         Public Overrides Sub Unpack(ByVal reader As System.Data.DataRow)
-            on error resume next  
+            try  
             If IsDBNull(reader.item("SecurityStyleID")) Then
                 SecureStyleID = System.guid.Empty
             Else
@@ -244,6 +252,9 @@ End Function
           If reader.Table.Columns.Contains("ThePlatform") Then m_ThePlatform=reader.item("ThePlatform")
           If reader.Table.Columns.Contains("TheClassName") Then m_TheClassName=reader.item("TheClassName").ToString()
           If reader.Table.Columns.Contains("TheLibraryName") Then m_TheLibraryName=reader.item("TheLibraryName").ToString()
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End Sub
 
 
@@ -315,11 +326,14 @@ End Function
 ''' </remarks>
         Protected Overrides sub XMLUnpack(ByVal node As System.Xml.XmlNode, Optional ByVal LoadMode As Integer = 0)
           Dim e_list As XmlNodeList
-          on error resume next  
+          try 
             ThePlatform = node.Attributes.GetNamedItem("ThePlatform").Value
             TheClassName = node.Attributes.GetNamedItem("TheClassName").Value
             TheLibraryName = node.Attributes.GetNamedItem("TheLibraryName").Value
              Changed = true
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
         Public Overrides Sub Dispose()
         End Sub
@@ -332,10 +346,13 @@ End Function
 '''
 ''' </remarks>
         Protected Overrides sub XLMPack(ByVal node As System.Xml.XmlElement, ByVal Xdom As System.Xml.XmlDocument)
-           on error resume next  
+           try 
           node.SetAttribute("ThePlatform", ThePlatform)  
           node.SetAttribute("TheClassName", TheClassName)  
           node.SetAttribute("TheLibraryName", TheLibraryName)  
+           catch ex as System.Exception
+              Debug.Print( ex.Message + " >> " + ex.StackTrace)
+          end try
         End sub
 
 

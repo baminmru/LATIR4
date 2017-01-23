@@ -64,7 +64,7 @@ Friend Class MakeInit
         s.putBuf("delete from instance;")
 
         s.putBuf("insert into instance(InstanceID,OBJTYPE,Name) values(ainstid, 'MTZSYSTEM','Системная информация');")
-        s.putBuf("insert into instance(InstanceID,OBJTYPE,Name) values(asecid, 'MTZUsers', 'Пользователи и группы');")
+        s.putBuf("insert into instance(InstanceID,OBJTYPE,Name) values(asecid, 'mtzusers', 'Пользователи и группы');")
         s.putBuf("insert into users(usersid,instanceid,login,password,name) values('" & GetMap2("supervisor") & "',asecid,'supervisor','bami','Администратор');")
         For i = 1 To m.OBJECTTYPE.Count
             s.putBuf("insert into typelist( typelistid,name,DeleteProc, HCLProc, propagateProc) values(newid(),'" & m.OBJECTTYPE.Item(i).Name & "', '" & m.OBJECTTYPE.Item(i).Name & "_DELETE', '" & m.OBJECTTYPE.Item(i).Name & "_HCL', '" & m.OBJECTTYPE.Item(i).Name & "_propagate');")

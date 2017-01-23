@@ -1,0 +1,17 @@
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\LATIRModelLoader.Form1.resources
+obj\Release\ModelLoader.vbproj.GenerateResource.Cache
+bin\LATIRModelLoader.exe
+bin\LATIRModelLoader.xml
+obj\Release\LATIRModelLoader.exe
+obj\Release\LATIRModelLoader.xml
+bin\LATIRModelLoader.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\LATIRModelLoader.Form1.resources
+obj\Debug\ModelLoader.vbproj.GenerateResource.Cache
+obj\Debug\LATIRModelLoader.exe
+obj\Debug\LATIRModelLoader.xml
+obj\Debug\LATIRModelLoader.pdb
+..\..\Generated\Generated Dlls\LATIRModelLoader.exe
+..\..\Generated\Generated Dlls\LATIRModelLoader.xml
+..\..\Generated\Generated DLLS\LATIRModelLoader.exe.config

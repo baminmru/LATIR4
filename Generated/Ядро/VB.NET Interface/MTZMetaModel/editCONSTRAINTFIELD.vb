@@ -54,7 +54,7 @@ Public Class editCONSTRAINTFIELD
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheField  as  System.Windows.Forms.Label
-Friend WithEvents txtTheField As System.Windows.Forms.TextBox
+Friend WithEvents txtTheField As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTheField As System.Windows.Forms.Button
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -73,7 +73,7 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheField = New System.Windows.Forms.Label
-Me.txtTheField = New System.Windows.Forms.TextBox
+Me.txtTheField = New LATIR2GuiManager.TouchTextBox
 Me.cmdTheField = New System.Windows.Forms.Button
 
 Me.lblTheField.Location = New System.Drawing.Point(20,5)

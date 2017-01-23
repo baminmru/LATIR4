@@ -54,14 +54,14 @@ Public Class editExtenderInterface
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
 Friend WithEvents lblTheName  as  System.Windows.Forms.Label
-Friend WithEvents txtTheName As System.Windows.Forms.TextBox
+Friend WithEvents txtTheName As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTargetPlatform  as  System.Windows.Forms.Label
-Friend WithEvents txtTargetPlatform As System.Windows.Forms.TextBox
+Friend WithEvents txtTargetPlatform As LATIR2GuiManager.TouchTextBox
 Friend WithEvents cmdTargetPlatform As System.Windows.Forms.Button
 Friend WithEvents lblTheObject  as  System.Windows.Forms.Label
-Friend WithEvents txtTheObject As System.Windows.Forms.TextBox
+Friend WithEvents txtTheObject As LATIR2GuiManager.TouchTextBox
 Friend WithEvents lblTheConfig  as  System.Windows.Forms.Label
-Friend WithEvents txtTheConfig As System.Windows.Forms.TextBox
+Friend WithEvents txtTheConfig As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -79,14 +79,14 @@ Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
 Me.lblTheName = New System.Windows.Forms.Label
-Me.txtTheName = New System.Windows.Forms.TextBox
+Me.txtTheName = New LATIR2GuiManager.TouchTextBox
 Me.lblTargetPlatform = New System.Windows.Forms.Label
-Me.txtTargetPlatform = New System.Windows.Forms.TextBox
+Me.txtTargetPlatform = New LATIR2GuiManager.TouchTextBox
 Me.cmdTargetPlatform = New System.Windows.Forms.Button
 Me.lblTheObject = New System.Windows.Forms.Label
-Me.txtTheObject = New System.Windows.Forms.TextBox
+Me.txtTheObject = New LATIR2GuiManager.TouchTextBox
 Me.lblTheConfig = New System.Windows.Forms.Label
-Me.txtTheConfig = New System.Windows.Forms.TextBox
+Me.txtTheConfig = New LATIR2GuiManager.TouchTextBox
 
 Me.lblTheName.Location = New System.Drawing.Point(20,5)
 Me.lblTheName.name = "lblTheName"

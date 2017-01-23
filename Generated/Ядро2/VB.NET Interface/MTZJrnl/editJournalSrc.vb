@@ -11,7 +11,7 @@ Imports System.Diagnostics
 ''' <remarks>
 '''
 ''' </remarks>
-Public Class editJournalSrc
+Public Class editjournalsrc
     Inherits System.Windows.Forms.UserControl
     Implements LATIR2GUIManager.IRowEditor
 
@@ -53,16 +53,16 @@ Public Class editJournalSrc
 
  Dim iii As Integer
     Friend WithEvents HolderPanel As LATIR2GUIControls.AutoPanel
-Friend WithEvents lblPartView  as  System.Windows.Forms.Label
-Friend WithEvents txtPartView As System.Windows.Forms.TextBox
-Friend WithEvents lblOnRun  as  System.Windows.Forms.Label
-Friend WithEvents cmbOnRun As System.Windows.Forms.ComboBox
-Friend cmbOnRunDATA As DataTable
-Friend cmbOnRunDATAROW As DataRow
-Friend WithEvents lblOpenMode  as  System.Windows.Forms.Label
-Friend WithEvents txtOpenMode As System.Windows.Forms.TextBox
-Friend WithEvents lblViewAlias  as  System.Windows.Forms.Label
-Friend WithEvents txtViewAlias As System.Windows.Forms.TextBox
+Friend WithEvents lblspartview  as  System.Windows.Forms.Label
+Friend WithEvents txtspartview As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblonrun  as  System.Windows.Forms.Label
+Friend WithEvents cmbonrun As System.Windows.Forms.ComboBox
+Friend cmbonrunDATA As DataTable
+Friend cmbonrunDATAROW As DataRow
+Friend WithEvents lblopenmode  as  System.Windows.Forms.Label
+Friend WithEvents txtopenmode As LATIR2GuiManager.TouchTextBox
+Friend WithEvents lblviewalias  as  System.Windows.Forms.Label
+Friend WithEvents txtviewalias As LATIR2GuiManager.TouchTextBox
 
 <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 
@@ -79,83 +79,83 @@ Me.HolderPanel.Location = New System.Drawing.Point(0, 0)
 Me.HolderPanel.Name = "HolderPanel"
 Me.HolderPanel.Size = New System.Drawing.Size(232, 120)
 Me.HolderPanel.TabIndex = 0
-Me.lblPartView = New System.Windows.Forms.Label
-Me.txtPartView = New System.Windows.Forms.TextBox
-Me.lblOnRun = New System.Windows.Forms.Label
-Me.cmbOnRun = New System.Windows.Forms.ComboBox
-Me.lblOpenMode = New System.Windows.Forms.Label
-Me.txtOpenMode = New System.Windows.Forms.TextBox
-Me.lblViewAlias = New System.Windows.Forms.Label
-Me.txtViewAlias = New System.Windows.Forms.TextBox
+Me.lblspartview = New System.Windows.Forms.Label
+Me.txtspartview = New LATIR2GuiManager.TouchTextBox
+Me.lblonrun = New System.Windows.Forms.Label
+Me.cmbonrun = New System.Windows.Forms.ComboBox
+Me.lblopenmode = New System.Windows.Forms.Label
+Me.txtopenmode = New LATIR2GuiManager.TouchTextBox
+Me.lblviewalias = New System.Windows.Forms.Label
+Me.txtviewalias = New LATIR2GuiManager.TouchTextBox
 
-Me.lblPartView.Location = New System.Drawing.Point(20,5)
-Me.lblPartView.name = "lblPartView"
-Me.lblPartView.Size = New System.Drawing.Size(200, 20)
-Me.lblPartView.TabIndex = 1
-Me.lblPartView.Text = "Представление"
-Me.lblPartView.ForeColor = System.Drawing.Color.Black
-Me.txtPartView.Location = New System.Drawing.Point(20,27)
-Me.txtPartView.name = "txtPartView"
-Me.txtPartView.Size = New System.Drawing.Size(200, 20)
-Me.txtPartView.TabIndex = 2
-Me.txtPartView.Text = "" 
-Me.lblOnRun.Location = New System.Drawing.Point(20,52)
-Me.lblOnRun.name = "lblOnRun"
-Me.lblOnRun.Size = New System.Drawing.Size(200, 20)
-Me.lblOnRun.TabIndex = 3
-Me.lblOnRun.Text = "При открытии"
-Me.lblOnRun.ForeColor = System.Drawing.Color.Black
-Me.cmbOnRun.Location = New System.Drawing.Point(20,74)
-Me.cmbOnRun.name = "cmbOnRun"
-Me.cmbOnRun.Size = New System.Drawing.Size(200,  20)
-Me.cmbOnRun.TabIndex = 4
-Me.cmbOnRun.DropDownStyle = ComboBoxStyle.DropDownList
-Me.lblOpenMode.Location = New System.Drawing.Point(20,99)
-Me.lblOpenMode.name = "lblOpenMode"
-Me.lblOpenMode.Size = New System.Drawing.Size(200, 20)
-Me.lblOpenMode.TabIndex = 5
-Me.lblOpenMode.Text = "Режим открытия"
-Me.lblOpenMode.ForeColor = System.Drawing.Color.Blue
-Me.txtOpenMode.Location = New System.Drawing.Point(20,121)
-Me.txtOpenMode.name = "txtOpenMode"
-Me.txtOpenMode.Size = New System.Drawing.Size(200, 20)
-Me.txtOpenMode.TabIndex = 6
-Me.txtOpenMode.Text = "" 
-Me.lblViewAlias.Location = New System.Drawing.Point(20,146)
-Me.lblViewAlias.name = "lblViewAlias"
-Me.lblViewAlias.Size = New System.Drawing.Size(200, 20)
-Me.lblViewAlias.TabIndex = 7
-Me.lblViewAlias.Text = "Псевдоним представления"
-Me.lblViewAlias.ForeColor = System.Drawing.Color.Blue
-Me.txtViewAlias.Location = New System.Drawing.Point(20,168)
-Me.txtViewAlias.name = "txtViewAlias"
-Me.txtViewAlias.Size = New System.Drawing.Size(200, 20)
-Me.txtViewAlias.TabIndex = 8
-Me.txtViewAlias.Text = "" 
+Me.lblspartview.Location = New System.Drawing.Point(20,5)
+Me.lblspartview.name = "lblspartview"
+Me.lblspartview.Size = New System.Drawing.Size(200, 20)
+Me.lblspartview.TabIndex = 1
+Me.lblspartview.Text = "Представление"
+Me.lblspartview.ForeColor = System.Drawing.Color.Black
+Me.txtspartview.Location = New System.Drawing.Point(20,27)
+Me.txtspartview.name = "txtspartview"
+Me.txtspartview.Size = New System.Drawing.Size(200, 20)
+Me.txtspartview.TabIndex = 2
+Me.txtspartview.Text = "" 
+Me.lblonrun.Location = New System.Drawing.Point(20,52)
+Me.lblonrun.name = "lblonrun"
+Me.lblonrun.Size = New System.Drawing.Size(200, 20)
+Me.lblonrun.TabIndex = 3
+Me.lblonrun.Text = "При открытии"
+Me.lblonrun.ForeColor = System.Drawing.Color.Black
+Me.cmbonrun.Location = New System.Drawing.Point(20,74)
+Me.cmbonrun.name = "cmbonrun"
+Me.cmbonrun.Size = New System.Drawing.Size(200,  20)
+Me.cmbonrun.TabIndex = 4
+Me.cmbonrun.DropDownStyle = ComboBoxStyle.DropDownList
+Me.lblopenmode.Location = New System.Drawing.Point(20,99)
+Me.lblopenmode.name = "lblopenmode"
+Me.lblopenmode.Size = New System.Drawing.Size(200, 20)
+Me.lblopenmode.TabIndex = 5
+Me.lblopenmode.Text = "Режим открытия"
+Me.lblopenmode.ForeColor = System.Drawing.Color.Blue
+Me.txtopenmode.Location = New System.Drawing.Point(20,121)
+Me.txtopenmode.name = "txtopenmode"
+Me.txtopenmode.Size = New System.Drawing.Size(200, 20)
+Me.txtopenmode.TabIndex = 6
+Me.txtopenmode.Text = "" 
+Me.lblviewalias.Location = New System.Drawing.Point(20,146)
+Me.lblviewalias.name = "lblviewalias"
+Me.lblviewalias.Size = New System.Drawing.Size(200, 20)
+Me.lblviewalias.TabIndex = 7
+Me.lblviewalias.Text = "Псевдоним представления"
+Me.lblviewalias.ForeColor = System.Drawing.Color.Blue
+Me.txtviewalias.Location = New System.Drawing.Point(20,168)
+Me.txtviewalias.name = "txtviewalias"
+Me.txtviewalias.Size = New System.Drawing.Size(200, 20)
+Me.txtviewalias.TabIndex = 8
+Me.txtviewalias.Text = "" 
         Me.AutoScroll = True
 
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblPartView)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtPartView)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblOnRun)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbOnRun)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblOpenMode)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtOpenMode)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblViewAlias)
-CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtViewAlias)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblspartview)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtspartview)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblonrun)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmbonrun)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblopenmode)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtopenmode)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.lblviewalias)
+CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txtviewalias)
         Me.Controls.Add(Me.HolderPanel)
         Me.HolderPanel.ResumeLayout(False)
         Me.HolderPanel.PerformLayout()
-        Me.name = "editJournalSrc"
+        Me.name = "editjournalsrc"
         Me.Size = New System.Drawing.Size(232, 120)
         Me.ResumeLayout (False)
     End Sub
 #End Region
 
-private sub txtPartView_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPartView.TextChanged
+private sub txtspartview_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtspartview.TextChanged
   Changing
 
 end sub
-private sub cmbOnRun_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbOnRun.SelectedIndexChanged
+private sub cmbonrun_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbonrun.SelectedIndexChanged
   try
      Changing
 
@@ -163,16 +163,16 @@ private sub cmbOnRun_SelectedIndexChanged(ByVal sender As System.Object, ByVal e
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
 end sub
-private sub txtOpenMode_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtOpenMode.TextChanged
+private sub txtopenmode_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtopenmode.TextChanged
   Changing
 
 end sub
-private sub txtViewAlias_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtViewAlias.TextChanged
+private sub txtviewalias_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtviewalias.TextChanged
   Changing
 
 end sub
 
-Public Item As MTZJrnl.MTZJrnl.JournalSrc
+Public Item As mtzjrnl.mtzjrnl.journalsrc
 Private mRowReadOnly As Boolean
 Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 
@@ -184,38 +184,38 @@ Public GuiManager As LATIR2GuiManager.LATIRGuiManager
 '''
 ''' </remarks>
 Public Sub Attach(ByVal gm As LATIR2GuiManager.LATIRGuiManager, ByVal ri As LATIR2.Document.DocRow_Base,byval RowReadOnly as boolean  ) Implements LATIR2GUIManager.IRowEditor.Attach
-        Item = Ctype(ri,MTZJrnl.MTZJrnl.JournalSrc)
+        Item = Ctype(ri,mtzjrnl.mtzjrnl.journalsrc)
         GuiManager = gm
         mRowReadOnly = RowReadOnly
         If Item Is Nothing Then Exit Sub
         mOnInit = true
 
-txtPartView.text = item.PartView.ToString()
-cmbOnRunData = New DataTable
-cmbOnRunData.Columns.Add("name", GetType(System.String))
-cmbOnRunData.Columns.Add("Value", GetType(System.Int32))
+txtspartview.text = item.spartview
+cmbonrunData = New DataTable
+cmbonrunData.Columns.Add("name", GetType(System.String))
+cmbonrunData.Columns.Add("Value", GetType(System.Int32))
 try
-cmbOnRunDataRow = cmbOnRunData.NewRow
-cmbOnRunDataRow("name") = "Ничего не делать"
-cmbOnRunDataRow("Value") = 0
-cmbOnRunData.Rows.Add (cmbOnRunDataRow)
-cmbOnRunDataRow = cmbOnRunData.NewRow
-cmbOnRunDataRow("name") = "Открыть строку"
-cmbOnRunDataRow("Value") = 1
-cmbOnRunData.Rows.Add (cmbOnRunDataRow)
-cmbOnRunDataRow = cmbOnRunData.NewRow
-cmbOnRunDataRow("name") = "Открыть документ"
-cmbOnRunDataRow("Value") = 2
-cmbOnRunData.Rows.Add (cmbOnRunDataRow)
-cmbOnRun.DisplayMember = "name"
-cmbOnRun.ValueMember = "Value"
-cmbOnRun.DataSource = cmbOnRunData
- cmbOnRun.SelectedValue=CInt(Item.OnRun)
+cmbonrunDataRow = cmbonrunData.NewRow
+cmbonrunDataRow("name") = "Ничего не делать"
+cmbonrunDataRow("Value") = 0
+cmbonrunData.Rows.Add (cmbonrunDataRow)
+cmbonrunDataRow = cmbonrunData.NewRow
+cmbonrunDataRow("name") = "Открыть строку"
+cmbonrunDataRow("Value") = 1
+cmbonrunData.Rows.Add (cmbonrunDataRow)
+cmbonrunDataRow = cmbonrunData.NewRow
+cmbonrunDataRow("name") = "Открыть документ"
+cmbonrunDataRow("Value") = 2
+cmbonrunData.Rows.Add (cmbonrunDataRow)
+cmbonrun.DisplayMember = "name"
+cmbonrun.ValueMember = "Value"
+cmbonrun.DataSource = cmbonrunData
+ cmbonrun.SelectedValue=CInt(Item.onrun)
         catch ex as System.Exception
              Debug.Print(ex.Message +" >> " + ex.StackTrace)
         end try
-txtOpenMode.text = item.OpenMode
-txtViewAlias.text = item.ViewAlias
+txtopenmode.text = item.openmode
+txtviewalias.text = item.viewalias
         mOnInit = false
   raiseevent Refreshed()
 end sub
@@ -230,10 +230,10 @@ end sub
 Public Sub Save() Implements LATIR2GUIManager.IRowEditor.Save
   if mRowReadOnly =false then
 
-item.PartView = new System.Guid(txtPartView.text)
-   item.OnRun = cmbOnRun.SelectedValue
-item.OpenMode = txtOpenMode.text
-item.ViewAlias = txtViewAlias.text
+item.spartview = txtspartview.text
+   item.onrun = cmbonrun.SelectedValue
+item.openmode = txtopenmode.text
+item.viewalias = txtviewalias.text
   end if
   mChanged = false
   raiseevent saved()
@@ -243,8 +243,8 @@ Public function IsOK() as boolean Implements LATIR2GUIManager.IRowEditor.IsOK
  mIsOK=true
  if mRowReadOnly  then return true
 
-if mIsOK then mIsOK =( txtPartView.text <> "" ) 
-if mIsOK then mIsOK =(cmbOnRun.SelectedIndex >=0)
+if mIsOK then mIsOK =( txtspartview.text <> "" ) 
+if mIsOK then mIsOK =(cmbonrun.SelectedIndex >=0)
  return mIsOK
 end function
 Public function IsChanged() as boolean Implements LATIR2GUIManager.IRowEditor.IsChanged
