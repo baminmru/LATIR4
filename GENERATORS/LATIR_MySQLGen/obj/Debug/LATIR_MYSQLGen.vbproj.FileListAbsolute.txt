@@ -49,9 +49,9 @@ E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.pdb
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\LATIRGenerator.xml
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.pdb
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\bin\Debug\L2Manager.xml
-E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbprojResolveAssemblyReference.cache
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.frmOptions.resources
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbproj.GenerateResource.Cache
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.dll
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.xml
 E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.pdb
+E:\LATIR4\GENERATORS\LATIR_MySQLGen\obj\Debug\LATIR_MYSQLGen.vbprojResolveAssemblyReference.cache

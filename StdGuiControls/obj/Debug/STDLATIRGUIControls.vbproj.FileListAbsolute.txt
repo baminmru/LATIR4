@@ -4,7 +4,6 @@ E:\LATIR4\Generated\Generated Dlls\STDLATIRGUIControls.xml
 E:\LATIR4\StdGuiControls\bin\Debug\STDLATIRGUIControls.dll
 E:\LATIR4\StdGuiControls\bin\Debug\STDLATIRGUIControls.pdb
 E:\LATIR4\StdGuiControls\bin\Debug\STDLATIRGUIControls.xml
-E:\LATIR4\StdGuiControls\bin\Debug\DocumentFormat.OpenXml.dll
 E:\LATIR4\StdGuiControls\bin\Debug\L2Manager.dll
 E:\LATIR4\StdGuiControls\bin\Debug\LATIR2GuiManager.dll
 E:\LATIR4\StdGuiControls\bin\Debug\NetronLight.dll
@@ -17,7 +16,6 @@ E:\LATIR4\StdGuiControls\bin\Debug\NetronLight.pdb
 E:\LATIR4\StdGuiControls\bin\Debug\L2Manager.pdb
 E:\LATIR4\StdGuiControls\bin\Debug\L2Manager.xml
 E:\LATIR4\StdGuiControls\bin\Debug\SpreadSheetLight1.pdb
-E:\LATIR4\StdGuiControls\bin\Debug\DocumentFormat.OpenXml.xml
 E:\LATIR4\StdGuiControls\obj\Debug\STDLATIRGUIControls.vbprojResolveAssemblyReference.cache
 E:\LATIR4\StdGuiControls\obj\Debug\LATIR2GUIControls.AutoPanel.resources
 E:\LATIR4\StdGuiControls\obj\Debug\LATIR2GUIControls.Buttons.resources

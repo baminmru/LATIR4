@@ -8,4 +8,3 @@ C:\LATIR4\Build\MTZwp_doc.xml
 E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZwp\obj\Debug\MTZwp.dll
 E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZwp\obj\Debug\MTZwp_doc.xml
 E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZwp\obj\Debug\MTZwp.pdb
-E:\LATIR4\Generated\Ядро2\VB.NET Model\MTZwp\obj\Debug\MTZwp.vbprojResolveAssemblyReference.cache

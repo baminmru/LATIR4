@@ -24,9 +24,7 @@ E:\LATIR2\objmanager\bin\Debug\L2Manager.xml
 E:\LATIR4\objmanager\bin\Debug\L2Manager.dll
 E:\LATIR4\objmanager\bin\Debug\L2Manager.pdb
 E:\LATIR4\objmanager\bin\Debug\L2Manager.xml
-E:\LATIR4\objmanager\bin\Debug\MySql.Data.dll
 E:\LATIR4\objmanager\bin\Debug\Oracle.ManagedDataAccess.dll
 E:\LATIR4\objmanager\obj\Debug\L2Manager.dll
 E:\LATIR4\objmanager\obj\Debug\L2Manager.xml
 E:\LATIR4\objmanager\obj\Debug\L2Manager.pdb
-E:\LATIR4\objmanager\obj\Debug\L2Manager.vbprojResolveAssemblyReference.cache

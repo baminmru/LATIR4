@@ -1,6 +1,8 @@
 ﻿Imports MTZJrnl.MTZJrnl
 Imports LATIR2
 Imports LATIR2GuiManager
+Imports SpreadsheetLight
+Imports DocumentFormat.OpenXml
 
 Public Class JournalViewSTD
     Inherits System.Windows.Forms.UserControl
@@ -136,80 +138,84 @@ Public Class JournalViewSTD
         '
         'CtlMenu
         '
+        Me.CtlMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.CtlMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAdd, Me.mnuEdit, Me.mnuDelete, Me.mnuRun, Me.mnuPrint, Me.mnufilter, Me.mnuNoFilter, Me.mnuRefresh, Me.mnuSetup})
         Me.CtlMenu.Name = "CtlMenu"
         Me.CtlMenu.ShowItemToolTips = False
-        Me.CtlMenu.Size = New System.Drawing.Size(167, 202)
+        Me.CtlMenu.Size = New System.Drawing.Size(235, 274)
         '
         'mnuAdd
         '
         Me.mnuAdd.Name = "mnuAdd"
-        Me.mnuAdd.Size = New System.Drawing.Size(166, 22)
+        Me.mnuAdd.Size = New System.Drawing.Size(234, 30)
         Me.mnuAdd.Text = "Создать"
         '
         'mnuEdit
         '
         Me.mnuEdit.Name = "mnuEdit"
-        Me.mnuEdit.Size = New System.Drawing.Size(166, 22)
+        Me.mnuEdit.Size = New System.Drawing.Size(234, 30)
         Me.mnuEdit.Text = "Изменить"
         '
         'mnuDelete
         '
         Me.mnuDelete.Name = "mnuDelete"
-        Me.mnuDelete.Size = New System.Drawing.Size(166, 22)
+        Me.mnuDelete.Size = New System.Drawing.Size(234, 30)
         Me.mnuDelete.Text = "Удалить"
         '
         'mnuRun
         '
         Me.mnuRun.Name = "mnuRun"
-        Me.mnuRun.Size = New System.Drawing.Size(166, 22)
+        Me.mnuRun.Size = New System.Drawing.Size(234, 30)
         Me.mnuRun.Text = "Открыть"
         '
         'mnuPrint
         '
         Me.mnuPrint.Name = "mnuPrint"
-        Me.mnuPrint.Size = New System.Drawing.Size(166, 22)
+        Me.mnuPrint.Size = New System.Drawing.Size(234, 30)
         Me.mnuPrint.Text = "Печать"
         Me.mnuPrint.Visible = False
         '
         'mnufilter
         '
         Me.mnufilter.Name = "mnufilter"
-        Me.mnufilter.Size = New System.Drawing.Size(166, 22)
+        Me.mnufilter.Size = New System.Drawing.Size(234, 30)
         Me.mnufilter.Text = "Фильтр"
         Me.mnufilter.Visible = False
         '
         'mnuNoFilter
         '
         Me.mnuNoFilter.Name = "mnuNoFilter"
-        Me.mnuNoFilter.Size = New System.Drawing.Size(166, 22)
+        Me.mnuNoFilter.Size = New System.Drawing.Size(234, 30)
         Me.mnuNoFilter.Text = "Отмена фильтра"
         '
         'mnuRefresh
         '
         Me.mnuRefresh.Name = "mnuRefresh"
-        Me.mnuRefresh.Size = New System.Drawing.Size(166, 22)
+        Me.mnuRefresh.Size = New System.Drawing.Size(234, 30)
         Me.mnuRefresh.Text = "Обновить"
         '
         'mnuSetup
         '
         Me.mnuSetup.Name = "mnuSetup"
-        Me.mnuSetup.Size = New System.Drawing.Size(166, 22)
+        Me.mnuSetup.Size = New System.Drawing.Size(234, 30)
         Me.mnuSetup.Text = "Настроить"
         Me.mnuSetup.Visible = False
         '
         'cmdExport
         '
         Me.cmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdExport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdExport.ImageKey = "xl.ico"
         Me.cmdExport.ImageList = Me.ImageList1
-        Me.cmdExport.Location = New System.Drawing.Point(201, 8)
+        Me.cmdExport.Location = New System.Drawing.Point(818, 10)
+        Me.cmdExport.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdExport.Name = "cmdExport"
-        Me.cmdExport.Size = New System.Drawing.Size(27, 24)
+        Me.cmdExport.Size = New System.Drawing.Size(113, 44)
         Me.cmdExport.TabIndex = 9
         Me.cmdExport.TabStop = False
-        Me.cmdExport.Text = "&Э"
+        Me.cmdExport.Text = "Экспорт"
+        Me.cmdExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdExport, "Экспорт")
         Me.cmdExport.UseVisualStyleBackColor = True
         '
@@ -274,85 +280,103 @@ Public Class JournalViewSTD
         'cmdRefresh
         '
         Me.cmdRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdRefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdRefresh.ImageIndex = 44
         Me.cmdRefresh.ImageList = Me.ImageList1
-        Me.cmdRefresh.Location = New System.Drawing.Point(136, 8)
+        Me.cmdRefresh.Location = New System.Drawing.Point(564, 10)
+        Me.cmdRefresh.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdRefresh.Name = "cmdRefresh"
-        Me.cmdRefresh.Size = New System.Drawing.Size(27, 24)
+        Me.cmdRefresh.Size = New System.Drawing.Size(131, 44)
         Me.cmdRefresh.TabIndex = 7
         Me.cmdRefresh.TabStop = False
-        Me.cmdRefresh.Text = "&О"
+        Me.cmdRefresh.Text = "Обновить"
+        Me.cmdRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdRefresh, "Обновить")
         '
         'cmdPrint
         '
         Me.cmdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdPrint.ImageIndex = 40
         Me.cmdPrint.ImageList = Me.ImageList1
-        Me.cmdPrint.Location = New System.Drawing.Point(168, 8)
+        Me.cmdPrint.Location = New System.Drawing.Point(703, 10)
+        Me.cmdPrint.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(27, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(107, 44)
         Me.cmdPrint.TabIndex = 6
         Me.cmdPrint.TabStop = False
-        Me.cmdPrint.Text = "&П"
-        Me.ToolTip1.SetToolTip(Me.cmdPrint, "Печать")
+        Me.cmdPrint.Text = "Отчет"
+        Me.cmdPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolTip1.SetToolTip(Me.cmdPrint, "Отчет")
         '
         'cmdRun
         '
         Me.cmdRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRun.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdRun.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdRun.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdRun.ImageIndex = 37
         Me.cmdRun.ImageList = Me.ImageList1
-        Me.cmdRun.Location = New System.Drawing.Point(104, 8)
+        Me.cmdRun.Location = New System.Drawing.Point(413, 10)
+        Me.cmdRun.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdRun.Name = "cmdRun"
-        Me.cmdRun.Size = New System.Drawing.Size(27, 24)
+        Me.cmdRun.Size = New System.Drawing.Size(143, 44)
         Me.cmdRun.TabIndex = 5
         Me.cmdRun.TabStop = False
-        Me.cmdRun.Text = "&В"
-        Me.ToolTip1.SetToolTip(Me.cmdRun, "Выполнить")
+        Me.cmdRun.Text = "Открыть"
+        Me.cmdRun.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolTip1.SetToolTip(Me.cmdRun, "Открыть")
         '
         'cmdClearFilter
         '
         Me.cmdClearFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdClearFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdClearFilter.ImageIndex = 27
         Me.cmdClearFilter.ImageList = Me.ImageList1
-        Me.cmdClearFilter.Location = New System.Drawing.Point(266, 8)
+        Me.cmdClearFilter.Location = New System.Drawing.Point(1056, 10)
+        Me.cmdClearFilter.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdClearFilter.Name = "cmdClearFilter"
-        Me.cmdClearFilter.Size = New System.Drawing.Size(27, 24)
+        Me.cmdClearFilter.Size = New System.Drawing.Size(168, 44)
         Me.cmdClearFilter.TabIndex = 4
         Me.cmdClearFilter.TabStop = False
-        Me.cmdClearFilter.Text = "&Б"
+        Me.cmdClearFilter.Text = "Без фильтра"
+        Me.cmdClearFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdClearFilter, "Без фильтра")
         '
         'cmdFilter
         '
         Me.cmdFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdFilter.ImageIndex = 15
         Me.cmdFilter.ImageList = Me.ImageList1
-        Me.cmdFilter.Location = New System.Drawing.Point(234, 8)
+        Me.cmdFilter.Location = New System.Drawing.Point(939, 10)
+        Me.cmdFilter.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdFilter.Name = "cmdFilter"
-        Me.cmdFilter.Size = New System.Drawing.Size(27, 24)
+        Me.cmdFilter.Size = New System.Drawing.Size(109, 44)
         Me.cmdFilter.TabIndex = 3
         Me.cmdFilter.TabStop = False
-        Me.cmdFilter.Text = "&Ф"
+        Me.cmdFilter.Text = "Фильтр"
+        Me.cmdFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdFilter, "Фильтр")
         '
         'cmdEdit
         '
         Me.cmdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdEdit.ImageIndex = 46
         Me.cmdEdit.ImageList = Me.ImageList1
-        Me.cmdEdit.Location = New System.Drawing.Point(40, 8)
+        Me.cmdEdit.Location = New System.Drawing.Point(144, 10)
+        Me.cmdEdit.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(27, 24)
+        Me.cmdEdit.Size = New System.Drawing.Size(136, 44)
         Me.cmdEdit.TabIndex = 2
         Me.cmdEdit.TabStop = False
-        Me.cmdEdit.Text = "&И"
+        Me.cmdEdit.Text = "Изменить"
+        Me.cmdEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdEdit, "Изменить")
         '
         'cmdAdd
@@ -360,31 +384,36 @@ Public Class JournalViewSTD
         Me.cmdAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cmdAdd.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.cmdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdAdd.ImageKey = "Создать.ico"
         Me.cmdAdd.ImageList = Me.ImageList1
-        Me.cmdAdd.Location = New System.Drawing.Point(8, 8)
+        Me.cmdAdd.Location = New System.Drawing.Point(11, 10)
+        Me.cmdAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdAdd.Name = "cmdAdd"
-        Me.cmdAdd.Size = New System.Drawing.Size(27, 24)
+        Me.cmdAdd.Size = New System.Drawing.Size(125, 44)
         Me.cmdAdd.TabIndex = 1
         Me.cmdAdd.TabStop = False
-        Me.cmdAdd.Text = "&С"
-        Me.cmdAdd.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.cmdAdd.Text = "Создать"
+        Me.cmdAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdAdd, "Создать")
         Me.cmdAdd.UseVisualStyleBackColor = True
         '
         'cmdDel
         '
         Me.cmdDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdDel.Font = New System.Drawing.Font("Microsoft Sans Serif", 1.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdDel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.cmdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdDel.ImageIndex = 35
         Me.cmdDel.ImageList = Me.ImageList1
-        Me.cmdDel.Location = New System.Drawing.Point(72, 8)
+        Me.cmdDel.Location = New System.Drawing.Point(288, 10)
+        Me.cmdDel.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdDel.Name = "cmdDel"
-        Me.cmdDel.Size = New System.Drawing.Size(27, 24)
+        Me.cmdDel.Size = New System.Drawing.Size(117, 44)
         Me.cmdDel.TabIndex = 0
         Me.cmdDel.TabStop = False
-        Me.cmdDel.Text = "&У"
+        Me.cmdDel.Text = "Удалить"
+        Me.cmdDel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolTip1.SetToolTip(Me.cmdDel, "Удалить")
         '
         'SaveFileDialog1
@@ -405,8 +434,9 @@ Public Class JournalViewSTD
         Me.Panel1.Controls.Add(Me.cmdDel)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(575, 38)
+        Me.Panel1.Size = New System.Drawing.Size(1222, 63)
         Me.Panel1.TabIndex = 4
         '
         'gv
@@ -423,7 +453,8 @@ Public Class JournalViewSTD
         Me.gv.ContextMenuStrip = Me.CtlMenu
         Me.gv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.gv.GridColor = System.Drawing.SystemColors.Control
-        Me.gv.Location = New System.Drawing.Point(0, 44)
+        Me.gv.Location = New System.Drawing.Point(0, 71)
+        Me.gv.Margin = New System.Windows.Forms.Padding(4)
         Me.gv.Name = "gv"
         Me.gv.ReadOnly = True
         Me.gv.RowHeadersWidth = 10
@@ -431,18 +462,22 @@ Public Class JournalViewSTD
         Me.gv.ShowCellErrors = False
         Me.gv.ShowEditingIcon = False
         Me.gv.ShowRowErrors = False
-        Me.gv.Size = New System.Drawing.Size(575, 278)
+        Me.gv.Size = New System.Drawing.Size(1222, 476)
         Me.gv.TabIndex = 3
         Me.gv.Text = "gv"
         '
+        'PrintDocument1
+        '
+        '
         'JournalViewSTD
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.gv)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "JournalViewSTD"
-        Me.Size = New System.Drawing.Size(575, 322)
+        Me.Size = New System.Drawing.Size(1222, 582)
         Me.CtlMenu.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         CType(Me.gv, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1083,11 +1118,123 @@ bye:
 
 
 
+    Public Sub ExportGrid(gr As DataGridView)
+        SaveFileDialog1.CheckPathExists = True
+        SaveFileDialog1.DefaultExt = "xlsx"
+        SaveFileDialog1.Filter = "Excel|*.xlsx"
+        SaveFileDialog1.OverwritePrompt = True
+        SaveFileDialog1.Title = "Сохранение в файл"
+
+        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+            Dim SLD As SLDocument
+            SLD = New SLDocument
+
+            Dim row As Integer
+
+            Dim col As Integer
+            Dim hstyle As SLStyle
+
+            Dim cstyle As SLStyle
+            hstyle = SLD.CreateStyle()
+            hstyle.Font.FontSize = 15
+            hstyle.Font.Bold = True
+            hstyle.Font.Underline = Spreadsheet.UnderlineValues.Single
+
+            Dim border As SLBorder
+            border = SLD.CreateBorder()
+            border.BottomBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
+            border.BottomBorder.Color = Color.Black
+
+            border.LeftBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
+            border.LeftBorder.Color = Color.Black
+            hstyle.Border = border
+
+
+            cstyle = SLD.CreateStyle()
+            cstyle.Font.FontSize = 12
+            ' cstyle.Font.Bold = True
+            ' cstyle.Font.Underline = Spreadsheet.UnderlineValues.Single
+
+            Dim border2 As SLBorder
+            border2 = SLD.CreateBorder()
+            border2.BottomBorder.BorderStyle = Spreadsheet.BorderStyleValues.Dashed
+            border2.BottomBorder.Color = Color.Black
+
+            border2.LeftBorder.BorderStyle = Spreadsheet.BorderStyleValues.Dashed
+            border2.LeftBorder.Color = Color.Black
+            cstyle.Border = border2
+
+            'Dim cell As SLCell
+            'Dim sp As SLCellPoint
+
+            Dim cols(gr.Columns.Count) As Integer
+            Dim visibleCount As Integer = 0
+
+
+            For col = 0 To gr.Columns.Count - 1
+                If gr.Columns.Item(col).Visible = True Then
+                    cols(visibleCount) = col
+                    visibleCount += 1
+                End If
+            Next
+
+
+            For col = 0 To visibleCount - 1
+
+                Try
+                    SLD.SetCellValue(1, col + 1, gr.Columns.Item(cols(col)).HeaderText)
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+
+                SLD.SetCellStyle(1, col + 1, hstyle)
+                'sp = New SLCellPoint(1, col)
+                'cell = SLD.GetCells(sp)
+                SLD.SetColumnWidth(col + 1, gr.Columns.Item(cols(col)).Width / 8)
+
+
+            Next
+
+            For row = 0 To gr.Rows.Count - 1
+                For col = 0 To visibleCount - 1
+                    Try
+
+                        If IsDate(gr.Rows.Item(row).Cells.Item(cols(col)).Value) Then
+                            If gr.Rows.Item(row).Cells.Item(cols(col)).Value.Equals(DateTime.MinValue) Then
+                                SLD.SetCellValue(row + 2, col + 1, "")
+                            Else
+                                SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+                            End If
+                        Else
+                            SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+                        End If
+
+
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                    End Try
+
+                    SLD.SetCellStyle(row + 2, col + 1, cstyle)
+                    'sp = New SLCellPoint(row + 2, col)
+                    'cell = SLD.GetCells(sp)
+                Next
+            Next
+
+            'cell = ws.Cells(0, 0)
+            'cell.Value = Caption
+            'cell.Style = hstyle
+
+            SLD.SaveAs(SaveFileDialog1.FileName)
+            'outworkbook.Save()
+            'wb.ReleaseLock()
+            MsgBox("Файл сохранен")
+        End If
+    End Sub
+
+
 
     Private Sub cmdExport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExport.Click
-        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-            'UltraGridExcelExporter1.Export(gv, SaveFileDialog1.FileName)
-        End If
+        ExportGrid(gv)
     End Sub
 
     Public ReadOnly Property Filters() As JFilters

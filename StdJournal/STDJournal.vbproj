@@ -69,6 +69,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SpreadSheetLight1\bin\Debug\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -128,6 +132,10 @@
     <ProjectReference Include="..\objmanager\L2Manager.vbproj">
       <Project>{c2aed02b-2ed8-497a-b79e-afc4e5967f29}</Project>
       <Name>L2Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpreadSheetLight1\SpreadSheetLight1.csproj">
+      <Project>{d6987fb2-92ed-41c9-8d61-0ce555ae62d7}</Project>
+      <Name>SpreadSheetLight1</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

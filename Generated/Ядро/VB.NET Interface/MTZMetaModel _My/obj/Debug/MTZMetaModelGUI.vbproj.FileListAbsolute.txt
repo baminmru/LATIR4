@@ -1,9 +1,0 @@
-C:\LATIR4\Build\MTZMetaModelGUI.dll
-C:\LATIR4\Build\MTZMetaModelGUI.pdb
-C:\LATIR4\Build\MTZMetaModelGUI.xml
-C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZMetaModel\obj\Debug\MTZMetaModelGUI.dll
-C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZMetaModel\obj\Debug\MTZMetaModelGUI.xml
-C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZMetaModel\obj\Debug\MTZMetaModelGUI.pdb
-C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZMetaModel\obj\Debug\MTZMetaModelGUI.vbprojResolveAssemblyReference.cache
-C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZMetaModel\obj\Debug\MTZMetaModelGUI.editOBJECTTYPE.resources
-C:\LATIR4\Generated\Ядро\VB.NET Interface\MTZMetaModel\obj\Debug\MTZMetaModelGUI.vbproj.GenerateResource.Cache

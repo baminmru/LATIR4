@@ -25,7 +25,6 @@ E:\LATIR4\LATIRFramework\bin\Debug\LATIR2Framework.pdb
 E:\LATIR4\LATIRFramework\bin\Debug\L2Manager.dll
 E:\LATIR4\LATIRFramework\bin\Debug\LATIRGenerator.dll
 E:\LATIR4\LATIRFramework\bin\Debug\MTZMetaModel.dll
-E:\LATIR4\LATIRFramework\bin\Debug\ROLES.dll
 E:\LATIR4\LATIRFramework\bin\Debug\MySql.Data.dll
 E:\LATIR4\LATIRFramework\bin\Debug\Oracle.ManagedDataAccess.dll
 E:\LATIR4\LATIRFramework\bin\Debug\MTZMetaModel.pdb

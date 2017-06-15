@@ -609,10 +609,6 @@
       <Project>{48376712-0dfb-412d-ba0e-927c38fa6325}</Project>
       <Name>ModelLoader</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MySQLDBInstal\MYSQLdbInstall.vbproj">
-      <Project>{4422206e-3fbf-42ad-bae5-426e38e78693}</Project>
-      <Name>MYSQLdbInstall</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ORADBInstal\ORAdbInstall.vbproj">
       <Project>{c8dd25bf-d7a6-48f7-b94c-e9fbc33dbe31}</Project>
       <Name>ORAdbInstall</Name>

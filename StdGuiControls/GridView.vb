@@ -64,6 +64,7 @@ Public Class GridView
         Me.mnuDel = New System.Windows.Forms.MenuItem()
         Me.mnuRefresh = New System.Windows.Forms.MenuItem()
         Me.mnuFind = New System.Windows.Forms.MenuItem()
+        Me.mnuExport = New System.Windows.Forms.MenuItem()
         Me.mnuProp = New System.Windows.Forms.MenuItem()
         Me.mnuRun = New System.Windows.Forms.MenuItem()
         Me.mnuPrint = New System.Windows.Forms.MenuItem()
@@ -73,7 +74,6 @@ Public Class GridView
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.mnuExport = New System.Windows.Forms.MenuItem()
         CType(Me.gr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelButtons.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -130,6 +130,11 @@ Public Class GridView
         Me.mnuFind.Index = 4
         Me.mnuFind.Text = "Поиск"
         '
+        'mnuExport
+        '
+        Me.mnuExport.Index = 5
+        Me.mnuExport.Text = "Экспорт"
+        '
         'mnuProp
         '
         Me.mnuProp.Index = 6
@@ -162,8 +167,8 @@ Public Class GridView
         Me.ButtonsGrid.AllowEdit = True
         Me.ButtonsGrid.AllowExport = True
         Me.ButtonsGrid.AllowFind = False
-        Me.ButtonsGrid.AllowProp = False
         Me.ButtonsGrid.AllowPrint = True
+        Me.ButtonsGrid.AllowProp = False
         Me.ButtonsGrid.AllowRefresh = True
         Me.ButtonsGrid.AllowRun = True
         Me.ButtonsGrid.Dock = System.Windows.Forms.DockStyle.Left
@@ -183,11 +188,6 @@ Public Class GridView
         '
         'PrintDocument1
         '
-        '
-        'mnuExport
-        '
-        Me.mnuExport.Index = 5
-        Me.mnuExport.Text = "Экспорт"
         '
         'GridView
         '
@@ -622,6 +622,10 @@ Public Class GridView
 
     Private Sub ButtonsGrid_OnProp() Handles ButtonsGrid.OnProp
         mnuProp_Click(Nothing, Nothing)
+    End Sub
+
+    Private Sub ButtonsGrid_Load(sender As Object, e As EventArgs) Handles ButtonsGrid.Load
+
     End Sub
 
 #End Region

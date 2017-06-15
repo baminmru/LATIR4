@@ -116,10 +116,10 @@ Public Class frmGenerator
         Me.cmdClearLog.BackColor = System.Drawing.SystemColors.Control
         Me.cmdClearLog.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdClearLog.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdClearLog.Location = New System.Drawing.Point(497, 426)
+        Me.cmdClearLog.Location = New System.Drawing.Point(585, 477)
         Me.cmdClearLog.Name = "cmdClearLog"
         Me.cmdClearLog.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdClearLog.Size = New System.Drawing.Size(145, 21)
+        Me.cmdClearLog.Size = New System.Drawing.Size(174, 24)
         Me.cmdClearLog.TabIndex = 66
         Me.cmdClearLog.Text = "Очистить журнал"
         Me.cmdClearLog.UseVisualStyleBackColor = False
@@ -130,10 +130,10 @@ Public Class frmGenerator
         Me.cmdFindErr.BackColor = System.Drawing.SystemColors.Control
         Me.cmdFindErr.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdFindErr.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdFindErr.Location = New System.Drawing.Point(347, 426)
+        Me.cmdFindErr.Location = New System.Drawing.Point(405, 477)
         Me.cmdFindErr.Name = "cmdFindErr"
         Me.cmdFindErr.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdFindErr.Size = New System.Drawing.Size(145, 21)
+        Me.cmdFindErr.Size = New System.Drawing.Size(174, 24)
         Me.cmdFindErr.TabIndex = 65
         Me.cmdFindErr.Text = "Следующая ошибка"
         Me.cmdFindErr.UseVisualStyleBackColor = False
@@ -144,10 +144,10 @@ Public Class frmGenerator
         Me.cmdGen.BackColor = System.Drawing.SystemColors.Control
         Me.cmdGen.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdGen.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdGen.Location = New System.Drawing.Point(569, 5)
+        Me.cmdGen.Location = New System.Drawing.Point(672, 6)
         Me.cmdGen.Name = "cmdGen"
         Me.cmdGen.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdGen.Size = New System.Drawing.Size(73, 21)
+        Me.cmdGen.Size = New System.Drawing.Size(87, 24)
         Me.cmdGen.TabIndex = 64
         Me.cmdGen.Text = "Генерация"
         Me.cmdGen.UseVisualStyleBackColor = False
@@ -157,11 +157,11 @@ Public Class frmGenerator
         Me.txtLog.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtLog.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtLog.Location = New System.Drawing.Point(3, 453)
+        Me.txtLog.Location = New System.Drawing.Point(4, 508)
         Me.txtLog.Name = "txtLog"
         Me.txtLog.ReadOnly = True
         Me.txtLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
-        Me.txtLog.Size = New System.Drawing.Size(639, 97)
+        Me.txtLog.Size = New System.Drawing.Size(755, 112)
         Me.txtLog.TabIndex = 63
         Me.txtLog.Text = ""
         '
@@ -170,10 +170,10 @@ Public Class frmGenerator
         Me.Label5.BackColor = System.Drawing.SystemColors.Control
         Me.Label5.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label5.Location = New System.Drawing.Point(5, 437)
+        Me.Label5.Location = New System.Drawing.Point(6, 504)
         Me.Label5.Name = "Label5"
         Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(105, 17)
+        Me.Label5.Size = New System.Drawing.Size(126, 20)
         Me.Label5.TabIndex = 62
         Me.Label5.Text = "Журнал"
         '
@@ -183,10 +183,10 @@ Public Class frmGenerator
         Me.ButtonGenSetup.BackColor = System.Drawing.SystemColors.Control
         Me.ButtonGenSetup.Cursor = System.Windows.Forms.Cursors.Default
         Me.ButtonGenSetup.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonGenSetup.Location = New System.Drawing.Point(138, 263)
+        Me.ButtonGenSetup.Location = New System.Drawing.Point(166, 288)
         Me.ButtonGenSetup.Name = "ButtonGenSetup"
         Me.ButtonGenSetup.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ButtonGenSetup.Size = New System.Drawing.Size(153, 21)
+        Me.ButtonGenSetup.Size = New System.Drawing.Size(183, 25)
         Me.ButtonGenSetup.TabIndex = 61
         Me.ButtonGenSetup.Text = "Настройка генератора"
         Me.ButtonGenSetup.UseVisualStyleBackColor = False
@@ -194,9 +194,9 @@ Public Class frmGenerator
         'ButtonDevEnv
         '
         Me.ButtonDevEnv.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonDevEnv.Location = New System.Drawing.Point(616, 373)
+        Me.ButtonDevEnv.Location = New System.Drawing.Point(728, 415)
         Me.ButtonDevEnv.Name = "ButtonDevEnv"
-        Me.ButtonDevEnv.Size = New System.Drawing.Size(26, 22)
+        Me.ButtonDevEnv.Size = New System.Drawing.Size(31, 26)
         Me.ButtonDevEnv.TabIndex = 57
         Me.ButtonDevEnv.Text = "..."
         '
@@ -204,9 +204,9 @@ Public Class frmGenerator
         '
         Me.LabelDevEnv.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelDevEnv.AutoSize = True
-        Me.LabelDevEnv.Location = New System.Drawing.Point(12, 376)
+        Me.LabelDevEnv.Location = New System.Drawing.Point(14, 419)
         Me.LabelDevEnv.Name = "LabelDevEnv"
-        Me.LabelDevEnv.Size = New System.Drawing.Size(99, 13)
+        Me.LabelDevEnv.Size = New System.Drawing.Size(126, 17)
         Me.LabelDevEnv.TabIndex = 55
         Me.LabelDevEnv.Text = "MSBUILD.exe path"
         '
@@ -216,9 +216,9 @@ Public Class frmGenerator
         Me.CheckBoxCompile.AutoSize = True
         Me.CheckBoxCompile.Checked = True
         Me.CheckBoxCompile.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBoxCompile.Location = New System.Drawing.Point(16, 356)
+        Me.CheckBoxCompile.Location = New System.Drawing.Point(19, 394)
         Me.CheckBoxCompile.Name = "CheckBoxCompile"
-        Me.CheckBoxCompile.Size = New System.Drawing.Size(63, 17)
+        Me.CheckBoxCompile.Size = New System.Drawing.Size(80, 21)
         Me.CheckBoxCompile.TabIndex = 54
         Me.CheckBoxCompile.Text = "Compile"
         Me.CheckBoxCompile.UseVisualStyleBackColor = True
@@ -226,9 +226,9 @@ Public Class frmGenerator
         'ButtonOutDlls
         '
         Me.ButtonOutDlls.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonOutDlls.Location = New System.Drawing.Point(616, 396)
+        Me.ButtonOutDlls.Location = New System.Drawing.Point(728, 442)
         Me.ButtonOutDlls.Name = "ButtonOutDlls"
-        Me.ButtonOutDlls.Size = New System.Drawing.Size(26, 22)
+        Me.ButtonOutDlls.Size = New System.Drawing.Size(31, 25)
         Me.ButtonOutDlls.TabIndex = 60
         Me.ButtonOutDlls.Text = "..."
         '
@@ -236,18 +236,18 @@ Public Class frmGenerator
         '
         Me.LabelOutDlls.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelOutDlls.AutoSize = True
-        Me.LabelOutDlls.Location = New System.Drawing.Point(14, 401)
+        Me.LabelOutDlls.Location = New System.Drawing.Point(17, 448)
         Me.LabelOutDlls.Name = "LabelOutDlls"
-        Me.LabelOutDlls.Size = New System.Drawing.Size(91, 13)
+        Me.LabelOutDlls.Size = New System.Drawing.Size(122, 17)
         Me.LabelOutDlls.TabIndex = 58
         Me.LabelOutDlls.Text = "Dlls Output Folder"
         '
         'button3
         '
         Me.button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.button3.Location = New System.Drawing.Point(616, 332)
+        Me.button3.Location = New System.Drawing.Point(728, 368)
         Me.button3.Name = "button3"
-        Me.button3.Size = New System.Drawing.Size(26, 22)
+        Me.button3.Size = New System.Drawing.Size(31, 25)
         Me.button3.TabIndex = 53
         Me.button3.Text = "..."
         '
@@ -255,9 +255,9 @@ Public Class frmGenerator
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 337)
+        Me.Label3.Location = New System.Drawing.Point(16, 374)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 13)
+        Me.Label3.Size = New System.Drawing.Size(154, 17)
         Me.Label3.TabIndex = 51
         Me.Label3.Text = "Projects Output Folder:"
         '
@@ -265,9 +265,9 @@ Public Class frmGenerator
         '
         Me.progressBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.progressBar.Location = New System.Drawing.Point(12, 302)
+        Me.progressBar.Location = New System.Drawing.Point(14, 333)
         Me.progressBar.Name = "progressBar"
-        Me.progressBar.Size = New System.Drawing.Size(630, 17)
+        Me.progressBar.Size = New System.Drawing.Size(745, 20)
         Me.progressBar.TabIndex = 49
         Me.progressBar.Visible = False
         '
@@ -277,10 +277,10 @@ Public Class frmGenerator
         Me.Label1.BackColor = System.Drawing.SystemColors.Control
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(12, 286)
+        Me.Label1.Location = New System.Drawing.Point(14, 315)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(113, 17)
+        Me.Label1.Size = New System.Drawing.Size(136, 20)
         Me.Label1.TabIndex = 50
         Me.Label1.Text = "Процесс генерации"
         Me.Label1.Visible = False
@@ -292,9 +292,9 @@ Public Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkTypes.CheckOnClick = True
         Me.chkTypes.FormattingEnabled = True
-        Me.chkTypes.Location = New System.Drawing.Point(299, 43)
+        Me.chkTypes.Location = New System.Drawing.Point(359, 50)
         Me.chkTypes.Name = "chkTypes"
-        Me.chkTypes.Size = New System.Drawing.Size(343, 214)
+        Me.chkTypes.Size = New System.Drawing.Size(400, 208)
         Me.chkTypes.Sorted = True
         Me.chkTypes.TabIndex = 45
         '
@@ -303,10 +303,10 @@ Public Class frmGenerator
         Me.Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(296, 29)
+        Me.Label4.Location = New System.Drawing.Point(355, 33)
         Me.Label4.Name = "Label4"
         Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label4.Size = New System.Drawing.Size(101, 17)
+        Me.Label4.Size = New System.Drawing.Size(121, 20)
         Me.Label4.TabIndex = 48
         Me.Label4.Text = "Типы документов"
         '
@@ -316,10 +316,10 @@ Public Class frmGenerator
         Me.cmdUnSelectAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdUnSelectAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdUnSelectAll.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdUnSelectAll.Location = New System.Drawing.Point(405, 263)
+        Me.cmdUnSelectAll.Location = New System.Drawing.Point(486, 288)
         Me.cmdUnSelectAll.Name = "cmdUnSelectAll"
         Me.cmdUnSelectAll.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdUnSelectAll.Size = New System.Drawing.Size(100, 21)
+        Me.cmdUnSelectAll.Size = New System.Drawing.Size(120, 25)
         Me.cmdUnSelectAll.TabIndex = 47
         Me.cmdUnSelectAll.Text = "Отменить все"
         Me.cmdUnSelectAll.UseVisualStyleBackColor = False
@@ -330,10 +330,10 @@ Public Class frmGenerator
         Me.cmdSelectAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdSelectAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdSelectAll.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdSelectAll.Location = New System.Drawing.Point(299, 263)
+        Me.cmdSelectAll.Location = New System.Drawing.Point(359, 288)
         Me.cmdSelectAll.Name = "cmdSelectAll"
         Me.cmdSelectAll.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdSelectAll.Size = New System.Drawing.Size(100, 21)
+        Me.cmdSelectAll.Size = New System.Drawing.Size(120, 25)
         Me.cmdSelectAll.TabIndex = 46
         Me.cmdSelectAll.Text = "Выбрать все"
         Me.cmdSelectAll.UseVisualStyleBackColor = False
@@ -344,9 +344,9 @@ Public Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkGenerators.CheckOnClick = True
         Me.chkGenerators.FormattingEnabled = True
-        Me.chkGenerators.Location = New System.Drawing.Point(14, 43)
+        Me.chkGenerators.Location = New System.Drawing.Point(17, 50)
         Me.chkGenerators.Name = "chkGenerators"
-        Me.chkGenerators.Size = New System.Drawing.Size(278, 214)
+        Me.chkGenerators.Size = New System.Drawing.Size(333, 208)
         Me.chkGenerators.Sorted = True
         Me.chkGenerators.TabIndex = 43
         '
@@ -355,10 +355,10 @@ Public Class frmGenerator
         Me.Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(14, 29)
+        Me.Label2.Location = New System.Drawing.Point(17, 33)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(89, 17)
+        Me.Label2.Size = New System.Drawing.Size(107, 20)
         Me.Label2.TabIndex = 44
         Me.Label2.Text = "Генераторы"
         '
@@ -367,10 +367,10 @@ Public Class frmGenerator
         Me.cmdNormNames.BackColor = System.Drawing.SystemColors.Control
         Me.cmdNormNames.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdNormNames.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdNormNames.Location = New System.Drawing.Point(126, 5)
+        Me.cmdNormNames.Location = New System.Drawing.Point(151, 6)
         Me.cmdNormNames.Name = "cmdNormNames"
         Me.cmdNormNames.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdNormNames.Size = New System.Drawing.Size(113, 21)
+        Me.cmdNormNames.Size = New System.Drawing.Size(136, 24)
         Me.cmdNormNames.TabIndex = 42
         Me.cmdNormNames.Text = "Испр. имена"
         Me.cmdNormNames.UseVisualStyleBackColor = False
@@ -380,10 +380,10 @@ Public Class frmGenerator
         Me.cmdCheckModel.BackColor = System.Drawing.SystemColors.Control
         Me.cmdCheckModel.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdCheckModel.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdCheckModel.Location = New System.Drawing.Point(14, 5)
+        Me.cmdCheckModel.Location = New System.Drawing.Point(17, 6)
         Me.cmdCheckModel.Name = "cmdCheckModel"
         Me.cmdCheckModel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdCheckModel.Size = New System.Drawing.Size(113, 21)
+        Me.cmdCheckModel.Size = New System.Drawing.Size(135, 24)
         Me.cmdCheckModel.TabIndex = 41
         Me.cmdCheckModel.Text = "Проверить модель"
         Me.cmdCheckModel.UseVisualStyleBackColor = False
@@ -394,9 +394,9 @@ Public Class frmGenerator
         'cmdDoc
         '
         Me.cmdDoc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdDoc.Location = New System.Drawing.Point(463, 5)
+        Me.cmdDoc.Location = New System.Drawing.Point(545, 6)
         Me.cmdDoc.Name = "cmdDoc"
-        Me.cmdDoc.Size = New System.Drawing.Size(100, 21)
+        Me.cmdDoc.Size = New System.Drawing.Size(120, 24)
         Me.cmdDoc.TabIndex = 67
         Me.cmdDoc.Text = "Документация"
         Me.cmdDoc.UseVisualStyleBackColor = True
@@ -405,9 +405,9 @@ Public Class frmGenerator
         '
         Me.TextBoxDevEnv.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxDevEnv.Location = New System.Drawing.Point(134, 373)
+        Me.TextBoxDevEnv.Location = New System.Drawing.Point(161, 415)
         Me.TextBoxDevEnv.Name = "TextBoxDevEnv"
-        Me.TextBoxDevEnv.Size = New System.Drawing.Size(469, 20)
+        Me.TextBoxDevEnv.Size = New System.Drawing.Size(552, 22)
         Me.TextBoxDevEnv.TabIndex = 56
         Me.TextBoxDevEnv.Text = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\"
         '
@@ -415,9 +415,9 @@ Public Class frmGenerator
         '
         Me.TextBoxOutDlls.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxOutDlls.Location = New System.Drawing.Point(134, 396)
+        Me.TextBoxOutDlls.Location = New System.Drawing.Point(161, 442)
         Me.TextBoxOutDlls.Name = "TextBoxOutDlls"
-        Me.TextBoxOutDlls.Size = New System.Drawing.Size(469, 20)
+        Me.TextBoxOutDlls.Size = New System.Drawing.Size(552, 22)
         Me.TextBoxOutDlls.TabIndex = 59
         Me.TextBoxOutDlls.Text = "C:\LATIR4\Build"
         '
@@ -425,16 +425,16 @@ Public Class frmGenerator
         '
         Me.textBoxOutPutFolder.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(134, 332)
+        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(161, 368)
         Me.textBoxOutPutFolder.Name = "textBoxOutPutFolder"
-        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(469, 20)
+        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(552, 22)
         Me.textBoxOutPutFolder.TabIndex = 52
         Me.textBoxOutPutFolder.Text = "C:\LATIR4\Generated\"
         '
         'frmGenerator
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(644, 555)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
+        Me.ClientSize = New System.Drawing.Size(762, 625)
         Me.Controls.Add(Me.cmdDoc)
         Me.Controls.Add(Me.cmdClearLog)
         Me.Controls.Add(Me.cmdFindErr)
@@ -465,7 +465,7 @@ Public Class frmGenerator
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(650, 580)
+        Me.MinimumSize = New System.Drawing.Size(780, 669)
         Me.Name = "frmGenerator"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generate sources"

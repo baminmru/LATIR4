@@ -17,4 +17,3 @@ E:\LATIR4\LATIRGENERATOR\bin\Debug\LATIRGenerator.xml
 E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.dll
 E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.xml
 E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.pdb
-E:\LATIR4\LATIRGENERATOR\obj\Debug\LATIRGenerator.vbprojResolveAssemblyReference.cache

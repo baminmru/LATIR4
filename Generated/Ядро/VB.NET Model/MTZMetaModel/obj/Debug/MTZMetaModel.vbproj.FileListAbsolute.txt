@@ -5,7 +5,7 @@ C:\LATIR4\Generated\Ядро\VB.NET Model\MTZMetaModel\obj\Debug\MTZMetaModel_do
 C:\LATIR4\Build\MTZMetaModel.dll
 C:\LATIR4\Build\MTZMetaModel.pdb
 C:\LATIR4\Build\MTZMetaModel_doc.xml
+E:\LATIR4\Generated\Ядро\VB.NET Model\MTZMetaModel\obj\Debug\MTZMetaModel.vbprojResolveAssemblyReference.cache
 E:\LATIR4\Generated\Ядро\VB.NET Model\MTZMetaModel\obj\Debug\MTZMetaModel.dll
 E:\LATIR4\Generated\Ядро\VB.NET Model\MTZMetaModel\obj\Debug\MTZMetaModel_doc.xml
 E:\LATIR4\Generated\Ядро\VB.NET Model\MTZMetaModel\obj\Debug\MTZMetaModel.pdb
-E:\LATIR4\Generated\Ядро\VB.NET Model\MTZMetaModel\obj\Debug\MTZMetaModel.vbprojResolveAssemblyReference.cache
