@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{046A637E-0401-4DD4-B42A-E718AEB34E1F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Ext6_JSPHPBuilder.My.MyApplication</StartupObject>
+    <RootNamespace>Ext6_JSPHPBuilder</RootNamespace>
+    <AssemblyName>Ext6_JSPHPBuilder</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>Ext6_JSPHPBuilder.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
+    <DocumentationFile>Ext6_JSPHPBuilder.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>b2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EcmaScript.NET">
+      <HintPath>lib\EcmaScript.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>lib\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtJSMakerMySQL.Designer.vb">
+      <DependentUpon>ExtJSMakerMySQL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExtJSMakerMySQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainB2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetUnique.Designer.vb">
+      <DependentUpon>frmSetUnique.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetUnique.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jsCompressor.Designer.vb">
+      <DependentUpon>jsCompressor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="jsCompressor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resolver.vb" />
+    <Compile Include="tmpInst.vb" />
+    <Compile Include="wordcheck.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExtJSMakerMySQL.resx">
+      <DependentUpon>ExtJSMakerMySQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainB2.resx">
+      <DependentUpon>frmMainB2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetUnique.resx">
+      <DependentUpon>frmSetUnique.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jsCompressor.resx">
+      <DependentUpon>jsCompressor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="b2.ico" />
+    <Content Include="latir_sites.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Generated\Ядро2\VB.NET Model\MTZFltr\MTZFltr.vbproj">
+      <Project>{6eba831a-2185-4318-a057-c5d1f9e5158a}</Project>
+      <Name>MTZFltr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj">
+      <Project>{b0c9ae57-aa49-4c08-9fb1-e3d531c1af15}</Project>
+      <Name>MTZJrnl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Generated\Ядро\VB.NET Model\MTZMetaModel\MTZMetaModel.vbproj">
+      <Project>{3e351770-05c0-4569-b7d7-ebd6f5ee49c4}</Project>
+      <Name>MTZMetaModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GuiManager\Latir2GuiManager.vbproj">
+      <Project>{60996302-32d9-4636-9695-4046e51779be}</Project>
+      <Name>Latir2GuiManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LATIRFramework\LATIR2Framework.csproj">
+      <Project>{98e98adc-d666-45aa-bc9a-b441b03d4b15}</Project>
+      <Name>LATIR2Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LATIRGENERATOR\LATIRGenerator.vbproj">
+      <Project>{de43aae4-1c37-47eb-a4c3-00a5619d08f8}</Project>
+      <Name>LATIRGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\objmanager\L2Manager.vbproj">
+      <Project>{c2aed02b-2ed8-497a-b79e-afc4e5967f29}</Project>
+      <Name>L2Manager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

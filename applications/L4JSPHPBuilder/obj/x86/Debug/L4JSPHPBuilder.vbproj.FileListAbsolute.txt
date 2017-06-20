@@ -1,0 +1,15 @@
+C:\LATIR4\Build\L4JSPHPBuilder.exe.config
+C:\LATIR4\Build\L4JSPHPBuilder.exe
+C:\LATIR4\Build\L4JSPHPBuilder.pdb
+C:\LATIR4\Build\L4JSPHPBuilder.xml
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.vbprojResolveAssemblyReference.cache
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.ExtJSMakerMYSQL.resources
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.frmMainB2.resources
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.frmSetUnique.resources
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.jsCompressor.resources
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.Resources.resources
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.vbproj.GenerateResource.Cache
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.exe.licenses
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.exe
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.xml
+E:\LATIR4\applications\L2JSPHPBuilder\obj\x86\Debug\L4JSPHPBuilder.pdb

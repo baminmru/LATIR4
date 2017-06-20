@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="L2JSPHPBuilder">
+</Property><Property Name="Solution File" Value="C:\LATIR2\applications\L2JSPHPBuilder\L2JSPHPBuilder.sln">
+</Property><Property Name="User Options File" Value="C:\LATIR2\applications\L2JSPHPBuilder\L2JSPHPBuilder.suo">
+</Property><Property Name="Date" Value="14 ноября 2014 г.">
+</Property><Property Name="Time" Value="17:22">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="L2JSPHPBuilder.sln" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\L2JSPHPBuilder.sln">
+</Event><Event ErrorLevel="0" Project="" Source="L2JSPHPBuilder.suo" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\L2JSPHPBuilder.suo">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="L2JSPHPBuilder.vbproj" Description="Project file successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\L2JSPHPBuilder.vbproj">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="L2JSPHPBuilder.vbproj.user" Description="Project user file successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\L2JSPHPBuilder.vbproj.user">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="ExtJSMaker.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\ExtJSMaker.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="ExtJSMaker.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\ExtJSMaker.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="ExtJSMakerMySQL.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\ExtJSMakerMySQL.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="ExtJSMakerMySQL.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\ExtJSMakerMySQL.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmB2Sercher.designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmB2Sercher.designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmB2Sercher.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmB2Sercher.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmEmlsImport.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmEmlsImport.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmEmlsImport.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmEmlsImport.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmMainB2.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmMainB2.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmResolver.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmResolver.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmResolver.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmResolver.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmSetUnique.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmSetUnique.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmSetUnique.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmSetUnique.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="jsCompressor.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\jsCompressor.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="jsCompressor.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\jsCompressor.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="Module1.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\Module1.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\AssemblyInfo.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\Application.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\Resources.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\Settings.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="Resolver.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\Resolver.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="tmpInst.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\tmpInst.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="wordcheck.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\wordcheck.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmB2SercherMYSQL.Designer.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmB2SercherMYSQL.Designer.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmB2SercherMYSQL.vb" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmB2SercherMYSQL.vb">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\Application.myapp" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\Settings.settings" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="b2.ico" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\b2.ico">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="ExtJSMaker.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\ExtJSMaker.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="ExtJSMakerMySQL.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\ExtJSMakerMySQL.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmB2Sercher.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmB2Sercher.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmB2SercherMYSQL.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmB2SercherMYSQL.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmEmlsImport.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmEmlsImport.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmMainB2.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmMainB2.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmResolver.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmResolver.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="frmSetUnique.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\frmSetUnique.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="jsCompressor.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\jsCompressor.resx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\licenses.licx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\licenses.licx">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="My Project\Resources.resx" Description="File successfully backed up as C:\LATIR2\applications\L2JSPHPBuilder\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="1" Project="L2JSPHPBuilder" Source="L2JSPHPBuilder.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="L2JSPHPBuilder.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="L2JSPHPBuilder" Source="L2JSPHPBuilder.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="L2JSPHPBuilder.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="L2JSPHPBuilder.sln" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="L2JSPHPBuilder" Source="L2JSPHPBuilder.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
