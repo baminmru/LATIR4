@@ -3,6 +3,8 @@ Option Explicit On
 Imports System
 Imports System.Data
 Imports System.Data.Common
+
+
 Friend Class DataSource
 	'{group:Data Access Service}
     Private mADOConnection As SqlClient.SqlConnection
@@ -281,6 +283,9 @@ bye2:
         
         Call mADOConnection.Open()
         ADOLogin = (mADOConnection.State = ConnectionState.Open) 'ObjectStateEnum.adStateOpen)
+
+
+
         Exit Function
 bye:
         My.Application.Log.WriteEntry(Err.Description, System.Diagnostics.TraceEventType.Error)

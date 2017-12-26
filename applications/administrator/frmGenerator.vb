@@ -546,12 +546,12 @@ Public Class frmGenerator
         Dim xmlBasePath As String = Application.CommonAppDataPath
         Dim projBasePath As String = textBoxOutPutFolder.Text
 
-        If Not xmlBasePath.EndsWith(" \ ") Then
-            xmlBasePath += " \ "
+        If Not xmlBasePath.EndsWith("\") Then
+            xmlBasePath += "\"
         End If
 
-        If Not projBasePath.EndsWith(" \ ") Then
-            projBasePath += " \ "
+        If Not projBasePath.EndsWith("\") Then
+            projBasePath += "\"
         End If
         Dim targetID As System.Guid
         targetID = New System.Guid("{0C652C58-A952-4E8F-8CB0-D266431CD24B}")
@@ -564,7 +564,8 @@ Public Class frmGenerator
         Dim fname As String
         generator.Run(CType(model, Object), CType(response, Object), targetID.ToString)
         prepareFolder(projBasePath + VBSQLFOLDERNAME, False)
-        fname = projBasePath + VBSQLFOLDERNAME + "\dbMSSQL_" + Now.ToString().Replace(":     ", ".").Replace(" ", "_") + ".xml"
+        fname = projBasePath + VBSQLFOLDERNAME + "\dbMSSQL_" + Now.ToString().Replace(":", ".").Replace(" ", "_") + ".xml"
+        fname = fname.Replace("\\", "\")
         response.Save(fname)
         ReplaceInFile(fname, "&#xD;&#xA;", vbCrLf)
         WriteToLog(Environment.NewLine + "MSSQL generator stopped")
@@ -668,6 +669,8 @@ Public Class frmGenerator
 
 
     Private Sub ReplaceInFile(ByVal FileName As String, ByVal Mask As String, ByVal Repl As String)
+        FileName = FileName.Replace("\\", "\")
+        FileName = FileName.Replace("\\", "\")
         Dim fs As FileStream = File.Open(FileName, FileMode.Open, FileAccess.Read)
         Dim sr As StreamReader = New StreamReader(fs)
         Dim filecontent As String = sr.ReadToEnd()

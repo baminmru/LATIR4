@@ -45,9 +45,10 @@ Partial Class ExtJSMakerMYSQL
         'cmdGen
         '
         Me.cmdGen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdGen.Location = New System.Drawing.Point(429, 421)
+        Me.cmdGen.Location = New System.Drawing.Point(572, 514)
+        Me.cmdGen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdGen.Name = "cmdGen"
-        Me.cmdGen.Size = New System.Drawing.Size(66, 26)
+        Me.cmdGen.Size = New System.Drawing.Size(88, 32)
         Me.cmdGen.TabIndex = 14
         Me.cmdGen.Text = "Generate"
         Me.cmdGen.UseVisualStyleBackColor = True
@@ -57,17 +58,19 @@ Partial Class ExtJSMakerMYSQL
         Me.chkObjType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkObjType.FormattingEnabled = True
-        Me.chkObjType.Location = New System.Drawing.Point(12, 82)
+        Me.chkObjType.Location = New System.Drawing.Point(16, 101)
+        Me.chkObjType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkObjType.Name = "chkObjType"
-        Me.chkObjType.Size = New System.Drawing.Size(483, 139)
+        Me.chkObjType.Size = New System.Drawing.Size(643, 157)
         Me.chkObjType.TabIndex = 5
         '
         'button3
         '
         Me.button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.button3.Location = New System.Drawing.Point(429, 8)
+        Me.button3.Location = New System.Drawing.Point(572, 10)
+        Me.button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.button3.Name = "button3"
-        Me.button3.Size = New System.Drawing.Size(66, 22)
+        Me.button3.Size = New System.Drawing.Size(88, 27)
         Me.button3.TabIndex = 2
         Me.button3.Text = "..."
         '
@@ -75,18 +78,20 @@ Partial Class ExtJSMakerMYSQL
         '
         Me.textBoxOutPutFolder.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(145, 10)
+        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(193, 12)
+        Me.textBoxOutPutFolder.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.textBoxOutPutFolder.Name = "textBoxOutPutFolder"
-        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(278, 20)
+        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(369, 22)
         Me.textBoxOutPutFolder.TabIndex = 1
         Me.textBoxOutPutFolder.Text = "d:\BP3\OUT\Console\"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 13)
+        Me.Label3.Location = New System.Drawing.Point(16, 16)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 13)
+        Me.Label3.Size = New System.Drawing.Size(154, 17)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Projects Output Folder:"
         '
@@ -98,9 +103,10 @@ Partial Class ExtJSMakerMYSQL
         '
         Me.pb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pb.Location = New System.Drawing.Point(12, 450)
+        Me.pb.Location = New System.Drawing.Point(16, 554)
+        Me.pb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pb.Name = "pb"
-        Me.pb.Size = New System.Drawing.Size(483, 20)
+        Me.pb.Size = New System.Drawing.Size(644, 25)
         Me.pb.TabIndex = 13
         Me.pb.Visible = False
         '
@@ -110,10 +116,11 @@ Partial Class ExtJSMakerMYSQL
         Me.Label1.BackColor = System.Drawing.SystemColors.Control
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(12, 430)
+        Me.Label1.Location = New System.Drawing.Point(16, 529)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(113, 17)
+        Me.Label1.Size = New System.Drawing.Size(151, 21)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Процесс генерации"
         Me.Label1.Visible = False
@@ -121,9 +128,10 @@ Partial Class ExtJSMakerMYSQL
         'cmdSelectAll
         '
         Me.cmdSelectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdSelectAll.Location = New System.Drawing.Point(367, 47)
+        Me.cmdSelectAll.Location = New System.Drawing.Point(489, 58)
+        Me.cmdSelectAll.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdSelectAll.Name = "cmdSelectAll"
-        Me.cmdSelectAll.Size = New System.Drawing.Size(60, 25)
+        Me.cmdSelectAll.Size = New System.Drawing.Size(80, 31)
         Me.cmdSelectAll.TabIndex = 3
         Me.cmdSelectAll.Text = "Select all"
         Me.cmdSelectAll.UseVisualStyleBackColor = True
@@ -131,9 +139,10 @@ Partial Class ExtJSMakerMYSQL
         'cmdClearAll
         '
         Me.cmdClearAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdClearAll.Location = New System.Drawing.Point(435, 47)
+        Me.cmdClearAll.Location = New System.Drawing.Point(580, 58)
+        Me.cmdClearAll.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdClearAll.Name = "cmdClearAll"
-        Me.cmdClearAll.Size = New System.Drawing.Size(60, 25)
+        Me.cmdClearAll.Size = New System.Drawing.Size(80, 31)
         Me.cmdClearAll.TabIndex = 4
         Me.cmdClearAll.Text = "Clear all"
         Me.cmdClearAll.UseVisualStyleBackColor = True
@@ -141,18 +150,20 @@ Partial Class ExtJSMakerMYSQL
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 53)
+        Me.Label2.Location = New System.Drawing.Point(16, 65)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 13)
+        Me.Label2.Size = New System.Drawing.Size(124, 17)
         Me.Label2.TabIndex = 61
         Me.Label2.Text = "Типы документов"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 239)
+        Me.Label4.Location = New System.Drawing.Point(16, 294)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(55, 13)
+        Me.Label4.Size = New System.Drawing.Size(70, 17)
         Me.Label4.TabIndex = 62
         Me.Label4.Text = "Журналы"
         '
@@ -162,17 +173,19 @@ Partial Class ExtJSMakerMYSQL
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkJournals.FormattingEnabled = True
-        Me.chkJournals.Location = New System.Drawing.Point(17, 264)
+        Me.chkJournals.Location = New System.Drawing.Point(23, 325)
+        Me.chkJournals.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkJournals.Name = "chkJournals"
-        Me.chkJournals.Size = New System.Drawing.Size(477, 94)
+        Me.chkJournals.Size = New System.Drawing.Size(635, 106)
         Me.chkJournals.TabIndex = 8
         '
         'cmdJSelectAll
         '
         Me.cmdJSelectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdJSelectAll.Location = New System.Drawing.Point(367, 233)
+        Me.cmdJSelectAll.Location = New System.Drawing.Point(489, 287)
+        Me.cmdJSelectAll.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdJSelectAll.Name = "cmdJSelectAll"
-        Me.cmdJSelectAll.Size = New System.Drawing.Size(60, 25)
+        Me.cmdJSelectAll.Size = New System.Drawing.Size(80, 31)
         Me.cmdJSelectAll.TabIndex = 6
         Me.cmdJSelectAll.Text = "Select All"
         Me.cmdJSelectAll.UseVisualStyleBackColor = True
@@ -180,9 +193,10 @@ Partial Class ExtJSMakerMYSQL
         'cmdJClearAll
         '
         Me.cmdJClearAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdJClearAll.Location = New System.Drawing.Point(433, 233)
+        Me.cmdJClearAll.Location = New System.Drawing.Point(577, 287)
+        Me.cmdJClearAll.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdJClearAll.Name = "cmdJClearAll"
-        Me.cmdJClearAll.Size = New System.Drawing.Size(60, 25)
+        Me.cmdJClearAll.Size = New System.Drawing.Size(80, 31)
         Me.cmdJClearAll.TabIndex = 7
         Me.cmdJClearAll.Text = "Clear All"
         Me.cmdJClearAll.UseVisualStyleBackColor = True
@@ -191,9 +205,10 @@ Partial Class ExtJSMakerMYSQL
         '
         Me.chkMenu.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkMenu.AutoSize = True
-        Me.chkMenu.Location = New System.Drawing.Point(12, 377)
+        Me.chkMenu.Location = New System.Drawing.Point(16, 464)
+        Me.chkMenu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkMenu.Name = "chkMenu"
-        Me.chkMenu.Size = New System.Drawing.Size(55, 17)
+        Me.chkMenu.Size = New System.Drawing.Size(67, 21)
         Me.chkMenu.TabIndex = 9
         Me.chkMenu.Text = "Меню"
         Me.chkMenu.UseVisualStyleBackColor = True
@@ -202,9 +217,10 @@ Partial Class ExtJSMakerMYSQL
         '
         Me.chkInc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkInc.AutoSize = True
-        Me.chkInc.Location = New System.Drawing.Point(404, 377)
+        Me.chkInc.Location = New System.Drawing.Point(545, 464)
+        Me.chkInc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkInc.Name = "chkInc"
-        Me.chkInc.Size = New System.Drawing.Size(89, 17)
+        Me.chkInc.Size = New System.Drawing.Size(113, 21)
         Me.chkInc.TabIndex = 11
         Me.chkInc.Text = "Include types"
         Me.chkInc.UseVisualStyleBackColor = True
@@ -213,9 +229,10 @@ Partial Class ExtJSMakerMYSQL
         '
         Me.chkMartImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkMartImport.AutoSize = True
-        Me.chkMartImport.Location = New System.Drawing.Point(185, 377)
+        Me.chkMartImport.Location = New System.Drawing.Point(247, 464)
+        Me.chkMartImport.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkMartImport.Name = "chkMartImport"
-        Me.chkMartImport.Size = New System.Drawing.Size(79, 17)
+        Me.chkMartImport.Size = New System.Drawing.Size(101, 21)
         Me.chkMartImport.TabIndex = 10
         Me.chkMartImport.Text = "Mart Import"
         Me.chkMartImport.UseVisualStyleBackColor = True
@@ -223,9 +240,9 @@ Partial Class ExtJSMakerMYSQL
         '
         'ExtJSMakerMYSQL
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(516, 485)
+        Me.ClientSize = New System.Drawing.Size(688, 597)
         Me.Controls.Add(Me.chkMartImport)
         Me.Controls.Add(Me.chkInc)
         Me.Controls.Add(Me.chkMenu)
@@ -243,7 +260,8 @@ Partial Class ExtJSMakerMYSQL
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.chkObjType)
         Me.Controls.Add(Me.cmdGen)
-        Me.MinimumSize = New System.Drawing.Size(400, 400)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MinimumSize = New System.Drawing.Size(527, 481)
         Me.Name = "ExtJSMakerMYSQL"
         Me.Text = "ExtJSMaker"
         Me.ResumeLayout(False)

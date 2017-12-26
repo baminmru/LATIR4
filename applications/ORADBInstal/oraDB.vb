@@ -38,7 +38,7 @@ Public Class oraDB
             SessionGlob.Language = "RUSSIAN"
 
         Catch ex As Exception
-
+            lastError = ex.Message
             MsgBox(ex.Message)
             Return False
         End Try
@@ -50,6 +50,8 @@ Public Class oraDB
         Inited = True
         Return Inited
     End Function
+
+    Public lastError As String
 
     Public Function QueryExec(ByVal s As String) As Boolean
         Dim cmd As OracleCommand
@@ -66,6 +68,7 @@ Public Class oraDB
         Catch ex As Exception
             Debug.Print(s + " err:")
             Debug.Print(ex.Message)
+            lastError = ex.Message
             Try
                 cmd.Dispose()
             Catch ex1 As Exception

@@ -540,55 +540,67 @@ Module MakeRowProc
 
                     If GENSTYLE = "TEXT" Or GENSTYLE = "PASSWORD" Or GENSTYLE = "GUID" Then
 
-                        decl = decl & vbCrLf & "Friend WithEvents txt" & f.Name & " As LATIR2GuiManager.TouchTextBox"
-                        create = create & vbCrLf & "Me.txt" & f.Name & " = New LATIR2GuiManager.TouchTextBox"
+                        If f.TheMask = "" Then
+                            decl = decl & vbCrLf & "Friend WithEvents txt" & f.Name & " As LATIR2GuiManager.TouchTextBox"
+                            create = create & vbCrLf & "Me.txt" & f.Name & " = New LATIR2GuiManager.TouchTextBox"
+                        Else
+                            decl = decl & vbCrLf & "Friend WithEvents txt" & f.Name & " As System.Windows.Forms.MaskedTextBox"
+                            create = create & vbCrLf & "Me.txt" & f.Name & " = New System.Windows.Forms.MaskedTextBox"
+                        End If
+
                         addctl = addctl & vbCrLf & "CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txt" & f.Name & ")"
 
-                        s = s & vbCrLf & "Me.txt" & f.Name & ".Location = New System.Drawing.Point(" & (210 * column + 20) & "," & pos & ")"
-                        s = s & vbCrLf & "Me.txt" & f.Name & ".name = ""txt" & f.Name & """"
+                            s = s & vbCrLf & "Me.txt" & f.Name & ".Location = New System.Drawing.Point(" & (210 * column + 20) & "," & pos & ")"
+                            s = s & vbCrLf & "Me.txt" & f.Name & ".name = ""txt" & f.Name & """"
 
-                        's = s & vbCrLf & "Me.txt" & f.name & ".ReadOnly = True"
-
-                        s = s & vbCrLf & "Me.txt" & f.Name & ".Size = New System.Drawing.Size(200, 20)"
-                        s = s & vbCrLf & "Me.txt" & f.Name & ".TabIndex = " & tabidx
-                        s = s & vbCrLf & "Me.txt" & f.Name & ".Text = """" "
-                        tabidx = tabidx + 1
-
-                        If GENSTYLE = "PASSWORD" Then
-                            s = s & vbCrLf & "Me.txt" & f.Name & ".PasswordChar = Microsoft.VisualBasic.ChrW(42)"
-                        End If
-                        pos = pos + 25
-
-                        If IsFieldReadOnly Then
-                            s = s & vbCrLf & "Me.txt" & f.Name & ".ReadOnly = True"
-                        End If
-                        If GENSTYLE = "GUID" Then
-                            loadFields = loadFields & vbCrLf & "txt" & f.Name & ".text = item." & f.Name & ".ToString()"
-                            If Not IsFieldReadOnly Then
-                                saveFields = saveFields & vbCrLf & "item." & f.Name & " = new System.Guid(txt" & f.Name & ".text)"
+                            's = s & vbCrLf & "Me.txt" & f.name & ".ReadOnly = True"
+                            If f.TheMask <> "" Then
+                                s = s & vbCrLf & "Me.txt" & f.Name & ".Mask = """ & f.TheMask & """"
+                            Else
+                                s = s & vbCrLf & "Me.txt" & f.Name & ".MaxLength = " & f.DataSize.ToString()
                             End If
-                        Else
-                            loadFields = loadFields & vbCrLf & "txt" & f.Name & ".text = item." & f.Name
-                            If Not IsFieldReadOnly Then
-                                saveFields = saveFields & vbCrLf & "item." & f.Name & " = txt" & f.Name & ".text"
+
+
+                            s = s & vbCrLf & "Me.txt" & f.Name & ".Size = New System.Drawing.Size(200, 20)"
+                            s = s & vbCrLf & "Me.txt" & f.Name & ".TabIndex = " & tabidx
+                            s = s & vbCrLf & "Me.txt" & f.Name & ".Text = """" "
+                            tabidx = tabidx + 1
+
+                            If GENSTYLE = "PASSWORD" Then
+                                s = s & vbCrLf & "Me.txt" & f.Name & ".PasswordChar = Microsoft.VisualBasic.ChrW(42)"
                             End If
-                        End If
+                            pos = pos + 25
 
-                        If Not f.AllowNull Then
-                            IsOK = IsOK & vbCrLf & "if mIsOK then mIsOK =( txt" & f.Name & ".text <> """" ) "
-                        End If
+                            If IsFieldReadOnly Then
+                                s = s & vbCrLf & "Me.txt" & f.Name & ".ReadOnly = True"
+                            End If
+                            If GENSTYLE = "GUID" Then
+                                loadFields = loadFields & vbCrLf & "txt" & f.Name & ".text = item." & f.Name & ".ToString()"
+                                If Not IsFieldReadOnly Then
+                                    saveFields = saveFields & vbCrLf & "item." & f.Name & " = new System.Guid(txt" & f.Name & ".text)"
+                                End If
+                            Else
+                                loadFields = loadFields & vbCrLf & "txt" & f.Name & ".text = item." & f.Name
+                                If Not IsFieldReadOnly Then
+                                    saveFields = saveFields & vbCrLf & "item." & f.Name & " = txt" & f.Name & ".text"
+                                End If
+                            End If
 
-                        sp = sp & vbCrLf & "private sub txt" & f.Name & "_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt" & f.Name & ".TextChanged"
-                        sp = sp & vbCrLf & "  Changing"
-                        sp = sp & vbCrLf & LATIR2Framework.StringHelper.GetScript2((f.FIELDVALIDATOR), tid)
+                            If Not f.AllowNull Then
+                                IsOK = IsOK & vbCrLf & "if mIsOK then mIsOK =( txt" & f.Name & ".text <> """" ) "
+                            End If
 
-                        sp = sp & vbCrLf & "end sub"
+                            sp = sp & vbCrLf & "private sub txt" & f.Name & "_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt" & f.Name & ".TextChanged"
+                            sp = sp & vbCrLf & "  Changing"
+                            sp = sp & vbCrLf & LATIR2Framework.StringHelper.GetScript2((f.FIELDVALIDATOR), tid)
+
+                            sp = sp & vbCrLf & "end sub"
 
 
-                    End If ' TEXT PASSWORD GUID
+                        End If ' TEXT PASSWORD GUID
 
-                    ' todo
-                    If GENSTYLE = "EMAIL" Then
+                        ' todo
+                        If GENSTYLE = "EMAIL" Then
                         decl = decl & vbCrLf & "Friend WithEvents txt" & f.Name & " As LATIR2GuiManager.TouchTextBox"
                         create = create & vbCrLf & "Me.txt" & f.Name & " = New LATIR2GuiManager.TouchTextBox"
                         addctl = addctl & vbCrLf & "CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.txt" & f.Name & ")"

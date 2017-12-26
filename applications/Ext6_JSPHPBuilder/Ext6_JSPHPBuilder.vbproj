@@ -69,7 +69,7 @@
     <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionInfer>On</OptionInfer>
+    <OptionInfer>Off</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>b2.ico</ApplicationIcon>
@@ -123,6 +123,18 @@
     <Compile Include="ExtJSMakerMySQL.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmDjango.Designer.vb">
+      <DependentUpon>frmDjango.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDjango.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJDL.Designer.vb">
+      <DependentUpon>frmJDL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmJDL.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMainB2.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +173,12 @@
   <ItemGroup>
     <EmbeddedResource Include="ExtJSMakerMySQL.resx">
       <DependentUpon>ExtJSMakerMySQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDjango.resx">
+      <DependentUpon>frmDjango.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJDL.resx">
+      <DependentUpon>frmJDL.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainB2.resx">
       <DependentUpon>frmMainB2.vb</DependentUpon>

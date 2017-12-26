@@ -64,10 +64,10 @@ Friend Class Form1
         Me.cmdLoad.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdLoad.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdLoad.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdLoad.Location = New System.Drawing.Point(13, 175)
+        Me.cmdLoad.Location = New System.Drawing.Point(16, 215)
         Me.cmdLoad.Name = "cmdLoad"
         Me.cmdLoad.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdLoad.Size = New System.Drawing.Size(409, 33)
+        Me.cmdLoad.Size = New System.Drawing.Size(490, 41)
         Me.cmdLoad.TabIndex = 0
         Me.cmdLoad.Text = "Load data from XML"
         Me.cmdLoad.UseVisualStyleBackColor = False
@@ -79,43 +79,43 @@ Friend Class Form1
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(14, 136)
+        Me.Label1.Location = New System.Drawing.Point(17, 167)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(408, 25)
+        Me.Label1.Size = New System.Drawing.Size(489, 31)
         Me.Label1.TabIndex = 1
         '
         'buttonOpenFolder
         '
-        Me.buttonOpenFolder.Location = New System.Drawing.Point(395, 12)
+        Me.buttonOpenFolder.Location = New System.Drawing.Point(474, 15)
         Me.buttonOpenFolder.Name = "buttonOpenFolder"
-        Me.buttonOpenFolder.Size = New System.Drawing.Size(26, 22)
+        Me.buttonOpenFolder.Size = New System.Drawing.Size(31, 27)
         Me.buttonOpenFolder.TabIndex = 56
         Me.buttonOpenFolder.Text = "..."
         '
         'textBoxOutPutFolder
         '
-        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(74, 14)
+        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(89, 17)
         Me.textBoxOutPutFolder.Name = "textBoxOutPutFolder"
-        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(316, 20)
+        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(379, 23)
         Me.textBoxOutPutFolder.TabIndex = 55
         Me.textBoxOutPutFolder.Text = "C:\"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(10, 16)
+        Me.Label3.Location = New System.Drawing.Point(12, 20)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(64, 14)
+        Me.Label3.Size = New System.Drawing.Size(83, 16)
         Me.Label3.TabIndex = 54
         Me.Label3.Text = "XML Folder:"
         '
         'CheckBoxDeleteFiles
         '
         Me.CheckBoxDeleteFiles.AutoSize = True
-        Me.CheckBoxDeleteFiles.Location = New System.Drawing.Point(14, 100)
+        Me.CheckBoxDeleteFiles.Location = New System.Drawing.Point(17, 123)
         Me.CheckBoxDeleteFiles.Name = "CheckBoxDeleteFiles"
-        Me.CheckBoxDeleteFiles.Size = New System.Drawing.Size(128, 18)
+        Me.CheckBoxDeleteFiles.Size = New System.Drawing.Size(164, 20)
         Me.CheckBoxDeleteFiles.TabIndex = 57
         Me.CheckBoxDeleteFiles.Text = "Delete files after load"
         Me.CheckBoxDeleteFiles.UseVisualStyleBackColor = True
@@ -123,32 +123,32 @@ Friend Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(11, 55)
+        Me.Label2.Location = New System.Drawing.Point(13, 68)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 14)
+        Me.Label2.Size = New System.Drawing.Size(66, 16)
         Me.Label2.TabIndex = 58
         Me.Label2.Text = "DLL Path"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(395, 50)
+        Me.Button1.Location = New System.Drawing.Point(474, 62)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(26, 22)
+        Me.Button1.Size = New System.Drawing.Size(31, 27)
         Me.Button1.TabIndex = 60
         Me.Button1.Text = "..."
         '
         'txtDLLPath
         '
-        Me.txtDLLPath.Location = New System.Drawing.Point(74, 52)
+        Me.txtDLLPath.Location = New System.Drawing.Point(89, 64)
         Me.txtDLLPath.Name = "txtDLLPath"
-        Me.txtDLLPath.Size = New System.Drawing.Size(316, 20)
+        Me.txtDLLPath.Size = New System.Drawing.Size(379, 23)
         Me.txtDLLPath.TabIndex = 59
         '
         'Form1
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(445, 220)
+        Me.ClientSize = New System.Drawing.Size(543, 324)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtDLLPath)
         Me.Controls.Add(Me.Label2)
@@ -206,7 +206,7 @@ Friend Class Form1
             If typename.ToLower() = "mtzmetamodel" Then
                 name = xdom.LastChild.FirstChild.Attributes.GetNamedItem("NAME").Value
 
-                Label1.Text = "load " & typename
+                Label1.Text = "load " & typename & " " & id.ToString()
                 System.Windows.Forms.Application.DoEvents()
                 drs = m.GetInstanceObject(id)
                 If drs Is Nothing Then
@@ -244,7 +244,7 @@ Friend Class Form1
             If typename.ToLower() <> "mtzmetamodel" Then
                 name = xdom.LastChild.FirstChild.Attributes.GetNamedItem("NAME").Value
 
-                Label1.Text = "load " & typename
+                Label1.Text = "load " & typename & " " & id.ToString()
                 System.Windows.Forms.Application.DoEvents()
                 drs = m.GetInstanceObject(id)
                 If drs Is Nothing Then

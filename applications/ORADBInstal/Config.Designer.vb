@@ -66,36 +66,45 @@
         '
         'Frame1
         '
+        Me.Frame1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Frame1.BackColor = System.Drawing.SystemColors.Control
         Me.Frame1.Controls.Add(Me.lstBlocks)
         Me.Frame1.Controls.Add(Me.pb)
         Me.Frame1.Controls.Add(Me.Label3)
-        Me.Frame1.Enabled = False
         Me.Frame1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Frame1.Location = New System.Drawing.Point(280, 0)
+        Me.Frame1.Location = New System.Drawing.Point(373, 0)
+        Me.Frame1.Margin = New System.Windows.Forms.Padding(4)
         Me.Frame1.Name = "Frame1"
+        Me.Frame1.Padding = New System.Windows.Forms.Padding(4)
         Me.Frame1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Frame1.Size = New System.Drawing.Size(273, 217)
+        Me.Frame1.Size = New System.Drawing.Size(364, 267)
         Me.Frame1.TabIndex = 16
         Me.Frame1.TabStop = False
         Me.Frame1.Text = "Процесс инсталляции"
         '
         'lstBlocks
         '
+        Me.lstBlocks.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstBlocks.BackColor = System.Drawing.SystemColors.Window
         Me.lstBlocks.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstBlocks.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstBlocks.Location = New System.Drawing.Point(8, 32)
+        Me.lstBlocks.Location = New System.Drawing.Point(4, 39)
+        Me.lstBlocks.Margin = New System.Windows.Forms.Padding(4)
         Me.lstBlocks.Name = "lstBlocks"
         Me.lstBlocks.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstBlocks.Size = New System.Drawing.Size(257, 154)
+        Me.lstBlocks.Size = New System.Drawing.Size(341, 174)
         Me.lstBlocks.TabIndex = 18
         '
         'pb
         '
-        Me.pb.Location = New System.Drawing.Point(8, 192)
+        Me.pb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pb.Location = New System.Drawing.Point(11, 236)
+        Me.pb.Margin = New System.Windows.Forms.Padding(4)
         Me.pb.Name = "pb"
-        Me.pb.Size = New System.Drawing.Size(257, 17)
+        Me.pb.Size = New System.Drawing.Size(343, 21)
         Me.pb.TabIndex = 17
         Me.pb.Visible = False
         '
@@ -104,27 +113,32 @@
         Me.Label3.BackColor = System.Drawing.SystemColors.Control
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Location = New System.Drawing.Point(8, 16)
+        Me.Label3.Location = New System.Drawing.Point(11, 20)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label3.Size = New System.Drawing.Size(185, 17)
+        Me.Label3.Size = New System.Drawing.Size(247, 21)
         Me.Label3.TabIndex = 19
         Me.Label3.Text = "Модули"
         '
         'txtLog
         '
         Me.txtLog.AcceptsReturn = True
+        Me.txtLog.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtLog.BackColor = System.Drawing.SystemColors.Window
         Me.txtLog.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtLog.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtLog.Location = New System.Drawing.Point(288, 240)
+        Me.txtLog.Location = New System.Drawing.Point(384, 295)
+        Me.txtLog.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLog.MaxLength = 0
         Me.txtLog.Multiline = True
         Me.txtLog.Name = "txtLog"
         Me.txtLog.ReadOnly = True
         Me.txtLog.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtLog.Size = New System.Drawing.Size(257, 65)
+        Me.txtLog.Size = New System.Drawing.Size(341, 79)
         Me.txtLog.TabIndex = 14
         Me.txtLog.WordWrap = False
         '
@@ -133,10 +147,11 @@
         Me.cmdGo.BackColor = System.Drawing.SystemColors.Control
         Me.cmdGo.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdGo.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdGo.Location = New System.Drawing.Point(16, 280)
+        Me.cmdGo.Location = New System.Drawing.Point(21, 345)
+        Me.cmdGo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdGo.Name = "cmdGo"
         Me.cmdGo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdGo.Size = New System.Drawing.Size(225, 25)
+        Me.cmdGo.Size = New System.Drawing.Size(300, 31)
         Me.cmdGo.TabIndex = 12
         Me.cmdGo.Text = "Начать инсталляцию"
         Me.cmdGo.UseVisualStyleBackColor = False
@@ -152,9 +167,11 @@
         Me.frameRight.Controls.Add(Me.lblPassword)
         Me.frameRight.ForeColor = System.Drawing.SystemColors.ControlText
         Me.frameRight.Location = New System.Drawing.Point(0, 0)
+        Me.frameRight.Margin = New System.Windows.Forms.Padding(4)
         Me.frameRight.Name = "frameRight"
+        Me.frameRight.Padding = New System.Windows.Forms.Padding(4)
         Me.frameRight.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.frameRight.Size = New System.Drawing.Size(277, 215)
+        Me.frameRight.Size = New System.Drawing.Size(369, 265)
         Me.frameRight.TabIndex = 15
         Me.frameRight.TabStop = False
         Me.frameRight.Text = "Параметры подключения"
@@ -165,11 +182,12 @@
         Me.txtServer.BackColor = System.Drawing.SystemColors.Window
         Me.txtServer.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtServer.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtServer.Location = New System.Drawing.Point(12, 32)
+        Me.txtServer.Location = New System.Drawing.Point(16, 39)
+        Me.txtServer.Margin = New System.Windows.Forms.Padding(4)
         Me.txtServer.MaxLength = 0
         Me.txtServer.Name = "txtServer"
         Me.txtServer.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtServer.Size = New System.Drawing.Size(257, 20)
+        Me.txtServer.Size = New System.Drawing.Size(341, 22)
         Me.txtServer.TabIndex = 1
         Me.txtServer.Text = "//localhost/ORA"
         '
@@ -179,11 +197,12 @@
         Me.txtLogin.BackColor = System.Drawing.SystemColors.Window
         Me.txtLogin.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtLogin.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtLogin.Location = New System.Drawing.Point(12, 140)
+        Me.txtLogin.Location = New System.Drawing.Point(16, 172)
+        Me.txtLogin.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLogin.MaxLength = 0
         Me.txtLogin.Name = "txtLogin"
         Me.txtLogin.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtLogin.Size = New System.Drawing.Size(257, 20)
+        Me.txtLogin.Size = New System.Drawing.Size(341, 22)
         Me.txtLogin.TabIndex = 6
         '
         'txtPassword
@@ -193,12 +212,13 @@
         Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtPassword.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtPassword.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.txtPassword.Location = New System.Drawing.Point(12, 183)
+        Me.txtPassword.Location = New System.Drawing.Point(16, 225)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPassword.MaxLength = 0
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtPassword.Size = New System.Drawing.Size(257, 20)
+        Me.txtPassword.Size = New System.Drawing.Size(341, 22)
         Me.txtPassword.TabIndex = 8
         '
         'lblServer
@@ -206,10 +226,11 @@
         Me.lblServer.BackColor = System.Drawing.SystemColors.Control
         Me.lblServer.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblServer.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblServer.Location = New System.Drawing.Point(12, 16)
+        Me.lblServer.Location = New System.Drawing.Point(16, 20)
+        Me.lblServer.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblServer.Name = "lblServer"
         Me.lblServer.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblServer.Size = New System.Drawing.Size(257, 17)
+        Me.lblServer.Size = New System.Drawing.Size(343, 21)
         Me.lblServer.TabIndex = 0
         Me.lblServer.Text = "Oracle сервер instance:"
         '
@@ -218,10 +239,11 @@
         Me.lblLogin.BackColor = System.Drawing.SystemColors.Control
         Me.lblLogin.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblLogin.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblLogin.Location = New System.Drawing.Point(12, 126)
+        Me.lblLogin.Location = New System.Drawing.Point(16, 155)
+        Me.lblLogin.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLogin.Name = "lblLogin"
         Me.lblLogin.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblLogin.Size = New System.Drawing.Size(257, 17)
+        Me.lblLogin.Size = New System.Drawing.Size(343, 21)
         Me.lblLogin.TabIndex = 5
         Me.lblLogin.Text = "SQL имя пользователя:"
         '
@@ -230,10 +252,11 @@
         Me.lblPassword.BackColor = System.Drawing.SystemColors.Control
         Me.lblPassword.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPassword.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblPassword.Location = New System.Drawing.Point(12, 168)
+        Me.lblPassword.Location = New System.Drawing.Point(16, 207)
+        Me.lblPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblPassword.Size = New System.Drawing.Size(257, 17)
+        Me.lblPassword.Size = New System.Drawing.Size(343, 21)
         Me.lblPassword.TabIndex = 7
         Me.lblPassword.Text = "SQL пароль:"
         '
@@ -242,10 +265,11 @@
         Me.cmdDataPath.BackColor = System.Drawing.SystemColors.Control
         Me.cmdDataPath.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdDataPath.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdDataPath.Location = New System.Drawing.Point(248, 240)
+        Me.cmdDataPath.Location = New System.Drawing.Point(331, 295)
+        Me.cmdDataPath.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdDataPath.Name = "cmdDataPath"
         Me.cmdDataPath.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdDataPath.Size = New System.Drawing.Size(21, 21)
+        Me.cmdDataPath.Size = New System.Drawing.Size(28, 26)
         Me.cmdDataPath.TabIndex = 11
         Me.cmdDataPath.Text = "..."
         Me.cmdDataPath.UseVisualStyleBackColor = False
@@ -256,11 +280,12 @@
         Me.txtData.BackColor = System.Drawing.SystemColors.Window
         Me.txtData.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtData.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtData.Location = New System.Drawing.Point(16, 240)
+        Me.txtData.Location = New System.Drawing.Point(21, 295)
+        Me.txtData.Margin = New System.Windows.Forms.Padding(4)
         Me.txtData.MaxLength = 0
         Me.txtData.Name = "txtData"
         Me.txtData.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtData.Size = New System.Drawing.Size(225, 20)
+        Me.txtData.Size = New System.Drawing.Size(299, 22)
         Me.txtData.TabIndex = 10
         '
         'Label2
@@ -268,10 +293,11 @@
         Me.Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(288, 224)
+        Me.Label2.Location = New System.Drawing.Point(384, 276)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(121, 17)
+        Me.Label2.Size = New System.Drawing.Size(161, 21)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Ошибки"
         '
@@ -280,19 +306,20 @@
         Me.Label1.BackColor = System.Drawing.SystemColors.Control
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(16, 224)
+        Me.Label1.Location = New System.Drawing.Point(21, 276)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(147, 17)
+        Me.Label1.Size = New System.Drawing.Size(196, 21)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Файл с данными  (xml):"
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(562, 312)
+        Me.ClientSize = New System.Drawing.Size(749, 388)
         Me.Controls.Add(Me.Frame1)
         Me.Controls.Add(Me.txtLog)
         Me.Controls.Add(Me.cmdGo)
@@ -305,7 +332,7 @@
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(356, 40)
-        Me.MaximizeBox = False
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -63,6 +63,9 @@ Public Class frmMainB2
     Friend WithEvents mnuMakeExtJSMy As System.Windows.Forms.MenuItem
     Friend WithEvents mnuAddUnique As System.Windows.Forms.MenuItem
     Friend WithEvents mnuCompress As System.Windows.Forms.MenuItem
+    Friend WithEvents mnuPython As MenuItem
+    Friend WithEvents mnuDjango As MenuItem
+    Friend WithEvents MenuItem1 As MenuItem
     Friend WithEvents MenuItem15 As System.Windows.Forms.MenuItem
 
 
@@ -80,6 +83,8 @@ Public Class frmMainB2
         Me.mnuGenAgencyMS = New System.Windows.Forms.MenuItem()
         Me.mnuAddUnique = New System.Windows.Forms.MenuItem()
         Me.mnuCompress = New System.Windows.Forms.MenuItem()
+        Me.mnuPython = New System.Windows.Forms.MenuItem()
+        Me.mnuDjango = New System.Windows.Forms.MenuItem()
         Me.MenuItem2 = New System.Windows.Forms.MenuItem()
         Me.MenuItem3 = New System.Windows.Forms.MenuItem()
         Me.MenuItem7 = New System.Windows.Forms.MenuItem()
@@ -87,16 +92,16 @@ Public Class frmMainB2
         Me.MenuItem5 = New System.Windows.Forms.MenuItem()
         Me.MenuItem6 = New System.Windows.Forms.MenuItem()
         Me.MenuItem8 = New System.Windows.Forms.MenuItem()
-
         Me.cdlg = New System.Windows.Forms.OpenFileDialog()
         Me.cdlgOpen = New System.Windows.Forms.OpenFileDialog()
         Me.cdlgSave = New System.Windows.Forms.SaveFileDialog()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
         Me.SuspendLayout()
         '
         'MainMenu1
         '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuFILE, Me.MenuItem9, Me.MenuItem2})
+        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuFILE, Me.MenuItem9, Me.mnuPython, Me.MenuItem2})
         '
         'mnuFILE
         '
@@ -117,7 +122,7 @@ Public Class frmMainB2
         'MenuItem9
         '
         Me.MenuItem9.Index = 1
-        Me.MenuItem9.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem15, Me.mnuMakeExtJSMy, Me.mnuB2Searcher, Me.mnuGenAgencyMS, Me.mnuAddUnique, Me.mnuCompress})
+        Me.MenuItem9.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem15, Me.mnuMakeExtJSMy, Me.mnuB2Searcher, Me.mnuGenAgencyMS, Me.mnuAddUnique, Me.mnuCompress, Me.MenuItem1})
         Me.MenuItem9.Text = "Генерация JS + PHP"
         '
         'MenuItem15
@@ -153,9 +158,20 @@ Public Class frmMainB2
         Me.mnuCompress.Index = 5
         Me.mnuCompress.Text = "Сжать скрипты"
         '
+        'mnuPython
+        '
+        Me.mnuPython.Index = 2
+        Me.mnuPython.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuDjango})
+        Me.mnuPython.Text = "Генератор python"
+        '
+        'mnuDjango
+        '
+        Me.mnuDjango.Index = 0
+        Me.mnuDjango.Text = "Django"
+        '
         'MenuItem2
         '
-        Me.MenuItem2.Index = 2
+        Me.MenuItem2.Index = 3
         Me.MenuItem2.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem3, Me.MenuItem7, Me.MenuItem4, Me.MenuItem5, Me.MenuItem6, Me.MenuItem8})
         Me.MenuItem2.Text = "Window"
         Me.MenuItem2.Visible = False
@@ -191,9 +207,6 @@ Public Class frmMainB2
         Me.MenuItem8.Index = 5
         Me.MenuItem8.Text = "Arrange icons"
         '
-        'tabMan
-        '
-      
         'cdlg
         '
         Me.cdlg.FileName = "OpenFileDialog1"
@@ -206,10 +219,15 @@ Public Class frmMainB2
         '
         Me.Timer2.Interval = 2000
         '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 6
+        Me.MenuItem1.Text = " JDL Генератор"
+        '
         'frmMainB2
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(528, 334)
+        Me.ClientSize = New System.Drawing.Size(528, 329)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Menu = Me.MainMenu1
@@ -309,9 +327,9 @@ Public Class frmMainB2
     'End Sub
 
 
-   
 
-    
+
+
 
     Private Sub mnuMakeExtJSMy_Click(sender As System.Object, e As System.EventArgs) Handles mnuMakeExtJSMy.Click
         Dim F As ExtJSMakerMYSQL
@@ -331,6 +349,20 @@ Public Class frmMainB2
     Private Sub mnuCompress_Click(sender As System.Object, e As System.EventArgs) Handles mnuCompress.Click
         Dim f As jsCompressor
         f = New jsCompressor
+        f.ShowDialog()
+        f = Nothing
+    End Sub
+
+    Private Sub mnuDjango_Click(sender As Object, e As EventArgs) Handles mnuDjango.Click
+        Dim f As frmDjango
+        f = New frmDjango
+        f.ShowDialog()
+        f = Nothing
+    End Sub
+
+    Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
+        Dim f As frmJDL
+        f = New frmJDL
         f.ShowDialog()
         f = Nothing
     End Sub

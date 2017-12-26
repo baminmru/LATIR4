@@ -1,6 +1,12 @@
 Option Strict Off
 Option Explicit On
 Imports VB = Microsoft.VisualBasic
+Imports System.Text
+Imports System.IO
+Imports Oracle.ManagedDataAccess.Client
+
+
+
 Friend Class Form1
 	Inherits System.Windows.Forms.Form
 	
@@ -14,9 +20,9 @@ Friend Class Form1
 	Private bDontClear As Boolean
     Private DS As oraDB
     Private Log As String
-	
-	
-	Dim n As String
+    Private sOut As StringBuilder
+
+    Dim n As String
 	Dim cnt As Integer
 	Dim i As Object
 	Dim inClick As Boolean
@@ -64,20 +70,28 @@ Friend Class Form1
         pb.Visible = True
         For i = LBound(lines) To UBound(lines)
             pb.Value = i
-            If UCase(Trim(lines(i))) = "/" Then
-                On Error GoTo err1
-                If Trim(s) <> "" Then
-                    DS.QueryExec(s)
-                    System.Windows.Forms.Application.DoEvents()
-                End If
+            If UCase(Trim(lines(i))) = "/" Or i = UBound(lines) Then
+                Try
+                    If Trim(s) <> "" Then
+                        sOut.AppendLine(s)
+                        sOut.AppendLine("$$")
+
+
+                        If DS.QueryExec(s) Then
+                            System.Windows.Forms.Application.DoEvents()
+                        Else
+                            txtLog.Text = txtLog.Text & vbCrLf & b.BlockName & ":" & modulename & vbCrLf & s & vbCrLf & "------------------------" & vbCrLf & DS.lastError
+
+                        End If
+                    End If
+
+                Catch ex As Exception
+                    txtLog.Text = txtLog.Text & vbCrLf & b.BlockName & ":" & modulename & vbCrLf & s & vbCrLf & "------------------------" & vbCrLf & ex.Message
+
+                End Try
+
                 s = ""
-                GoTo cont
-err1:
-                txtLog.Text = txtLog.Text & vbCrLf & b.BlockName & ":" & modulename & vbCrLf & s & vbCrLf & "------------------------" & vbCrLf & Err.Description
-                Debug.Print(Err.Number & " " & Err.Description)
-                Resume err2
-err2:
-                s = ""
+
             Else
                 s = s & vbCrLf & lines(i)
             End If
@@ -92,7 +106,9 @@ cont:
 
     Private Sub cmdGo_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdGo.Click
 
+
         If txtData.Text = "" Then Exit Sub
+        sOut = New StringBuilder
         txtLog.Text = ""
         lstBlocks.Items.Clear()
         DS = New oraDB
@@ -103,6 +119,20 @@ cont:
             DS = Nothing
             Exit Sub
         End If
+        SaveSetting("LATIR4", "ORADBINSTALL", "LASTSRV", txtServer.Text)
+        Dim cmd As OracleCommand
+        cmd = New OracleCommand
+        cmd.Connection = CType(DS.dbconnect, OracleConnection)
+        cmd.CommandText = "ALTER SESSION SET NLS_COMP=LINGUISTIC"
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+
+        cmd = New OracleCommand
+        cmd.Connection = CType(DS.dbconnect, OracleConnection)
+        cmd.CommandText = "ALTER SESSION SET NLS_SORT=BINARY_CI"
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+
 
         GenResp = New LATIRGenerator.Response
         GenPrj = GenResp.Project
@@ -129,6 +159,13 @@ cont:
                 k = k + 1
             Next
         Next
+
+        Dim outfile As StreamWriter = New StreamWriter(txtData.Text + "_out.txt")
+
+        outfile.Write(sOut.ToString())
+
+        outfile.Close()
+
         If txtLog.Text = "" Then
             MsgBox("Создание базы данных завершено", MsgBoxStyle.Information)
         Else
@@ -143,7 +180,8 @@ cont:
 		inClick = True
         txtLogin.Text = ""
         txtPassword.Text = ""
-		Call DisableInvisibleControls()
+        txtServer.Text = GetSetting("LATIR4", "ORADBINSTALL", "LASTSRV", "//localhost/ora")
+        Call DisableInvisibleControls()
 		inClick = False
 	End Sub
 
@@ -229,5 +267,9 @@ Wexit:
                 End If
             End If
         Next
+    End Sub
+
+    Private Sub frameRight_Enter(sender As Object, e As EventArgs) Handles frameRight.Enter
+
     End Sub
 End Class
