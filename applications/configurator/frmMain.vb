@@ -1,7 +1,7 @@
 Imports Microsoft.Win32.Registry
 
 Public Class frmMain
-  Private colSite As New clsSite
+    Private colSite As clsSite
 
 
     Dim nSite, nServer As Integer, ld As Boolean
@@ -43,6 +43,8 @@ Public Class frmMain
                 tbFileConfigSite.Text = OpenFileDialog.FileName
                 colSite.loadSites(tbFileConfigSite.Text)
                 SaveSetting("LATIR4", "CFG", "FILE", OpenFileDialog.FileName)
+                loadListSite()
+
             Else
                 MsgBox("Файл имеет не правильный формат", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, My.Application.Info.AssemblyName)
             End If
@@ -67,7 +69,6 @@ Public Class frmMain
     End Sub
     Private Sub loadListSite()
         ctrlPageSite()
-        If Not colSite.working Then Exit Sub
         lstSite1.Items.Clear()
 
         For i As Long = 1 To colSite.c.Count
@@ -122,6 +123,9 @@ Public Class frmMain
             .pathLayouts = ""
             .pathTemp = ""
         End With
+        colSite.saveSites(tbFileConfigSite.Text)
+
+
         loadListSite()
     End Sub
     Private Sub lstSite1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstSite1.SelectedIndexChanged
@@ -170,8 +174,14 @@ Public Class frmMain
 
         tbFileConfigSite.Text = GetSetting("LATIR4", "CFG", "FILE", My.Application.Info.DirectoryPath & "\latir_sites.xml")
 
+        If GetSetting("LATIR4", "CFG", "TABTIP", "true") = "true" Then
+            chkAllowKbd.Checked = True
+        Else
+            chkAllowKbd.Checked = False
+        End If
 
         ' загрузка Настроек Сайтов
+        colSite = New clsSite
         If Len(tbFileConfigSite.Text) > 0 Then colSite.loadSites(tbFileConfigSite.Text)
         loadListSite()
 
@@ -180,7 +190,20 @@ Public Class frmMain
 #End Region
 
     Private Sub btExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btExit.Click
+        If Len(tbFileConfigSite.Text) > 0 Then colSite.saveSites(tbFileConfigSite.Text)
         Application.Exit()
+    End Sub
+
+    Private Sub cmdMakeZZZ_Click(sender As Object, e As EventArgs) Handles cmdMakeZZZ.Click
+        If Len(tbFileConfigSite.Text) > 0 Then colSite.saveSites(tbFileConfigSite.Text)
+    End Sub
+
+    Private Sub chkAllowKbd_CheckedChanged(sender As Object, e As EventArgs) Handles chkAllowKbd.CheckedChanged
+        If chkAllowKbd.Checked = True Then
+            SaveSetting("LATIR4", "CFG", "TABTIP", "true")
+        Else
+            SaveSetting("LATIR4", "CFG", "TABTIP", "false")
+        End If
     End Sub
 
 

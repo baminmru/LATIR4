@@ -51,14 +51,15 @@ Public Class clsSite
     saveSites(fName)
   End Sub
 
-  Public Sub loadSites(ByVal fName As String)
-    If Not System.IO.File.Exists(fName) Then
-      MsgBox("Файл конфигурации сайтов не найден", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, My.Application.Info.AssemblyName)
-      Exit Sub
-    End If
-    If c Is Nothing Then c = New Collection
-    c.Clear()
-    err = ""
+
+    Public Sub loadSites(ByVal fName As String)
+        If Not System.IO.File.Exists(fName) Then
+            MsgBox("Файл конфигурации сайтов не найден", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, My.Application.Info.AssemblyName)
+            Exit Sub
+        End If
+        If c Is Nothing Then c = New Collection
+        c.Clear()
+        err = ""
         working = False
         Dim crypted As Boolean = False
         Dim s As String
@@ -74,30 +75,30 @@ Public Class clsSite
 
 
         Dim r As Xml.XmlReader = Xml.XmlReader.Create(fName)
-    While r.Read
-      If r.Name = CRegion Then
-        Dim obj As New clsPSite
-        obj.name = r.Item(CName)
-        obj.serverDB = r.Item(CServerDB)
-        obj.nameDB = r.Item(CNameDB)
-        obj.nameProvider = r.Item(CNameProvider)
-        obj.time = r.Item(CTime)
-        obj.NTsecurity = r.Item(CNTSecurity)
-        obj.ARM = r.Item(CARM)
-        obj.SQLuser = r.Item(CSQLuser)
-        obj.SQLpassword = r.Item(CSQLpassword)
-        obj.prfParam = r.Item(CPrfParam)
-        obj.prfFunction = r.Item(CPrfFunction)
-        obj.prfSubType = r.Item(CPrfSubType)
-        obj.prfSubKernel = r.Item(CPrfSubKernel)
-        obj.pathImage = r.Item(CpathImage)
-        obj.pathLayouts = r.Item(CpathLayouts)
-        obj.pathTemp = r.Item(CpathTemp)
-        c.Add(obj)
+        While r.Read
+            If r.Name = CRegion Then
+                Dim obj As New clsPSite
+                obj.name = r.Item(CName)
+                obj.serverDB = r.Item(CServerDB)
+                obj.nameDB = r.Item(CNameDB)
+                obj.nameProvider = r.Item(CNameProvider)
+                obj.time = r.Item(CTime)
+                obj.NTsecurity = r.Item(CNTSecurity)
+                obj.ARM = r.Item(CARM)
+                obj.SQLuser = r.Item(CSQLuser)
+                obj.SQLpassword = r.Item(CSQLpassword)
+                obj.prfParam = r.Item(CPrfParam)
+                obj.prfFunction = r.Item(CPrfFunction)
+                obj.prfSubType = r.Item(CPrfSubType)
+                obj.prfSubKernel = r.Item(CPrfSubKernel)
+                obj.pathImage = r.Item(CpathImage)
+                obj.pathLayouts = r.Item(CpathLayouts)
+                obj.pathTemp = r.Item(CpathTemp)
+                c.Add(obj)
 
-        working = True
-      End If
-    End While
+                working = True
+            End If
+        End While
         r.Close()
         If crypted Then
             Try
@@ -113,6 +114,7 @@ Public Class clsSite
 
     End Sub
     Public Sub saveSites(ByVal fName As String)
+
         Dim crypted As Boolean = False
         If c.Count = 0 Then Exit Sub
 
@@ -121,6 +123,7 @@ Public Class clsSite
             fName = fName.Replace(".zzz", "")
             crypted = True
         End If
+
         Dim w As Xml.XmlWriter = Xml.XmlWriter.Create(fName)
         w.WriteStartElement("root")
 
@@ -162,7 +165,7 @@ Public Class clsSite
                 s = xdoc.OuterXml
                 s = CryptoZ.Encrypt(s, "LATIR4")
                 File.WriteAllText(fName & ".zzz", s)
-                File.Delete(fName)
+                'File.Delete(fName)
             Catch ex As Exception
 
             End Try
@@ -174,7 +177,6 @@ Public Class clsSite
             s = xdoc.OuterXml
             s = CryptoZ.Encrypt(s, "LATIR4")
             File.WriteAllText(fName & ".zzz", s)
-
         End If
 
 

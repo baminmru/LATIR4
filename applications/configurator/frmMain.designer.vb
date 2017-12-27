@@ -25,7 +25,6 @@ Partial Class frmMain
         Me.btExit = New System.Windows.Forms.Button()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
-
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -72,8 +71,9 @@ Partial Class frmMain
         Me.btCreateSite = New System.Windows.Forms.Button()
         Me.lstSite1 = New System.Windows.Forms.ListBox()
         Me.TabControl = New System.Windows.Forms.TabControl()
+        Me.cmdMakeZZZ = New System.Windows.Forms.Button()
+        Me.chkAllowKbd = New System.Windows.Forms.CheckBox()
         ImageList = New System.Windows.Forms.ImageList(Me.components)
-
         Me.TabPageSite.SuspendLayout()
         Me.pnlDataSite.SuspendLayout()
         Me.gbServerDB.SuspendLayout()
@@ -106,7 +106,6 @@ Partial Class frmMain
         'SaveFileDialog
         '
         resources.ApplyResources(Me.SaveFileDialog, "SaveFileDialog")
-        '
         '
         'Button1
         '
@@ -389,10 +388,24 @@ Partial Class frmMain
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
         '
+        'cmdMakeZZZ
+        '
+        resources.ApplyResources(Me.cmdMakeZZZ, "cmdMakeZZZ")
+        Me.cmdMakeZZZ.Name = "cmdMakeZZZ"
+        Me.cmdMakeZZZ.UseVisualStyleBackColor = True
+        '
+        'chkAllowKbd
+        '
+        resources.ApplyResources(Me.chkAllowKbd, "chkAllowKbd")
+        Me.chkAllowKbd.Name = "chkAllowKbd"
+        Me.chkAllowKbd.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.chkAllowKbd)
+        Me.Controls.Add(Me.cmdMakeZZZ)
         Me.Controls.Add(Me.lblFileConfigSite)
         Me.Controls.Add(Me.btFileConfigSite)
         Me.Controls.Add(Me.tbFileConfigSite)
@@ -402,7 +415,6 @@ Partial Class frmMain
         Me.HelpButton = True
         Me.MaximizeBox = False
         Me.Name = "frmMain"
-
         Me.TabPageSite.ResumeLayout(False)
         Me.pnlDataSite.ResumeLayout(False)
         Me.gbServerDB.ResumeLayout(False)
@@ -464,4 +476,6 @@ Partial Class frmMain
     Friend WithEvents btCreateSite As Button
     Friend WithEvents lstSite1 As ListBox
     Friend WithEvents TabControl As TabControl
+    Friend WithEvents cmdMakeZZZ As Button
+    Friend WithEvents chkAllowKbd As CheckBox
 End Class
