@@ -1,0 +1,13 @@
+bin
+obj
+Debug
+*.dll
+*.pdb
+*.obj
+*.cache
+*.txt
+*.obj
+*.exe
+*.user
+*.suo
+Backup
