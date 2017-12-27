@@ -67,9 +67,9 @@ Public Class GridControlParent
 
     Private Sub ApplyFields(ByRef gr As DataGridView)
         Dim cs As DataGridColumnStyle
-        Dim column As DataGridViewColumn '  Infragistics.Win.UltraWinGrid.DataGridViewColumn
+        Dim column As DataGridViewColumn ' 
         Dim i As Integer, j As Integer
-        'If gr.DisplayLayout.Bands(0).Columns.Count = 0 Then Return
+
 
         gr.ScrollBars = ScrollBars.Both
         gr.AllowUserToAddRows = False
@@ -220,43 +220,6 @@ Public Class GridControlParent
     End Sub
 
 
-    'Public Function FindRowByFiled(ByRef gr As DataGridView, ByVal FieldName As String, ByVal Value As Object) As Infragistics.Win.UltraWinGrid.DataGridViewRow
-
-    '    Dim row As Infragistics.Win.UltraWinGrid.DataGridViewRow = Nothing
-    '    Try
-    '        row = FindRowByFiledInCol(gr.DisplayLayout.Rows, FieldName, Value)
-    '    Catch
-    '    End Try
-    '    If Not row Is Nothing Then
-    '        row.Activate()
-    '    End If
-
-    '    Return row
-
-    'End Function
-
-    'Private Function FindRowByFiledInCol(ByVal Rows As Infragistics.Win.UltraWinGrid.RowsCollection, ByVal FieldName As String, ByVal Value As Object) As Infragistics.Win.UltraWinGrid.DataGridViewRow
-    '    Dim i As Integer, j As Integer
-    '    Dim row As Infragistics.Win.UltraWinGrid.DataGridViewRow
-
-    '    For i = 0 To Rows.Count - 1
-    '        If Rows(i).IsDataRow Then
-    '            If Rows(i).Cells(FieldName).Value.Equals(Value) Then
-    '                Return Rows(i)
-    '            End If
-    '        ElseIf Rows(i).IsGroupByRow Then
-    '            Rows(i).ExpandAll()
-    '            For j = 0 To Rows(i).ChildBands.Count - 1
-    '                row = FindRowByFiledInCol(Rows(i).ChildBands(j).Rows, FieldName, Value)
-    '                If Not row Is Nothing Then
-    '                    Return row
-    '                End If
-    '            Next
-    '        End If
-    '    Next
-
-    '    Return Nothing
-    'End Function
 
 
     Private Function FindRowByFiled(ByRef gr As DataGridView, ByVal FieldName As String, ByVal Value As Object) As DataGridViewRow

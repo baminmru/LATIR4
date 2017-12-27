@@ -1150,11 +1150,7 @@ Module MakeRowProc
                             addctl = addctl & vbCrLf & "CType(Me.HolderPanel.ClientArea, Panel).Controls.Add(Me.cmb" & f.Name & ")"
 
 
-                            '
-                            ' s = s & vbCrLf & "Me.cmb" & f.Name & ".BorderStyle = Infragistics.Win.UIElementBorderStyle.Etched"
-                            's = s & vbCrLf & "Me.cmb" & f.Name & ".ItemSpacingHorizontal = 5"
-                            's = s & vbCrLf & "Me.cmb" & f.Name & ".ItemSpacingVertical = 5"
-                            's = s & vbCrLf & "Me.cmb" & f.Name & ".MinColumnWidth = 60"
+
                             s = s & vbCrLf & "Me.cmb" & f.Name & ".Location = New System.Drawing.Point(" & (210 * column + 20) & "," & pos & ")"
                             s = s & vbCrLf & "Me.cmb" & f.Name & ".name = ""cmb" & f.Name & """"
                             s = s & vbCrLf & "Me.cmb" & f.Name & ".Size = New System.Drawing.Size(200,  20)"
