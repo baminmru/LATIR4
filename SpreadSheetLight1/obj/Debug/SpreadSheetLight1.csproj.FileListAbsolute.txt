@@ -1,5 +1,0 @@
-E:\LATIR4\SpreadSheetLight1\bin\Debug\SpreadSheetLight1.dll
-E:\LATIR4\SpreadSheetLight1\bin\Debug\SpreadSheetLight1.pdb
-E:\LATIR4\SpreadSheetLight1\obj\Debug\SpreadSheetLight1.dll
-E:\LATIR4\SpreadSheetLight1\obj\Debug\SpreadSheetLight1.pdb
-E:\LATIR4\SpreadSheetLight1\obj\Debug\SpreadSheetLight1.csprojResolveAssemblyReference.cache
