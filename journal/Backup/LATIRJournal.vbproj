@@ -29,7 +29,7 @@
     </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIRJournal.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>true</DefineDebug>
@@ -44,7 +44,7 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIRJournal.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>false</DefineDebug>
@@ -61,19 +61,19 @@
   <ItemGroup>
     <Reference Include="LATIRGUIControls, Version=1.0.2599.30099, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion> 
-     <HintPath>..\Generated\Generated Dlls\LATIRGUIControls.dll</HintPath>
+     <HintPath>bin\Debug\LATIRGUIControls.dll</HintPath>
    </Reference>
     <Reference Include="LATIRGuiManager, Version=1.0.2400.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Generated\Generated Dlls\LATIRGuiManager.dll</HintPath>
+      <HintPath>bin\Debug\LATIRGuiManager.dll</HintPath>
     </Reference>
     <Reference Include="LTOBJMan, Version=1.0.2400.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Generated\Generated Dlls\LTOBJMan.dll</HintPath>
+      <HintPath>bin\Debug\LTOBJMan.dll</HintPath>
     </Reference>
     <Reference Include="MTZJrnl, Version=1.0.2599.23584, Culture=neutral, processorArchitecture=MSIL" >
       <SpecificVersion>False</SpecificVersion> 
-     <HintPath>..\Generated\Generated Dlls\MTZJrnl.dll</HintPath>
+     <HintPath>bin\Debug\MTZJrnl.dll</HintPath>
    </Reference>
     <Reference Include="System">
       <Name>System</Name>

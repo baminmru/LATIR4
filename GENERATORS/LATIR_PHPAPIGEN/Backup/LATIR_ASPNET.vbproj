@@ -20,7 +20,7 @@
     </FileUpgradeFlags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIR_ASPNET.xml</DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <DefineDebug>True</DefineDebug>
@@ -31,7 +31,7 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIR_ASPNET.xml</DocumentationFile>
     <DebugSymbols>False</DebugSymbols>
     <DefineDebug>False</DefineDebug>
@@ -44,19 +44,19 @@
   <ItemGroup>
     <Reference Include="LATIRFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Generated\Generated Dlls\LATIRFramework.dll</HintPath>
+      <HintPath>bin\Debug\LATIRFramework.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGenerator, Version=1.0.2580.32658, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Generated\Generated Dlls\LATIRGenerator.dll</HintPath>
+      <HintPath>bin\Debug\LATIRGenerator.dll</HintPath>
     </Reference>
     <Reference Include="LTOBJMan, Version=1.0.2400.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Generated\Generated Dlls\LTOBJMan.dll</HintPath>
+      <HintPath>bin\Debug\LTOBJMan.dll</HintPath>
     </Reference>
     <Reference Include="MTZMetaModel, Version=1.0.2580.33141, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Generated\Generated Dlls\MTZMetaModel.dll</HintPath>
+      <HintPath>bin\Debug\MTZMetaModel.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

@@ -11,3 +11,6 @@ Debug
 *.user
 *.suo
 Backup
+*.Cache
+*.lock
+*.ide

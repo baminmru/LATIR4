@@ -41,7 +41,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIRDBInstall.xml</DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <DefineDebug>True</DefineDebug>
@@ -53,7 +53,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIRDBInstall.xml</DocumentationFile>
     <DebugSymbols>False</DebugSymbols>
     <DefineDebug>False</DefineDebug>
@@ -67,7 +67,7 @@
   <ItemGroup>
     <Reference Include="LATIRGenerator, Version=1.0.2638.24391, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Generated\Generated Dlls\LATIRGenerator.dll</HintPath>
+      <HintPath>bin\Debug\LATIRGenerator.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.Compatibility">
       <Name>Microsoft.VisualBasic.Compatibility</Name>
