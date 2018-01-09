@@ -3299,7 +3299,7 @@ bye:
         ' create new user
         s.putBuf("set @uid='" & GetMap("supervisor") & "'")
         s.putBuf("EXEC Users_SAVE @CURSESSION=@session, @InstanceID=@secid, @Usersid=@uid, ")
-        s.putBuf(" @Password='bami',  @Login='supervisor', @name='Администратор'")
+        s.putBuf(" @Password='bami',  @Login='supervisor', @name='Администратор',@Family='Системный',@SurName=null")
 
         ''--- GROUP Administrtors
         's.putbuf "set @Groupid ='" & GetMap("AdminGroup") & "'"
