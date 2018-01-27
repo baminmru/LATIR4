@@ -144,6 +144,18 @@
     <Compile Include="frmSetUnique.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmWebAPI_Amexio.Designer.vb">
+      <DependentUpon>frmWebAPI_Amexio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWebAPI_Amexio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWebAPI.Designer.vb">
+      <DependentUpon>frmWebAPI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWebAPI.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="jsCompressor.Designer.vb">
       <DependentUpon>jsCompressor.vb</DependentUpon>
     </Compile>
@@ -186,6 +198,12 @@
     <EmbeddedResource Include="frmSetUnique.resx">
       <DependentUpon>frmSetUnique.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmWebAPI_Amexio.resx">
+      <DependentUpon>frmWebAPI_Amexio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWebAPI.resx">
+      <DependentUpon>frmWebAPI.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="jsCompressor.resx">
       <DependentUpon>jsCompressor.vb</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="latir_sites.XML.zzz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

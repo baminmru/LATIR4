@@ -5,13 +5,15 @@ Public Class frmDjango
     Private Sub frmDjango_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim i As Integer
         Dim ti As tmpInst
-        model.OBJECTTYPE.Sort = "Name"
+        model.OBJECTTYPE.Sort = "the_Comment"
         For i = 1 To model.OBJECTTYPE.Count
-            ti = New tmpInst()
-            ti.ID = model.OBJECTTYPE.Item(i).ID
-            ti.Name = model.OBJECTTYPE.Item(i).the_Comment
-            ti.ObjType = model.OBJECTTYPE.Item(i).Name
-            chkObjType.Items.Add(ti, False)
+            With model.OBJECTTYPE.Item(i)
+                ti = New tmpInst
+                ti.ObjType = CType(.Package, MTZMetaModel.MTZMetaModel.MTZAPP).Name
+                ti.Name = .the_Comment
+                ti.ID = .ID
+                chkObjType.Items.Add(ti)
+            End With
         Next
         textBoxOutPutFolder.Text = GetSetting("L2BUILDER", "DJANGO_" & Manager.Site, "PATH", "")
 

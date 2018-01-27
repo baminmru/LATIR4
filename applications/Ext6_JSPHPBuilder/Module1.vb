@@ -35,5 +35,16 @@ Module Module1
         Level = Right(Key, 38)
     End Sub
 
- 
+    Public Function DeCap(ByVal s As String) As String
+
+        Dim sOut As String
+        If s <> "" Then
+            sOut = s.Substring(0, 1).ToLower() & s.Substring(1)
+            Return sOut
+        Else
+            Return s
+        End If
+    End Function
+
+
 End Module
