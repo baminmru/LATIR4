@@ -3,13 +3,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{046A637E-0401-4DD4-B42A-E718AEB34E1F}</ProjectGuid>
+    <ProjectGuid>{81F2AAEC-BA14-489C-B4B7-E2A3294F4CFE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Ext6_JSPHPBuilder.My.MyApplication</StartupObject>
-    <RootNamespace>Ext6_JSPHPBuilder</RootNamespace>
-    <AssemblyName>Ext6_JSPHPBuilder</AssemblyName>
+    <StartupObject>Ext5_JSPHPBuilder.My.MyApplication</StartupObject>
+    <RootNamespace>Ext5_JSPHPBuilder</RootNamespace>
+    <AssemblyName>Ext5_JSPHPBuilder</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
@@ -41,8 +42,8 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Ext6_JSPHPBuilder.xml</DocumentationFile>
+    <OutputPath>C:\LATIR4\Build\</OutputPath>
+    <DocumentationFile>Ext5_JSPHPBuilder.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
@@ -54,7 +55,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Ext6_JSPHPBuilder.xml</DocumentationFile>
+    <DocumentationFile>Ext5_JSPHPBuilder.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
@@ -69,7 +70,7 @@
     <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionInfer>Off</OptionInfer>
+    <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>b2.ico</ApplicationIcon>
@@ -123,18 +124,6 @@
     <Compile Include="ExtJSMakerMySQL.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDjango.Designer.vb">
-      <DependentUpon>frmDjango.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmDjango.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmJDL.Designer.vb">
-      <DependentUpon>frmJDL.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmJDL.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmMainB2.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -142,24 +131,6 @@
       <DependentUpon>frmSetUnique.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSetUnique.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWebAPI.Designer.vb">
-      <DependentUpon>frmWebAPI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmWebAPI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWebAPI_Amexio.Designer.vb">
-      <DependentUpon>frmWebAPI_Amexio.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmWebAPI_Amexio.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWebAPI_Amexio4.Designer.vb">
-      <DependentUpon>frmWebAPI_Amexio4.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmWebAPI_Amexio4.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="jsCompressor.Designer.vb">
@@ -184,7 +155,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Resolver.vb" />
     <Compile Include="tmpInst.vb" />
     <Compile Include="wordcheck.vb" />
   </ItemGroup>
@@ -192,26 +162,11 @@
     <EmbeddedResource Include="ExtJSMakerMySQL.resx">
       <DependentUpon>ExtJSMakerMySQL.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDjango.resx">
-      <DependentUpon>frmDjango.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmJDL.resx">
-      <DependentUpon>frmJDL.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMainB2.resx">
       <DependentUpon>frmMainB2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetUnique.resx">
       <DependentUpon>frmSetUnique.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWebAPI.resx">
-      <DependentUpon>frmWebAPI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWebAPI_Amexio.resx">
-      <DependentUpon>frmWebAPI_Amexio.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWebAPI_Amexio4.resx">
-      <DependentUpon>frmWebAPI_Amexio4.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="jsCompressor.resx">
       <DependentUpon>jsCompressor.vb</DependentUpon>
@@ -225,9 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="latir_sites.XML.zzz">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -240,9 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="b2.ico" />
-    <Content Include="latir_sites.XML">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -3,9 +3,9 @@
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartWorkingDirectory>C:\LATIR\Generated\Generated Dlls\</StartWorkingDirectory>
+    <StartWorkingDirectory></StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <StartWorkingDirectory>C:\LATIR\Generated\Generated Dlls\</StartWorkingDirectory>
+    <StartWorkingDirectory></StartWorkingDirectory>
   </PropertyGroup>
 </Project>

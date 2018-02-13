@@ -71,7 +71,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LATIR2GuiManager.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>false</DefineDebug>
