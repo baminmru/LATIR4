@@ -1894,7 +1894,8 @@ Public Class frmWebAPI_Amexio
 
         Next
 
-        sb.AppendLine("            Удалить запись: {{" & rowStr & "}}?  ")
+        sb.AppendLine("            Удалить запись: {{ ( (" & rowStr & ").length >100 ? (" & rowStr & ").substr(0,100)+'...' : (" & rowStr & ")) | removehtmltag }}?  ")
+
 
         sb.AppendLine("	</amexio-pane-body> ")
         sb.AppendLine("	<amexio-pane-action> ")

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmWebAPI_Amexio4
+Partial Class frmPHP_Amexio4
     Inherits System.Windows.Forms.Form
 
     'Форма переопределяет dispose для очистки списка компонентов.
@@ -33,6 +33,7 @@ Partial Class frmWebAPI_Amexio4
         Me.folderBrowserDialogProjectOutput = New System.Windows.Forms.FolderBrowserDialog()
         Me.txtNS = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmdGen
@@ -136,11 +137,21 @@ Partial Class frmWebAPI_Amexio4
         Me.Label1.TabIndex = 79
         Me.Label1.Text = "Default namespace:"
         '
-        'frmWebAPI_Amexio4
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(48, 311)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(131, 26)
+        Me.Button1.TabIndex = 80
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'frmPHP_Amexio4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(542, 358)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtNS)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmdGen)
@@ -151,8 +162,8 @@ Partial Class frmWebAPI_Amexio4
         Me.Controls.Add(Me.button3)
         Me.Controls.Add(Me.textBoxOutPutFolder)
         Me.Controls.Add(Me.Label3)
-        Me.Name = "frmWebAPI_Amexio4"
-        Me.Text = "Web API + ANGULAR (AMEXIO)  generator"
+        Me.Name = "frmPHP_Amexio4"
+        Me.Text = "Web API + ANGULAR (Clarity)  generator"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -169,4 +180,5 @@ Partial Class frmWebAPI_Amexio4
     Friend WithEvents folderBrowserDialogProjectOutput As FolderBrowserDialog
     Friend WithEvents txtNS As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class

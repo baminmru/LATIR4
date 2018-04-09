@@ -69,6 +69,7 @@ Public Class frmMainB2
     Friend WithEvents mnuAngular As MenuItem
     Friend WithEvents MenuItem10 As MenuItem
     Friend WithEvents MenuItem1 As MenuItem
+    Friend WithEvents MenuItem11 As MenuItem
     Friend WithEvents MenuItem15 As System.Windows.Forms.MenuItem
 
 
@@ -86,7 +87,10 @@ Public Class frmMainB2
         Me.mnuGenAgencyMS = New System.Windows.Forms.MenuItem()
         Me.mnuAddUnique = New System.Windows.Forms.MenuItem()
         Me.mnuCompress = New System.Windows.Forms.MenuItem()
+        Me.mnuAngular = New System.Windows.Forms.MenuItem()
         Me.mnuWebAPI = New System.Windows.Forms.MenuItem()
+        Me.MenuItem10 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
         Me.mnuPython = New System.Windows.Forms.MenuItem()
         Me.mnuDjango = New System.Windows.Forms.MenuItem()
         Me.MenuItem2 = New System.Windows.Forms.MenuItem()
@@ -100,9 +104,7 @@ Public Class frmMainB2
         Me.cdlgOpen = New System.Windows.Forms.OpenFileDialog()
         Me.cdlgSave = New System.Windows.Forms.SaveFileDialog()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.mnuAngular = New System.Windows.Forms.MenuItem()
-        Me.MenuItem10 = New System.Windows.Forms.MenuItem()
-        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem11 = New System.Windows.Forms.MenuItem()
         Me.SuspendLayout()
         '
         'MainMenu1
@@ -164,10 +166,26 @@ Public Class frmMainB2
         Me.mnuCompress.Index = 5
         Me.mnuCompress.Text = "Сжать скрипты"
         '
+        'mnuAngular
+        '
+        Me.mnuAngular.Index = 2
+        Me.mnuAngular.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuWebAPI, Me.MenuItem10, Me.MenuItem1, Me.MenuItem11})
+        Me.mnuAngular.Text = "Генераторы для Angular"
+        '
         'mnuWebAPI
         '
         Me.mnuWebAPI.Index = 0
         Me.mnuWebAPI.Text = ".Net Web API ->Clarity"
+        '
+        'MenuItem10
+        '
+        Me.MenuItem10.Index = 1
+        Me.MenuItem10.Text = ".Net WEB API -> Amexio"
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 2
+        Me.MenuItem1.Text = "JHipster.  JDL Генератор"
         '
         'mnuPython
         '
@@ -230,26 +248,15 @@ Public Class frmMainB2
         '
         Me.Timer2.Interval = 2000
         '
-        'mnuAngular
+        'MenuItem11
         '
-        Me.mnuAngular.Index = 2
-        Me.mnuAngular.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuWebAPI, Me.MenuItem10, Me.MenuItem1})
-        Me.mnuAngular.Text = "Генераторы для Angular"
-        '
-        'MenuItem10
-        '
-        Me.MenuItem10.Index = 1
-        Me.MenuItem10.Text = ".Net WEB API -> Amexio"
-        '
-        'MenuItem1
-        '
-        Me.MenuItem1.Index = 2
-        Me.MenuItem1.Text = "JHipster.  JDL Генератор"
+        Me.MenuItem11.Index = 3
+        Me.MenuItem11.Text = "PHP->Amexio"
         '
         'frmMainB2
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(528, 309)
+        Me.ClientSize = New System.Drawing.Size(528, 289)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Menu = Me.MainMenu1
@@ -400,6 +407,13 @@ Public Class frmMainB2
     Private Sub MenuItem10_Click(sender As Object, e As EventArgs) Handles MenuItem10.Click
         Dim f As frmWebAPI_Amexio4
         f = New frmWebAPI_Amexio4
+        f.ShowDialog()
+        f = Nothing
+    End Sub
+
+    Private Sub MenuItem11_Click(sender As Object, e As EventArgs) Handles MenuItem11.Click
+        Dim f As frmPHP_Amexio4
+        f = New frmPHP_Amexio4
         f.ShowDialog()
         f = Nothing
     End Sub

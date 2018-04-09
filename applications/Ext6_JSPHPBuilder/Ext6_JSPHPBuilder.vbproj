@@ -156,6 +156,12 @@
     <Compile Include="frmWebAPI_Amexio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPHP_Amexio4.Designer.vb">
+      <DependentUpon>frmPHP_Amexio4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPHP_Amexio4.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmWebAPI_Amexio4.Designer.vb">
       <DependentUpon>frmWebAPI_Amexio4.vb</DependentUpon>
     </Compile>
@@ -210,6 +216,9 @@
     <EmbeddedResource Include="frmWebAPI_Amexio.resx">
       <DependentUpon>frmWebAPI_Amexio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPHP_Amexio4.resx">
+      <DependentUpon>frmPHP_Amexio4.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmWebAPI_Amexio4.resx">
       <DependentUpon>frmWebAPI_Amexio4.vb</DependentUpon>
     </EmbeddedResource>
@@ -225,9 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="latir_sites.XML.zzz">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="latir_sites.XML.zzz" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -241,7 +248,7 @@
   <ItemGroup>
     <Content Include="b2.ico" />
     <Content Include="latir_sites.XML">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

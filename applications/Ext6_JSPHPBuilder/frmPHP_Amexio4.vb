@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Text
 
-Public Class frmWebAPI_Amexio4
+Public Class frmPHP_Amexio4
     Private Sub frmA4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim i As Integer
@@ -1052,11 +1052,8 @@ Public Class frmWebAPI_Amexio4
         For i = 1 To pcol.Count
             P = pcol.Item(i)
             sb.AppendLine("	public Combo" & P.Name & ":Array<ComboInfo> = []; ")
-            sb.AppendLine("	public get" & P.Name & "(): Observable<ComboInfo[]> { ")
+            sb.AppendLine("	get" & P.Name & "(): Observable<ComboInfo[]> { ")
             sb.AppendLine("		return this.http.get<ComboInfo[]>(this.serviceURL + '/" & P.Name & "/Combo'); ")
-            sb.AppendLine(" }")
-            sb.AppendLine("	public refreshCombo" & P.Name & "() { ")
-            sb.AppendLine("	this.get" & P.Name & "().subscribe(Data => {this.Combo" & P.Name & "=Data;});")
             sb.AppendLine(" }")
 
             sb.Append(Make_AppComboSupport(P.PART))
@@ -1226,7 +1223,7 @@ Public Class frmWebAPI_Amexio4
             sb.AppendLine("	//Fetch %obj% by parent")
             sb.AppendLine("    get_%obj%ByParent(parentId: string): Observable<%type%.%obj%[]> {")
             sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
-            sb.AppendLine("		   console.log(this.serviceURL +'/%obj%/byparent/'+ parentId)")
+            sb.AppendLine("		   console.log(this.serviceURL +'/index.php/%obj%/byparent/'+ parentId)")
             sb.AppendLine("        return this.http.get<%type%.%obj%[]>(this.serviceURL + '/%obj%/byparent/' + parentId, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
             sb.AppendLine("    }	")
             sb.AppendLine("	")
@@ -1235,20 +1232,20 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("	//Fetch %obj% by id")
         sb.AppendLine("    get_%obj%ById(%obj%Id: string): Observable<%type%.%obj%> {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
-        sb.AppendLine("		console.log(this.serviceURL +'/%obj%/'+ %obj%Id)")
-        sb.AppendLine("        return this.http.get<%type%.%obj%>(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
+        sb.AppendLine("		console.log(this.serviceURL +'/index.php/%obj%/'+ %obj%Id)")
+        sb.AppendLine("        return this.http.get<%type%.%obj%>(this.serviceURL + '/index.php/%obj%/' + %obj%Id, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
         sb.AppendLine("    }	")
         sb.AppendLine("	")
         sb.AppendLine("	   //Update %obj%")
         sb.AppendLine("    update_%obj%(%obj%: %type%.%obj%):Observable<Object > {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
-        sb.AppendLine("        return this.http.put(this.serviceURL + '/%obj%/' + %obj%." & DeCap(P.Name) & "Id, %obj%, { headers: cpHeaders })")
+        sb.AppendLine("        return this.http.put(this.serviceURL + '/index.php/%obj%/' + %obj%." & DeCap(P.Name) & "Id, %obj%, { headers: cpHeaders })")
         sb.AppendLine("    }")
         sb.AppendLine("	")
         sb.AppendLine("    //Delete %obj%	")
         sb.AppendLine("    delete_%obj%ById(%obj%Id: string): Observable<Object> {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
-        sb.AppendLine("        return this.http.delete(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })")
+        sb.AppendLine("        return this.http.delete(this.serviceURL + '/index.php/%obj%/' + %obj%Id, { headers: cpHeaders })")
         sb.AppendLine("            ")
         sb.AppendLine("			")
         sb.AppendLine("    }	")
@@ -1421,15 +1418,13 @@ Public Class frmWebAPI_Amexio4
 
         ' write component file
         sb = New StringBuilder()
-        sb.AppendLine("import { Component, OnInit, OnDestroy,  Input, Output, EventEmitter } from ""@angular/core"";")
+        sb.AppendLine("import { Component, OnInit, Input, Output, EventEmitter } from ""@angular/core"";")
         sb.AppendLine("import { %obj%_Service } from ""app/%obj%.service"";")
         sb.AppendLine("import { AppService } from ""app/app.service"";")
         sb.AppendLine("import { Observable } from ""rxjs/Observable"";")
-        sb.AppendLine("import {  Validators } from ""@angular/forms"";")
-        sb.AppendLine("import { ISubscription} from ""rxjs/Subscription"";")
         sb.AppendLine("")
-        sb.AppendLine("import { RemoveHTMLtagPipe } from 'app/pipes';")
         sb.AppendLine("import { %type% } from ""app/%type%"";")
+        sb.AppendLine("import {  Validators } from ""@angular/forms"";")
         sb.AppendLine("")
         sb.AppendLine("import 'rxjs/add/operator/switchMap';")
         sb.AppendLine("import 'rxjs/add/operator/publishReplay';")
@@ -1453,48 +1448,18 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    mode: Number = MODE_LIST;")
         sb.AppendLine("    current%obj%: %type%.%obj% = {} as %type%.%obj%;")
         sb.AppendLine("    formMsg: string = '';")
-        sb.AppendLine("    valid:boolean=true;")
-        If Not isRoot Then
-            sb.AppendLine("   subscription:ISubscription;")
-        End If
+
+
         sb.AppendLine("")
         sb.AppendLine("    constructor( private %obj%_Service: %obj%_Service,  public AppService:AppService ) {")
+        If Not isRoot Then
+            sb.AppendLine("                 this.AppService.current%parent%.subscribe(si =>{ this.refresh%obj%(); });")
+        End If
         sb.AppendLine("    }")
         sb.AppendLine("")
 
         sb.AppendLine("    ngOnInit() {")
-        If Not isRoot Then
-            sb.AppendLine("		   console.log(""Subscribe %obj%""); ")
-            sb.AppendLine("        this.subscription=this.AppService.current%parent%.subscribe(si =>{ this.refresh%obj%(); });")
-        End If
         sb.AppendLine("        this.refresh%obj%();")
-        sb.AppendLine("    }")
-
-        'refreshCombo
-        Dim part As MTZMetaModel.MTZMetaModel.PART
-        sb.AppendLine("    refreshCombo() {")
-        For i = 1 To P.FIELD.Count
-            fld = P.FIELD.Item(i)
-            ft = fld.FieldType
-
-            If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy Then
-                If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-                    part = fld.RefToPart
-                    sb.AppendLine("     this.AppService.refreshCombo" + part.Name + "();")
-                End If
-            End If
-
-
-        Next
-
-        sb.AppendLine("    }")
-
-
-        sb.AppendLine("    ngOnDestroy() {")
-        If Not isRoot Then
-            sb.AppendLine("		   console.log(""Unsubscribe %obj%""); ")
-            sb.AppendLine("        this.subscription.unsubscribe();")
-        End If
         sb.AppendLine("    }")
         sb.AppendLine("")
         If isRoot Then
@@ -1520,16 +1485,15 @@ Public Class frmWebAPI_Amexio4
             End If
 
             sb.AppendLine("		if(typeof item === 'undefined') { ")
-            sb.AppendLine("		   //console.log(""no parent item for refresh""); ")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
+            sb.AppendLine("			console.log(""no parent item for refresh""); ")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
             sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id==='undefined') { ")
-            sb.AppendLine("		   //console.log(""no parent id for refresh""); ")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
+            sb.AppendLine("			console.log(""no parent id for refresh""); ")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
             sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id === 'string' ) {")
+
             sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "Id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
             sb.AppendLine("      }")
             sb.AppendLine("    }")
@@ -1549,7 +1513,6 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    }")
         sb.AppendLine("")
         sb.AppendLine("    onNew() {")
-        sb.AppendLine("    this.refreshCombo(); ")
         If Not isRoot Then
             sb.AppendLine("      if(typeof ( this.AppService.Last%parent%." & DeCap(ParentPart.Name) & "Id) === 'string' ) {")
             sb.AppendLine("        this.current%obj% = {} as %type%.%obj%;")
@@ -1568,7 +1531,6 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    }")
         sb.AppendLine("")
         sb.AppendLine("    onEdit(item: %type%.%obj%) {")
-        sb.AppendLine("    this.refreshCombo(); ")
         sb.AppendLine("        this.opened = true;")
         sb.AppendLine("        this.formMsg = 'Изменить: ';")
         sb.AppendLine("        this.mode = MODE_EDIT;")
@@ -1585,41 +1547,8 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("        this.backToList();")
         sb.AppendLine("    }")
         sb.AppendLine("")
-        sb.AppendLine("    save(item: %type%.%obj%) {")
-        sb.AppendLine("        this.valid=true; ")
-        ''''''''''''''''''''''''' field validation
-        For i = 1 To P.FIELD.Count
-            fld = P.FIELD.Item(i)
-            ft = fld.FieldType
-
-            If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy Then
-                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
-
-                    If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
-                    ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
-                    ElseIf fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined || this.current%obj%." & fld.Name & "=='') this.valid=false;")
-                    End If
-                End If
-
-                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
-                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
-                    End If
-                End If
-
-                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
-                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined  ) this.valid=false;")
-                    End If
-                End If
-            End If
-        Next
-
-        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        sb.AppendLine("        if (this.valid) {")
+        sb.AppendLine("    save(item: %type%.%obj%, isValid: boolean) {")
+        sb.AppendLine("        if (isValid) {")
         sb.AppendLine("            switch (this.mode) {")
         sb.AppendLine("                case MODE_NEW: {")
         sb.AppendLine("                    this.%obj%_Service.create_%obj%(item)")
@@ -1635,8 +1564,6 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("                    break;")
         sb.AppendLine("            }")
         sb.AppendLine("            this.backToList();")
-        sb.AppendLine("       // } else {")
-        sb.AppendLine("      //      alert(""invalid form"");")
         sb.AppendLine("        }")
         sb.AppendLine("    }")
         sb.AppendLine("")
@@ -1671,12 +1598,8 @@ Public Class frmWebAPI_Amexio4
         sb = New StringBuilder()
         sb.AppendLine("<!-- edit row pane -->	 ")
         sb.AppendLine(" <amexio-window [closable]=""false"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
-        'sb.AppendLine(" <amexio-window [closable]=""false""  [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
         sb.AppendLine("	  <amexio-header> ")
         sb.AppendLine("        {{formMsg}} %objname% ")
-        sb.AppendLine("<amexio-box *ngIf=""valid==false"" border-color =""red"" border=""all"" padding=""true"" background-color=""yellow"">")
-        sb.AppendLine("	<amexio-label font-color=""red""  border=""bottom"">Ошибка заполнения формы</amexio-label>")
-        sb.AppendLine("</amexio-box>")
         sb.AppendLine("      </amexio-header> ")
         sb.AppendLine("     <amexio-body> ")
 
@@ -1803,10 +1726,10 @@ Public Class frmWebAPI_Amexio4
                 sb.AppendLine("                    [place-holder]=""'" & fld.Caption & "'"" ")
                 sb.AppendLine("	 [(ngModel)]=""current%obj%." & fld.Name & """")
                 'If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                ' sb.AppendLine("            [allow-blank]=""true"" ")
+                '    sb.AppendLine("            [allow-blank]=""true"" ")
                 'Else
-                sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
-                '   End If
+                '    sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
+                'End If
 
                 sb.AppendLine("	 [display-field]=""'name'""")
                 sb.AppendLine("	 [value-field]=""'id'""")
@@ -1823,11 +1746,7 @@ Public Class frmWebAPI_Amexio4
                 sb.AppendLine("	 [place-holder] = ""'" & fld.Caption & "'""")
                 sb.AppendLine("	 name =""" & fld.Name & """")
                 sb.AppendLine("	 [field-label]= ""'" & fld.Caption & "'""")
-                'If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                ' sb.AppendLine("            [allow-blank]=""true"" ")
-                ' Else
-                sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
-                'End If
+                'sb.AppendLine("	 [allow-blank]=""false""	")
                 sb.AppendLine("	 ")
                 sb.AppendLine("	 [display-field]=""'name'""")
                 sb.AppendLine("	 [value-field]=""'id'""")
@@ -1846,9 +1765,9 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("	<amexio-row> ")
         sb.AppendLine("	<amexio-column size=""12""> ")
         'sb.AppendLine("		<button type=""button"" class=""btn btn-outline"" (click) = ""opened = false"">Отмена</button> ")
-        sb.AppendLine("     <amexio-button  [label]=""'Отмена'"" (onClick)=""opened = false;  refresh%obj%();"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
+        sb.AppendLine("     <amexio-button  [label]=""'Отмена'"" (onClick)=""opened = false"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
         'sb.AppendLine("		<button type=""submit"" class=""btn btn-primary"" (click)=""save(current%obj%, true)"" >Сохранить</button> ")
-        sb.AppendLine("     <amexio-button  [label]=""'Сохранить'"" (onClick)=""save(current%obj%)"" [type]=""'success'"" [tooltip]=""'Сохранить'"" [icon]=""'fa fa-save'""></amexio-button>")
+        sb.AppendLine("     <amexio-button  [label]=""'Сохранить'"" (onClick)=""save(current%obj%, true)"" [type]=""'success'"" [tooltip]=""'Сохранить'"" [icon]=""'fa fa-save'""></amexio-button>")
         sb.AppendLine("	</amexio-column> ")
         sb.AppendLine("	</amexio-row> ")
         sb.AppendLine("	</amexio-action> ")
@@ -1904,7 +1823,7 @@ Public Class frmWebAPI_Amexio4
                         If ft.Name.ToLower = "memo" Or ft.Name.ToLower = "string" Then
                             sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""> ")
                             sb.AppendLine(" 		  <ng-template #amexioBodyTmpl let-column let-row=""row"">")
-                            sb.AppendLine("             {{  ((row." & fld.Name & ") ? ((row." & fld.Name & ".length>100) ? row." & fld.Name & ".substr(0,100)+'...' : row." & fld.Name & " ) : '-') | removehtmltag }} ")
+                            sb.AppendLine("             {{  ((row." & fld.Name & ") ? ((row." & fld.Name & ".length>100) ? row." & fld.Name & ".substr(0,100)+'...' : row." & fld.Name & " ) : '-') }} ")
                             sb.AppendLine("           </ng-template>")
                             sb.AppendLine("		  </amexio-data-table-column> ")
                         Else
@@ -1963,8 +1882,7 @@ Public Class frmWebAPI_Amexio4
 
         Next
 
-        sb.AppendLine("            Удалить запись: {{ ( (" & rowStr & "||'').length >100 ? (" & rowStr & "||'').substr(0,100)+'...' : (" & rowStr & "||'')) | removehtmltag }}?  ")
-
+        sb.AppendLine("            Удалить запись: {{ ( (" & rowStr & ").length >100 ? (" & rowStr & ").substr(0,100)+'...' : (" & rowStr & ")) | removehtmltag }}?  ")
 
         sb.AppendLine("	</amexio-body> ")
         sb.AppendLine("	<amexio-action> ")
