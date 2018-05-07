@@ -120,6 +120,18 @@ Public Class frmWebAPI_Amexio4
             Application.DoEvents()
         Next
 
+
+        sw = New StringBuilder
+        For i = 0 To chkObjType.CheckedItems.Count - 1
+            Application.DoEvents()
+            ti = chkObjType.CheckedItems(i)
+            ot = model.OBJECTTYPE.Item(ti.ID.ToString())
+            ot.PART.Sort = "sequence"
+            sw.Append(PartMake_FK(ot.PART))
+            Application.DoEvents()
+        Next
+        Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "\sql\", "fk.sql", False)
+
         ''''''''''''''''''' typescript enums
         sw = New StringBuilder
         If txtNS.Text <> "" Then
@@ -609,6 +621,114 @@ Public Class frmWebAPI_Amexio4
     End Sub
 
 
+    Private Function PartMake_FK(ByVal pcol As MTZMetaModel.MTZMetaModel.PART_col) As String
+        Dim sw As StringBuilder
+        sw = New StringBuilder()
+        Dim P As MTZMetaModel.MTZMetaModel.PART
+        Dim P1 As MTZMetaModel.MTZMetaModel.PART
+        Dim i As Integer
+        Dim j As Integer
+
+
+        For i = 1 To pcol.Count
+            P = pcol.Item(i)
+            sw.Append(vbCrLf & PartMake_OneFK(P))
+            P.PART.Sort = "sequence"
+            sw.Append(PartMake_FK(P.PART))
+
+        Next
+        Return sw.ToString()
+
+    End Function
+
+
+    Private Function PartMake_OneFK(ByVal P As MTZMetaModel.MTZMetaModel.PART) As String
+        If P.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Rassirenie Then Return ""
+        Dim sw As StringBuilder
+        sw = New StringBuilder()
+        Try
+
+
+
+            Dim i As Integer
+
+
+            Dim isroot As Boolean = False
+            Dim ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE
+            ot = Nothing
+            If TypeName(P.Parent.Parent) = "OBJECTTYPE" Then
+                ot = P.Parent.Parent
+                isroot = True
+            End If
+
+
+            If Not isroot Then
+                Dim ParentPart As MTZMetaModel.MTZMetaModel.PART
+                ParentPart = P.Parent.Parent
+
+                'sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Parent"")]")
+
+
+                sw.Append(vbCrLf & vbTab & " delete from " & P.Name & " where " & ParentPart.Name & "Id not in ( select " & ParentPart.Name & "Id from " & ParentPart.Name & ") ")
+                sw.Append(vbCrLf & vbTab & " go ")
+                sw.Append(vbCrLf & vbTab & " ALTER TABLE " & P.Name & " 
+                ADD CONSTRAINT FK_" & P.Name & "_Parent
+                FOREIGN KEY (" & ParentPart.Name & "Id)
+                REFERENCES " & ParentPart.Name & " (" & ParentPart.Name & "Id)
+                ON DELETE CASCADE ")
+                sw.Append(vbCrLf & vbTab & " go ")
+
+                'sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "Id { get; set; } // Parent part Id -> " & ParentPart.Caption)
+            Else
+                If ot.IsSingleInstance = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+
+                    '  все  разделы верхнего уровня  впихиваем в  0 -раздел
+                    If P.Sequence = 0 Then
+
+
+
+                    Else
+                        For i = 1 To ot.PART.Count
+                            Dim SiblingPart As MTZMetaModel.MTZMetaModel.PART
+                            SiblingPart = ot.PART.Item(i)
+                            If SiblingPart.Sequence = 0 Then
+
+                                sw.Append(vbCrLf & vbTab & " delete from " & P.Name & " where " & SiblingPart.Name & "Id not in ( select " & SiblingPart.Name & "Id from " & SiblingPart.Name & ") ")
+                                sw.Append(vbCrLf & vbTab & " go ")
+                                sw.Append(vbCrLf & vbTab & " ALTER TABLE " & P.Name & " 
+                                ADD CONSTRAINT FK_" & P.Name & "_Parent
+                                FOREIGN KEY (" & SiblingPart.Name & "Id)
+                                REFERENCES " & SiblingPart.Name & " (" & SiblingPart.Name & "Id)
+                                ON DELETE CASCADE ")
+                                sw.Append(vbCrLf & vbTab & " go ")
+                                Exit For
+                            End If
+                        Next
+
+                    End If
+
+
+
+
+
+
+                End If
+
+            End If
+
+
+
+
+        Catch ex As Exception
+            Debug.Print(ex.Message & vbCrLf & ex.StackTrace)
+            ' Stop
+        End Try
+
+        Return sw.ToString()
+
+    End Function
+
+
     Private Function PartMake_GenStores(ByVal pcol As MTZMetaModel.MTZMetaModel.PART_col) As String
         Dim sw As StringBuilder
         sw = New StringBuilder()
@@ -1053,7 +1173,8 @@ Public Class frmWebAPI_Amexio4
             P = pcol.Item(i)
             sb.AppendLine("	public Combo" & P.Name & ":Array<ComboInfo> = []; ")
             sb.AppendLine("	public get" & P.Name & "(): Observable<ComboInfo[]> { ")
-            sb.AppendLine("		return this.http.get<ComboInfo[]>(this.serviceURL + '/" & P.Name & "/Combo'); ")
+            sb.AppendLine("     let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
+            sb.AppendLine("		return this.http.get<ComboInfo[]>(this.serviceURL + '/" & P.Name & "/Combo', { headers: cpHeaders }); ")
             sb.AppendLine(" }")
             sb.AppendLine("	public refreshCombo" & P.Name & "() { ")
             sb.AppendLine("	this.get" & P.Name & "().subscribe(Data => {this.Combo" & P.Name & "=Data;});")
@@ -1157,12 +1278,13 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("		}")
         sb.AppendLine("		*/")
         sb.AppendLine("		")
+        sb.AppendLine("		let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
         sb.AppendLine("		if(this.PageUrl!=''){")
-        sb.AppendLine("			return this.http.get<%type%.%obj%[]>(this.PageUrl)")
+        sb.AppendLine("			return this.http.get<%type%.%obj%[]>(this.PageUrl, { headers: cpHeaders })")
         sb.AppendLine("		}else{")
         sb.AppendLine("			if(qry !='')")
         sb.AppendLine("				qry='?' +qry;")
-        sb.AppendLine("			return this.http.get<%type%.%obj%[]>(this.serviceURL + '/%obj%/'+qry)")
+        sb.AppendLine("			return this.http.get<%type%.%obj%[]>(this.serviceURL + '/%obj%/'+qry, { headers: cpHeaders })")
         sb.AppendLine("        }")
         sb.AppendLine("    }")
         sb.AppendLine("	")
@@ -1184,7 +1306,7 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("	   //Create %obj%")
         sb.AppendLine("    create_%obj%(%obj%: %type%.%obj%): Observable<Object > {")
         sb.AppendLine("       // %obj%.%obj%Id = '';")
-        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
+        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
         sb.AppendLine("        return this.http.post(this.serviceURL + '/%obj%/', %obj%, { headers: cpHeaders })")
         sb.AppendLine("		")
         sb.AppendLine("    }")
@@ -1225,7 +1347,7 @@ Public Class frmWebAPI_Amexio4
         If AddByParent Then
             sb.AppendLine("	//Fetch %obj% by parent")
             sb.AppendLine("    get_%obj%ByParent(parentId: string): Observable<%type%.%obj%[]> {")
-            sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
+            sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
             sb.AppendLine("		   console.log(this.serviceURL +'/%obj%/byparent/'+ parentId)")
             sb.AppendLine("        return this.http.get<%type%.%obj%[]>(this.serviceURL + '/%obj%/byparent/' + parentId, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
             sb.AppendLine("    }	")
@@ -1234,20 +1356,20 @@ Public Class frmWebAPI_Amexio4
 
         sb.AppendLine("	//Fetch %obj% by id")
         sb.AppendLine("    get_%obj%ById(%obj%Id: string): Observable<%type%.%obj%> {")
-        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
+        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
         sb.AppendLine("		console.log(this.serviceURL +'/%obj%/'+ %obj%Id)")
         sb.AppendLine("        return this.http.get<%type%.%obj%>(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
         sb.AppendLine("    }	")
         sb.AppendLine("	")
         sb.AppendLine("	   //Update %obj%")
         sb.AppendLine("    update_%obj%(%obj%: %type%.%obj%):Observable<Object > {")
-        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
+        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
         sb.AppendLine("        return this.http.put(this.serviceURL + '/%obj%/' + %obj%." & DeCap(P.Name) & "Id, %obj%, { headers: cpHeaders })")
         sb.AppendLine("    }")
         sb.AppendLine("	")
         sb.AppendLine("    //Delete %obj%	")
         sb.AppendLine("    delete_%obj%ById(%obj%Id: string): Observable<Object> {")
-        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })")
+        sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ localStorage.getItem('auth_token') });")
         sb.AppendLine("        return this.http.delete(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })")
         sb.AppendLine("            ")
         sb.AppendLine("			")
