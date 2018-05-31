@@ -1576,6 +1576,11 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    current%obj%: %type%.%obj% = {} as %type%.%obj%;")
         sb.AppendLine("    formMsg: string = '';")
         sb.AppendLine("    valid:boolean=true;")
+        sb.AppendLine("    errorFlag:boolean=false;")
+        sb.AppendLine("    errorMessage:string='';")
+
+
+
         If Not isRoot Then
             sb.AppendLine("   subscription:ISubscription;")
         End If
@@ -1587,7 +1592,7 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    ngOnInit() {")
         If Not isRoot Then
             sb.AppendLine("		   console.log(""Subscribe %obj%""); ")
-            sb.AppendLine("        this.subscription=this.AppService.current%parent%.subscribe(si =>{ this.refresh%obj%(); });")
+            sb.AppendLine("        this.subscription=this.AppService.current%parent%.subscribe(si =>{ this.refresh%obj%(); }, error => { this.ShowError(error.message); } );")
         End If
         sb.AppendLine("        this.refresh%obj%();")
         sb.AppendLine("    }")
@@ -1622,7 +1627,7 @@ Public Class frmWebAPI_Amexio4
         If isRoot Then
             sb.AppendLine("    refresh%obj%() {")
             sb.AppendLine("		   console.log(""refreshing %obj%""); ")
-            sb.AppendLine("        this.%obj%_Service.getAll_%obj%s().subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
+            sb.AppendLine("        this.%obj%_Service.getAll_%obj%s().subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
             sb.AppendLine("        this.current%obj% = {} as %type%.%obj%;")
             If hasChild Then
                 sb.AppendLine("        console.log(""clear selection for %obj% on refresh"");")
@@ -1643,19 +1648,26 @@ Public Class frmWebAPI_Amexio4
 
             sb.AppendLine("		if(typeof item === 'undefined') { ")
             sb.AppendLine("		   //console.log(""no parent item for refresh""); ")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
             sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id==='undefined') { ")
             sb.AppendLine("		   //console.log(""no parent id for refresh""); ")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
             sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id === 'string' ) {")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "Id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; })")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "Id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
             sb.AppendLine("      }")
             sb.AppendLine("    }")
         End If
+
+
+        sb.AppendLine("")
+        sb.AppendLine("	   ShowError(message:string){")
+        sb.AppendLine("		this.errorMessage=message; ;")
+        sb.AppendLine("		this.errorFlag=true;")
+        sb.AppendLine("	   }")
 
         sb.AppendLine("")
         sb.AppendLine("	   getData(){")
@@ -1703,7 +1715,7 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    }")
         sb.AppendLine("")
         sb.AppendLine("    onConfirmDeletion() {")
-        sb.AppendLine("        this.%obj%_Service.delete_%obj%ById(this.current%obj%." & DeCap(P.Name) & "Id).subscribe(() => this.refresh%obj%());")
+        sb.AppendLine("        this.%obj%_Service.delete_%obj%ById(this.current%obj%." & DeCap(P.Name) & "Id).subscribe(data => {this.refresh%obj%()}, error => { this.ShowError(error.message); });")
         sb.AppendLine("        this.backToList();")
         sb.AppendLine("    }")
         sb.AppendLine("")
@@ -1745,20 +1757,20 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("            switch (this.mode) {")
         sb.AppendLine("                case MODE_NEW: {")
         sb.AppendLine("                    this.%obj%_Service.create_%obj%(item)")
-        sb.AppendLine("                        .subscribe(() => this.refresh%obj%());")
+        sb.AppendLine("                        .subscribe(data =>{ this.refresh%obj%()}, error => { this.ShowError(error.message); });")
         sb.AppendLine("                    break;")
         sb.AppendLine("                }")
         sb.AppendLine("                case MODE_EDIT: {")
         sb.AppendLine("                    this.%obj%_Service.update_%obj%( item)")
-        sb.AppendLine("                        .subscribe(() => this.refresh%obj%());")
+        sb.AppendLine("                        .subscribe(data => {this.refresh%obj%()}, error => { this.ShowError(error.message); });")
         sb.AppendLine("                    break;")
         sb.AppendLine("                }")
         sb.AppendLine("                default:")
         sb.AppendLine("                    break;")
         sb.AppendLine("            }")
         sb.AppendLine("            this.backToList();")
-        sb.AppendLine("       // } else {")
-        sb.AppendLine("      //      alert(""invalid form"");")
+        sb.AppendLine("        //} else {")
+        sb.AppendLine("        //    this.ShowError(""Ошибка заполнения формы"");")
         sb.AppendLine("        }")
         sb.AppendLine("    }")
         sb.AppendLine("")
@@ -1791,6 +1803,34 @@ Public Class frmWebAPI_Amexio4
         ' write component html
 
         sb = New StringBuilder()
+
+        sb.AppendLine("<!--Error dialogue-->")
+        sb.AppendLine("<amexio-window [show-window]=""errorFlag""")
+        sb.AppendLine("               [header]=""true""")
+        sb.AppendLine("			   [footer]=""true""")
+        sb.AppendLine("			   [closable]=""false""")
+        sb.AppendLine("               >")
+        sb.AppendLine("	<amexio-header>")
+        sb.AppendLine("        <i class=""fa fa-exclamation-triangle""></i> Ошибка")
+        sb.AppendLine("      </amexio-header>")
+        sb.AppendLine("	   <amexio-body>")
+        sb.AppendLine("        <amexio-row>")
+        sb.AppendLine("          <amexio-column [size]=""11"">")
+        sb.AppendLine("		  <span style=""color:red"">{{errorMessage}}</span>")
+        sb.AppendLine("		  </amexio-column>")
+        sb.AppendLine("        </amexio-row>")
+        sb.AppendLine("	</amexio-body> ")
+        sb.AppendLine("	<amexio-action> ")
+        sb.AppendLine("	<amexio-row> ")
+        sb.AppendLine("	<amexio-column size=""11""> ")
+        sb.AppendLine("     <amexio-button  [label]=""'Ok'"" (onClick)=""errorFlag=false"" [type]=""'red'"" [tooltip]=""'Ok'"" [icon]=""'fa fa-exclamation-triangle'""></amexio-button>")
+        sb.AppendLine("	</amexio-column> ")
+        sb.AppendLine("	</amexio-row> ")
+        sb.AppendLine("	</amexio-action> ")
+        sb.AppendLine("</amexio-window>")
+
+
+
         sb.AppendLine("<!-- edit row pane -->	 ")
         sb.AppendLine(" <amexio-window [closable]=""false"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
         'sb.AppendLine(" <amexio-window [closable]=""false""  [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
@@ -1818,18 +1858,7 @@ Public Class frmWebAPI_Amexio4
 
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
                         If ft.Name = "Memo" Then
-                            'sb.AppendLine(" <amexio-textarea-input [enable-popover]=""false""  [field-label]=""'" & fld.Caption & "'"" name =""" & fld.Name & """ ")
-                            'sb.AppendLine("             [place-holder]=""'" & fld.Caption & "'"" ")
 
-                            'If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                            '    sb.AppendLine("            [allow-blank]=""true"" ")
-                            'Else
-                            '    sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
-                            'End If
-                            'sb.AppendLine("	            [(ngModel)]=""current%obj%." & fld.Name & """")
-                            'sb.AppendLine("             [icon-feedback]=""true"" [rows]=""'5'"" [columns]=""'12'"" ")
-                            'sb.AppendLine("              > ")
-                            'sb.AppendLine("</amexio-textarea-input>")
 
                             sb.AppendLine("<amexio-label>" & fld.Caption & "</amexio-label>")
                             sb.AppendLine("<ngx-wig  ")
@@ -1840,11 +1869,27 @@ Public Class frmWebAPI_Amexio4
 
 
                         Else
+                            If fld.TheStyle.Contains("textarea") Then
 
-                            sb.AppendLine("                    <amexio-text-input [field-label]= ""'" & fld.Caption & "'"" name =""" & fld.Name & """  ")
-                            sb.AppendLine("                    [place-holder] = ""'" & fld.Caption & "'"" ")
-                            sb.AppendLine("                    [icon-feedback] = ""true"" [(ngModel)]=""current%obj%." & fld.Name & """ >")
-                            sb.AppendLine("                    </amexio-text-input>")
+                                sb.AppendLine(" <amexio-textarea-input [enable-popover]=""false""  [field-label]=""'" & fld.Caption & "'"" name =""" & fld.Name & """ ")
+                                sb.AppendLine("             [place-holder]=""'" & fld.Caption & "'"" ")
+
+                                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                                    sb.AppendLine("            [allow-blank]=""true"" ")
+                                Else
+                                    sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
+                                End If
+                                sb.AppendLine("	            [(ngModel)]=""current%obj%." & fld.Name & """")
+                                sb.AppendLine("             [icon-feedback]=""true"" [rows]=""'5'"" [columns]=""'12'"" ")
+                                sb.AppendLine("              > ")
+                                sb.AppendLine("</amexio-textarea-input>")
+                            Else
+
+                                sb.AppendLine("                    <amexio-text-input [field-label]= ""'" & fld.Caption & "'"" name =""" & fld.Name & """  ")
+                                sb.AppendLine("                    [place-holder] = ""'" & fld.Caption & "'"" ")
+                                sb.AppendLine("                    [icon-feedback] = ""true"" [(ngModel)]=""current%obj%." & fld.Name & """ >")
+                                sb.AppendLine("                    </amexio-text-input>")
+                            End If
 
 
                         End If
