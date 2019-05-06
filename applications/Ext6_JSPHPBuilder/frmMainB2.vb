@@ -69,7 +69,7 @@ Public Class frmMainB2
     Friend WithEvents mnuAngular As MenuItem
     Friend WithEvents MenuItem10 As MenuItem
     Friend WithEvents MenuItem1 As MenuItem
-    Friend WithEvents MenuItem11 As MenuItem
+    Friend WithEvents mnuIonic4 As MenuItem
     Friend WithEvents MenuItem15 As System.Windows.Forms.MenuItem
 
 
@@ -91,6 +91,7 @@ Public Class frmMainB2
         Me.mnuWebAPI = New System.Windows.Forms.MenuItem()
         Me.MenuItem10 = New System.Windows.Forms.MenuItem()
         Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.mnuIonic4 = New System.Windows.Forms.MenuItem()
         Me.mnuPython = New System.Windows.Forms.MenuItem()
         Me.mnuDjango = New System.Windows.Forms.MenuItem()
         Me.MenuItem2 = New System.Windows.Forms.MenuItem()
@@ -104,7 +105,6 @@ Public Class frmMainB2
         Me.cdlgOpen = New System.Windows.Forms.OpenFileDialog()
         Me.cdlgSave = New System.Windows.Forms.SaveFileDialog()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.MenuItem11 = New System.Windows.Forms.MenuItem()
         Me.SuspendLayout()
         '
         'MainMenu1
@@ -169,7 +169,7 @@ Public Class frmMainB2
         'mnuAngular
         '
         Me.mnuAngular.Index = 2
-        Me.mnuAngular.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuWebAPI, Me.MenuItem10, Me.MenuItem1, Me.MenuItem11})
+        Me.mnuAngular.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuWebAPI, Me.MenuItem10, Me.MenuItem1, Me.mnuIonic4})
         Me.mnuAngular.Text = "Генераторы для Angular"
         '
         'mnuWebAPI
@@ -180,12 +180,17 @@ Public Class frmMainB2
         'MenuItem10
         '
         Me.MenuItem10.Index = 1
-        Me.MenuItem10.Text = ".Net WEB API -> Amexio"
+        Me.MenuItem10.Text = ".Net WEB API -> Amexio 4"
         '
         'MenuItem1
         '
         Me.MenuItem1.Index = 2
-        Me.MenuItem1.Text = "JHipster.  JDL Генератор"
+        Me.MenuItem1.Text = ".Net WEB API -> Amexio 5"
+        '
+        'mnuIonic4
+        '
+        Me.mnuIonic4.Index = 3
+        Me.mnuIonic4.Text = ".Net WEB API -> Ionic4"
         '
         'mnuPython
         '
@@ -248,15 +253,10 @@ Public Class frmMainB2
         '
         Me.Timer2.Interval = 2000
         '
-        'MenuItem11
-        '
-        Me.MenuItem11.Index = 3
-        Me.MenuItem11.Text = "PHP->Amexio"
-        '
         'frmMainB2
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(528, 289)
+        Me.ClientSize = New System.Drawing.Size(528, 229)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Menu = Me.MainMenu1
@@ -389,12 +389,12 @@ Public Class frmMainB2
         f = Nothing
     End Sub
 
-    Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
-        Dim f As frmJDL
-        f = New frmJDL
-        f.ShowDialog()
-        f = Nothing
-    End Sub
+    'Private Sub MenuItem1_Click(sender As Object, e As EventArgs)
+    '    Dim f As frmJDL
+    '    f = New frmJDL
+    '    f.ShowDialog()
+    '    f = Nothing
+    'End Sub
 
     Private Sub mnuWebAPI_Click(sender As Object, e As EventArgs) Handles mnuWebAPI.Click
         Dim f As frmWebAPI
@@ -411,9 +411,23 @@ Public Class frmMainB2
         f = Nothing
     End Sub
 
-    Private Sub MenuItem11_Click(sender As Object, e As EventArgs) Handles MenuItem11.Click
-        Dim f As frmPHP_Amexio4
-        f = New frmPHP_Amexio4
+    Private Sub MenuItem11_Click(sender As Object, e As EventArgs)
+        Dim f As frmWebAPI_Amexio5
+        f = New frmWebAPI_Amexio5
+        f.ShowDialog()
+        f = Nothing
+    End Sub
+
+    Private Sub mnuIonic4_Click(sender As Object, e As EventArgs) Handles mnuIonic4.Click
+        Dim f As frmWebAPI_Ionic4
+        f = New frmWebAPI_Ionic4
+        f.ShowDialog()
+        f = Nothing
+    End Sub
+
+    Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
+        Dim f As frmWebAPI_Amexio5
+        f = New frmWebAPI_Amexio5
         f.ShowDialog()
         f = Nothing
     End Sub

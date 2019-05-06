@@ -1,3 +1,6 @@
+Imports System.IO
+
+
 Module Module1
     Public Manager As LATIR2.Manager
     Public guiManager As LATIR2GuiManager.LATIRGuiManager
@@ -14,6 +17,22 @@ Module Module1
     Public ViewForChange As MTZMetaModel.MTZMetaModel.PARTVIEW
     Public BaseType As MTZMetaModel.MTZMetaModel.OBJECTTYPE
 
+    Public Sub ReplaceInFile(ByVal FileName As String, ByVal Mask As String, ByVal Repl As String)
+        FileName = FileName.Replace("\\", "\")
+        FileName = FileName.Replace("\\", "\")
+        Dim fs As FileStream = File.Open(FileName, FileMode.Open, FileAccess.Read)
+        Dim sr As StreamReader = New StreamReader(fs)
+        Dim filecontent As String = sr.ReadToEnd()
+        filecontent = filecontent.Replace(Mask, Repl)
+        sr.Close()
+        fs.Close()
+        File.Delete(FileName)
+        fs = File.Open(FileName, FileMode.Create, FileAccess.Write)
+        Dim sw As StreamWriter = New StreamWriter(fs)
+        sw.Write(filecontent)
+        sw.Close()
+        fs.Close()
+    End Sub
 
     Public Function CountOfID(ByVal ID As String, ByVal n As System.Windows.Forms.TreeNode) As Integer
         Dim nn As System.Windows.Forms.TreeNode
@@ -37,10 +56,11 @@ Module Module1
 
     Public Function DeCap(ByVal s As String) As String
 
-        Dim sOut As String
+        'Dim sOut As String
         If s <> "" Then
-            sOut = s.Substring(0, 1).ToLower() & s.Substring(1)
-            Return sOut
+            Return s
+            'sOut = s.Substring(0, 1).ToLower() & s.Substring(1)
+            'Return sOut
         Else
             Return s
         End If

@@ -129,12 +129,6 @@
     <Compile Include="frmDjango.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmJDL.Designer.vb">
-      <DependentUpon>frmJDL.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmJDL.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmMainB2.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -156,16 +150,22 @@
     <Compile Include="frmWebAPI_Amexio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPHP_Amexio4.Designer.vb">
-      <DependentUpon>frmPHP_Amexio4.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmPHP_Amexio4.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmWebAPI_Amexio4.Designer.vb">
       <DependentUpon>frmWebAPI_Amexio4.vb</DependentUpon>
     </Compile>
     <Compile Include="frmWebAPI_Amexio4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWebAPI_Amexio5.Designer.vb">
+      <DependentUpon>frmWebAPI_Amexio5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWebAPI_Amexio5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWebAPI_Ionic4.Designer.vb">
+      <DependentUpon>frmWebAPI_Ionic4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWebAPI_Ionic4.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="jsCompressor.Designer.vb">
@@ -175,6 +175,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
+    <Compile Include="MsSqlGen.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -201,9 +202,6 @@
     <EmbeddedResource Include="frmDjango.resx">
       <DependentUpon>frmDjango.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmJDL.resx">
-      <DependentUpon>frmJDL.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMainB2.resx">
       <DependentUpon>frmMainB2.vb</DependentUpon>
     </EmbeddedResource>
@@ -216,11 +214,14 @@
     <EmbeddedResource Include="frmWebAPI_Amexio.resx">
       <DependentUpon>frmWebAPI_Amexio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPHP_Amexio4.resx">
-      <DependentUpon>frmPHP_Amexio4.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmWebAPI_Amexio4.resx">
       <DependentUpon>frmWebAPI_Amexio4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWebAPI_Amexio5.resx">
+      <DependentUpon>frmWebAPI_Amexio5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWebAPI_Ionic4.resx">
+      <DependentUpon>frmWebAPI_Ionic4.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="jsCompressor.resx">
       <DependentUpon>jsCompressor.vb</DependentUpon>
@@ -234,7 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="latir_sites.XML.zzz" />
+    <None Include="latir_sites.XML.zzz">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -249,6 +252,7 @@
     <Content Include="b2.ico" />
     <Content Include="latir_sites.XML">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
