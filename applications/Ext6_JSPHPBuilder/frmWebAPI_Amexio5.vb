@@ -2115,26 +2115,29 @@ Public Class frmWebAPI_Amexio5
             fld = P.FIELD.Item(i)
             ft = fld.FieldType
 
+
             If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy Then
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
-
-                    If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
-                    ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
-                    ElseIf fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined || this.current%obj%." & fld.Name & "=='') this.valid=false;")
+                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                        If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
+                            sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
+                        ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
+                            sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
+                        Else
+                            sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined || this.current%obj%." & fld.Name & "=='') this.valid=false;")
+                        End If
                     End If
                 End If
 
+
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
-                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
                         sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
                     End If
                 End If
 
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
-                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
                         sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined  ) this.valid=false;")
                     End If
                 End If
@@ -2196,7 +2199,10 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("<!--Error dialogue-->")
         sb.AppendLine("<amexio-window [show-window]=""errorFlag""")
         sb.AppendLine("               [header]=""true""")
-        sb.AppendLine("			   [footer]=""true""")
+        sb.AppendLine("			   [footer]=""true"" ")
+        sb.AppendLine("			   [draggable]=""true"" ")
+        sb.AppendLine("			   [vertical-position]=""'center'"" ")
+        sb.AppendLine("			   [horizontal-position]=""'center'"" ")
         sb.AppendLine("			   [closable]=""false""")
         sb.AppendLine("               >")
         sb.AppendLine("	<amexio-header>")
@@ -2221,8 +2227,10 @@ Public Class frmWebAPI_Amexio5
 
 
         sb.AppendLine("<!-- edit row pane -->	 ")
-        sb.AppendLine(" <amexio-window [closable]=""false"" [vertical-position]=""'top'""  [horizontal-position]=""'right'"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
+        sb.AppendLine(" <amexio-window [closable]=""false"" [maximize]=""true"" [vertical-position]=""'center'""    [horizontal-position]=""'center'""  [draggable]=""true"" [remember-window-position]=""true"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
+        'sb.AppendLine(" <amexio-window [closable]=""false"" [vertical-position]=""'top'""  [horizontal-position]=""'right'"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
         'sb.AppendLine(" <amexio-window [closable]=""false""  [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
+
         sb.AppendLine("	  <amexio-header> ")
         sb.AppendLine("        {{formMsg}} %objname% ")
         sb.AppendLine("<amexio-box *ngIf=""valid==false"" border-color =""red"" border=""all"" padding=""true"" background-color=""yellow"">")
