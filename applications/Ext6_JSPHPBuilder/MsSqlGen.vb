@@ -49,7 +49,28 @@ Public Class MSSQLGenerator
         End Set
     End Property
 
+    Private mSelectedParts As List(Of String) = New List(Of String)
 
+
+    Public ReadOnly Property SelectedParts() As List(Of String)
+        Get
+            Return mSelectedParts
+        End Get
+    End Property
+
+    Public Sub ClearSelectedParts()
+        mSelectedParts = New List(Of String)
+    End Sub
+
+
+    Public Function IsPartSelected(PartName As String) As Boolean
+        If mSelectedParts.Count = 0 Then Return True
+
+        If mSelectedParts.Contains(PartName) Then
+            Return True
+        End If
+        Return False
+    End Function
 
 
 
@@ -110,11 +131,12 @@ Public Class MSSQLGenerator
 
             For j = 1 To m.OBJECTTYPE.Item(i).PART.Count
                 os = m.OBJECTTYPE.Item(i).PART.Item(j)
-
-                If OptTables Then CreateStruct(os)
-                If OptViews Then
-                    'MakeAllViews(os)
-                    MakeSimpleViews(os)
+                If IsPartSelected(os.Name) Then
+                    If OptTables Then CreateStruct(os)
+                    If OptViews Then
+                        'MakeAllViews(os)
+                        MakeSimpleViews(os)
+                    End If
                 End If
             Next
 
@@ -280,7 +302,10 @@ bye:
 
         For i = 1 To os.PART.Count
             chos = os.PART.Item(i)
-            CreateStruct(chos)
+            If IsPartSelected(chos.Name) Then
+                CreateStruct(chos)
+            End If
+
         Next
 
         s = Nothing
@@ -1262,7 +1287,7 @@ bye:
 
 
         from = " from " & BP.Name
-        structfld = BP.Name & "Id"
+        structfld = DeCap(BP.Name) & "Id"
 
 
 
@@ -1287,7 +1312,7 @@ bye:
         End If
 
         If pos IsNot Nothing Then
-            s.AppendLine(", " + pos.Name + "Id ")
+            s.AppendLine(", " + DeCap(pos.Name) + "Id ")
         End If
 
         Dim isOK As Boolean
@@ -1309,7 +1334,7 @@ bye:
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
                     ' вписываем значение перечсления
                     s.AppendLine(" " & p.Name & "." & f.Name & "  ")
-                    s.AppendLine(f.Name & " ")
+                    s.AppendLine(DeCap(f.Name) & " ")
 
                     ' и его расшифровку
                     s.AppendLine(", case " & p.Name & "." & f.Name & " ")
@@ -1317,7 +1342,7 @@ bye:
                         s.AppendLine("when " & ft.ENUMITEM.Item(j).NameValue & " then '" & ft.ENUMITEM.Item(j).Name & "'")
                     Next
                     s.AppendLine(" end ")
-                    s.AppendLine(f.Name & "_name ")
+                    s.AppendLine(DeCap(f.Name) & "_name ")
 
                 ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
 
@@ -1327,7 +1352,7 @@ bye:
                     Else
                         ' вписываем значение ссылки
                         s.AppendLine(" " & p.Name & "." & f.Name & "  ")
-                        s.AppendLine(f.Name & " ")
+                        s.AppendLine(DeCap(f.Name) & " ")
 
                         If ft.Name.ToLower() = "multiref" Then
 
@@ -1335,14 +1360,14 @@ bye:
                             If f.ReferenceType = MTZMetaModel.MTZMetaModel.enumReferenceType.ReferenceType_Na_ob_ekt_ Then
 
                                 s.AppendLine(", 'не поддерживается' ")
-                                s.AppendLine(f.Name & "_name ")
+                                s.AppendLine(DeCap(f.Name) & "_name ")
 
                             ElseIf f.ReferenceType = MTZMetaModel.MTZMetaModel.enumReferenceType.ReferenceType_Na_stroku_razdela Then
                                 refp = f.RefToPart
                                 'MLF
 
                                 s.AppendLine(", dbo." & refp.Name & "_MREF_F(" & p.Name & "." & f.Name & ", NULL) ")
-                                s.AppendLine(f.Name & "_name ")
+                                s.AppendLine(DeCap(f.Name) & "_name ")
                             End If
 
                         Else
@@ -1352,13 +1377,13 @@ bye:
                                 'MLF
 
                                 s.AppendLine(", 'не поддерживается' ")
-                                s.AppendLine(f.Name & "_name ")
+                                s.AppendLine(DeCap(f.Name) & "_name ")
 
                             ElseIf f.ReferenceType = MTZMetaModel.MTZMetaModel.enumReferenceType.ReferenceType_Na_stroku_razdela Then
                                 refp = f.RefToPart
 
                                 s.AppendLine(", dbo." & refp.Name & "_BRIEF_F(" & p.Name & "." & f.Name & ", NULL) ")
-                                s.AppendLine(f.Name & "_name ")
+                                s.AppendLine(DeCap(f.Name) & "_name ")
                             End If
 
 
@@ -1367,9 +1392,13 @@ bye:
 
 
                     End If
+                ElseIf ft.Name.ToLower() = "datetime" Then
+                    s.AppendLine("DATEADD(hh, DATEPART(hh, GETDATE() - GETUTCDATE()) ," + GetFullFieldName(f, p) & ") ")
+                    s.AppendLine(DeCap(f.Name) & " ")
                 Else
+
                     s.AppendLine(GetFullFieldName(f, p) & " ")
-                    s.AppendLine(f.Name & " ")
+                    s.AppendLine(DeCap(f.Name) & " ")
                 End If
 
 

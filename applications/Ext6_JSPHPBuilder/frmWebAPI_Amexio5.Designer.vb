@@ -33,12 +33,16 @@ Partial Class frmWebAPI_Amexio5
         Me.folderBrowserDialogProjectOutput = New System.Windows.Forms.FolderBrowserDialog()
         Me.txtNS = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.chkUseDecap = New System.Windows.Forms.CheckBox()
+        Me.txtContext = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chkAutorize = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'cmdGen
         '
         Me.cmdGen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdGen.Location = New System.Drawing.Point(449, 312)
+        Me.cmdGen.Location = New System.Drawing.Point(455, 381)
         Me.cmdGen.Name = "cmdGen"
         Me.cmdGen.Size = New System.Drawing.Size(66, 26)
         Me.cmdGen.TabIndex = 77
@@ -51,16 +55,16 @@ Partial Class frmWebAPI_Amexio5
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkObjType.FormattingEnabled = True
-        Me.chkObjType.Location = New System.Drawing.Point(25, 136)
+        Me.chkObjType.Location = New System.Drawing.Point(25, 214)
         Me.chkObjType.Name = "chkObjType"
-        Me.chkObjType.Size = New System.Drawing.Size(490, 154)
+        Me.chkObjType.Size = New System.Drawing.Size(490, 139)
         Me.chkObjType.Sorted = True
         Me.chkObjType.TabIndex = 76
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(22, 111)
+        Me.Label2.Location = New System.Drawing.Point(24, 189)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 13)
         Me.Label2.TabIndex = 75
@@ -69,7 +73,7 @@ Partial Class frmWebAPI_Amexio5
         'cmdClearAll
         '
         Me.cmdClearAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdClearAll.Location = New System.Drawing.Point(455, 99)
+        Me.cmdClearAll.Location = New System.Drawing.Point(460, 183)
         Me.cmdClearAll.Name = "cmdClearAll"
         Me.cmdClearAll.Size = New System.Drawing.Size(60, 25)
         Me.cmdClearAll.TabIndex = 73
@@ -79,7 +83,7 @@ Partial Class frmWebAPI_Amexio5
         'cmdSelectAll
         '
         Me.cmdSelectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdSelectAll.Location = New System.Drawing.Point(389, 99)
+        Me.cmdSelectAll.Location = New System.Drawing.Point(394, 183)
         Me.cmdSelectAll.Name = "cmdSelectAll"
         Me.cmdSelectAll.Size = New System.Drawing.Size(60, 25)
         Me.cmdSelectAll.TabIndex = 72
@@ -136,11 +140,53 @@ Partial Class frmWebAPI_Amexio5
         Me.Label1.TabIndex = 79
         Me.Label1.Text = "Default namespace:"
         '
+        'chkUseDecap
+        '
+        Me.chkUseDecap.AutoSize = True
+        Me.chkUseDecap.Location = New System.Drawing.Point(25, 387)
+        Me.chkUseDecap.Name = "chkUseDecap"
+        Me.chkUseDecap.Size = New System.Drawing.Size(122, 17)
+        Me.chkUseDecap.TabIndex = 80
+        Me.chkUseDecap.Text = "lower case first letter"
+        Me.chkUseDecap.UseVisualStyleBackColor = True
+        '
+        'txtContext
+        '
+        Me.txtContext.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtContext.Location = New System.Drawing.Point(155, 96)
+        Me.txtContext.Name = "txtContext"
+        Me.txtContext.Size = New System.Drawing.Size(288, 20)
+        Me.txtContext.TabIndex = 81
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(22, 99)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(102, 13)
+        Me.Label4.TabIndex = 82
+        Me.Label4.Text = "Context class name:"
+        '
+        'chkAutorize
+        '
+        Me.chkAutorize.AutoSize = True
+        Me.chkAutorize.Location = New System.Drawing.Point(155, 132)
+        Me.chkAutorize.Name = "chkAutorize"
+        Me.chkAutorize.Size = New System.Drawing.Size(64, 17)
+        Me.chkAutorize.TabIndex = 83
+        Me.chkAutorize.Text = "Autorize"
+        Me.chkAutorize.UseVisualStyleBackColor = True
+        '
         'frmWebAPI_Amexio5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(542, 358)
+        Me.ClientSize = New System.Drawing.Size(542, 416)
+        Me.Controls.Add(Me.chkAutorize)
+        Me.Controls.Add(Me.txtContext)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.chkUseDecap)
         Me.Controls.Add(Me.txtNS)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmdGen)
@@ -169,4 +215,8 @@ Partial Class frmWebAPI_Amexio5
     Friend WithEvents folderBrowserDialogProjectOutput As FolderBrowserDialog
     Friend WithEvents txtNS As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents chkUseDecap As CheckBox
+    Friend WithEvents txtContext As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents chkAutorize As CheckBox
 End Class

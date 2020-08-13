@@ -97,7 +97,7 @@ Public Class frmDjango
 
 
         Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "\", "models.py", False)
-
+        pb.Visible = False
         MsgBox("OK")
     End Sub
 
@@ -110,6 +110,7 @@ Public Class frmDjango
 
             Dim fld As MTZMetaModel.MTZMetaModel.FIELD
             Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
+            Dim ParentPart As MTZMetaModel.MTZMetaModel.PART
 
             Dim i As Integer
 
@@ -117,6 +118,9 @@ Public Class frmDjango
             Dim isroot As Boolean = False
             If TypeName(P.Parent.Parent) = "OBJECTTYPE" Then
                 isroot = True
+                ParentPart = Nothing
+            Else
+                ParentPart = P.Parent.Parent
             End If
 
 
@@ -128,22 +132,33 @@ Public Class frmDjango
             sw.Append(vbCrLf & vbTab & vbTab & "verbose_name = _(u'" & P.Caption & "')")
             sw.Append(vbCrLf & vbTab & vbTab & "verbose_name_plural = _(u'" & P.Caption & "')")
 
-            'sw.Append(vbCrLf & vbTab & P.Name.ToLower() & "id = models.CharField(max_length=38)")
+            'sw.Append(vbCrLf & vbTab & P.Name.ToLower() & "id = models.CharField(max_length=38,primary_key=True, editable=False)")
+            sw.Append(vbCrLf & vbTab & P.Name.ToLower() & "id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)")
+
             'If isroot Then
-            '    sw.Append(vbCrLf & vbTab & "instanceid = models.CharField(max_length=38)")
+            '    sw.Append(vbCrLf & vbTab & "instanceid = models.ForeignKey('instance', on_delete=models.CASCADE)")
             'Else
-            '    sw.Append(vbCrLf & vbTab & "parentid = models.CharField(max_length=38)")
+            sw.Append(vbCrLf & vbTab & "parentid =  models.ForeignKey('" & ParentPart.Name.ToLower() & "', on_delete=models.CASCADE)")
             'End If
 
-            'If P.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
-            '    sw.Append(vbCrLf & vbTab & "parentrowid = models.CharField(max_length=38)")
-            'End If
+            If P.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
+                'sw.Append(vbCrLf & vbTab & "parentrowid = models.CharField(max_length=38)")
+                sw.Append(vbCrLf & vbTab & "parentrowid = models.UUIDField()")
+            End If
 
             Dim bf As MTZMetaModel.MTZMetaModel.FIELD
+            Dim sNull As String
             bf = Nothing
+            P.FIELD.Sort = "Sequence"
+
             For i = 1 To P.FIELD.Count
                 fld = P.FIELD.Item(i)
 
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sNull = ",null=True"
+                Else
+                    sNull = ""
+                End If
                 If fld.IsBrief = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
                     If bf Is Nothing Then
                         bf = fld
@@ -155,12 +170,12 @@ Public Class frmDjango
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Skalyrniy_tip Then
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
                         If ft.Name.ToLower = "file" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.FileField(verbose_name='" & fld.Caption & "')")
+                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.FileField(verbose_name='" & fld.Caption & "'" & sNull & ")")
                         Else
                             If fld.DataSize > 0 Then
-                                sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "= models.CharField(max_length=" & fld.DataSize.ToString() & " ,verbose_name='" & fld.Caption & "')")
+                                sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "= models.CharField(max_length=" & fld.DataSize.ToString() & " ,verbose_name='" & fld.Caption & "'" & sNull & ")")
                             Else
-                                sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "= models.CharField(max_length=255,verbose_name='" & fld.Caption & "')")
+                                sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "= models.CharField(max_length=255,verbose_name='" & fld.Caption & "'" & sNull & ")")
                             End If
 
                         End If
@@ -169,19 +184,19 @@ Public Class frmDjango
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
 
                         If ft.Name.ToLower = "date" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.DateField(verbose_name='" & fld.Caption & "')")
+                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.DateField(verbose_name='" & fld.Caption & "'" & sNull & ")")
                         ElseIf ft.Name.ToLower = "time" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.TimeField(verbose_name='" & fld.Caption & "')")
+                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.TimeField(verbose_name='" & fld.Caption & "'" & sNull & ")")
                         ElseIf ft.Name.ToLower = "datetime" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.TimeField(verbose_name='" & fld.Caption & "')")
+                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.TimeField(verbose_name='" & fld.Caption & "'" & sNull & ")")
                         ElseIf ft.Name.ToLower = "birthday" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.DateField(verbose_name='" & fld.Caption & "')")
+                            sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.DateField(verbose_name='" & fld.Caption & "'" & sNull & ")")
                         End If
                     End If
 
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
 
-                        sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.DecimalField(max_digits=12, decimal_places=2,verbose_name='" & fld.Caption & "')")
+                        sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.DecimalField(max_digits=12, decimal_places=2,verbose_name='" & fld.Caption & "'" & sNull & ")")
 
                     End If
                 End If
@@ -189,14 +204,14 @@ Public Class frmDjango
 
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Interval Then
 
-                    sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.IntegerField(verbose_name='" & fld.Caption & "')")
+                    sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.IntegerField(verbose_name='" & fld.Caption & "'" & sNull & ")")
 
 
                 End If
 
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
 
-                    sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.IntegerField(choices=enum_" & ft.Name.ToLower & ",verbose_name='" & fld.Caption & "')")
+                    sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.IntegerField(choices=enum_" & ft.Name.ToLower & ",verbose_name='" & fld.Caption & "'" & sNull & ")")
 
                 End If
 
@@ -204,7 +219,7 @@ Public Class frmDjango
 
                     Dim refp As MTZMetaModel.MTZMetaModel.PART
                     refp = fld.RefToPart
-                    sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.ForeignKey('" & refp.Name.ToLower() & "',verbose_name='" & fld.Caption & "')")
+                    sw.Append(vbCrLf & vbTab & fld.Name.ToLower() & "=models.ForeignKey('" & refp.Name.ToLower() & "', on_delete=models.SET_NULL,null=True,verbose_name='" & fld.Caption & "')")
 
 
                 End If

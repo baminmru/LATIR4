@@ -3,7 +3,7 @@ Imports System.Text
 
 Public Class frmWebAPI_Amexio5
     Private Sub frmA4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        chkUseDecap.Checked = UseDeCap
         Dim i As Integer
         Dim ti As tmpInst
         model.OBJECTTYPE.Sort = "the_Comment"
@@ -20,7 +20,8 @@ Public Class frmWebAPI_Amexio5
 
 
         textBoxOutPutFolder.Text = GetSetting("L2BUILDER", "EXT2NET_" & Manager.Site, "WEBAPIPATH", "c:\")
-        txtNS.Text = GetSetting("L2BUILDER", "EXT2NET_" & Manager.Site, "DEFNS", "")
+        txtNS.Text = GetSetting("L2BUILDER", "EXT2NET_" & Manager.Site, "DEFNS", "myApp")
+        txtContext.Text = GetSetting("L2BUILDER", "EXT2NET_" & Manager.Site, "DEFCONTEXT", "myContext")
     End Sub
 
     Private Sub button3_Click(sender As Object, e As EventArgs) Handles button3.Click
@@ -74,7 +75,7 @@ Public Class frmWebAPI_Amexio5
                 For eidx = 1 To ft.ENUMITEM.Count
                     sw.Append(vbCrLf & vbTab)
                     If (eidx > 1) Then
-                        sw.Append(",")
+                        sw.AppendLine(",")
                     End If
                     ei = ft.ENUMITEM.Item(eidx)
                     sw.Append(LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & "_" & LATIR2Framework.FieldTypesHelper.MakeValidName(ei.Name) & "=" & ei.NameValue & " // " & ei.Name)
@@ -113,7 +114,7 @@ Public Class frmWebAPI_Amexio5
 
             sw.Append(vbCrLf & vbTab & "/* " & ot.Name & " -  " & ot.the_Comment & " */ ")
             ot.PART.Sort = "sequence"
-            sw.Append(PartMake_GenStores(ot.PART))
+            sw.Append(PartMake_CS_Models(ot.PART))
             sw.Append(vbCrLf & "}")
             Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "\models\", ot.Name + ".cs", False)
 
@@ -129,7 +130,7 @@ Public Class frmWebAPI_Amexio5
             Application.DoEvents()
             ti = chkObjType.CheckedItems(i)
             ot = model.OBJECTTYPE.Item(ti.ID.ToString())
-            PartMake_GenControllers(ot.PART)
+            PartMake_CS_Controllers(ot.PART)
             Application.DoEvents()
         Next
 
@@ -170,7 +171,7 @@ Public Class frmWebAPI_Amexio5
                 For eidx = 1 To ft.ENUMITEM.Count
                     sw.Append(vbCrLf & vbTab)
                     If (eidx > 1) Then
-                        sw.Append(",")
+                        sw.AppendLine(",")
                     End If
                     ei = ft.ENUMITEM.Item(eidx)
                     sw.Append(LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & "_" & LATIR2Framework.FieldTypesHelper.MakeValidName(ei.Name) & "=" & ei.NameValue & " // " & ei.Name)
@@ -282,6 +283,12 @@ Public Class frmWebAPI_Amexio5
         sw.AppendLine("	id:string; ")
         sw.AppendLine("	name:string; ")
         sw.AppendLine("} ")
+
+        sw.AppendLine("export class enumInfo{ ")
+        sw.AppendLine("	id:number; ")
+        sw.AppendLine("	name:string; ")
+        sw.AppendLine("} ")
+
         sw.AppendLine(" ")
         sw.AppendLine("@Injectable() ")
         sw.AppendLine("export class AppService { ")
@@ -329,7 +336,7 @@ Public Class frmWebAPI_Amexio5
                 sw.AppendLine("	public enum" & LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & "Combo(){")
                 sw.AppendLine("		return this.enum" & LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & ";")
                 sw.AppendLine("	}")
-                sw.AppendLine("	enum" & LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & ":Array<ComboInfo> =[")
+                sw.AppendLine("	enum" & LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & ":Array<enumInfo> =[")
 
                 For eidx = 1 To ft.ENUMITEM.Count
                     sw.Append(vbCrLf & vbTab)
@@ -337,7 +344,7 @@ Public Class frmWebAPI_Amexio5
                         sw.Append(",")
                     End If
                     ei = ft.ENUMITEM.Item(eidx)
-                    sw.Append(" {id:'" & ei.NameValue & "',name:'" & ei.Name & "'}")
+                    sw.Append(" {id:" & ei.NameValue & ",name:'" & ei.Name & "'}")
                 Next
                 sw.AppendLine("	];")
             End If
@@ -359,6 +366,15 @@ Public Class frmWebAPI_Amexio5
         targetID = New System.Guid("{0C652C58-A952-4E8F-8CB0-D266431CD24B}")
         Dim generator As New MSSQLGenerator
         ' generator.Setup()
+        generator.ClearSelectedParts()
+
+        For i = 0 To chkObjType.CheckedItems.Count - 1
+            ti = chkObjType.CheckedItems(i)
+            ot = model.OBJECTTYPE.Item(ti.ID.ToString())
+            SelectAllParts(generator, ot.PART)
+
+            Application.DoEvents()
+        Next
 
 
         Dim response As LATIRGenerator.Response
@@ -372,6 +388,17 @@ Public Class frmWebAPI_Amexio5
 
         MsgBox("OK")
     End Sub
+
+    Private Sub SelectAllParts(generator As MSSQLGenerator, Parts As MTZMetaModel.MTZMetaModel.PART_col)
+        Dim p As MTZMetaModel.MTZMetaModel.PART
+        Dim i As Integer
+        For i = 1 To Parts.Count
+            p = Parts.Item(i)
+            generator.SelectedParts.Add(p.Name)
+            SelectAllParts(generator, p.PART)
+        Next
+    End Sub
+
 
 
     Private Function FindRootPart(ByVal s As MTZMetaModel.MTZMetaModel.PART) As MTZMetaModel.MTZMetaModel.PART
@@ -402,7 +429,7 @@ Public Class frmWebAPI_Amexio5
 
     End Function
 
-    Private Sub PartMake_GenControllers(Parts As MTZMetaModel.MTZMetaModel.PART_col)
+    Private Sub PartMake_CS_Controllers(Parts As MTZMetaModel.MTZMetaModel.PART_col)
         Dim i As Integer
         Dim P As MTZMetaModel.MTZMetaModel.PART
         For i = 1 To Parts.Count
@@ -428,10 +455,10 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("    [Route(""api/%TABLE%"")]")
             sw.AppendLine("    public class %TABLE%Controller : Controller")
             sw.AppendLine("    {")
-            sw.AppendLine("        private readonly MyContext _context;")
-            sw.AppendLine("        IHostingEnvironment _appEnvironment;")
+            sw.AppendLine("        private readonly %MyContext% _context;")
+            sw.AppendLine("        IWebHostEnvironment _appEnvironment;")
             sw.AppendLine("")
-            sw.AppendLine("        public %TABLE%Controller(MyContext context, IHostingEnvironment appEnvironment)")
+            sw.AppendLine("        public %TABLE%Controller(%MyContext% context, IWebHostEnvironment appEnvironment)")
             sw.AppendLine("        {")
             sw.AppendLine("            _context = context;")
             sw.AppendLine("            _appEnvironment = appEnvironment;")
@@ -439,14 +466,22 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("")
             sw.AppendLine("        // GET: api/%TABLE%")
             sw.AppendLine("        [HttpGet]")
-            sw.AppendLine("        //[AllowAnonymous]")
+            If chkAutorize.Checked Then
+                sw.AppendLine("       //[AllowAnonymous]")
+            Else
+                sw.AppendLine("       [AllowAnonymous]")
+            End If
             sw.AppendLine("        public IActionResult Get%TABLE%()")
             sw.AppendLine("        {")
             sw.AppendLine("            return Json (_context.%TABLE%, _context.serializerSettings());")
             sw.AppendLine("        }")
             sw.AppendLine("")
             sw.AppendLine("        [HttpGet(""combo"")]")
-            sw.AppendLine("        //[AllowAnonymous]")
+            If chkAutorize.Checked Then
+                sw.AppendLine("       //[AllowAnonymous]")
+            Else
+                sw.AppendLine("       [AllowAnonymous]")
+            End If
             sw.AppendLine("        public List<Dictionary<string, object>> GetCombo()")
             sw.AppendLine("        {")
             sw.AppendLine("            //var uid = User.GetUserId();")
@@ -472,7 +507,11 @@ Public Class frmWebAPI_Amexio5
 
             If pos IsNot Nothing Then
                 sw.AppendLine("        [HttpGet(""byparent/{id}"")]")
-                sw.AppendLine("        //[AllowAnonymous]")
+                If chkAutorize.Checked Then
+                    sw.AppendLine("       //[AllowAnonymous]")
+                Else
+                    sw.AppendLine("       [AllowAnonymous]")
+                End If
                 sw.AppendLine("        public List<Dictionary<string, object>> GetByBarent([FromRoute] Guid id)")
                 sw.AppendLine("        {")
                 sw.AppendLine("            //var uid = User.GetUserId();")
@@ -483,7 +522,11 @@ Public Class frmWebAPI_Amexio5
                 sw.AppendLine("        ")
             Else
                 sw.AppendLine("        [HttpGet(""view"")]")
-                sw.AppendLine("        //[AllowAnonymous]")
+                If chkAutorize.Checked Then
+                    sw.AppendLine("       //[AllowAnonymous]")
+                Else
+                    sw.AppendLine("       [AllowAnonymous]")
+                End If
                 sw.AppendLine("        public List<Dictionary<string, object>> GetView()")
                 sw.AppendLine("        {")
                 sw.AppendLine("            //var uid = User.GetUserId();")
@@ -497,7 +540,11 @@ Public Class frmWebAPI_Amexio5
 
             sw.AppendLine("        // GET: api/%TABLE%/5")
             sw.AppendLine("        [HttpGet(""{id}"")]")
-            sw.AppendLine("        //[AllowAnonymous]")
+            If chkAutorize.Checked Then
+                sw.AppendLine("       //[AllowAnonymous]")
+            Else
+                sw.AppendLine("       [AllowAnonymous]")
+            End If
             sw.AppendLine("        public async Task<IActionResult> Get%TABLE%([FromRoute] Guid id)")
             sw.AppendLine("        {")
             sw.AppendLine("            if (!ModelState.IsValid)")
@@ -517,7 +564,11 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("")
             sw.AppendLine("        // PUT: api/%TABLE%/5")
             sw.AppendLine("        [HttpPut(""{id}"")]")
-            sw.AppendLine("        //[AllowAnonymous]")
+            If chkAutorize.Checked Then
+                sw.AppendLine("       //[AllowAnonymous]")
+            Else
+                sw.AppendLine("       [AllowAnonymous]")
+            End If
             sw.AppendLine("        public async Task<IActionResult> Put%TABLE%([FromRoute] Guid id, [FromBody] %TABLE% var%TABLE%)")
             sw.AppendLine("        {")
             sw.AppendLine("            if (!ModelState.IsValid)")
@@ -553,7 +604,11 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("")
             sw.AppendLine("        // POST: api/%TABLE%")
             sw.AppendLine("        [HttpPost]")
-            sw.AppendLine("        //[AllowAnonymous]")
+            If chkAutorize.Checked Then
+                sw.AppendLine("       //[AllowAnonymous]")
+            Else
+                sw.AppendLine("       [AllowAnonymous]")
+            End If
             sw.AppendLine("        public async Task<IActionResult> Post%TABLE%([FromBody] %TABLE% var%TABLE%)")
             sw.AppendLine("        {")
             sw.AppendLine("            if (!ModelState.IsValid)")
@@ -569,7 +624,11 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("")
             sw.AppendLine("        // DELETE: api/%TABLE%/5")
             sw.AppendLine("        [HttpDelete(""{id}"")]")
-            sw.AppendLine("        //[AllowAnonymous]")
+            If chkAutorize.Checked Then
+                sw.AppendLine("       //[AllowAnonymous]")
+            Else
+                sw.AppendLine("       [AllowAnonymous]")
+            End If
             sw.AppendLine("        public async Task<IActionResult> Delete%TABLE%([FromRoute] Guid id)")
             sw.AppendLine("        {")
             sw.AppendLine("            if (!ModelState.IsValid)")
@@ -597,84 +656,17 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("}")
 
             Dim s As String
-            'Dim brief As String
 
-            'Dim st As MTZMetaModel.MTZMetaModel.PART
-            'Dim os As MTZMetaModel.MTZMetaModel.PART
-            'st = P
-            'os = P
-            'Dim chos As MTZMetaModel.MTZMetaModel.PART
-            'Dim idx, j, fCnt As Integer
-            'Dim f As MTZMetaModel.MTZMetaModel.FIELD
-            'Dim sb As StringBuilder
-            'sb = New StringBuilder
-
-
-            'Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
-            'fCnt = 0
-            'For idx = 1 To st.FIELD.Count
-            '    ft = st.FIELD.Item(idx).FieldType
-            '    If (ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy) Then
-            '        If st.FIELD.Item(idx).IsBrief = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-            '            f = st.FIELD.Item(idx)
-
-            '            'enum
-
-            '            If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-
-            '                If (fCnt > 0) Then
-            '                    sb.AppendLine(" + ' ' ")
-            '                End If
-            '                sb.Append("case " & f.Name & " ")
-
-            '                For j = 1 To ft.ENUMITEM.Count
-
-            '                    sb.AppendLine("when " & ft.ENUMITEM.Item(j).NameValue & " then ")
-            '                    sb.AppendLine(" '" & ft.ENUMITEM.Item(j).Name & "; '")
-            '                Next
-            '                sb.AppendLine("  end")
-
-            '                fCnt += 1
-            '            ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-
-            '                If f.ReferenceType = MTZMetaModel.MTZMetaModel.enumReferenceType.ReferenceType_Na_stroku_razdela Then
-            '                    If (fCnt > 0) Then
-            '                        sb.AppendLine(" + ' ' ")
-            '                    End If
-
-            '                    sb.Append("dbo." & CType(f.RefToPart, MTZMetaModel.MTZMetaModel.PART).Name & "_BRIEF_F(" & f.Name & ", null)")
-            '                    fCnt += 1
-            '                End If
-
-
-
-
-            '            Else
-            '                If (fCnt > 0) Then
-            '                    sb.AppendLine(" + ' ' ")
-            '                End If
-            '                sb.Append("Convert(varchar(255),isnull(Convert(varchar(255), " & st.FIELD.Item(idx).Name & "),'')) ")
-            '                fCnt += 1
-            '            End If
-
-            '        End If
-            '    End If
-
-
-            'Next
-
-            'brief = sb.ToString()
-            'If brief.Trim() = "" Then
-            '    brief = "'manual-changes'"
-            'End If
             s = sw.ToString()
-            s = s.Replace("%TABLE%", P.Name)
+            s = s.Replace("%TABLE%", (P.Name))
             s = s.Replace("%NAMESPACE%", txtNS.Text)
-            's = s.Replace("%BRIEF%", brief)
+            s = s.Replace("%MyContext%", txtContext.Text)
+
+
 
 
             Tool_WriteFile(s, textBoxOutPutFolder.Text & "\controllers\", P.Name + "Controller.cs", False)
-            PartMake_GenControllers(P.PART)
+            PartMake_CS_Controllers(P.PART)
 
         Next
 
@@ -723,7 +715,7 @@ Public Class frmWebAPI_Amexio5
             ot = model.OBJECTTYPE.Item(ti.ID.ToString())
             sb.AppendLine(" ")
             sb.AppendLine("import { " & ot.Name & "Component } from './" & ot.Name & "/" & ot.Name & ".component'; // " + ot.the_Comment)
-            Make_AddCompServiceToAPP(sb, ot.PART)
+            Make_AddPartCompServiceToAPP(sb, ot.PART)
         Next
 
 
@@ -766,7 +758,7 @@ Public Class frmWebAPI_Amexio5
         For i = 0 To chkObjType.CheckedItems.Count - 1
             ti = chkObjType.CheckedItems(i)
             ot = model.OBJECTTYPE.Item(ti.ID.ToString())
-            Make_AddServiceToAPP(sb, ot.PART)
+            Make_AddServiceToImportAPP(sb, ot.PART)
         Next
         sb.AppendLine("	,AppService ")
         sb.AppendLine("	,CookieService ")
@@ -862,31 +854,31 @@ Public Class frmWebAPI_Amexio5
         Dim P As MTZMetaModel.MTZMetaModel.PART
         For i = 1 To PCOL.Count
             P = PCOL.Item(i)
-            sb.AppendLine("  " & P.Name & "Component, // " + P.Caption)
+            sb.AppendLine("  " & DeCap(P.Name) & "Component, // " + P.Caption)
             Make_AddCompToAPP(sb, P.PART)
         Next
     End Sub
 
-    Sub Make_AddServiceToAPP(sb As StringBuilder, PCOL As MTZMetaModel.MTZMetaModel.PART_col)
+    Sub Make_AddServiceToImportAPP(sb As StringBuilder, PCOL As MTZMetaModel.MTZMetaModel.PART_col)
         Dim i As Integer
         Dim P As MTZMetaModel.MTZMetaModel.PART
         For i = 1 To PCOL.Count
             P = PCOL.Item(i)
-            sb.AppendLine("  ," & P.Name & "_Service")
-            Make_AddServiceToAPP(sb, P.PART)
+            sb.AppendLine("  ," & DeCap(P.Name) & "_Service")
+            Make_AddServiceToImportAPP(sb, P.PART)
         Next
 
     End Sub
 
 
-    Sub Make_AddCompServiceToAPP(sb As StringBuilder, PCOL As MTZMetaModel.MTZMetaModel.PART_col)
+    Sub Make_AddPartCompServiceToAPP(sb As StringBuilder, PCOL As MTZMetaModel.MTZMetaModel.PART_col)
         Dim i As Integer
         Dim P As MTZMetaModel.MTZMetaModel.PART
         For i = 1 To PCOL.Count
             P = PCOL.Item(i)
-            sb.AppendLine("import { " & P.Name & "Component } from './" & P.Name & "/" & P.Name & ".component'; // " + P.Caption)
-            sb.AppendLine("import { " & P.Name & "_Service } from 'app/" & P.Name & ".service'; ")
-            Make_AddCompServiceToAPP(sb, P.PART)
+            sb.AppendLine("import { " & DeCap(P.Name) & "Component } from './" & P.Name & "/" & P.Name & ".component'; // " + P.Caption)
+            sb.AppendLine("import { " & DeCap(P.Name) & "_Service } from 'app/" & P.Name & ".service'; ")
+            Make_AddPartCompServiceToAPP(sb, P.PART)
         Next
 
     End Sub
@@ -897,7 +889,7 @@ Public Class frmWebAPI_Amexio5
         sb = New StringBuilder
 
 
-        sb.AppendLine("<amexio-card [header] =""true"" [footer] =""false"">")
+        sb.AppendLine("<amexio-card  amexioColorPalette [color-palette]=""'classic'"" [gradient]=""true"" [header] =""true"" [footer] =""false"">")
         sb.AppendLine("  <amexio-header>")
         sb.AppendLine(" <i class=""fa " & ot.objIconCls & """ aria-hidden=""True""></i> %typename% ")
         sb.AppendLine("  </amexio-header>")
@@ -919,7 +911,7 @@ Public Class frmWebAPI_Amexio5
                 sb.AppendLine("		<amexio-tab  title=""" & P.Caption & """  >")
             End If
 
-            sb.AppendLine("			<app-" & P.Name & "></app-" & P.Name & ">")
+            sb.AppendLine("			<app-" & DeCap(P.Name) & "></app-" & DeCap(P.Name) & ">")
             sb.AppendLine("		</amexio-tab>")
             sb.AppendLine("		")
         Next
@@ -1002,7 +994,7 @@ Public Class frmWebAPI_Amexio5
 
         For i = 1 To pcol.Count
             P = pcol.Item(i)
-            sw.Append(vbCrLf & "public DbSet<a_srv.models." & P.Name & "> " & P.Name & " { get; set; }")
+            sw.Append(vbCrLf & "public DbSet<" & txtNS.Text & ".models." & P.Name & "> " & P.Name & " { get; set; }")
             P.PART.Sort = "sequence"
             sw.Append(PartMake_DbSet(P.PART))
 
@@ -1101,7 +1093,7 @@ Public Class frmWebAPI_Amexio5
     End Function
 
 
-    Private Function PartMake_GenStores(ByVal pcol As MTZMetaModel.MTZMetaModel.PART_col) As String
+    Private Function PartMake_CS_Models(ByVal pcol As MTZMetaModel.MTZMetaModel.PART_col) As String
         Dim sw As StringBuilder
         sw = New StringBuilder()
         Dim P As MTZMetaModel.MTZMetaModel.PART
@@ -1112,16 +1104,16 @@ Public Class frmWebAPI_Amexio5
 
         For i = 1 To pcol.Count
             P = pcol.Item(i)
-            sw.Append(vbCrLf & PartMake_Store(P))
+            sw.Append(vbCrLf & PartMake_CS_Model(P))
             P.PART.Sort = "sequence"
-            sw.Append(PartMake_GenStores(P.PART))
+            sw.Append(PartMake_CS_Models(P.PART))
 
         Next
         Return sw.ToString()
 
     End Function
 
-    Private Function PartMake_Store(ByVal P As MTZMetaModel.MTZMetaModel.PART) As String
+    Private Function PartMake_CS_Model(ByVal P As MTZMetaModel.MTZMetaModel.PART) As String
         If P.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Rassirenie Then Return ""
         Dim sw As StringBuilder
         sw = New StringBuilder()
@@ -1143,21 +1135,21 @@ Public Class frmWebAPI_Amexio5
 
             sw.Append(vbCrLf & " public class  " & P.Name & " { // " & P.Caption)
 
-            sw.Append(vbCrLf & vbTab & " public System.Guid  " & P.Name & "Id{ get; set; } // Primary key field")
+            sw.Append(vbCrLf & vbTab & " public System.Guid  " & P.Name & "Id{ get; set; } // Идентификатор (первичный ключ)")
 
             If Not isroot Then
                 Dim ParentPart As MTZMetaModel.MTZMetaModel.PART
                 ParentPart = P.Parent.Parent
 
-                sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Parent"")]")
+                'sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Parent"")]")
+                sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "Id { get; set; } // обратная ссылка на родителя: " & ParentPart.Caption)
                 'sw.Append(vbCrLf & vbTab & " public " & ParentPart.Name & "  " & ParentPart.Name & " { get; set; } // Parent part -> " & ParentPart.Caption)
-                sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "Id { get; set; } // Parent part Id -> " & ParentPart.Caption)
 
-                For i = 1 To ot.PART.Count
-                    Dim SiblingPart As MTZMetaModel.MTZMetaModel.PART
-                    SiblingPart = ot.PART.Item(i)
-                    sw.Append(vbCrLf & vbTab & " public List<" & SiblingPart.Name & ">  " & SiblingPart.Name.ToLower & " { get; set; } // " & SiblingPart.Caption)
-                Next
+                'For i = 1 To P.PART.Count
+                '    Dim SiblingPart As MTZMetaModel.MTZMetaModel.PART
+                '    SiblingPart = P.PART.Item(i)
+                '    sw.Append(vbCrLf & vbTab & " public List<" & SiblingPart.Name & ">  " & SiblingPart.Name & " { get; set; } // " & SiblingPart.Caption)
+                'Next
             Else
                 If ot.IsSingleInstance = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
 
@@ -1168,7 +1160,7 @@ Public Class frmWebAPI_Amexio5
                             Dim SiblingPart As MTZMetaModel.MTZMetaModel.PART
                             SiblingPart = ot.PART.Item(i)
                             If SiblingPart.Sequence <> 0 Then
-                                sw.Append(vbCrLf & vbTab & " public List<" & SiblingPart.Name & ">  " & SiblingPart.Name.ToLower & " { get; set; } // " & SiblingPart.Caption)
+                                sw.Append(vbCrLf & vbTab & " public List<" & SiblingPart.Name & ">  " & SiblingPart.Name & " { get; set; } // дочерний раздел: " & SiblingPart.Caption)
                             End If
                         Next
 
@@ -1178,9 +1170,9 @@ Public Class frmWebAPI_Amexio5
                             SiblingPart = ot.PART.Item(i)
                             If SiblingPart.Sequence = 0 Then
 
-                                sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Document"")]")
+                                'sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Document"")]")
                                 'sw.Append(vbCrLf & vbTab & " public " & SiblingPart.Name & "  " & SiblingPart.Name & " { get; set; } // " & SiblingPart.Caption)
-                                sw.Append(vbCrLf & vbTab & " public System.Guid  " & SiblingPart.Name & "Id { get; set; } // Id for " & SiblingPart.Caption)
+                                sw.Append(vbCrLf & vbTab & " public System.Guid  " & SiblingPart.Name & "Id { get; set; } // обратная ссылка на: " & SiblingPart.Caption)
                             End If
                         Next
 
@@ -1197,7 +1189,7 @@ Public Class frmWebAPI_Amexio5
             For i = 1 To P.PART.Count
                 Dim ChildPart As MTZMetaModel.MTZMetaModel.PART
                 ChildPart = P.PART.Item(i)
-                'sw.Append(vbCrLf & vbTab & " public List<" & ChildPart.Name & ">  " & ChildPart.Name.ToLower & " { get; set; } // " & ChildPart.Caption)
+                sw.Append(vbCrLf & vbTab & " public List<" & ChildPart.Name & ">  " & ChildPart.Name & " { get; set; } // дочерний раздел: " & ChildPart.Caption)
             Next
 
 
@@ -1217,13 +1209,17 @@ Public Class frmWebAPI_Amexio5
 
                 Dim NullMark As String = ""
 
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
+                    'sw.Append(vbCrLf & vbTab & "[Required]")
+                    NullMark = ""
+                Else
+                    NullMark = "?"
+                End If
+
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Skalyrniy_tip Then
-                    If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
-                        sw.Append(vbCrLf & vbTab & "[Required]")
-                        NullMark = ""
-                    Else
-                        NullMark = "?"
-                    End If
+
+
+
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
                         If ft.Name.ToLower = "file" Then
                             sw.Append(vbCrLf & vbTab & "public string" & " " & fld.Name & "{ get; set; } // " & fld.Caption)
@@ -1251,8 +1247,12 @@ Public Class frmWebAPI_Amexio5
                     End If
 
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
+                        If ft.Name.ToLower().StartsWith("int") Then
+                            sw.Append(vbCrLf & vbTab & "public int" & NullMark & "  " & fld.Name & "{ get; set; } // " & fld.Caption)
+                        Else
+                            sw.Append(vbCrLf & vbTab & "public double" & NullMark & "  " & fld.Name & "{ get; set; } // " & fld.Caption)
+                        End If
 
-                        sw.Append(vbCrLf & vbTab & "public double" & NullMark & "  " & fld.Name & "{ get; set; } // " & fld.Caption)
 
                     End If
                 End If
@@ -1276,9 +1276,13 @@ Public Class frmWebAPI_Amexio5
                     Dim refp As MTZMetaModel.MTZMetaModel.PART
                     refp = fld.RefToPart
 
-                    ' sw.Append(vbCrLf & vbTab & "[ForeignKey(""FK_" & P.Name  & "_to_" & refp.Name  & "_as_" & fld.Name  & """)]")
-                    'sw.Append(vbCrLf & vbTab & "public " & refp.Name & " " & fld.Name & "{ get; set; } //" & fld.Caption)
                     sw.Append(vbCrLf & vbTab & "public System.Guid" & NullMark & "  " & fld.Name & " { get; set; } //" & fld.Caption)
+
+                    sw.Append(vbCrLf & vbTab & "[ForeignKey(""" & fld.Name & """)]")
+                    ' sw.Append(vbCrLf & vbTab & "public " & refp.Name & " " & fld.Name & "_as_" & refp.Name & " { get; set; } // Объект - " & fld.Caption)
+                    sw.Append(vbCrLf & vbTab & "public " & refp.Name & " " & refp.Name & " { get; set; } // Объект - " & fld.Caption)
+
+
 
 
 
@@ -1342,7 +1346,7 @@ Public Class frmWebAPI_Amexio5
 
 
 
-            sw.Append(vbCrLf & " export interface   " & P.Name & " { // " & P.Caption)
+            sw.Append(vbCrLf & " export interface   " & DeCap(P.Name) & " { // " & P.Caption)
 
             sw.Append(vbCrLf & vbTab & DeCap(P.Name) & "Id:string; // Primary key field")
 
@@ -1419,12 +1423,12 @@ Public Class frmWebAPI_Amexio5
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Skalyrniy_tip Then
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
                         If ft.Name.ToLower = "file" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name & ":string; // " & fld.Caption)
+                            sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string; // " & fld.Caption)
                         Else
                             If fld.DataSize > 0 Then
-                                sw.Append(vbCrLf & vbTab & fld.Name & ":string; // " & fld.Caption)
+                                sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string; // " & fld.Caption)
                             Else
-                                sw.Append(vbCrLf & vbTab & fld.Name & ":string; // " & fld.Caption)
+                                sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string; // " & fld.Caption)
                             End If
 
                         End If
@@ -1433,19 +1437,19 @@ Public Class frmWebAPI_Amexio5
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
 
                         If ft.Name.ToLower = "date" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name & ":string; // " & fld.Caption)
+                            sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string; // " & fld.Caption)
                         ElseIf ft.Name.ToLower = "time" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name & ":string;  // " & fld.Caption)
+                            sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string;  // " & fld.Caption)
                         ElseIf ft.Name.ToLower = "datetime" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name & ":string;  // " & fld.Caption)
+                            sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string;  // " & fld.Caption)
                         ElseIf ft.Name.ToLower = "birthday" Then
-                            sw.Append(vbCrLf & vbTab & fld.Name & ":string;  // " & fld.Caption)
+                            sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string;  // " & fld.Caption)
                         End If
                     End If
 
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
 
-                        sw.Append(vbCrLf & vbTab & fld.Name & ":Number; // " & fld.Caption)
+                        sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":Number; // " & fld.Caption)
 
                     End If
                 End If
@@ -1453,15 +1457,15 @@ Public Class frmWebAPI_Amexio5
 
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Interval Then
 
-                    sw.Append(vbCrLf & vbTab & fld.Name & ":Number;  // " & fld.Caption)
+                    sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":Number;  // " & fld.Caption)
 
 
                 End If
 
                 If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
 
-                    sw.Append(vbCrLf & vbTab & " " & fld.Name & ":enums.enum_" & LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & "; // " & fld.Caption)
-                    sw.Append(vbCrLf & vbTab & " " & fld.Name & "_name :string; // enum to text for " & fld.Caption)
+                    sw.Append(vbCrLf & vbTab & " " & DeCap(fld.Name) & ":enums.enum_" & LATIR2Framework.FieldTypesHelper.MakeValidName(ft.Name) & "; // " & fld.Caption)
+                    sw.Append(vbCrLf & vbTab & " " & DeCap(fld.Name) & "_name :string; // enum to text for " & fld.Caption)
 
                 End If
 
@@ -1469,7 +1473,7 @@ Public Class frmWebAPI_Amexio5
 
                     Dim refp As MTZMetaModel.MTZMetaModel.PART
                     refp = fld.RefToPart
-                    sw.Append(vbCrLf & vbTab & fld.Name & ":string; //" & fld.Caption & " -> " & refp.Name)
+                    sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & ":string; //" & fld.Caption & " -> " & refp.Name)
                     hasRef = True
 
                 End If
@@ -1487,7 +1491,7 @@ Public Class frmWebAPI_Amexio5
 
                         Dim refp As MTZMetaModel.MTZMetaModel.PART
                         refp = fld.RefToPart
-                        sw.Append(vbCrLf & vbTab & fld.Name & "_name :string; //" & " dereference for " & refp.Name)
+                        sw.Append(vbCrLf & vbTab & DeCap(fld.Name) & "_name :string; //" & " dereference for " & refp.Name)
                     End If
                 Next
             End If
@@ -1693,10 +1697,10 @@ Public Class frmWebAPI_Amexio5
 
         sb.AppendLine(" ")
         sb.AppendLine("	   //Create %obj%")
-        sb.AppendLine("    create_%obj%(%obj%: %type%.%obj%): Observable<Object > {")
+        sb.AppendLine("    create_%obj%(%obj%: %type%.%obj%): Observable<%type%.%obj% > {")
         sb.AppendLine("       // %obj%.%obj%Id = '';")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
-        sb.AppendLine("        return this.http.post(this.serviceURL + '/%obj%/', %obj%, { headers: cpHeaders })")
+        sb.AppendLine("        return this.http.post<%type%.%obj% >(this.serviceURL + '/%obj%/', %obj%, { headers: cpHeaders })")
         sb.AppendLine("		")
         sb.AppendLine("    }")
         sb.AppendLine("	")
@@ -1737,7 +1741,7 @@ Public Class frmWebAPI_Amexio5
             sb.AppendLine("	//Fetch %obj% by parent")
             sb.AppendLine("    get_%obj%ByParent(parentId: string): Observable<%type%.%obj%[]> {")
             sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
-            sb.AppendLine("		   console.log(this.serviceURL +'/%obj%/byparent/'+ parentId)")
+            sb.AppendLine("		   //console.log(this.serviceURL +'/%obj%/byparent/'+ parentId)")
             sb.AppendLine("        return this.http.get<%type%.%obj%[]>(this.serviceURL + '/%obj%/byparent/' + parentId, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
             sb.AppendLine("    }	")
             sb.AppendLine("	")
@@ -1746,7 +1750,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("	//Fetch %obj% by id")
         sb.AppendLine("    get_%obj%ById(%obj%Id: string): Observable<%type%.%obj%> {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
-        sb.AppendLine("		console.log(this.serviceURL +'/%obj%/'+ %obj%Id)")
+        sb.AppendLine("		//console.log(this.serviceURL +'/%obj%/'+ %obj%Id)")
         sb.AppendLine("        return this.http.get<%type%.%obj%>(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
         sb.AppendLine("    }	")
         sb.AppendLine("	")
@@ -1773,7 +1777,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("}")
 
         Dim ss As String = sb.ToString()
-        ss = ss.Replace("%obj%", P.Name)
+        ss = ss.Replace("%obj%", DeCap(P.Name))
         ss = ss.Replace("%ns%", txtNS.Text)
         ss = ss.Replace("%type%", ot.Name)
 
@@ -1795,7 +1799,7 @@ Public Class frmWebAPI_Amexio5
         pcol.Sort = "sequence"
         For i = 1 To pcol.Count
             P = pcol.Item(i)
-            sw.Append(vbCrLf & PartMake_PartComponent(P))
+            sw.Append(vbCrLf & PartMake_Component(P))
 
             sw.Append(PartMake_Components(P.PART))
 
@@ -1855,7 +1859,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("	public Last%obj%:%type%.%obj% = {} as %type%.%obj%; ")
         sb.AppendLine("	public Selected%obj% = new BehaviorSubject<%type%.%obj%>({} as %type%.%obj%); ")
         sb.AppendLine("	public pushSelected%obj%(item:%type%.%obj%){ ")
-        sb.AppendLine("		console.log(""change Selected %obj%""); ")
+        sb.AppendLine("		//console.log(""change Selected %obj%""); ")
         sb.AppendLine("		this.Last%obj%=item; ")
         sb.AppendLine("		this.Selected%obj%.next(item); ")
         sb.AppendLine("		 ")
@@ -1863,15 +1867,15 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("	public current%obj% = this.Selected%obj%.asObservable(); ")
 
         ss = sb.ToString()
-        ss = ss.Replace("%obj%", P.Name)
-        ss = ss.Replace("%parent%", ParentPart.Name)
+        ss = ss.Replace("%obj%", DeCap(P.Name))
+        ss = ss.Replace("%parent%", DeCap(ParentPart.Name))
         ss = ss.Replace("%ns%", txtNS.Text)
         ss = ss.Replace("%type%", ot.Name)
 
         Return ss
     End Function
 
-    Private Function PartMake_PartComponent(ByVal P As MTZMetaModel.MTZMetaModel.PART) As String
+    Private Function PartMake_Component(ByVal P As MTZMetaModel.MTZMetaModel.PART) As String
         If P.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Rassirenie Then Return " "
         Dim ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE
         ot = LATIR2Framework.ObjectTypeHelper.TypeForStruct(P)
@@ -1933,7 +1937,7 @@ Public Class frmWebAPI_Amexio5
         ' write component file
         sb = New StringBuilder()
         sb.AppendLine("import { Component, OnInit, OnDestroy,  Input, Output, EventEmitter } from ""@angular/core"";")
-        sb.AppendLine("import { %obj%_Service } from ""app/%obj%.service"";")
+        sb.AppendLine("import { %obj%_Service } from ""app/%capobj%.service"";")
         sb.AppendLine("import { AppService } from ""app/app.service"";")
         sb.AppendLine("import { Observable, SubscriptionLike as ISubscription} from ""rxjs"";")
         sb.AppendLine("import {  Validators } from ""@angular/forms"";")
@@ -1941,9 +1945,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("")
         sb.AppendLine("import { RemoveHTMLtagPipe } from 'app/pipes';")
         sb.AppendLine("import { %type% } from ""app/%type%"";")
-        sb.AppendLine("")
-        ' sb.AppendLine("import 'rxjs/add/operator/switchMap';")
-        'sb.AppendLine("import 'rxjs/add/operator/publishReplay';")
+        sb.AppendLine("import * as XLSX from 'xlsx';")
         sb.AppendLine("")
         sb.AppendLine("const MODE_LIST = 0;")
         sb.AppendLine("const MODE_NEW = 1;")
@@ -1952,8 +1954,8 @@ Public Class frmWebAPI_Amexio5
 
         sb.AppendLine("@Component({")
         sb.AppendLine("	   selector: 'app-%obj%',")
-        sb.AppendLine("    styleUrls: ['./%obj%.component.scss'],")
-        sb.AppendLine("    templateUrl: './%obj%.component.html',")
+        sb.AppendLine("    styleUrls: ['./%capobj%.component.scss'],")
+        sb.AppendLine("    templateUrl: './%capobj%.component.html',")
         sb.AppendLine("})")
         sb.AppendLine("export class %obj%Component implements OnInit {")
         sb.AppendLine("")
@@ -1967,6 +1969,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("    valid:boolean=true;")
         sb.AppendLine("    errorFlag:boolean=false;")
         sb.AppendLine("    errorMessage:string='';")
+        sb.AppendLine("    errorDetail:string='';")
 
 
 
@@ -1980,8 +1983,8 @@ Public Class frmWebAPI_Amexio5
 
         sb.AppendLine("    ngOnInit() {")
         If Not isRoot Then
-            sb.AppendLine("		   console.log(""Subscribe %obj%""); ")
-            sb.AppendLine("        this.subscription=this.AppService.current%parent%.subscribe(si =>{ this.refresh%obj%(); }, error => { this.ShowError(error.message); } );")
+            sb.AppendLine("		   // console.log(""Subscribe %obj%""); ")
+            sb.AppendLine("        this.subscription=this.AppService.current%parent%.subscribe(si =>{ this.refresh%obj%(); }, error => { this.ShowError(error); } );")
         End If
         sb.AppendLine("        this.refresh%obj%();")
         sb.AppendLine("    }")
@@ -2008,18 +2011,18 @@ Public Class frmWebAPI_Amexio5
 
         sb.AppendLine("    ngOnDestroy() {")
         If Not isRoot Then
-            sb.AppendLine("		   console.log(""Unsubscribe %obj%""); ")
+            sb.AppendLine("		   // console.log(""Unsubscribe %obj%""); ")
             sb.AppendLine("        this.subscription.unsubscribe();")
         End If
         sb.AppendLine("    }")
         sb.AppendLine("")
         If isRoot Then
             sb.AppendLine("    refresh%obj%() {")
-            sb.AppendLine("		   console.log(""refreshing %obj%""); ")
-            sb.AppendLine("        this.%obj%_Service.getAll_%obj%s().subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
+            sb.AppendLine("		   //console.log(""refreshing %obj%""); ")
+            sb.AppendLine("        this.%obj%_Service.getAll_%obj%s().subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("        this.current%obj% = {} as %type%.%obj%;")
             If hasChild Then
-                sb.AppendLine("        console.log(""clear selection for %obj% on refresh"");")
+                sb.AppendLine("       //console.log(""clear selection for %obj% on refresh"");")
                 sb.AppendLine("        this.AppService.pushSelected%obj%(this.current%obj%);")
             End If
 
@@ -2028,33 +2031,34 @@ Public Class frmWebAPI_Amexio5
             sb.AppendLine("    refresh%obj%() {")
             sb.AppendLine("		let item:%type%.%parent%;")
             sb.AppendLine("		item=this.AppService.Last%parent%;")
-            sb.AppendLine("		console.log(""refreshing %obj%""); ")
+            sb.AppendLine("		//console.log(""refreshing %obj%""); ")
             sb.AppendLine("     this.current%obj% = {} as %type%.%obj%;")
             If hasChild Then
-                sb.AppendLine("     console.log(""clear selection for %obj% on refresh"");")
+                sb.AppendLine("     //console.log(""clear selection for %obj% on refresh"");")
                 sb.AppendLine("     this.AppService.pushSelected%obj%(this.current%obj%);")
             End If
 
             sb.AppendLine("		if(typeof item === 'undefined') { ")
             sb.AppendLine("		   //console.log(""no parent item for refresh""); ")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
             sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id==='undefined') { ")
             sb.AppendLine("		   //console.log(""no parent id for refresh""); ")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
             sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id === 'string' ) {")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "Id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error.message); })")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "Id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("      }")
             sb.AppendLine("    }")
         End If
 
 
         sb.AppendLine("")
-        sb.AppendLine("	   ShowError(message:string){")
-        sb.AppendLine("		this.errorMessage=message; ;")
+        sb.AppendLine("	   ShowError(err:any){")
+        sb.AppendLine("		this.errorMessage=err.message;")
+        sb.AppendLine("		this.errorDetail=JSON.stringify(err.error);")
         sb.AppendLine("		this.errorFlag=true;")
         sb.AppendLine("	   }")
 
@@ -2104,10 +2108,44 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("    }")
         sb.AppendLine("")
         sb.AppendLine("    onConfirmDeletion() {")
-        sb.AppendLine("        this.%obj%_Service.delete_%obj%ById(this.current%obj%." & DeCap(P.Name) & "Id).subscribe(data => {this.refresh%obj%()}, error => { this.ShowError(error.message); });")
-        sb.AppendLine("        this.backToList();")
+        sb.AppendLine("        confirmOpened = false;")
+        sb.AppendLine("        this.%obj%_Service.delete_%obj%ById(this.current%obj%." & DeCap(P.Name) & "Id).subscribe(data => {this.refresh%obj%(); this.backToList();}, error => { this.ShowError(error); });")
         sb.AppendLine("    }")
         sb.AppendLine("")
+
+
+
+        ''''''''''''''''''''''''' clear combo boxes
+        For i = 1 To P.FIELD.Count
+            fld = P.FIELD.Item(i)
+            ft = fld.FieldType
+
+            If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("	 " & DeCap(fld.Name) & "_clear
+(){")
+                    sb.AppendLine("     this.current%obj%." & DeCap(fld.Name) & " = -10000 ;")
+                    sb.AppendLine("     setTimeout(function(){ this.current%obj%." & DeCap(fld.Name) & " = null;}.bind(this), 500);")
+                    sb.AppendLine("	}")
+                End If
+            End If
+
+
+            If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("	 " & DeCap(fld.Name) & "_clear(){")
+                    sb.AppendLine("     this.current%obj%." & DeCap(fld.Name) & " = 'empty-ref' ;")
+                    sb.AppendLine("     setTimeout(function(){ this.current%obj%." & DeCap(fld.Name) & " = null;}.bind(this), 500);")
+                    sb.AppendLine("	}")
+                End If
+            End If
+        Next
+
+
+
+
         sb.AppendLine("    save(item: %type%.%obj%) {")
         sb.AppendLine("        this.valid=true; ")
         ''''''''''''''''''''''''' field validation
@@ -2120,11 +2158,11 @@ Public Class frmWebAPI_Amexio5
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
                     If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
                         If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-                            sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
+                            sb.AppendLine("     if(this.current%obj%." & DeCap(fld.Name) & " == undefined ) this.valid=false;")
                         ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-                            sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
+                            sb.AppendLine("     if(this.current%obj%." & DeCap(fld.Name) & " == undefined ) this.valid=false;")
                         Else
-                            sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined || this.current%obj%." & fld.Name & "=='') this.valid=false;")
+                            sb.AppendLine("     if(this.current%obj%." & DeCap(fld.Name) & " == undefined || this.current%obj%." & DeCap(fld.Name) & "=='') this.valid=false;")
                         End If
                     End If
                 End If
@@ -2132,13 +2170,13 @@ Public Class frmWebAPI_Amexio5
 
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
                     If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined ) this.valid=false;")
+                        sb.AppendLine("     if(this.current%obj%." & DeCap(fld.Name) & " == undefined ) this.valid=false;")
                     End If
                 End If
 
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
                     If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
-                        sb.AppendLine("     if(this.current%obj%." & fld.Name & " == undefined  ) this.valid=false;")
+                        sb.AppendLine("     if(this.current%obj%." & DeCap(fld.Name) & " == undefined  ) this.valid=false;")
                     End If
                 End If
             End If
@@ -2149,23 +2187,133 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("            switch (this.mode) {")
         sb.AppendLine("                case MODE_NEW: {")
         sb.AppendLine("                    this.%obj%_Service.create_%obj%(item)")
-        sb.AppendLine("                        .subscribe(data =>{ this.refresh%obj%()}, error => { this.ShowError(error.message); });")
+        sb.AppendLine("                        .subscribe(data =>{ this.refresh%obj%();this.backToList();}, error => { this.ShowError(error); });")
         sb.AppendLine("                    break;")
         sb.AppendLine("                }")
         sb.AppendLine("                case MODE_EDIT: {")
         sb.AppendLine("                    this.%obj%_Service.update_%obj%( item)")
-        sb.AppendLine("                        .subscribe(data => {this.refresh%obj%()}, error => { this.ShowError(error.message); });")
+        sb.AppendLine("                        .subscribe(data => {this.refresh%obj%();this.backToList();}, error => { this.ShowError(error); });")
         sb.AppendLine("                    break;")
         sb.AppendLine("                }")
         sb.AppendLine("                default:")
         sb.AppendLine("                    break;")
         sb.AppendLine("            }")
-        sb.AppendLine("            this.backToList();")
-        sb.AppendLine("        //} else {")
-        sb.AppendLine("        //    this.ShowError(""Ошибка заполнения формы"");")
         sb.AppendLine("        }")
         sb.AppendLine("    }")
         sb.AppendLine("")
+
+        sb.AppendLine(" exportXSLX(): void {")
+        sb.AppendLine("        var aoa = [];")
+        sb.AppendLine("/* set column headers at first line */")
+        sb.AppendLine("        if(!aoa[0]) aoa[0] = [];")
+
+
+        P.FIELD.Sort = "sequence"
+        Dim fCnt As Integer
+        fCnt = 0
+        For i = 1 To P.FIELD.Count
+            fld = P.FIELD.Item(i)
+            ft = fld.FieldType
+            If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy Then
+                sb.AppendLine("            aoa[0][" & fCnt.ToString() & "]='" & fld.Caption & "';")
+                fCnt += 1
+            End If
+        Next
+
+
+        sb.AppendLine("/* fill data to array */")
+        sb.AppendLine("        for(var i = 0; i < this.%obj%Array.length; ++i) {")
+        sb.AppendLine("            if(!aoa[i+1]) aoa[i+1] = [];")
+
+        fCnt = 0
+        For i = 1 To P.FIELD.Count
+            fld = P.FIELD.Item(i)
+            ft = fld.FieldType
+            If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy Then
+                isFirst = False
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
+                    If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
+                        sb.AppendLine("            aoa[i+1][" & fCnt.ToString() & "]=this.%obj%Array[i]." & DeCap(fld.Name) & "_name;")
+                    ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
+                        sb.AppendLine("            aoa[i+1][" & fCnt.ToString() & "]=this.%obj%Array[i]." & DeCap(fld.Name) & "_name;")
+                    Else
+                        sb.AppendLine("            aoa[i+1][" & fCnt.ToString() & "]=this.%obj%Array[i]." & DeCap(fld.Name) & ";")
+                    End If
+                End If
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
+                    sb.AppendLine("            aoa[i+1][" & fCnt.ToString() & "]=this.%obj%Array[i]." & DeCap(fld.Name) & ";")
+                End If
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
+                    sb.AppendLine("            aoa[i+1][" & fCnt.ToString() & "]=this.%obj%Array[i]." & DeCap(fld.Name) & ";")
+                End If
+                fCnt += 1
+            End If
+        Next
+
+        sb.AppendLine("        }")
+        sb.AppendLine("		/* generate worksheet */")
+        sb.AppendLine("		const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(aoa);")
+        sb.AppendLine("")
+        sb.AppendLine("        var wscols = [")
+
+
+        isFirst = True
+        For i = 1 To P.FIELD.Count
+            fld = P.FIELD.Item(i)
+            ft = fld.FieldType
+            If ft.TypeStyle <> MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Element_oformleniy Then
+
+                If Not isFirst Then
+                    sb.Append(",")
+                End If
+                isFirst = False
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
+                    If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
+                        sb.AppendLine("            {wch: 50}")
+                    ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
+                        sb.AppendLine("            {wch: 30}")
+                    ElseIf ft.Name.ToLower() = "memo" Then
+                        sb.AppendLine("            {wch: 80}")
+                    Else
+                        sb.AppendLine("            {wch: 64}")
+                    End If
+                End If
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
+                    sb.AppendLine("            {wch: 20}")
+                End If
+                If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
+                    sb.AppendLine("            {wch: 18}")
+                End If
+
+            End If
+        Next
+
+        sb.AppendLine("        ];")
+        sb.AppendLine("")
+        sb.AppendLine("        ws['!cols'] = wscols;")
+        sb.AppendLine("")
+        sb.AppendLine("		/* generate workbook and add the worksheet */")
+        sb.AppendLine("		const wb: XLSX.WorkBook = XLSX.utils.book_new();")
+        sb.AppendLine("        XLSX.utils.book_append_sheet(wb, ws, '%obj%');")
+        sb.AppendLine("        ")
+        sb.AppendLine("")
+        sb.AppendLine("        wb.Props = {")
+        sb.AppendLine("            Title: ""%objname%"",")
+        sb.AppendLine("            Subject: ""%objname%"",")
+        sb.AppendLine("            Company: ""master.bami"",")
+        sb.AppendLine("            Category: ""Experimentation"",")
+        sb.AppendLine("            Keywords: ""Export service"",")
+        sb.AppendLine("            Author: ""master.bami"",")
+        sb.AppendLine("	           Manager: ""master.bami"",")
+        sb.AppendLine("	           Comments: ""Raw data export"",")
+        sb.AppendLine("	           LastAuthor: ""master.bami"",")
+        sb.AppendLine("            CreatedDate: new Date(Date.now())")
+        sb.AppendLine("        }")
+        sb.AppendLine("")
+        sb.AppendLine("		/* save to file */")
+        sb.AppendLine("		XLSX.writeFile(wb, '%obj%.xlsx');")
+        sb.AppendLine("	}")
+
         sb.AppendLine("    backToList() {")
         sb.AppendLine("        this.opened = false;")
         sb.AppendLine("        this.confirmOpened = false;")
@@ -2173,7 +2321,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("        this.current%obj% = {} as %type%.%obj%;")
 
         If hasChild Then
-            sb.AppendLine("        console.log(""clear selection for %obj%"");")
+            sb.AppendLine("        //console.log(""clear selection for %obj%"");")
             sb.AppendLine("        this.AppService.pushSelected%obj%(this.current%obj%);")
         End If
 
@@ -2182,10 +2330,12 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine(" ")
 
         ss = sb.ToString()
-        ss = ss.Replace("%obj%", P.Name)
-        ss = ss.Replace("%parent%", ParentPart.Name)
+        ss = ss.Replace("%obj%", DeCap(P.Name))
+        ss = ss.Replace("%capobj%", P.Name)
+        ss = ss.Replace("%parent%", DeCap(ParentPart.Name))
         ss = ss.Replace("%ns%", txtNS.Text)
         ss = ss.Replace("%type%", ot.Name)
+        ss = ss.Replace("%objname%", ot.the_Comment & "::" & P.Caption)
 
         Tool_WriteFile(ss, textBoxOutPutFolder.Text & "\ts\" + P.Name + "\", P.Name + ".component.ts", False)
 
@@ -2197,14 +2347,14 @@ Public Class frmWebAPI_Amexio5
         sb = New StringBuilder()
 
         sb.AppendLine("<!--Error dialogue-->")
-        sb.AppendLine("<amexio-window [show-window]=""errorFlag""")
-        sb.AppendLine("               [header]=""true""")
+        sb.AppendLine("<amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true""  [show-window]=""errorFlag""")
+        sb.AppendLine("            [header]=""true""")
         sb.AppendLine("			   [footer]=""true"" ")
-        sb.AppendLine("			   [draggable]=""true"" ")
-        sb.AppendLine("			   [vertical-position]=""'center'"" ")
+        sb.AppendLine("			   [draggable]=""false"" ")   ' не работает выделение текста мышкой
+        sb.AppendLine("			   [vertical-position]=""'top'"" ")
         sb.AppendLine("			   [horizontal-position]=""'center'"" ")
         sb.AppendLine("			   [closable]=""false""")
-        sb.AppendLine("               >")
+        sb.AppendLine("            amexioThemeStyle  [theme-style]=""'round-edge'""    >")
         sb.AppendLine("	<amexio-header>")
         sb.AppendLine("        <i class=""fa fa-exclamation-triangle""></i> Ошибка")
         sb.AppendLine("      </amexio-header>")
@@ -2213,12 +2363,15 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("          <amexio-column [size]=""11"">")
         sb.AppendLine("		  <span style=""color:red"">{{errorMessage}}</span>")
         sb.AppendLine("		  </amexio-column>")
-        sb.AppendLine("        </amexio-row>")
+        sb.AppendLine("        </amexio-row>
+        <amexio-panel amexioThemeStyle   title=""Подробнее..."" [background]=""'yellow'"" [color]=""'black'"" [fit]=""false"" [border]=""false"" [header]=""true"" [height]=""'360'"" [expanded]=""false"">
+          {{errorDetail}}
+        </amexio-panel>")
         sb.AppendLine("	</amexio-body> ")
         sb.AppendLine("	<amexio-action> ")
         sb.AppendLine("	<amexio-row> ")
         sb.AppendLine("	<amexio-column size=""11""> ")
-        sb.AppendLine("     <amexio-button  [label]=""'Ok'"" (onClick)=""errorFlag=false"" [type]=""'red'"" [tooltip]=""'Ok'"" [icon]=""'fa fa-exclamation-triangle'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""    [label]=""'Ok'"" (onClick)=""errorFlag=false"" [type]=""'red'"" [tooltip]=""'Ok'"" [icon]=""'fa fa-exclamation-triangle'""></amexio-button>")
         sb.AppendLine("	</amexio-column> ")
         sb.AppendLine("	</amexio-row> ")
         sb.AppendLine("	</amexio-action> ")
@@ -2227,9 +2380,19 @@ Public Class frmWebAPI_Amexio5
 
 
         sb.AppendLine("<!-- edit row pane -->	 ")
-        sb.AppendLine(" <amexio-window [closable]=""false"" [maximize]=""true"" [vertical-position]=""'center'""    [horizontal-position]=""'center'""  [draggable]=""true"" [remember-window-position]=""true"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
-        'sb.AppendLine(" <amexio-window [closable]=""false"" [vertical-position]=""'top'""  [horizontal-position]=""'right'"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
-        'sb.AppendLine(" <amexio-window [closable]=""false""  [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
+        sb.AppendLine(" <amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true""  
+        [closable]=""false"" [maximize]=""true"" 
+        [vertical-position]=""'center'""    
+        [horizontal-position]=""'center'""  
+        [draggable]=""false"" 
+        [remember-window-position]=""true"" 
+        [width]=""'auto'""  
+        amexioThemeStyle  [theme-style]=""'round-edge'""  
+        [show-window]=""opened  && errorFlag==false"" 
+        [header]=""true"" 
+        [footer]=""true"" > ")
+        'sb.AppendLine(" <amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true""  [closable]=""false"" [vertical-position]=""'top'""  [horizontal-position]=""'right'"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
+        'sb.AppendLine(" <amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true""  [closable]=""false""  [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
 
         sb.AppendLine("	  <amexio-header> ")
         sb.AppendLine("        {{formMsg}} %objname% ")
@@ -2257,18 +2420,37 @@ Public Class frmWebAPI_Amexio5
                         If ft.Name = "Memo" Then
 
 
-                            sb.AppendLine("<amexio-label>" & fld.Caption & "</amexio-label>")
-                            sb.AppendLine("<ngx-wig  ")
-                            sb.AppendLine(" [(ngModel)]=""current%obj%." & fld.Name & """")
-                            sb.AppendLine(" [placeholder]=""'" & fld.Caption & "'"" ")
-                            sb.AppendLine(" [buttons]=""'bold,italic,link,list1,list2'"">")
-                            sb.AppendLine("</ngx-wig>")
+                            sb.AppendLine("<amexio-label ")
+                            If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                                sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                            Else
+                                sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                            End If
+                            sb.AppendLine(">" & fld.Caption & "</amexio-label>")
 
+                            'sb.AppendLine("<ngx-wig  ")
+                            'sb.AppendLine(" [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
+                            'sb.AppendLine(" [placeholder]=""'" & fld.Caption & "'"" ")
+                            'sb.AppendLine(" [buttons]=""'bold,italic,link,list1,list2'"">")
+                            'sb.AppendLine("</ngx-wig>")
+
+
+                            sb.AppendLine("<angular-editor  ")
+                            sb.AppendLine(" [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
+                            sb.AppendLine(" [placeholder]=""'" & fld.Caption & "'"" ")
+                            sb.AppendLine(" [config]=""{ editable: true, spellcheck: false, height: 'auto', minHeight: '40', maxHeight: '600', width: 'auto', minWidth: '0' , translate: 'yes', enableToolbar: true, showToolbar: true, sanitize: true, toolbarPosition: 'top' }"">")
+                            sb.AppendLine("</angular-editor>")
 
                         Else
                             If fld.TheStyle.Contains("textarea") Then
-
-                                sb.AppendLine(" <amexio-textarea-input [enable-popover]=""false""  [field-label]=""'" & fld.Caption & "'"" name =""" & fld.Name & """ ")
+                                sb.AppendLine("<amexio-label ")
+                                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                                    sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                                Else
+                                    sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                                End If
+                                sb.AppendLine(">" & fld.Caption & "</amexio-label>")
+                                sb.AppendLine(" <amexio-textarea-input [enable-popover]=""false""   name =""" & DeCap(fld.Name) & """ ")
                                 sb.AppendLine("             [place-holder]=""'" & fld.Caption & "'"" ")
 
                                 If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
@@ -2276,15 +2458,26 @@ Public Class frmWebAPI_Amexio5
                                 Else
                                     sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
                                 End If
-                                sb.AppendLine("	            [(ngModel)]=""current%obj%." & fld.Name & """")
+                                sb.AppendLine("	            [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
                                 sb.AppendLine("             [icon-feedback]=""true"" [rows]=""'5'"" [columns]=""'12'"" ")
                                 sb.AppendLine("              > ")
                                 sb.AppendLine("</amexio-textarea-input>")
                             Else
-
-                                sb.AppendLine("                    <amexio-text-input [field-label]= ""'" & fld.Caption & "'"" name =""" & fld.Name & """  ")
+                                sb.AppendLine("<amexio-label ")
+                                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                                    sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                                Else
+                                    sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                                End If
+                                sb.AppendLine(">" & fld.Caption & "</amexio-label>")
+                                sb.AppendLine("                    <amexio-text-input  name =""" & DeCap(fld.Name) & """  ")
                                 sb.AppendLine("                    [place-holder] = ""'" & fld.Caption & "'"" ")
-                                sb.AppendLine("                    [icon-feedback] = ""true"" [(ngModel)]=""current%obj%." & fld.Name & """ >")
+                                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                                    sb.AppendLine("            [allow-blank]=""true"" ")
+                                Else
+                                    sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
+                                End If
+                                sb.AppendLine("                    [icon-feedback] = ""true"" [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """ >")
                                 sb.AppendLine("                    </amexio-text-input>")
                             End If
 
@@ -2297,33 +2490,50 @@ Public Class frmWebAPI_Amexio5
 
 
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
+
+                        sb.AppendLine("<amexio-label ")
+                        If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                            sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                        Else
+                            sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                        End If
+                        sb.AppendLine(">" & fld.Caption & "</amexio-label>")
+                        sb.AppendLine("  <amexio-date-time-picker    ")
                         If ft.Name.ToLower() = "date" Then
-                            sb.AppendLine("  <amexio-date-time-picker   [field-label]=""'" & fld.Caption & "'"" ")
                             sb.AppendLine("        [time-picker]=""false""  ")
                             sb.AppendLine("        [date-picker]=""true""  ")
-                            sb.AppendLine("        [(ngModel)]=""current%obj%." & fld.Name & """> ")
-                            sb.AppendLine(" </amexio-date-time-picker> ")
                         End If
                         If ft.Name.ToLower() = "datetime" Then
-                            sb.AppendLine("  <amexio-date-time-picker   [field-label]=""'" & fld.Caption & "'"" ")
                             sb.AppendLine("        [time-picker]=""true""  ")
                             sb.AppendLine("        [date-picker]=""true""  ")
-                            sb.AppendLine("        [(ngModel)]=""current%obj%." & fld.Name & """> ")
-                            sb.AppendLine(" </amexio-date-time-picker> ")
                         End If
                         If ft.Name.ToLower() = "time" Then
-                            sb.AppendLine("  <amexio-date-time-picker   [field-label]=""'" & fld.Caption & "'"" ")
                             sb.AppendLine("        [time-picker]=""true""  ")
                             sb.AppendLine("        [date-picker]=""false""  ")
-                            sb.AppendLine("        [(ngModel)]=""current%obj%." & fld.Name & """> ")
-                            sb.AppendLine(" </amexio-date-time-picker> ")
                         End If
+
+                        If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                            sb.AppendLine("            [required]=""false"" ")
+                        Else
+                            sb.AppendLine("            [required]=""true"" ")
+                        End If
+
+                        sb.AppendLine("        [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """> ")
+
+
+                        sb.AppendLine(" </amexio-date-time-picker> ")
 
                     End If
 
                     If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
-
-                        sb.AppendLine(" <amexio-number-input  [enable-popover]= ""false"" [field-label]=""'" & fld.Caption & "'"" name =""" & fld.Name & """ ")
+                        sb.AppendLine("<amexio-label ")
+                        If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                            sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                        Else
+                            sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                        End If
+                        sb.AppendLine(">" & fld.Caption & "</amexio-label>")
+                        sb.AppendLine(" <amexio-number-input  [enable-popover]= ""false""  name =""" & DeCap(fld.Name) & """ ")
                         sb.AppendLine("                    [place-holder]=""'" & fld.Caption & "'"" ")
 
                         If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
@@ -2332,7 +2542,7 @@ Public Class frmWebAPI_Amexio5
                             sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
                         End If
 
-                        sb.AppendLine("	 [(ngModel)]=""current%obj%." & fld.Name & """")
+                        sb.AppendLine("	 [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
                         sb.AppendLine("                    > ")
                         sb.AppendLine(" </amexio-number-input>")
 
@@ -2345,8 +2555,14 @@ Public Class frmWebAPI_Amexio5
 
 
             If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Interval Then
-
-                sb.AppendLine(" <amexio-number-input  [enable-popover]= ""false"" [field-label]=""'" & fld.Caption & "'"" name =""" & fld.Name & """ ")
+                sb.AppendLine("<amexio-label ")
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                Else
+                    sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                End If
+                sb.AppendLine(">" & fld.Caption & "</amexio-label>")
+                sb.AppendLine(" <amexio-number-input  [enable-popover]= ""false""  name =""" & DeCap(fld.Name) & """ ")
                 sb.AppendLine("                    [place-holder]=""'" & fld.Caption & "'"" ")
 
                 If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
@@ -2355,22 +2571,36 @@ Public Class frmWebAPI_Amexio5
                     sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
                 End If
 
-                sb.AppendLine("	 [(ngModel)]=""current%obj%." & fld.Name & """")
+                sb.AppendLine("	 [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
                 sb.AppendLine("                    > ")
                 sb.AppendLine(" </amexio-number-input>")
 
             End If
 
             If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine(" <amexio-row>
+           <amexio-column size=""11"" >")
+                End If
+
+                sb.AppendLine("<amexio-label ")
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                Else
+                    sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                End If
+                sb.AppendLine(">" & fld.Caption & "</amexio-label>")
                 sb.AppendLine("<amexio-dropdown ")
-                sb.AppendLine("	 [field-label]=""'" & fld.Caption & "'"" name =""" & fld.Name & """ ")
+                sb.AppendLine("	  name =""" & DeCap(fld.Name) & """ ")
                 sb.AppendLine("                    [place-holder]=""'" & fld.Caption & "'"" ")
-                sb.AppendLine("	 [(ngModel)]=""current%obj%." & fld.Name & """")
-                'If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                ' sb.AppendLine("            [allow-blank]=""true"" ")
-                'Else
-                sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
-                '   End If
+                sb.AppendLine("	 [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("            [allow-blank]=""true"" ")
+                Else
+                    sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
+                End If
 
                 sb.AppendLine("	 [display-field]=""'name'""")
                 sb.AppendLine("	 [value-field]=""'id'""")
@@ -2378,29 +2608,60 @@ Public Class frmWebAPI_Amexio5
                 sb.AppendLine("	 [data]=""AppService.enum" & ft.Name & "Combo()""")
                 sb.AppendLine("	 >")
                 sb.AppendLine("</amexio-dropdown>")
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("  </amexio-column>
+                   <amexio-column size=""1"" >")
+                    sb.AppendLine(" <amexio-button amexioThemeStyle  [label]=""'X'"" (onClick)=""" & DeCap(fld.Name) & "_clear();"" [type]=""'secondary'"" [tooltip]=""'Сброс'"" ></amexio-button>")
+                    sb.AppendLine("</amexio-column>
+     </amexio-row>")
+                End If
+
             End If
 
 
             If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
 
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine(" <amexio-row>
+           <amexio-column size=""11"" >")
+                End If
+
+                sb.AppendLine("<amexio-label ")
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("            [size]=""'small'"" font-color=""BLUE"" ")
+                Else
+                    sb.AppendLine("            [size]=""'small-bold'"" font-color=""BLACK"" ")
+                End If
+                sb.AppendLine(">" & fld.Caption & "</amexio-label>")
                 sb.AppendLine("	 <amexio-dropdown ")
                 sb.AppendLine("	 [place-holder] = ""'" & fld.Caption & "'""")
-                sb.AppendLine("	 name =""" & fld.Name & """")
-                sb.AppendLine("	 [field-label]= ""'" & fld.Caption & "'""")
-                'If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
-                ' sb.AppendLine("            [allow-blank]=""true"" ")
-                ' Else
-                sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
-                'End If
+                sb.AppendLine("	 name =""" & DeCap(fld.Name) & """")
+                ' sb.AppendLine("	 [field-label]= ""'" & fld.Caption & "'""")
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("            [allow-blank]=""true"" ")
+                Else
+                    sb.AppendLine("            [allow-blank]=""false"" [error-msg] =""'Не задано: " & fld.Caption & "'"" ")
+                End If
                 sb.AppendLine("	 ")
                 sb.AppendLine("	 [display-field]=""'name'""")
                 sb.AppendLine("	 [value-field]=""'id'""")
                 refP = fld.RefToPart
                 sb.AppendLine("	 [data]=""AppService.Combo" & refP.Name & """")
                 sb.AppendLine("	 ")
-                sb.AppendLine("	 [(ngModel)]=""current%obj%." & fld.Name & """")
+                sb.AppendLine("	 [(ngModel)]=""current%obj%." & DeCap(fld.Name) & """")
                 sb.AppendLine("	 >")
                 sb.AppendLine("  </amexio-dropdown>")
+
+                If fld.AllowNull = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Da Then
+                    sb.AppendLine("  </amexio-column>
+                   <amexio-column size=""1"" >")
+                    ' '00000000-0000-0000-0000-000000000000';
+                    sb.AppendLine(" <amexio-button amexioThemeStyle  [label]=""'X'"" (onClick)=""" & DeCap(fld.Name) & "_clear(); "" [type]=""'secondary'"" [tooltip]=""'Сброс'"" ></amexio-button>")
+                    sb.AppendLine("</amexio-column>
+     </amexio-row>")
+                End If
 
             End If
             sb.AppendLine("     </amexio-column></amexio-row>")
@@ -2410,38 +2671,41 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("	<amexio-row> ")
         sb.AppendLine("	<amexio-column size=""12""> ")
         'sb.AppendLine("		<button type=""button"" class=""btn btn-outline"" (click) = ""opened = false"">Отмена</button> ")
-        sb.AppendLine("     <amexio-button  [label]=""'Отмена'"" (onClick)=""opened = false;  refresh%obj%();"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Отмена'"" (onClick)=""opened = false;  refresh%obj%();"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
         'sb.AppendLine("		<button type=""submit"" class=""btn btn-primary"" (click)=""save(current%obj%, true)"" >Сохранить</button> ")
-        sb.AppendLine("     <amexio-button  [label]=""'Сохранить'"" (onClick)=""save(current%obj%)"" [type]=""'success'"" [tooltip]=""'Сохранить'"" [icon]=""'fa fa-save'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Сохранить'"" (onClick)=""save(current%obj%)"" [type]=""'success'"" [tooltip]=""'Сохранить'"" [icon]=""'fa fa-save'""></amexio-button>")
         sb.AppendLine("	</amexio-column> ")
         sb.AppendLine("	</amexio-row> ")
         sb.AppendLine("	</amexio-action> ")
         sb.AppendLine("</amexio-window> ")
         sb.AppendLine("   ")
         sb.AppendLine("<!-- list Of row pane --> ")
-        sb.AppendLine("<amexio-card [show]=""true"" [header] =""true"" [footer] =""false"" > ")
+        sb.AppendLine("<amexio-card  amexioColorPalette [color-palette]=""'classic'"" [gradient]=""true"" [show]=""true"" [header] =""true"" [footer] =""false"" > ")
         sb.AppendLine("    <amexio-header> ")
         sb.AppendLine("	<amexio-row> ")
         sb.AppendLine("		<amexio-column size=""12"" > ")
 
         If Not isRoot Then
-            sb.AppendLine("		<amexio-button [disabled]=""AppService.Last%parent%." & DeCap(ParentPart.Name) & "Id==null"" [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
+            sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""AppService.Last%parent%." & DeCap(ParentPart.Name) & "Id==null"" [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
         Else
-            sb.AppendLine("		<amexio-button [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
+            sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
         End If
-        sb.AppendLine("		<amexio-button [disabled]=""current%obj%." & DeCap(P.Name) & "Id==null"" [label]=""'Изменить'"" (onClick)=""onEdit(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Изменить запись'"" [icon]=""'fa fa-edit'""></amexio-button>")
+        sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""current%obj%." & DeCap(P.Name) & "Id==null"" [label]=""'Изменить'"" (onClick)=""onEdit(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Изменить запись'"" [icon]=""'fa fa-edit'""></amexio-button>")
 
-        sb.AppendLine("     <amexio-button [disabled]=""current%obj%." & DeCap(P.Name) & "Id==null"" [label]=""'Удалить'"" (onClick)=""onDelete(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Удалить запись'"" [icon]=""'fa fa-trash'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""current%obj%." & DeCap(P.Name) & "Id==null"" [label]=""'Удалить'"" (onClick)=""onDelete(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Удалить запись'"" [icon]=""'fa fa-trash'""></amexio-button>")
 
-        sb.AppendLine("     <amexio-button  [label]=""'Обновить'"" (onClick)=""refresh%obj%()"" [type]=""'secondary'"" [tooltip]=""'Обновить данные'"" [icon]=""'fa fa-refresh'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Обновить'"" (onClick)=""refresh%obj%()"" [type]=""'secondary'"" [tooltip]=""'Обновить данные'"" [icon]=""'fa fa-refresh'""></amexio-button>")
+
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Экспорт'"" (onClick)=""exportXSLX()"" [type]=""'secondary'"" [tooltip]=""'Экспорт данных'"" [icon]=""'fa fa-cloud'""></amexio-button>")
+
         sb.AppendLine("		</amexio-column>")
         sb.AppendLine("	</amexio-row> ")
         sb.AppendLine("	</amexio-header> ")
         sb.AppendLine("	<amexio-body> ")
-        sb.AppendLine("		<amexio-datagrid ")
+        sb.AppendLine("		<amexio-datagrid amexioColorPalette [color-palette]=""'vibrant'"" [gradient]=""true"" ")
         sb.AppendLine("		  [title]=""'%objname%'"" ")
         sb.AppendLine("		  [page-size] = ""10"" ")
-        sb.AppendLine("		  [enable-data-filter]=""false"" ")
+        sb.AppendLine("		  [enable-data-filter]=""false"" [global-filter]=""true"" ")
         sb.AppendLine("		  [enable-checkbox]=""false"" ")
         sb.AppendLine("		  [data]=""%obj%Array"" ")
         sb.AppendLine("		  (selectedRowData)=""onSelect($event)"" ")
@@ -2460,30 +2724,30 @@ Public Class frmWebAPI_Amexio5
                 isFirst = False
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_String Then
                     If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-                        sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "_name'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
+                        sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & DeCap(fld.Name) & "_name'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
                     ElseIf ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-                        sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "_name'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
+                        sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & DeCap(fld.Name) & "_name'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
                     Else
 
                         If ft.Name.ToLower = "memo" Or ft.Name.ToLower = "string" Then
-                            sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""> ")
+                            sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & DeCap(fld.Name) & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""> ")
                             sb.AppendLine(" 		  <ng-template #amexioBodyTmpl let-column let-row=""row"">")
-                            sb.AppendLine("             {{  ((row." & fld.Name & ") ? ((row." & fld.Name & ".length>100) ? row." & fld.Name & ".substr(0,100)+'...' : row." & fld.Name & " ) : '-') | removehtmltag }} ")
+                            sb.AppendLine("             {{  ((row." & DeCap(fld.Name) & ") ? ((row." & DeCap(fld.Name) & ".length>100) ? row." & DeCap(fld.Name) & ".substr(0,100)+'...' : row." & DeCap(fld.Name) & " ) : '-') | removehtmltag }} ")
                             sb.AppendLine("           </ng-template>")
                             sb.AppendLine("		  </amexio-data-table-column> ")
                         Else
 
-                            sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
+                            sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & DeCap(fld.Name) & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
                         End If
 
 
                     End If
                 End If
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Numeric Then
-                    sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "'"" [data-type]=""'number'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
+                    sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & DeCap(fld.Name) & "'"" [data-type]=""'number'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
                 End If
                 If ft.GridSortType = MTZMetaModel.MTZMetaModel.enumColumnSortType.ColumnSortType_As_Date Then
-                    sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & fld.Name & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
+                    sb.AppendLine("		  <amexio-data-table-column [data-index]=""'" & DeCap(fld.Name) & "'"" [data-type]=""'string'"" [hidden]=""false"" [text]=""'" & fld.Caption & "'""></amexio-data-table-column> ")
                 End If
             End If
         Next
@@ -2494,7 +2758,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("</amexio-card> ")
         sb.AppendLine(" ")
         sb.AppendLine("<!-- confirm delete  dialog -->  ")
-        sb.AppendLine("<amexio-window  [(show-window)]=""confirmOpened"" [closable]=""false"" [header]=""true"" [footer]=""true"" >  ")
+        sb.AppendLine("<amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true""   [show-window]=""confirmOpened && errorFlag==false "" [closable]=""false"" [header]=""true"" [footer]=""true"" amexioThemeStyle  [theme-style]=""'round-edge'"" >  ")
         sb.AppendLine("     ")
         sb.AppendLine("    <amexio-header>")
         sb.AppendLine("Удалить строку:  %objname% ?")
@@ -2516,9 +2780,9 @@ Public Class frmWebAPI_Amexio5
                     isFirst = False
 
                     If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Ssilka Then
-                        rowStr = rowStr & "current%obj%." & fld.Name & "_name"
+                        rowStr = rowStr & "current%obj%." & DeCap(fld.Name) & "_name"
                     Else
-                        rowStr = rowStr & "current%obj%." & fld.Name
+                        rowStr = rowStr & "current%obj%." & DeCap(fld.Name)
                     End If
 
 
@@ -2534,8 +2798,8 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("	<amexio-action> ")
         sb.AppendLine("	<amexio-row> ")
         sb.AppendLine("	<amexio-column size=""12""> ")
-        sb.AppendLine("     <amexio-button  [label]=""'Отмена'"" (onClick)=""confirmOpened = false"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
-        sb.AppendLine("     <amexio-button  [label]=""'Удалить'"" (onClick)=""onConfirmDeletion()"" [type]=""'danger'"" [tooltip]=""'Удалить'"" [icon]=""'fa fa-trash'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Отмена'"" (onClick)=""confirmOpened = false"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Удалить'"" (onClick)=""onConfirmDeletion()"" [type]=""'danger'"" [tooltip]=""'Удалить'"" [icon]=""'fa fa-trash'""></amexio-button>")
         sb.AppendLine("	</amexio-column> ")
         sb.AppendLine("	</amexio-row> ")
         sb.AppendLine("	</amexio-action> ")
@@ -2547,8 +2811,8 @@ Public Class frmWebAPI_Amexio5
 
 
         ss = sb.ToString()
-        ss = ss.Replace("%obj%", P.Name)
-        ss = ss.Replace("%parent%", ParentPart.Name)
+        ss = ss.Replace("%obj%", DeCap(P.Name))
+        ss = ss.Replace("%parent%", DeCap(ParentPart.Name))
         ss = ss.Replace("%objname%", ot.the_Comment & "::" & P.Caption)
         ss = ss.Replace("%ns%", txtNS.Text)
         ss = ss.Replace("%type%", ot.Name)
@@ -2615,5 +2879,15 @@ Public Class frmWebAPI_Amexio5
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtNS.TextChanged
         SaveSetting("L2BUILDER", "EXT2NET_" & Manager.Site, "DEFNS", txtNS.Text)
+    End Sub
+
+    Private Sub chkUseDecap_CheckedChanged(sender As Object, e As EventArgs) Handles chkUseDecap.CheckedChanged
+        UseDeCap = chkUseDecap.Checked
+
+
+    End Sub
+
+    Private Sub txtContext_TextChanged(sender As Object, e As EventArgs) Handles txtContext.TextChanged
+        SaveSetting("L2BUILDER", "EXT2NET_" & Manager.Site, "DEFCONTEXT", txtContext.Text)
     End Sub
 End Class

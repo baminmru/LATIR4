@@ -68,6 +68,7 @@ Public Class frmGenerator
     Friend WithEvents FolderBrowserDialogDllOutput As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents cmdDoc As System.Windows.Forms.Button
     Friend WithEvents cDlg As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents chkSimpleDoc As CheckBox
     Friend WithEvents folderBrowserDialogProjectOutput As System.Windows.Forms.FolderBrowserDialog
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
@@ -104,6 +105,7 @@ Public Class frmGenerator
         Me.TextBoxDevEnv = New LATIR2GuiManager.TouchTextBox()
         Me.TextBoxOutDlls = New LATIR2GuiManager.TouchTextBox()
         Me.textBoxOutPutFolder = New LATIR2GuiManager.TouchTextBox()
+        Me.chkSimpleDoc = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'folderBrowserDialogProjectOutput
@@ -116,10 +118,10 @@ Public Class frmGenerator
         Me.cmdClearLog.BackColor = System.Drawing.SystemColors.Control
         Me.cmdClearLog.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdClearLog.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdClearLog.Location = New System.Drawing.Point(585, 477)
+        Me.cmdClearLog.Location = New System.Drawing.Point(614, 497)
         Me.cmdClearLog.Name = "cmdClearLog"
         Me.cmdClearLog.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdClearLog.Size = New System.Drawing.Size(174, 24)
+        Me.cmdClearLog.Size = New System.Drawing.Size(145, 21)
         Me.cmdClearLog.TabIndex = 66
         Me.cmdClearLog.Text = "Очистить журнал"
         Me.cmdClearLog.UseVisualStyleBackColor = False
@@ -130,10 +132,10 @@ Public Class frmGenerator
         Me.cmdFindErr.BackColor = System.Drawing.SystemColors.Control
         Me.cmdFindErr.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdFindErr.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdFindErr.Location = New System.Drawing.Point(405, 477)
+        Me.cmdFindErr.Location = New System.Drawing.Point(464, 497)
         Me.cmdFindErr.Name = "cmdFindErr"
         Me.cmdFindErr.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdFindErr.Size = New System.Drawing.Size(174, 24)
+        Me.cmdFindErr.Size = New System.Drawing.Size(145, 21)
         Me.cmdFindErr.TabIndex = 65
         Me.cmdFindErr.Text = "Следующая ошибка"
         Me.cmdFindErr.UseVisualStyleBackColor = False
@@ -144,10 +146,10 @@ Public Class frmGenerator
         Me.cmdGen.BackColor = System.Drawing.SystemColors.Control
         Me.cmdGen.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdGen.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdGen.Location = New System.Drawing.Point(672, 6)
+        Me.cmdGen.Location = New System.Drawing.Point(686, 5)
         Me.cmdGen.Name = "cmdGen"
         Me.cmdGen.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdGen.Size = New System.Drawing.Size(87, 24)
+        Me.cmdGen.Size = New System.Drawing.Size(73, 21)
         Me.cmdGen.TabIndex = 64
         Me.cmdGen.Text = "Генерация"
         Me.cmdGen.UseVisualStyleBackColor = False
@@ -157,11 +159,11 @@ Public Class frmGenerator
         Me.txtLog.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtLog.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtLog.Location = New System.Drawing.Point(4, 508)
+        Me.txtLog.Location = New System.Drawing.Point(3, 524)
         Me.txtLog.Name = "txtLog"
         Me.txtLog.ReadOnly = True
         Me.txtLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
-        Me.txtLog.Size = New System.Drawing.Size(755, 112)
+        Me.txtLog.Size = New System.Drawing.Size(756, 97)
         Me.txtLog.TabIndex = 63
         Me.txtLog.Text = ""
         '
@@ -170,10 +172,10 @@ Public Class frmGenerator
         Me.Label5.BackColor = System.Drawing.SystemColors.Control
         Me.Label5.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label5.Location = New System.Drawing.Point(6, 504)
+        Me.Label5.Location = New System.Drawing.Point(5, 437)
         Me.Label5.Name = "Label5"
         Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(126, 20)
+        Me.Label5.Size = New System.Drawing.Size(105, 17)
         Me.Label5.TabIndex = 62
         Me.Label5.Text = "Журнал"
         '
@@ -183,10 +185,10 @@ Public Class frmGenerator
         Me.ButtonGenSetup.BackColor = System.Drawing.SystemColors.Control
         Me.ButtonGenSetup.Cursor = System.Windows.Forms.Cursors.Default
         Me.ButtonGenSetup.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonGenSetup.Location = New System.Drawing.Point(166, 288)
+        Me.ButtonGenSetup.Location = New System.Drawing.Point(138, 334)
         Me.ButtonGenSetup.Name = "ButtonGenSetup"
         Me.ButtonGenSetup.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ButtonGenSetup.Size = New System.Drawing.Size(183, 25)
+        Me.ButtonGenSetup.Size = New System.Drawing.Size(153, 21)
         Me.ButtonGenSetup.TabIndex = 61
         Me.ButtonGenSetup.Text = "Настройка генератора"
         Me.ButtonGenSetup.UseVisualStyleBackColor = False
@@ -194,9 +196,9 @@ Public Class frmGenerator
         'ButtonDevEnv
         '
         Me.ButtonDevEnv.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonDevEnv.Location = New System.Drawing.Point(728, 415)
+        Me.ButtonDevEnv.Location = New System.Drawing.Point(734, 444)
         Me.ButtonDevEnv.Name = "ButtonDevEnv"
-        Me.ButtonDevEnv.Size = New System.Drawing.Size(31, 26)
+        Me.ButtonDevEnv.Size = New System.Drawing.Size(25, 22)
         Me.ButtonDevEnv.TabIndex = 57
         Me.ButtonDevEnv.Text = "..."
         '
@@ -204,9 +206,9 @@ Public Class frmGenerator
         '
         Me.LabelDevEnv.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelDevEnv.AutoSize = True
-        Me.LabelDevEnv.Location = New System.Drawing.Point(14, 419)
+        Me.LabelDevEnv.Location = New System.Drawing.Point(12, 447)
         Me.LabelDevEnv.Name = "LabelDevEnv"
-        Me.LabelDevEnv.Size = New System.Drawing.Size(126, 17)
+        Me.LabelDevEnv.Size = New System.Drawing.Size(99, 13)
         Me.LabelDevEnv.TabIndex = 55
         Me.LabelDevEnv.Text = "MSBUILD.exe path"
         '
@@ -216,9 +218,9 @@ Public Class frmGenerator
         Me.CheckBoxCompile.AutoSize = True
         Me.CheckBoxCompile.Checked = True
         Me.CheckBoxCompile.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBoxCompile.Location = New System.Drawing.Point(19, 394)
+        Me.CheckBoxCompile.Location = New System.Drawing.Point(16, 427)
         Me.CheckBoxCompile.Name = "CheckBoxCompile"
-        Me.CheckBoxCompile.Size = New System.Drawing.Size(80, 21)
+        Me.CheckBoxCompile.Size = New System.Drawing.Size(63, 17)
         Me.CheckBoxCompile.TabIndex = 54
         Me.CheckBoxCompile.Text = "Compile"
         Me.CheckBoxCompile.UseVisualStyleBackColor = True
@@ -226,9 +228,9 @@ Public Class frmGenerator
         'ButtonOutDlls
         '
         Me.ButtonOutDlls.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonOutDlls.Location = New System.Drawing.Point(728, 442)
+        Me.ButtonOutDlls.Location = New System.Drawing.Point(734, 467)
         Me.ButtonOutDlls.Name = "ButtonOutDlls"
-        Me.ButtonOutDlls.Size = New System.Drawing.Size(31, 25)
+        Me.ButtonOutDlls.Size = New System.Drawing.Size(25, 22)
         Me.ButtonOutDlls.TabIndex = 60
         Me.ButtonOutDlls.Text = "..."
         '
@@ -236,18 +238,18 @@ Public Class frmGenerator
         '
         Me.LabelOutDlls.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelOutDlls.AutoSize = True
-        Me.LabelOutDlls.Location = New System.Drawing.Point(17, 448)
+        Me.LabelOutDlls.Location = New System.Drawing.Point(14, 472)
         Me.LabelOutDlls.Name = "LabelOutDlls"
-        Me.LabelOutDlls.Size = New System.Drawing.Size(122, 17)
+        Me.LabelOutDlls.Size = New System.Drawing.Size(91, 13)
         Me.LabelOutDlls.TabIndex = 58
         Me.LabelOutDlls.Text = "Dlls Output Folder"
         '
         'button3
         '
         Me.button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.button3.Location = New System.Drawing.Point(728, 368)
+        Me.button3.Location = New System.Drawing.Point(734, 403)
         Me.button3.Name = "button3"
-        Me.button3.Size = New System.Drawing.Size(31, 25)
+        Me.button3.Size = New System.Drawing.Size(25, 22)
         Me.button3.TabIndex = 53
         Me.button3.Text = "..."
         '
@@ -255,9 +257,9 @@ Public Class frmGenerator
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(16, 374)
+        Me.Label3.Location = New System.Drawing.Point(13, 408)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(154, 17)
+        Me.Label3.Size = New System.Drawing.Size(115, 13)
         Me.Label3.TabIndex = 51
         Me.Label3.Text = "Projects Output Folder:"
         '
@@ -265,9 +267,9 @@ Public Class frmGenerator
         '
         Me.progressBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.progressBar.Location = New System.Drawing.Point(14, 333)
+        Me.progressBar.Location = New System.Drawing.Point(12, 373)
         Me.progressBar.Name = "progressBar"
-        Me.progressBar.Size = New System.Drawing.Size(745, 20)
+        Me.progressBar.Size = New System.Drawing.Size(747, 17)
         Me.progressBar.TabIndex = 49
         Me.progressBar.Visible = False
         '
@@ -277,10 +279,10 @@ Public Class frmGenerator
         Me.Label1.BackColor = System.Drawing.SystemColors.Control
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(14, 315)
+        Me.Label1.Location = New System.Drawing.Point(12, 357)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(136, 20)
+        Me.Label1.Size = New System.Drawing.Size(113, 17)
         Me.Label1.TabIndex = 50
         Me.Label1.Text = "Процесс генерации"
         Me.Label1.Visible = False
@@ -292,9 +294,9 @@ Public Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkTypes.CheckOnClick = True
         Me.chkTypes.FormattingEnabled = True
-        Me.chkTypes.Location = New System.Drawing.Point(359, 50)
+        Me.chkTypes.Location = New System.Drawing.Point(299, 43)
         Me.chkTypes.Name = "chkTypes"
-        Me.chkTypes.Size = New System.Drawing.Size(400, 208)
+        Me.chkTypes.Size = New System.Drawing.Size(460, 214)
         Me.chkTypes.Sorted = True
         Me.chkTypes.TabIndex = 45
         '
@@ -303,10 +305,10 @@ Public Class frmGenerator
         Me.Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(355, 33)
+        Me.Label4.Location = New System.Drawing.Point(296, 29)
         Me.Label4.Name = "Label4"
         Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label4.Size = New System.Drawing.Size(121, 20)
+        Me.Label4.Size = New System.Drawing.Size(101, 17)
         Me.Label4.TabIndex = 48
         Me.Label4.Text = "Типы документов"
         '
@@ -316,10 +318,10 @@ Public Class frmGenerator
         Me.cmdUnSelectAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdUnSelectAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdUnSelectAll.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdUnSelectAll.Location = New System.Drawing.Point(486, 288)
+        Me.cmdUnSelectAll.Location = New System.Drawing.Point(405, 334)
         Me.cmdUnSelectAll.Name = "cmdUnSelectAll"
         Me.cmdUnSelectAll.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdUnSelectAll.Size = New System.Drawing.Size(120, 25)
+        Me.cmdUnSelectAll.Size = New System.Drawing.Size(100, 21)
         Me.cmdUnSelectAll.TabIndex = 47
         Me.cmdUnSelectAll.Text = "Отменить все"
         Me.cmdUnSelectAll.UseVisualStyleBackColor = False
@@ -330,10 +332,10 @@ Public Class frmGenerator
         Me.cmdSelectAll.BackColor = System.Drawing.SystemColors.Control
         Me.cmdSelectAll.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdSelectAll.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdSelectAll.Location = New System.Drawing.Point(359, 288)
+        Me.cmdSelectAll.Location = New System.Drawing.Point(299, 334)
         Me.cmdSelectAll.Name = "cmdSelectAll"
         Me.cmdSelectAll.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdSelectAll.Size = New System.Drawing.Size(120, 25)
+        Me.cmdSelectAll.Size = New System.Drawing.Size(100, 21)
         Me.cmdSelectAll.TabIndex = 46
         Me.cmdSelectAll.Text = "Выбрать все"
         Me.cmdSelectAll.UseVisualStyleBackColor = False
@@ -344,9 +346,9 @@ Public Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkGenerators.CheckOnClick = True
         Me.chkGenerators.FormattingEnabled = True
-        Me.chkGenerators.Location = New System.Drawing.Point(17, 50)
+        Me.chkGenerators.Location = New System.Drawing.Point(14, 43)
         Me.chkGenerators.Name = "chkGenerators"
-        Me.chkGenerators.Size = New System.Drawing.Size(333, 208)
+        Me.chkGenerators.Size = New System.Drawing.Size(278, 214)
         Me.chkGenerators.Sorted = True
         Me.chkGenerators.TabIndex = 43
         '
@@ -355,10 +357,10 @@ Public Class frmGenerator
         Me.Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(17, 33)
+        Me.Label2.Location = New System.Drawing.Point(14, 29)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(107, 20)
+        Me.Label2.Size = New System.Drawing.Size(89, 17)
         Me.Label2.TabIndex = 44
         Me.Label2.Text = "Генераторы"
         '
@@ -367,10 +369,10 @@ Public Class frmGenerator
         Me.cmdNormNames.BackColor = System.Drawing.SystemColors.Control
         Me.cmdNormNames.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdNormNames.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdNormNames.Location = New System.Drawing.Point(151, 6)
+        Me.cmdNormNames.Location = New System.Drawing.Point(126, 5)
         Me.cmdNormNames.Name = "cmdNormNames"
         Me.cmdNormNames.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdNormNames.Size = New System.Drawing.Size(136, 24)
+        Me.cmdNormNames.Size = New System.Drawing.Size(113, 21)
         Me.cmdNormNames.TabIndex = 42
         Me.cmdNormNames.Text = "Испр. имена"
         Me.cmdNormNames.UseVisualStyleBackColor = False
@@ -380,10 +382,10 @@ Public Class frmGenerator
         Me.cmdCheckModel.BackColor = System.Drawing.SystemColors.Control
         Me.cmdCheckModel.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdCheckModel.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdCheckModel.Location = New System.Drawing.Point(17, 6)
+        Me.cmdCheckModel.Location = New System.Drawing.Point(14, 5)
         Me.cmdCheckModel.Name = "cmdCheckModel"
         Me.cmdCheckModel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdCheckModel.Size = New System.Drawing.Size(135, 24)
+        Me.cmdCheckModel.Size = New System.Drawing.Size(113, 21)
         Me.cmdCheckModel.TabIndex = 41
         Me.cmdCheckModel.Text = "Проверить модель"
         Me.cmdCheckModel.UseVisualStyleBackColor = False
@@ -394,9 +396,9 @@ Public Class frmGenerator
         'cmdDoc
         '
         Me.cmdDoc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdDoc.Location = New System.Drawing.Point(545, 6)
+        Me.cmdDoc.Location = New System.Drawing.Point(580, 5)
         Me.cmdDoc.Name = "cmdDoc"
-        Me.cmdDoc.Size = New System.Drawing.Size(120, 24)
+        Me.cmdDoc.Size = New System.Drawing.Size(100, 21)
         Me.cmdDoc.TabIndex = 67
         Me.cmdDoc.Text = "Документация"
         Me.cmdDoc.UseVisualStyleBackColor = True
@@ -405,9 +407,9 @@ Public Class frmGenerator
         '
         Me.TextBoxDevEnv.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxDevEnv.Location = New System.Drawing.Point(161, 415)
+        Me.TextBoxDevEnv.Location = New System.Drawing.Point(134, 444)
         Me.TextBoxDevEnv.Name = "TextBoxDevEnv"
-        Me.TextBoxDevEnv.Size = New System.Drawing.Size(552, 22)
+        Me.TextBoxDevEnv.Size = New System.Drawing.Size(586, 20)
         Me.TextBoxDevEnv.TabIndex = 56
         Me.TextBoxDevEnv.Text = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\"
         '
@@ -415,9 +417,9 @@ Public Class frmGenerator
         '
         Me.TextBoxOutDlls.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxOutDlls.Location = New System.Drawing.Point(161, 442)
+        Me.TextBoxOutDlls.Location = New System.Drawing.Point(134, 467)
         Me.TextBoxOutDlls.Name = "TextBoxOutDlls"
-        Me.TextBoxOutDlls.Size = New System.Drawing.Size(552, 22)
+        Me.TextBoxOutDlls.Size = New System.Drawing.Size(586, 20)
         Me.TextBoxOutDlls.TabIndex = 59
         Me.TextBoxOutDlls.Text = "C:\LATIR4\Build"
         '
@@ -425,16 +427,28 @@ Public Class frmGenerator
         '
         Me.textBoxOutPutFolder.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(161, 368)
+        Me.textBoxOutPutFolder.Location = New System.Drawing.Point(134, 403)
         Me.textBoxOutPutFolder.Name = "textBoxOutPutFolder"
-        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(552, 22)
+        Me.textBoxOutPutFolder.Size = New System.Drawing.Size(586, 20)
         Me.textBoxOutPutFolder.TabIndex = 52
         Me.textBoxOutPutFolder.Text = "C:\LATIR4\Generated\"
         '
+        'chkSimpleDoc
+        '
+        Me.chkSimpleDoc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkSimpleDoc.AutoSize = True
+        Me.chkSimpleDoc.Location = New System.Drawing.Point(484, 8)
+        Me.chkSimpleDoc.Name = "chkSimpleDoc"
+        Me.chkSimpleDoc.Size = New System.Drawing.Size(91, 17)
+        Me.chkSimpleDoc.TabIndex = 68
+        Me.chkSimpleDoc.Text = "Упрощенная"
+        Me.chkSimpleDoc.UseVisualStyleBackColor = True
+        '
         'frmGenerator
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
-        Me.ClientSize = New System.Drawing.Size(762, 625)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.ClientSize = New System.Drawing.Size(764, 630)
+        Me.Controls.Add(Me.chkSimpleDoc)
         Me.Controls.Add(Me.cmdDoc)
         Me.Controls.Add(Me.cmdClearLog)
         Me.Controls.Add(Me.cmdFindErr)
@@ -465,7 +479,7 @@ Public Class frmGenerator
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(780, 669)
+        Me.MinimumSize = New System.Drawing.Size(650, 580)
         Me.Name = "frmGenerator"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generate sources"
@@ -1880,11 +1894,16 @@ bye:
         H = H - 1
     End Sub
 
+
+    Private Function FullDoc() As Boolean
+        Return (chkSimpleDoc.Checked = False)
+    End Function
+
     Private Sub ObjectTypeToHTML(ByVal ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE)
         H = 0
         H = H + 1
         wh.AppendLine("<h" + H.ToString + ">")
-        wh.Append("Описание документа: " & ot.the_Comment & " ( " & ot.Name & " )")
+        wh.Append("Описание документа: """ & ot.the_Comment & """ ( " & ot.Name & " )")
         wh.AppendLine("</h" + H.ToString + ">")
         If ot.TheComment <> "" Then
             wh.Append(ot.TheComment)
@@ -1896,8 +1915,12 @@ bye:
         Dim sm As MTZMetaModel.MTZMetaModel.SHAREDMETHOD
         Dim i As Long, j As Long, k As Long
         pkg = ot.Package
-        wh.Append("Документ входит в состав приложения: " & pkg.Name)
-        wh.Append("<br/>")
+        If FullDoc() Then
+            wh.Append("Документ входит в состав приложения: " & pkg.Name)
+            wh.Append("<br/>")
+        End If
+
+
         If ot.IsSingleInstance Then
             wh.Append("Допускается существование только одного документа данного типа в информационной системе")
             wh.Append("<br/>")
@@ -2211,13 +2234,41 @@ nxt:
     'End Sub
 
 
+    Private Function FindRootPart(ByVal s As MTZMetaModel.MTZMetaModel.PART) As MTZMetaModel.MTZMetaModel.PART
+        Dim i As Integer
+        Dim p As MTZMetaModel.MTZMetaModel.PART
+        Dim obj As MTZMetaModel.MTZMetaModel.OBJECTTYPE
+
+        If TypeName(s.Parent.Parent) <> "OBJECTTYPE" Then
+            Return Nothing
+        End If
+
+        obj = s.Parent.Parent
+
+        For i = 1 To obj.PART.Count
+            p = obj.PART.Item(i)
+            If p.Sequence = 0 Then
+                If Not p.ID.Equals(s.ID) Then
+                    Return p
+                Else
+                    Return Nothing
+                End If
+            End If
+
+        Next
+
+        Return Nothing
+
+
+    End Function
+
     Private Sub PartToHTML(ByVal p As MTZMetaModel.MTZMetaModel.PART, ByVal ot As MTZMetaModel.MTZMetaModel.OBJECTTYPE)
         H = H + 1
         wh.AppendLine("<h" + H.ToString + ">")
-        wh.Append("Описание раздела: " & p.Caption & "(" & p.Name & ")")
+        wh.Append("Описание раздела: """ & p.Caption & """ (" & p.Name & ")")
         wh.AppendLine("</h" + H.ToString + ">")
         wh.Append(p.the_Comment)
-
+        wh.Append("<br/>")
 
         Dim s As String, sp As Long, ep As Long
         Dim f As MTZMetaModel.MTZMetaModel.FIELD
@@ -2225,25 +2276,45 @@ nxt:
         Dim i As Long, j As Long, k As Long
 
         If UCase(TypeName(p.Parent.Parent)) = "OBJECTTYPE" Then
-            wh.Append("Раздел первого уровня документа " & ot.the_Comment)
-            wh.Append("<br/>")
+
+            If FullDoc() Then
+                wh.Append("Раздел первого уровня документа """ & ot.the_Comment & """.")
+                wh.Append("<br/>")
+            Else
+                If p.Sequence = 0 Then
+                    wh.Append("Раздел первого уровня документа """ & ot.the_Comment & """.")
+                    wh.Append("<br/>")
+                Else
+                    Dim root As MTZMetaModel.MTZMetaModel.PART = FindRootPart(p)
+                    If Not root Is Nothing Then
+                        wh.Append("Дочерний раздел к разделу """ & CType(root, MTZMetaModel.MTZMetaModel.PART).Caption & """.")
+                        wh.Append("<br/>")
+                    Else
+                        wh.Append("Раздел первого уровня документа """ & ot.the_Comment & """.")
+                        wh.Append("<br/>")
+                    End If
+                End If
+
+            End If
+
+
         Else
-            wh.Append("Дочерний раздел к разделу " & CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Caption)
+            wh.Append("Дочерний раздел к разделу """ & CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Caption & """.")
             wh.Append("<br/>")
         End If
 
         If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Stroka Then
-            wh.Append("Структура (коллекция с одной строкой)")
+            wh.Append("Структура (коллекция с одной строкой).")
             wh.Append("<br/>")
         End If
 
         If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Kollekciy Then
-            wh.Append("Коллекция строк")
+            wh.Append("Коллекция строк.")
             wh.Append("<br/>")
         End If
 
         If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
-            wh.Append("Древовидная структура")
+            wh.Append("Древовидная структура.")
             wh.Append("<br/>")
         End If
         '  If P.the_comment <> "" Then
@@ -2254,34 +2325,70 @@ nxt:
 
         If Not DocShort Then
             wh.Append("<b>")
-            wh.Append("Структура раздела")
+            wh.Append("Структура раздела.")
             wh.Append("</b>")
             wh.Append("<br/>")
             p.FIELD.Sort = "sequence"
             wh.AppendLine("<table border=""1""><tr><td>")
-            s = "Группа" & "</td><td>" & "Название" & "</td><td>" & "Псевдоним" & "</td><td>" & "Тип" & "</td><td>" & "Можно не задавать" & "</td><td>" & "Размер / Ссылка" & "</td><td>" & "Примечание" & "</td><td>" & "Модификатор" & "</td></tr>"
+            If FullDoc() Then
+                s = "Группа" & "</td><td>" & "Название" & "</td><td>" & "Псевдоним" & "</td><td>" & "Тип" & "</td><td>" & "Можно не задавать" & "</td><td>" & "Размер / Ссылка" & "</td><td>" & "Примечание" & "</td><td>" & "Модификатор" & "</td></tr>"
+            Else
+                s = "Группа" & "</td><td>" & "Название" & "</td><td>" & "Псевдоним" & "</td><td>" & "Тип" & "</td><td>" & "Можно не задавать" & "</td><td>" & "Размер / Ссылка" & "</td><td>" & "Примечание" & "</td></tr>"
+            End If
+
             wh.Append(s)
 
 
 
 
             If UCase(TypeName(p.Parent.Parent)) = "OBJECTTYPE" Then
-                wh.Append("<tr><td>Системное поле</td><td>Документ" & "</td><td>" & "InstanceID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Документа" & "</td><td></td></tr>")
+                If FullDoc() Then
+                    wh.Append("<tr><td>Системное поле</td><td>Документ" & "</td><td>" & "InstanceID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Документа" & "</td><td></td></tr>")
+                    wh.Append("<tr><td>Системное поле</td><td>Идентификатор строки" & "</td><td>" & p.Name & "id" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "Ключевое поле таблицы " & p.Name & "</td><td></td></tr>")
+                Else
+                    If p.Sequence = 0 Then
+                        wh.Append("<tr><td>Системное поле</td><td>Документ" & "</td><td>" & p.Name & "ID" & "</td><td>" & "GUID" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Документа" & "</td></tr>")
+
+                    Else
+                        Dim root As MTZMetaModel.MTZMetaModel.PART = FindRootPart(p)
+                        If Not root Is Nothing Then
+                            wh.Append("<tr><td>Системное поле</td><td>ID родительской строки в " & root.Caption & "</td><td>" & root.Name & "ID" & "</td><td>" & "GUID" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Родителя" & "</td></tr>")
+                        End If
+
+                        wh.Append("<tr><td>Системное поле</td><td>Идентификатор строки" & "</td><td>" & p.Name & "id" & "</td><td>" & "GUID" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "Ключевое поле таблицы " & p.Name & "</td></tr>")
+                    End If
+
+                End If
             Else
-                wh.Append("<tr><td>Системное поле</td><td>ID родительской строки в " & CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Caption & "</td><td>" & "ParentStructRowID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Документа" & "</td><td></td></tr>")
+                If FullDoc() Then
+                    wh.Append("<tr><td>Системное поле</td><td>ID родительской строки в " & CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Caption & "</td><td>" & "ParentStructRowID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Родителя" & "</td><td></td></tr>")
+                    wh.Append("<tr><td>Системное поле</td><td>Идентификатор строки" & "</td><td>" & p.Name & "id" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "Ключевое поле таблицы " & p.Name & "</td><td></td></tr>")
+                Else
+                    wh.Append("<tr><td>Системное поле</td><td>ID родительской строки в " & CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Caption & "</td><td>" & CType(p.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Name & "ID" & "</td><td>" & "GUID" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID Родителя" & "</td></tr>")
+                    wh.Append("<tr><td>Системное поле</td><td>Идентификатор строки" & "</td><td>" & p.Name & "id" & "</td><td>" & "GUID" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "Ключевое поле таблицы " & p.Name & "</td></tr>")
+                End If
+
+            End If
+
+            '
+
+            If FullDoc() Then
+
+                wh.Append("<tr><td>Системное поле</td><td>Дата модификации" & "</td><td>" & "ChangeStamp" & "</td><td>" & "datetime" & "</td><td>" & "Нет" & "</td><td>" & "8" & "</td><td>" & "Время последней модификации" & "</td><td></td></tr>")
+                wh.Append("<tr><td>Системное поле</td><td>Дата модификации" & "</td><td>" & "TimeStamp" & "</td><td>" & "timestamp " & "</td><td>" & "Нет" & "</td><td>" & "8" & "</td><td>" & "</td></tr>")
+                wh.Append("<tr><td>Системное поле</td><td>Блокировка" & "</td><td>" & "LockSessionID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID блокирующей сессии" & "</td><td></td></tr>")
+                wh.Append("<tr><td>Системное поле</td><td>CheckOut блокировка" & "</td><td>" & "LockUserID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID блокирующего пользователя" & "</td><td></td></tr>")
+                wh.Append("<tr><td>Системное поле</td><td>Права на строку" & "</td><td>" & "SecurityStyleID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID дескриптора прав ( не используется)" & "</td><td></td></tr>")
             End If
 
 
-            wh.Append("<tr><td>Системное поле</td><td>Идентификатор строки" & "</td><td>" & p.Name & "id" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "Ключевое поле таблицы " & p.Name & "</td><td></td></tr>")
-            wh.Append("<tr><td>Системное поле</td><td>Дата модификации" & "</td><td>" & "ChangeStamp" & "</td><td>" & "datetime" & "</td><td>" & "Нет" & "</td><td>" & "8" & "</td><td>" & "Время последней модификации" & "</td><td></td></tr>")
-            wh.Append("<tr><td>Системное поле</td><td>Дата модификации" & "</td><td>" & "TimeStamp" & "</td><td>" & "timestamp " & "</td><td>" & "Нет" & "</td><td>" & "8" & "</td><td>" & "</td></tr>")
-            wh.Append("<tr><td>Системное поле</td><td>Блокировка" & "</td><td>" & "LockSessionID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID блокирующей сессии" & "</td><td></td></tr>")
-            wh.Append("<tr><td>Системное поле</td><td>CheckOut блокировка" & "</td><td>" & "LockUserID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID блокирующего пользователя" & "</td><td></td></tr>")
-            wh.Append("<tr><td>Системное поле</td><td>Права на строку" & "</td><td>" & "SecurityStyleID" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID дескриптора прав ( не используется)" & "</td><td></td></tr>")
-
-
             If p.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
-                wh.Append("<tr><td>Системное поле</td><td>Родительская строка в дереве" & "</td><td>" & "ParentRowid" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID родительской строки в дереве, либо NULL для первого уровня дерева" & "</td><td></td></tr>")
+                If FullDoc() Then
+                    wh.Append("<tr><td>Системное поле</td><td>Родительская строка в дереве" & "</td><td>" & "ParentRowid" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID родительской строки в дереве, либо NULL для первого уровня дерева" & "</td><td></td></tr>")
+                Else
+                    wh.Append("<tr><td>Системное поле</td><td>Родительская строка в дереве" & "</td><td>" & "ParentRowid" & "</td><td>" & "UNIQUEIDENTIFIER" & "</td><td>" & "Нет" & "</td><td>" & "16" & "</td><td>" & "ID родительской строки в дереве, либо NULL для первого уровня дерева" & "</td></tr>")
+                End If
+
             End If
 
             For i = 1 To p.FIELD.Count
@@ -2357,57 +2464,64 @@ nxt:
                     s = s & "</td><td>"
                 End If
 
-                s = s & "</td><td>" & Notabs(ft.the_Comment) & " ( " & Notabs(f.TheComment) & " )</td>"
-                s = s & "</td><td>" & Notabs(f.TheStyle)
+                s = s & "</td><td>" & Notabs(ft.the_Comment)
+                If f.TheComment <> "" Then
+                    s = s & " ( " & Notabs(f.TheComment) & " )"
+                End If
+                s = s & "</td>"
+
+                If FullDoc() Then
+                    s = s & "</td><td>" & Notabs(f.TheStyle)
+                End If
                 s = s & "</td></tr>"
                 wh.Append(s)
 
                 Application.DoEvents()
-            Next
-            wh.AppendLine("</table>")
-            'wh.MakeTable(sp, ep, ep - sp + 1, 6)
-
-            If p.UNIQUECONSTRAINT.Count > 0 Then
-                wh.Append("Уникальные сочетания полей в разделе")
-                wh.Append("<br/>")
-                Dim unc As MTZMetaModel.MTZMetaModel.UNIQUECONSTRAINT
-                Dim uncf As MTZMetaModel.MTZMetaModel.CONSTRAINTFIELD
-                For j = 1 To p.UNIQUECONSTRAINT.Count
-                    unc = p.UNIQUECONSTRAINT.Item(j)
-                    If unc.PerParent Then
-                        wh.Append("Ограничение №" & j & " - в рамках родительского раздела")
-                        wh.Append("<br/>")
-
-                    Else
-                        wh.Append("Ограничение №" & j & " - глобальное")
-                        wh.Append("<br/>")
-                    End If
-                    If unc.Name <> "" Then
-                        wh.Append(unc.Name)
-                    End If
-                    If unc.TheComment <> "" Then
-                        wh.Append(unc.TheComment)
-                    End If
-
-
-                    s = "Уникальное сочетание полей:"
-                    For k = 1 To unc.CONSTRAINTFIELD.Count
-                        uncf = unc.CONSTRAINTFIELD.Item(k)
-                        f = uncf.TheField
-                        If k <> 1 Then
-                            s = s & "+"
-                        End If
-                        s = s & f.Caption
-                    Next
-                    wh.Append("<i>")
-                    wh.Append(s)
-                    wh.Append("</i>")
-                    wh.Append("<br/>")
-
                 Next
+                wh.AppendLine("</table>")
+                'wh.MakeTable(sp, ep, ep - sp + 1, 6)
+
+                If p.UNIQUECONSTRAINT.Count > 0 Then
+                    wh.Append("Уникальные сочетания полей в разделе")
+                    wh.Append("<br/>")
+                    Dim unc As MTZMetaModel.MTZMetaModel.UNIQUECONSTRAINT
+                    Dim uncf As MTZMetaModel.MTZMetaModel.CONSTRAINTFIELD
+                    For j = 1 To p.UNIQUECONSTRAINT.Count
+                        unc = p.UNIQUECONSTRAINT.Item(j)
+                        If unc.PerParent Then
+                            wh.Append("Ограничение №" & j & " - в рамках родительского раздела")
+                            wh.Append("<br/>")
+
+                        Else
+                            wh.Append("Ограничение №" & j & " - глобальное")
+                            wh.Append("<br/>")
+                        End If
+                        If unc.Name <> "" Then
+                            wh.Append(unc.Name)
+                        End If
+                        If unc.TheComment <> "" Then
+                            wh.Append(unc.TheComment)
+                        End If
+
+
+                        s = "Уникальное сочетание полей:"
+                        For k = 1 To unc.CONSTRAINTFIELD.Count
+                            uncf = unc.CONSTRAINTFIELD.Item(k)
+                            f = uncf.TheField
+                            If k <> 1 Then
+                                s = s & "+"
+                            End If
+                            s = s & f.Caption
+                        Next
+                        wh.Append("<i>")
+                        wh.Append(s)
+                        wh.Append("</i>")
+                        wh.Append("<br/>")
+
+                    Next
+                End If
             End If
-        End If
-        p.PART.Sort = "sequence"
+            p.PART.Sort = "sequence"
 
         If IncludeProcsToDoc Then
             wh.AppendLine("<p><b>")
@@ -2416,7 +2530,7 @@ nxt:
 
 
             wh.Append("<b>")
-            wh.Append("Функция вычисления краткого наименования")
+            wh.Append("Функция вычисления краткого наименования.")
             wh.Append("</b>")
 
             wh.Append("<br/>")

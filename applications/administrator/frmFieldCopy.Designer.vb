@@ -42,19 +42,18 @@ Partial Class frmFieldCopy
         '
         Me.tvCopyTo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tvCopyTo.Location = New System.Drawing.Point(446, 41)
+        Me.tvCopyTo.Location = New System.Drawing.Point(382, 41)
         Me.tvCopyTo.Name = "tvCopyTo"
-        Me.tvCopyTo.Size = New System.Drawing.Size(321, 177)
+        Me.tvCopyTo.Size = New System.Drawing.Size(579, 177)
         Me.tvCopyTo.TabIndex = 1
         '
         'cmdCopy
         '
-        Me.cmdCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdCopy.Location = New System.Drawing.Point(339, 288)
+        Me.cmdCopy.Location = New System.Drawing.Point(337, 228)
         Me.cmdCopy.Name = "cmdCopy"
-        Me.cmdCopy.Size = New System.Drawing.Size(101, 33)
+        Me.cmdCopy.Size = New System.Drawing.Size(39, 171)
         Me.cmdCopy.TabIndex = 2
-        Me.cmdCopy.Text = "Копировать >>"
+        Me.cmdCopy.Text = ">> Копировать  >>"
         Me.cmdCopy.UseVisualStyleBackColor = True
         '
         'Label1
@@ -82,24 +81,25 @@ Partial Class frmFieldCopy
         Me.lstFrom.FormattingEnabled = True
         Me.lstFrom.Location = New System.Drawing.Point(19, 226)
         Me.lstFrom.Name = "lstFrom"
-        Me.lstFrom.Size = New System.Drawing.Size(312, 173)
+        Me.lstFrom.Size = New System.Drawing.Size(312, 251)
         Me.lstFrom.TabIndex = 8
         '
         'lstTo
         '
-        Me.lstTo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lstTo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstTo.FormattingEnabled = True
-        Me.lstTo.Location = New System.Drawing.Point(446, 228)
+        Me.lstTo.Location = New System.Drawing.Point(382, 228)
         Me.lstTo.Name = "lstTo"
-        Me.lstTo.Size = New System.Drawing.Size(318, 173)
+        Me.lstTo.Size = New System.Drawing.Size(576, 251)
         Me.lstTo.TabIndex = 9
         '
         'frmFieldCopy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 418)
+        Me.ClientSize = New System.Drawing.Size(978, 505)
         Me.Controls.Add(Me.lstTo)
         Me.Controls.Add(Me.lstFrom)
         Me.Controls.Add(Me.Label2)
