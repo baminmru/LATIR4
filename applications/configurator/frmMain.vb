@@ -70,14 +70,14 @@ Public Class frmMain
     Private Sub loadListSite()
         ctrlPageSite()
         lstSite1.Items.Clear()
-
-        For i As Long = 1 To colSite.c.Count
-            lstSite1.Items.Add(colSite.c.Item(i).name)
-        Next
-
         btSaveSite.Enabled = False
-        If colSite.c.Count > 0 Then
-            lstSite1.SelectedIndex = nSite
+        If colSite.c IsNot Nothing Then
+            For i As Long = 1 To colSite.c.Count
+                lstSite1.Items.Add(colSite.c.Item(i).name)
+            Next
+            If colSite.c.Count > 0 Then
+                lstSite1.SelectedIndex = nSite
+            End If
         End If
         loadSite()
     End Sub

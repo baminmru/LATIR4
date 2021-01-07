@@ -37,6 +37,10 @@ Partial Class frmWebAPI_Amexio5
         Me.txtContext = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.chkAutorize = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.optMS = New System.Windows.Forms.RadioButton()
+        Me.optPG = New System.Windows.Forms.RadioButton()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmdGen
@@ -178,11 +182,47 @@ Partial Class frmWebAPI_Amexio5
         Me.chkAutorize.Text = "Autorize"
         Me.chkAutorize.UseVisualStyleBackColor = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.optPG)
+        Me.GroupBox1.Controls.Add(Me.optMS)
+        Me.GroupBox1.Location = New System.Drawing.Point(241, 123)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(273, 54)
+        Me.GroupBox1.TabIndex = 84
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "DB"
+        '
+        'optMS
+        '
+        Me.optMS.AutoSize = True
+        Me.optMS.Checked = True
+        Me.optMS.Location = New System.Drawing.Point(27, 20)
+        Me.optMS.Name = "optMS"
+        Me.optMS.Size = New System.Drawing.Size(63, 17)
+        Me.optMS.TabIndex = 0
+        Me.optMS.TabStop = True
+        Me.optMS.Text = "Ms SQL"
+        Me.optMS.UseVisualStyleBackColor = True
+        '
+        'optPG
+        '
+        Me.optPG.AutoSize = True
+        Me.optPG.Location = New System.Drawing.Point(142, 20)
+        Me.optPG.Name = "optPG"
+        Me.optPG.Size = New System.Drawing.Size(85, 17)
+        Me.optPG.TabIndex = 1
+        Me.optPG.Text = "Postgre SQL"
+        Me.optPG.UseVisualStyleBackColor = True
+        '
         'frmWebAPI_Amexio5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(542, 416)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.chkAutorize)
         Me.Controls.Add(Me.txtContext)
         Me.Controls.Add(Me.Label4)
@@ -199,6 +239,8 @@ Partial Class frmWebAPI_Amexio5
         Me.Controls.Add(Me.Label3)
         Me.Name = "frmWebAPI_Amexio5"
         Me.Text = "Web API + ANGULAR 6 + (AMEXIO 5)  generator"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -219,4 +261,7 @@ Partial Class frmWebAPI_Amexio5
     Friend WithEvents txtContext As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents chkAutorize As CheckBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents optPG As RadioButton
+    Friend WithEvents optMS As RadioButton
 End Class

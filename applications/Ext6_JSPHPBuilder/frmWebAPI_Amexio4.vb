@@ -1578,6 +1578,7 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("    valid:boolean=true;")
         sb.AppendLine("    errorFlag:boolean=false;")
         sb.AppendLine("    errorMessage:string='';")
+        sb.AppendLine("    errorDetail:string='';")
 
 
 
@@ -1664,8 +1665,9 @@ Public Class frmWebAPI_Amexio4
 
 
         sb.AppendLine("")
-        sb.AppendLine("	   ShowError(message:string){")
-        sb.AppendLine("		this.errorMessage=message; ;")
+        sb.AppendLine("	   ShowError(err:any){")
+        sb.AppendLine("		this.errorMessage=err.message; ")
+        sb.AppendLine("		this.errorDetail=JSON.stringify(err.error); ")
         sb.AppendLine("		this.errorFlag=true;")
         sb.AppendLine("	   }")
 
@@ -1805,11 +1807,14 @@ Public Class frmWebAPI_Amexio4
         sb = New StringBuilder()
 
         sb.AppendLine("<!--Error dialogue-->")
-        sb.AppendLine("<amexio-window [show-window]=""errorFlag""")
-        sb.AppendLine("               [header]=""true""")
-        sb.AppendLine("			   [footer]=""true""")
-        sb.AppendLine("			   [closable]=""false""")
-        sb.AppendLine("               >")
+        sb.AppendLine("<amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true"" [show-window]=""errorFlag""
+               [header]=""true""
+			   [footer]=""true"" 
+			   [draggable]=""false"" 
+			   [vertical-position]=""'top'"" 
+			   [horizontal-position]=""'center'"" 
+			   [closable]=""false""
+            amexioThemeStyle  [theme-style]=""'round-edge'""  >")
         sb.AppendLine("	<amexio-header>")
         sb.AppendLine("        <i class=""fa fa-exclamation-triangle""></i> Ошибка")
         sb.AppendLine("      </amexio-header>")
@@ -1818,7 +1823,11 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("          <amexio-column [size]=""11"">")
         sb.AppendLine("		  <span style=""color:red"">{{errorMessage}}</span>")
         sb.AppendLine("		  </amexio-column>")
-        sb.AppendLine("        </amexio-row>")
+        sb.AppendLine("        </amexio-row>
+            <amexio-panel amexioThemeStyle   title=""Подробнее..."" [background]=""'yellow'"" [color]=""'black'"" [fit]=""false"" [border]=""false"" [header]=""true"" [height]=""'360'"" [expanded]=""false"">
+          {{errorDetail}}
+        </amexio-panel>")
+
         sb.AppendLine("	</amexio-body> ")
         sb.AppendLine("	<amexio-action> ")
         sb.AppendLine("	<amexio-row> ")
@@ -1832,8 +1841,17 @@ Public Class frmWebAPI_Amexio4
 
 
         sb.AppendLine("<!-- edit row pane -->	 ")
-        sb.AppendLine(" <amexio-window [closable]=""false"" [body-height]=""90"" [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
-        'sb.AppendLine(" <amexio-window [closable]=""false""  [show-window]=""opened"" [header]=""true"" [footer]=""true"" > ")
+        sb.AppendLine(" <amexio-window amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true""  
+        [closable]=""false"" [maximize]=""true"" 
+        [vertical-position]=""'center'""    
+        [horizontal-position]=""'center'""  
+        [draggable]=""false"" 
+        [remember-window-position]=""true"" 
+        [width]=""'auto'""  
+        amexioThemeStyle  [theme-style]=""'round-edge'""  
+        [show-window]=""opened && errorFlag==false"" 
+        [header]=""true"" 
+        [footer]=""true""  > ")
         sb.AppendLine("	  <amexio-header> ")
         sb.AppendLine("        {{formMsg}} %objname% ")
         sb.AppendLine("<amexio-box *ngIf=""valid==false"" border-color =""red"" border=""all"" padding=""true"" background-color=""yellow"">")
@@ -2097,7 +2115,9 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("</amexio-card> ")
         sb.AppendLine(" ")
         sb.AppendLine("<!-- confirm delete  dialog -->  ")
-        sb.AppendLine("<amexio-window  [(show-window)]=""confirmOpened"" [closable]=""false"" [header]=""true"" [footer]=""true"" >  ")
+        sb.AppendLine("<amexio-window  amexioColorPalette [color-palette]=""'amexio-theme-color2'"" [gradient]=""true"" 
+[(show-window)]=""confirmOpened"" [closable]=""false"" [header]=""true"" [footer]=""true"" 
+amexioThemeStyle  [theme-style]=""'round-edge'"" >  ")
         sb.AppendLine("     ")
         sb.AppendLine("    <amexio-header>")
         sb.AppendLine("Удалить строку:  %objname% ?")
@@ -2138,7 +2158,7 @@ Public Class frmWebAPI_Amexio4
         sb.AppendLine("	<amexio-row> ")
         sb.AppendLine("	<amexio-column size=""12""> ")
         sb.AppendLine("     <amexio-button  [label]=""'Отмена'"" (onClick)=""confirmOpened = false"" [type]=""'secondary'"" [tooltip]=""'Отмена'"" [icon]=""'fa fa-times'""></amexio-button>")
-        sb.AppendLine("     <amexio-button  [label]=""'Удалить'"" (onClick)=""onConfirmDeletion()"" [type]=""'danger'"" [tooltip]=""'Удалить'"" [icon]=""'fa fa-trash'""></amexio-button>")
+        sb.AppendLine("     <amexio-button  [label]=""'Удалить'"" (onClick)=""confirmOpened = false; onConfirmDeletion()"" [type]=""'danger'"" [tooltip]=""'Удалить'"" [icon]=""'fa fa-trash'""></amexio-button>")
         sb.AppendLine("	</amexio-column> ")
         sb.AppendLine("	</amexio-row> ")
         sb.AppendLine("	</amexio-action> ")

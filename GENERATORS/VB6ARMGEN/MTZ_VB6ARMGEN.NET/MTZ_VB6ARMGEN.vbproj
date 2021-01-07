@@ -44,11 +44,11 @@
   <ItemGroup>
     <Reference Include="LATIRGenerator, Version=1.0.2655.33569, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\LATIRGenerator.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\LATIRGenerator.dll</HintPath>
     </Reference>
     <Reference Include="LTOBJMan, Version=1.0.2400.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\LTOBJMan.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\LTOBJMan.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.Compatibility">
       <Name>Microsoft.VisualBasic.Compatibility</Name>
@@ -58,23 +58,23 @@
     </Reference>
     <Reference Include="MTZFltr, Version=1.0.2903.38633, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\MTZFltr.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\MTZFltr.dll</HintPath>
     </Reference>
     <Reference Include="MTZJrnl, Version=1.0.2844.33502, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\MTZJrnl.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\MTZJrnl.dll</HintPath>
     </Reference>
     <Reference Include="MTZMetaModel, Version=1.0.2844.33506, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\MTZMetaModel.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\MTZMetaModel.dll</HintPath>
     </Reference>
     <Reference Include="MTZRprt, Version=1.0.2903.38634, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\MTZRprt.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\MTZRprt.dll</HintPath>
     </Reference>
     <Reference Include="MTZwp, Version=1.0.2903.38641, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\MTZwp.dll</HintPath>
+      <HintPath>..\..\..\Generated\Generated Dlls\MTZwp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

@@ -361,30 +361,56 @@ Public Class frmWebAPI_Amexio5
 
         Tool_WriteFile(sw.ToString(), textBoxOutPutFolder.Text & "\ts\", "app.service.ts", False)
 
+        If optMS.Checked Then
+            Dim targetID As System.Guid
+            targetID = New System.Guid("{0C652C58-A952-4E8F-8CB0-D266431CD24B}")
+            Dim generator As New MSSQLGenerator
+            ' generator.Setup()
+            generator.ClearSelectedParts()
 
-        Dim targetID As System.Guid
-        targetID = New System.Guid("{0C652C58-A952-4E8F-8CB0-D266431CD24B}")
-        Dim generator As New MSSQLGenerator
-        ' generator.Setup()
-        generator.ClearSelectedParts()
+            For i = 0 To chkObjType.CheckedItems.Count - 1
+                ti = chkObjType.CheckedItems(i)
+                ot = model.OBJECTTYPE.Item(ti.ID.ToString())
+                SelectAllParts(generator, ot.PART)
 
-        For i = 0 To chkObjType.CheckedItems.Count - 1
-            ti = chkObjType.CheckedItems(i)
-            ot = model.OBJECTTYPE.Item(ti.ID.ToString())
-            SelectAllParts(generator, ot.PART)
-
-            Application.DoEvents()
-        Next
+                Application.DoEvents()
+            Next
 
 
-        Dim response As LATIRGenerator.Response
-        response = New LATIRGenerator.Response()
-        Dim fname As String
-        generator.Run(CType(model, Object), CType(response, Object), targetID.ToString)
-        fname = textBoxOutPutFolder.Text & "\db\db.xml"
-        Tool_WriteFile("<>", textBoxOutPutFolder.Text & "\db\", "db.xml", False)
-        response.Save(fname)
-        ReplaceInFile(fname, "&#xD;&#xA;", vbCrLf)
+            Dim response As LATIRGenerator.Response
+            response = New LATIRGenerator.Response()
+            Dim fname As String
+            generator.Run(CType(model, Object), CType(response, Object), targetID.ToString)
+            fname = textBoxOutPutFolder.Text & "\db\db.xml"
+            Tool_WriteFile("<>", textBoxOutPutFolder.Text & "\db\", "db.xml", False)
+            response.Save(fname)
+            ReplaceInFile(fname, "&#xD;&#xA;", vbCrLf)
+        Else
+            Dim targetID As System.Guid
+            targetID = New System.Guid("{9D7DD39D-7A43-4EC3-AA10-1FBCED75F3CB}")
+            Dim generator As New PGSQLGenerator
+            ' generator.Setup()
+            generator.ClearSelectedParts()
+
+            For i = 0 To chkObjType.CheckedItems.Count - 1
+                ti = chkObjType.CheckedItems(i)
+                ot = model.OBJECTTYPE.Item(ti.ID.ToString())
+                SelectAllParts(generator, ot.PART)
+
+                Application.DoEvents()
+            Next
+
+
+            Dim response As LATIRGenerator.Response
+            response = New LATIRGenerator.Response()
+            Dim fname As String
+            generator.Run(CType(model, Object), CType(response, Object), targetID.ToString)
+            fname = textBoxOutPutFolder.Text & "\db\dbPG.xml"
+            Tool_WriteFile("<>", textBoxOutPutFolder.Text & "\db\", "dbPG.xml", False)
+            response.Save(fname)
+            ReplaceInFile(fname, "&#xD;&#xA;", vbCrLf)
+
+        End If
 
         MsgBox("OK")
     End Sub
@@ -399,7 +425,15 @@ Public Class frmWebAPI_Amexio5
         Next
     End Sub
 
-
+    Private Sub SelectAllParts(generator As PGSQLGenerator, Parts As MTZMetaModel.MTZMetaModel.PART_col)
+        Dim p As MTZMetaModel.MTZMetaModel.PART
+        Dim i As Integer
+        For i = 1 To Parts.Count
+            p = Parts.Item(i)
+            generator.SelectedParts.Add(p.Name)
+            SelectAllParts(generator, p.PART)
+        Next
+    End Sub
 
     Private Function FindRootPart(ByVal s As MTZMetaModel.MTZMetaModel.PART) As MTZMetaModel.MTZMetaModel.PART
         Dim i As Integer
@@ -482,17 +516,35 @@ Public Class frmWebAPI_Amexio5
             Else
                 sw.AppendLine("       [AllowAnonymous]")
             End If
-            sw.AppendLine("        public List<Dictionary<string, object>> GetCombo()")
-            sw.AppendLine("        {")
-            sw.AppendLine("            //var uid = User.GetUserId();")
-            sw.AppendLine("")
-            sw.AppendLine("            string sql = @""SELECT %TABLE%Id id, ( [dbo].[%TABLE%_BRIEF_F](%TABLE%Id,null)  ) name")
-            sw.AppendLine("                         FROM            ")
-            sw.AppendLine("                          %TABLE% ")
-            sw.AppendLine("                            order by name "";")
-            sw.AppendLine("            return _context.GetRaw(sql);")
-            sw.AppendLine("        }")
-            sw.AppendLine("        ")
+            If optMS.Checked Then
+
+
+
+
+                sw.AppendLine("        public List<Dictionary<string, object>> GetCombo()")
+                sw.AppendLine("        {")
+                sw.AppendLine("            //var uid = User.GetUserId();")
+                sw.AppendLine("")
+                sw.AppendLine("            string sql = @""SELECT %TABLE%id id, ( [dbo].[%TABLE%_brief_f](%TABLE%id,null)  ) name")
+                sw.AppendLine("                         FROM            ")
+                sw.AppendLine("                          %TABLE% ")
+                sw.AppendLine("                            order by name "";")
+                sw.AppendLine("            return _context.GetRaw(sql);")
+                sw.AppendLine("        }")
+                sw.AppendLine("        ")
+            Else
+                sw.AppendLine("        public List<Dictionary<string, object>> GetCombo()")
+                sw.AppendLine("        {")
+                sw.AppendLine("")
+                sw.AppendLine("            string sql = @""SELECT %TABLE%id id, ( [%TABLE%_brief_f](%TABLE%id)  ) name")
+                sw.AppendLine("                         FROM            ")
+                sw.AppendLine("                          %TABLE% ")
+                sw.AppendLine("                            order by name "";")
+                sw.AppendLine("            return _context.GetRaw(sql);")
+                sw.AppendLine("        }")
+                sw.AppendLine("        ")
+
+            End If
 
 
 
@@ -516,7 +568,7 @@ Public Class frmWebAPI_Amexio5
                 sw.AppendLine("        {")
                 sw.AppendLine("            //var uid = User.GetUserId();")
                 sw.AppendLine("")
-                sw.AppendLine("            string sql = @""SELECT * FROM V_%TABLE% where " & pos.Name & "ID='"" + id.ToString() + ""'"";")
+                sw.AppendLine("            string sql = @""SELECT * FROM v_%TABLE% where " & pos.Name & "id='"" + id.ToString() + ""'"";")
                 sw.AppendLine("            return _context.GetRaw(sql);")
                 sw.AppendLine("        }")
                 sw.AppendLine("        ")
@@ -531,7 +583,7 @@ Public Class frmWebAPI_Amexio5
                 sw.AppendLine("        {")
                 sw.AppendLine("            //var uid = User.GetUserId();")
                 sw.AppendLine("")
-                sw.AppendLine("            string sql = @""SELECT * FROM V_%TABLE% "";")
+                sw.AppendLine("            string sql = @""SELECT * FROM v_%TABLE% "";")
                 sw.AppendLine("            return _context.GetRaw(sql);")
                 sw.AppendLine("        }")
                 sw.AppendLine("        ")
@@ -552,7 +604,7 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("                return BadRequest(ModelState);")
             sw.AppendLine("            }")
             sw.AppendLine("")
-            sw.AppendLine("            var var%TABLE% = await _context.%TABLE%.SingleOrDefaultAsync(m => m.%TABLE%Id == id);")
+            sw.AppendLine("            var var%TABLE% = await _context.%TABLE%.SingleOrDefaultAsync(m => m.%TABLE%id == id);")
             sw.AppendLine("")
             sw.AppendLine("            if (var%TABLE% == null)")
             sw.AppendLine("            {")
@@ -576,7 +628,7 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("                return BadRequest(ModelState);")
             sw.AppendLine("            }")
             sw.AppendLine("")
-            sw.AppendLine("            if (id != var%TABLE%.%TABLE%Id)")
+            sw.AppendLine("            if (id != var%TABLE%.%TABLE%id)")
             sw.AppendLine("            {")
             sw.AppendLine("                return BadRequest();")
             sw.AppendLine("            }")
@@ -619,7 +671,7 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("            _context.%TABLE%.Add(var%TABLE%);")
             sw.AppendLine("            await _context.SaveChangesAsync();")
             sw.AppendLine("")
-            sw.AppendLine("            return CreatedAtAction(""Get%TABLE%"", new { id = var%TABLE%.%TABLE%Id }, var%TABLE%);")
+            sw.AppendLine("            return CreatedAtAction(""Get%TABLE%"", new { id = var%TABLE%.%TABLE%id }, var%TABLE%);")
             sw.AppendLine("        }")
             sw.AppendLine("")
             sw.AppendLine("        // DELETE: api/%TABLE%/5")
@@ -636,7 +688,7 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("                return BadRequest(ModelState);")
             sw.AppendLine("            }")
             sw.AppendLine("")
-            sw.AppendLine("            var var%TABLE% = await _context.%TABLE%.SingleOrDefaultAsync(m => m.%TABLE%Id == id);")
+            sw.AppendLine("            var var%TABLE% = await _context.%TABLE%.SingleOrDefaultAsync(m => m.%TABLE%id == id);")
             sw.AppendLine("            if (var%TABLE% == null)")
             sw.AppendLine("            {")
             sw.AppendLine("                return NotFound();")
@@ -650,7 +702,7 @@ Public Class frmWebAPI_Amexio5
             sw.AppendLine("")
             sw.AppendLine("        private bool %TABLE%Exists(Guid id)")
             sw.AppendLine("        {")
-            sw.AppendLine("            return _context.%TABLE%.Any(e => e.%TABLE%Id == id);")
+            sw.AppendLine("            return _context.%TABLE%.Any(e => e.%TABLE%id == id);")
             sw.AppendLine("        }")
             sw.AppendLine("    }")
             sw.AppendLine("}")
@@ -1033,16 +1085,16 @@ Public Class frmWebAPI_Amexio5
                 'sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Parent"")]")
 
 
-                sw.Append(vbCrLf & vbTab & " delete from " & P.Name & " where " & ParentPart.Name & "Id not in ( select " & ParentPart.Name & "Id from " & ParentPart.Name & ") ")
+                sw.Append(vbCrLf & vbTab & " delete from " & P.Name & " where " & ParentPart.Name & "id not in ( select " & ParentPart.Name & "id from " & ParentPart.Name & ") ")
                 sw.Append(vbCrLf & vbTab & " go ")
                 sw.Append(vbCrLf & vbTab & " ALTER TABLE " & P.Name & " 
                 ADD CONSTRAINT FK_" & P.Name & "_Parent
-                FOREIGN KEY (" & ParentPart.Name & "Id)
-                REFERENCES " & ParentPart.Name & " (" & ParentPart.Name & "Id)
+                FOREIGN KEY (" & ParentPart.Name & "id)
+                REFERENCES " & ParentPart.Name & " (" & ParentPart.Name & "id)
                 ON DELETE CASCADE ")
                 sw.Append(vbCrLf & vbTab & " go ")
 
-                'sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "Id { get; set; } // Parent part Id -> " & ParentPart.Caption)
+                'sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "id { get; set; } // Parent part id -> " & ParentPart.Caption)
             Else
                 If ot.IsSingleInstance = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
 
@@ -1057,12 +1109,12 @@ Public Class frmWebAPI_Amexio5
                             SiblingPart = ot.PART.Item(i)
                             If SiblingPart.Sequence = 0 Then
 
-                                sw.Append(vbCrLf & vbTab & " delete from " & P.Name & " where " & SiblingPart.Name & "Id not in ( select " & SiblingPart.Name & "Id from " & SiblingPart.Name & ") ")
+                                sw.Append(vbCrLf & vbTab & " delete from " & P.Name & " where " & SiblingPart.Name & "id not in ( select " & SiblingPart.Name & "id from " & SiblingPart.Name & ") ")
                                 sw.Append(vbCrLf & vbTab & " go ")
                                 sw.Append(vbCrLf & vbTab & " ALTER TABLE " & P.Name & " 
                                 ADD CONSTRAINT FK_" & P.Name & "_Parent
-                                FOREIGN KEY (" & SiblingPart.Name & "Id)
-                                REFERENCES " & SiblingPart.Name & " (" & SiblingPart.Name & "Id)
+                                FOREIGN KEY (" & SiblingPart.Name & "id)
+                                REFERENCES " & SiblingPart.Name & " (" & SiblingPart.Name & "id)
                                 ON DELETE CASCADE ")
                                 sw.Append(vbCrLf & vbTab & " go ")
                                 Exit For
@@ -1135,14 +1187,14 @@ Public Class frmWebAPI_Amexio5
 
             sw.Append(vbCrLf & " public class  " & P.Name & " { // " & P.Caption)
 
-            sw.Append(vbCrLf & vbTab & " public System.Guid  " & P.Name & "Id{ get; set; } // Идентификатор (первичный ключ)")
+            sw.Append(vbCrLf & vbTab & " public System.Guid  " & P.Name & "id{ get; set; } // Идентификатор (первичный ключ)")
 
             If Not isroot Then
                 Dim ParentPart As MTZMetaModel.MTZMetaModel.PART
                 ParentPart = P.Parent.Parent
 
                 'sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Parent"")]")
-                sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "Id { get; set; } // обратная ссылка на родителя: " & ParentPart.Caption)
+                sw.Append(vbCrLf & vbTab & " public System.Guid  " & ParentPart.Name & "id { get; set; } // обратная ссылка на родителя: " & ParentPart.Caption)
                 'sw.Append(vbCrLf & vbTab & " public " & ParentPart.Name & "  " & ParentPart.Name & " { get; set; } // Parent part -> " & ParentPart.Caption)
 
                 'For i = 1 To P.PART.Count
@@ -1172,7 +1224,7 @@ Public Class frmWebAPI_Amexio5
 
                                 'sw.Append(vbCrLf & vbTab & "[Required]") ' [ForeignKey(""FK_" & P.Name  & "_Document"")]")
                                 'sw.Append(vbCrLf & vbTab & " public " & SiblingPart.Name & "  " & SiblingPart.Name & " { get; set; } // " & SiblingPart.Caption)
-                                sw.Append(vbCrLf & vbTab & " public System.Guid  " & SiblingPart.Name & "Id { get; set; } // обратная ссылка на: " & SiblingPart.Caption)
+                                sw.Append(vbCrLf & vbTab & " public System.Guid  " & SiblingPart.Name & "id { get; set; } // обратная ссылка на: " & SiblingPart.Caption)
                             End If
                         Next
 
@@ -1280,7 +1332,7 @@ Public Class frmWebAPI_Amexio5
 
                     sw.Append(vbCrLf & vbTab & "[ForeignKey(""" & fld.Name & """)]")
                     ' sw.Append(vbCrLf & vbTab & "public " & refp.Name & " " & fld.Name & "_as_" & refp.Name & " { get; set; } // Объект - " & fld.Caption)
-                    sw.Append(vbCrLf & vbTab & "public " & refp.Name & " " & refp.Name & " { get; set; } // Объект - " & fld.Caption)
+                    sw.Append(vbCrLf & vbTab & "public " & refp.Name & " " & fld.Name & "_as_" & refp.Name & " { get; set; } // Объект - " & fld.Caption)
 
 
 
@@ -1348,13 +1400,13 @@ Public Class frmWebAPI_Amexio5
 
             sw.Append(vbCrLf & " export interface   " & DeCap(P.Name) & " { // " & P.Caption)
 
-            sw.Append(vbCrLf & vbTab & DeCap(P.Name) & "Id:string; // Primary key field")
+            sw.Append(vbCrLf & vbTab & DeCap(P.Name) & "id:string; // Primary key field")
 
             If Not isroot Then
                 Dim ParentPart As MTZMetaModel.MTZMetaModel.PART
                 ParentPart = P.Parent.Parent
                 'sw.Append(vbCrLf & vbTab & " parentStructRowId :string; // Parent part -> " & ParentPart.Name)
-                sw.Append(vbCrLf & vbTab & " " & DeCap(ParentPart.Name) & "Id :string // Parent part Id -> " & ParentPart.Caption)
+                sw.Append(vbCrLf & vbTab & " " & DeCap(ParentPart.Name) & "id :string // Parent part id -> " & ParentPart.Caption)
 
 
                 'For i = 1 To ot.PART.Count
@@ -1367,7 +1419,7 @@ Public Class frmWebAPI_Amexio5
 
             Else
                 'If ot.IsSingleInstance = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
-                '    sw.Append(vbCrLf & vbTab & " instanceId:string // Document ID ")
+                '    sw.Append(vbCrLf & vbTab & " instanceId:string // Document id ")
                 'End If
 
                 If ot.IsSingleInstance = MTZMetaModel.MTZMetaModel.enumBoolean.Boolean_Net Then
@@ -1388,15 +1440,15 @@ Public Class frmWebAPI_Amexio5
                             Dim SiblingPart As MTZMetaModel.MTZMetaModel.PART
                             SiblingPart = ot.PART.Item(i)
                             If SiblingPart.Sequence = 0 Then
-                                'sw.Append(vbCrLf & vbTab & " public System.Guid  " & SiblingPart.Name  & "Id { get; set; } // " & SiblingPart.Caption)
+                                'sw.Append(vbCrLf & vbTab & " public System.Guid  " & SiblingPart.Name  & "id { get; set; } // " & SiblingPart.Caption)
                                 'sw.Append(vbCrLf & vbTab & "[Required] [ForeignKey(""FK_" & P.Name  & "_Document"")]")
-                                sw.Append(vbCrLf & vbTab & "  " & DeCap(SiblingPart.Name) & "Id:string; // " & SiblingPart.Caption)
+                                sw.Append(vbCrLf & vbTab & "  " & DeCap(SiblingPart.Name) & "id:string; // " & SiblingPart.Caption)
                             End If
                         Next
 
                     End If
 
-                    '        sw.Append(vbCrLf & vbTab & " public System.Guid  instanceId { get; set; } // Document ID ")
+                    '        sw.Append(vbCrLf & vbTab & " public System.Guid  instanceId { get; set; } // Document id ")
                 End If
             End If
 
@@ -1698,7 +1750,7 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine(" ")
         sb.AppendLine("	   //Create %obj%")
         sb.AppendLine("    create_%obj%(%obj%: %type%.%obj%): Observable<%type%.%obj% > {")
-        sb.AppendLine("       // %obj%.%obj%Id = '';")
+        sb.AppendLine("       // %obj%.%obj%id = '';")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
         sb.AppendLine("        return this.http.post<%type%.%obj% >(this.serviceURL + '/%obj%/', %obj%, { headers: cpHeaders })")
         sb.AppendLine("		")
@@ -1748,22 +1800,22 @@ Public Class frmWebAPI_Amexio5
         End If
 
         sb.AppendLine("	//Fetch %obj% by id")
-        sb.AppendLine("    get_%obj%ById(%obj%Id: string): Observable<%type%.%obj%> {")
+        sb.AppendLine("    get_%obj%ById(%obj%id: string): Observable<%type%.%obj%> {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
-        sb.AppendLine("		//console.log(this.serviceURL +'/%obj%/'+ %obj%Id)")
-        sb.AppendLine("        return this.http.get<%type%.%obj%>(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
+        sb.AppendLine("		//console.log(this.serviceURL +'/%obj%/'+ %obj%id)")
+        sb.AppendLine("        return this.http.get<%type%.%obj%>(this.serviceURL + '/%obj%/' + %obj%id, { headers: cpHeaders })//.catch(err => { console.log(err) return Observable.of(err) })")
         sb.AppendLine("    }	")
         sb.AppendLine("	")
         sb.AppendLine("	   //Update %obj%")
         sb.AppendLine("    update_%obj%(%obj%: %type%.%obj%):Observable<Object > {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
-        sb.AppendLine("        return this.http.put(this.serviceURL + '/%obj%/' + %obj%." & DeCap(P.Name) & "Id, %obj%, { headers: cpHeaders })")
+        sb.AppendLine("        return this.http.put(this.serviceURL + '/%obj%/' + %obj%." & DeCap(P.Name) & "id, %obj%, { headers: cpHeaders })")
         sb.AppendLine("    }")
         sb.AppendLine("	")
         sb.AppendLine("    //Delete %obj%	")
-        sb.AppendLine("    delete_%obj%ById(%obj%Id: string): Observable<Object> {")
+        sb.AppendLine("    delete_%obj%ById(%obj%id: string): Observable<Object> {")
         sb.AppendLine("        let cpHeaders = new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ sessionStorage.getItem('auth_token') });")
-        sb.AppendLine("        return this.http.delete(this.serviceURL + '/%obj%/' + %obj%Id, { headers: cpHeaders })")
+        sb.AppendLine("        return this.http.delete(this.serviceURL + '/%obj%/' + %obj%id, { headers: cpHeaders })")
         sb.AppendLine("            ")
         sb.AppendLine("			")
         sb.AppendLine("    }	")
@@ -2043,13 +2095,13 @@ Public Class frmWebAPI_Amexio5
             sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
-            sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id==='undefined') { ")
+            sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "id==='undefined') { ")
             sb.AppendLine("		   //console.log(""no parent id for refresh""); ")
             sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent('00000000-0000-0000-0000-000000000000').subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("			return; ")
             sb.AppendLine("		} ")
-            sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "Id === 'string' ) {")
-            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "Id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
+            sb.AppendLine("		if(typeof item." & DeCap(ParentPart.Name) & "id === 'string' ) {")
+            sb.AppendLine("        this.%obj%_Service.get_%obj%ByParent(item." & DeCap(ParentPart.Name) & "id).subscribe(%obj%Array => { this.%obj%Array = %obj%Array; }, error => { this.ShowError(error); })")
             sb.AppendLine("      }")
             sb.AppendLine("    }")
         End If
@@ -2078,9 +2130,9 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("    onNew() {")
         sb.AppendLine("    this.refreshCombo(); ")
         If Not isRoot Then
-            sb.AppendLine("      if(typeof ( this.AppService.Last%parent%." & DeCap(ParentPart.Name) & "Id) === 'string' ) {")
+            sb.AppendLine("      if(typeof ( this.AppService.Last%parent%." & DeCap(ParentPart.Name) & "id) === 'string' ) {")
             sb.AppendLine("        this.current%obj% = {} as %type%.%obj%;")
-            sb.AppendLine("        this.current%obj%." & DeCap(ParentPart.Name) & "Id = this.AppService.Last%parent%." & DeCap(ParentPart.Name) & "Id;")
+            sb.AppendLine("        this.current%obj%." & DeCap(ParentPart.Name) & "id = this.AppService.Last%parent%." & DeCap(ParentPart.Name) & "id;")
         Else
             sb.AppendLine("        this.current%obj% = {} as %type%.%obj%;")
         End If
@@ -2108,8 +2160,8 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("    }")
         sb.AppendLine("")
         sb.AppendLine("    onConfirmDeletion() {")
-        sb.AppendLine("        confirmOpened = false;")
-        sb.AppendLine("        this.%obj%_Service.delete_%obj%ById(this.current%obj%." & DeCap(P.Name) & "Id).subscribe(data => {this.refresh%obj%(); this.backToList();}, error => { this.ShowError(error); });")
+        sb.AppendLine("        this.confirmOpened = false;")
+        sb.AppendLine("        this.%obj%_Service.delete_%obj%ById(this.current%obj%." & DeCap(P.Name) & "id).subscribe(data => {this.refresh%obj%(); this.backToList();}, error => { this.ShowError(error); });")
         sb.AppendLine("    }")
         sb.AppendLine("")
 
@@ -2686,13 +2738,13 @@ Public Class frmWebAPI_Amexio5
         sb.AppendLine("		<amexio-column size=""12"" > ")
 
         If Not isRoot Then
-            sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""AppService.Last%parent%." & DeCap(ParentPart.Name) & "Id==null"" [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
+            sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""AppService.Last%parent%." & DeCap(ParentPart.Name) & "id==null"" [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
         Else
             sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [label]=""'Создать'"" [type]=""'secondary'"" [tooltip]=""'Создать новую запись'"" [icon]=""'fa fa-plus'"" (onClick)=""onNew()""></amexio-button>")
         End If
-        sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""current%obj%." & DeCap(P.Name) & "Id==null"" [label]=""'Изменить'"" (onClick)=""onEdit(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Изменить запись'"" [icon]=""'fa fa-edit'""></amexio-button>")
+        sb.AppendLine("		<amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""current%obj%." & DeCap(P.Name) & "id==null"" [label]=""'Изменить'"" (onClick)=""onEdit(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Изменить запись'"" [icon]=""'fa fa-edit'""></amexio-button>")
 
-        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""current%obj%." & DeCap(P.Name) & "Id==null"" [label]=""'Удалить'"" (onClick)=""onDelete(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Удалить запись'"" [icon]=""'fa fa-trash'""></amexio-button>")
+        sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""  [disabled]=""current%obj%." & DeCap(P.Name) & "id==null"" [label]=""'Удалить'"" (onClick)=""onDelete(current%obj%)"" [type]=""'secondary'"" [tooltip]=""'Удалить запись'"" [icon]=""'fa fa-trash'""></amexio-button>")
 
         sb.AppendLine("     <amexio-button amexioThemeStyle [theme-style]=""'round-edge'""   [label]=""'Обновить'"" (onClick)=""refresh%obj%()"" [type]=""'secondary'"" [tooltip]=""'Обновить данные'"" [icon]=""'fa fa-refresh'""></amexio-button>")
 

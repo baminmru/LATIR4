@@ -5,7 +5,6 @@ Imports LATIR2
 
 <System.Runtime.InteropServices.ProgId("Generator_NET.Generator")> Public Class Generator
     Dim m As MTZMetaModel.MTZMetaModel.Application
-    'UPGRADE_WARNING: Arrays in structure o may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
     Dim o As LATIRGenerator.Response
     Dim tid As String
     Dim log As String
@@ -248,7 +247,7 @@ Imports LATIR2
         System.Diagnostics.Debug.Print("POSTGRESGEN.Run:Types")
         Dim mt As MakeType
 #If TIRAL = 1 Then
-		'UPGRADE_NOTE: #If #EndIf block was not upgraded because the expression TIRAL = 1 did not evaluate to True or was not evaluated. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="27EE2C3C-05AF-4C04-B2AF-657B4FB6B5FC"'
+	
 		If Date < DateSerial(2010, 9, 20) Then
 		If OptProcs Then
 		For i = 1 To m.OBJECTTYPE.Count
@@ -323,7 +322,7 @@ bye:
         Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
         s = VF(f.Name)
         ft = f.FieldType
-        'UPGRADE_WARNING: Couldn't resolve default property of object ft.ID. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
         ftm = MapFTObj(ft.ID.ToString())
         If ftm.FixedSize <> 0 Then
             s = s & " " & ftm.StoageType & "(" & ftm.FixedSize & ")"
@@ -351,17 +350,17 @@ bye:
             s = s & vbCrLf & " check (" & VF(f.Name) & " >= " & ft.Minimum & " and " & VF(f.Name) & " <= " & ft.Maximum & ")"
         End If
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object ft.TypeStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
         Dim e As Object
         If ft.TypeStyle = MTZMetaModel.MTZMetaModel.enumTypeStyle.TypeStyle_Perecislenie Then
-            'UPGRADE_WARNING: Couldn't resolve default property of object ft.ENUMITEM. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
             If ft.ENUMITEM.Count > 0 Then
                 s = s & vbCrLf & " check (" & VF(f.Name) & " in ( "
-                'UPGRADE_WARNING: Couldn't resolve default property of object ft.ENUMITEM. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
                 For e = 1 To ft.ENUMITEM.Count
-                    'UPGRADE_WARNING: Couldn't resolve default property of object e. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
                     If e > 1 Then s = s & vbCrLf & ", "
-                    'UPGRADE_WARNING: Couldn't resolve default property of object ft.ENUMITEM. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
                     s = s & ft.ENUMITEM.Item(e).NameValue & "/* " & ft.ENUMITEM.Item(e).Name & " */"
                 Next
                 s = s & " )) "
@@ -389,19 +388,17 @@ bye:
         On Error GoTo bye
 
 
-
         Dim s As String
         Dim ftm As MTZMetaModel.MTZMetaModel.FIELDTYPEMAP
         Dim ft As MTZMetaModel.MTZMetaModel.FIELDTYPE
         ft = f.FieldType
         s = "a" & VF(f.Name)
-        'UPGRADE_WARNING: Couldn't resolve default property of object ft.ID. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
         ftm = MapFTObj(ft.ID.ToString)
         If ftm.FixedSize <> 0 Then
             s = s & " " & ftm.StoageType ' & "(" & ftm.FixedSize & ")"
         Else
             s = s & vbCrLf & " " & ftm.StoageType
-            'UPGRADE_WARNING: Couldn't resolve default property of object ft.AllowSize. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             If ft.AllowSize Then
                 If f.DataSize <> 0 Then
                     s = s ' & " (" & f.DataSize & ")"
@@ -418,7 +415,6 @@ bye:
         s = s & "/* " & f.Caption & " */"
 
         'support extention field if file type used
-        'UPGRADE_WARNING: Couldn't resolve default property of object ft.Name. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
         If UCase(ft.Name) = "FILE" Then
             s = s & vbCrLf & ",a" & VF(f.Name) & "_EXT varchar "
         End If
@@ -458,7 +454,6 @@ bye:
                 For j = 1 To uc.CONSTRAINTFIELD.Count
                     cf = uc.CONSTRAINTFIELD.Item(j)
                     If Not cf.TheField Is Nothing Then
-                        'UPGRADE_WARNING: Couldn't resolve default property of object cf.TheField.Name. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
                         z = z & vbCrLf & " and " & VF(CType(cf.TheField, MTZMetaModel.MTZMetaModel.FIELD).Name) & "=a" & VF(CType(cf.TheField, MTZMetaModel.MTZMetaModel.FIELD).Name)
 
                     End If
@@ -466,8 +461,6 @@ bye:
 
                 If uc.PerParent Then
                     If os.PartType = MTZMetaModel.MTZMetaModel.enumPartType.PartType_Derevo Then
-                        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-                        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
                         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
                             s = s & vbCrLf & " if aParentRowID is null then"
                             s = s & vbCrLf & "   select Count(*) into aUniqueRowCount from " & VF(os.Name) & " where InstanceID=aInstanceID and ParentRowID is null " & z & ";"
@@ -482,8 +475,6 @@ bye:
                             s = s & vbCrLf & " end if;"
                         End If
                     Else
-                        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-                        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
                         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
                             s = s & vbCrLf & " select Count(*) into aUniqueRowCount from " & VF(os.Name) & " where InstanceID=aInstanceID " & z & ";"
                         Else
@@ -548,16 +539,10 @@ bye:
         If ftmap Is Nothing Then ftmap = New Collection
         If ftmap.Item(typeID) Is Nothing Then
         Else
-            'UPGRADE_WARNING: Couldn't resolve default property of object ftmap.Item().StoageType. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-            'UPGRADE_WARNING: Couldn't resolve default property of object s. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             s = ftmap.Item(typeID).StoageType
-            'UPGRADE_WARNING: Couldn't resolve default property of object ftmap.Item(typeID).FixedSize. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             If ftmap.Item(typeID).FixedSize <> 0 Then
-                'UPGRADE_WARNING: Couldn't resolve default property of object ftmap.Item().FixedSize. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-                'UPGRADE_WARNING: Couldn't resolve default property of object s. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
                 s = s & vbCrLf & " (" & ftmap.Item(typeID).FixedSize & ")"
             End If
-            'UPGRADE_WARNING: Couldn't resolve default property of object s. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             MapFT = s
             Exit Function
         End If
@@ -737,8 +722,8 @@ bye:
 	Friend Function FKMap(ByRef ID1S As String) As String
 		Dim idm As IDMAP
 		On Error Resume Next
-		'UPGRADE_NOTE: Object idm may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
-		idm = Nothing
+
+        idm = Nothing
 		idm = aFKMap.Item(ID1S)
 		If idm Is Nothing Then
 			idm = New IDMAP
@@ -753,8 +738,8 @@ bye:
 	Friend Function GetMap(ByRef ID1S As String) As String
 		Dim idm As IDMAP
 		On Error Resume Next
-		'UPGRADE_NOTE: Object idm may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
-		idm = Nothing
+
+        idm = Nothing
 		idm = Map.Item(ID1S)
 		If idm Is Nothing Then
 			idm = New IDMAP
@@ -764,9 +749,9 @@ bye:
 		End If
 		GetMap = idm.IDMTZ
 	End Function
-	
-	'UPGRADE_NOTE: Class_Initialize was upgraded to Class_Initialize_Renamed. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="A9E4979A-37FA-4718-9994-97DD76ED70A7"'
-	Friend Sub Class_Initialize_Renamed()
+
+
+    Friend Sub Class_Initialize_Renamed()
 		LoadMap()
 		LoadFKMap()
 	End Sub
@@ -774,9 +759,9 @@ bye:
 		MyBase.New()
 		Class_Initialize_Renamed()
 	End Sub
-	
-	'UPGRADE_NOTE: Class_Terminate was upgraded to Class_Terminate_Renamed. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="A9E4979A-37FA-4718-9994-97DD76ED70A7"'
-	Friend Sub Class_Terminate_Renamed()
+
+
+    Friend Sub Class_Terminate_Renamed()
 		SaveMap()
 		SaveFKMap()
 	End Sub

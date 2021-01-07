@@ -82,12 +82,6 @@ Public Class MSSQLGenerator
 
         'read settings
 
-        'OptTables = CInt(GetSetting(My.Application.Info.Title, "SQLGEN", "TABLES", CStr(System.Windows.Forms.CheckState.Checked))) = 1
-        'OptViews = CInt(GetSetting(My.Application.Info.Title, "SQLGEN", "VIEW", CStr(System.Windows.Forms.CheckState.Checked))) = 1
-        'OptRights = CInt(GetSetting(My.Application.Info.Title, "SQLGEN", "RIGHTS", CStr(System.Windows.Forms.CheckState.Checked))) = 1
-
-
-
 
         o.ModuleName = "--Tables"
         o.Block = "--body"
@@ -412,7 +406,7 @@ bye:
     End Function
 
     Private Function FieldForParam2(ByRef f As MTZMetaModel.MTZMetaModel.FIELD) As String
-        'MTZUtilUtility_definst.DebugOutput("SQLGEN.FieldForParam:start")
+
         On Error GoTo bye
 
 
@@ -1625,33 +1619,4 @@ bye:
     End Function
 
 
-
-
-
-
-
-
-
-
-    'Private Function IsMLFPart(ByRef os As MTZMetaModel.MTZMetaModel.PART) As Boolean
-    '    Dim j As Integer
-    '    IsMLFPart = False
-    '    Dim ft As FIELDTYPE
-    '    For j = 1 To os.FIELD.Count
-    '        ft = os.FIELD.Item(j).FieldType
-    '        If UCase(ft.Name) = UCase("MultiLanguage String") Or UCase(ft.Name) = UCase("MultiLanguage Memo") Then
-    '            IsMLFPart = True
-    '            Exit Function
-    '        End If
-    '    Next
-    'End Function
-
-    'Private Function IsMLFField(ByRef f As MTZMetaModel.MTZMetaModel.FIELD) As Boolean
-    '    IsMLFField = False
-    '    Dim ft As FIELDTYPE
-    '    ft = f.FieldType
-    '    If UCase(ft.Name) = UCase("MultiLanguage String") Or UCase(ft.Name) = UCase("MultiLanguage Memo") Then
-    '        IsMLFField = True
-    '    End If
-    'End Function
 End Class

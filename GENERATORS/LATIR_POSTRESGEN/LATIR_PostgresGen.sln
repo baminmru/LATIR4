@@ -1,9 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LATIR_PostgresGen", "LATIR_PostgresGen.vbproj", "{F1CB0541-663E-42E6-B349-C69C5FB9C155}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OracleGen", "..\LATIR_ORACLEGEN\OracleGen\OracleGen.vbproj", "{DD2EEEA2-048A-47D8-A545-D531B5DC9BB0}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PgSQLdbInstall", "..\..\applications\PgSQLDBInstal\PgSQLdbInstall.vbproj", "{C3336D90-68FC-42B0-9DBD-627883983983}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +17,15 @@ Global
 		{F1CB0541-663E-42E6-B349-C69C5FB9C155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1CB0541-663E-42E6-B349-C69C5FB9C155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1CB0541-663E-42E6-B349-C69C5FB9C155}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD2EEEA2-048A-47D8-A545-D531B5DC9BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD2EEEA2-048A-47D8-A545-D531B5DC9BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD2EEEA2-048A-47D8-A545-D531B5DC9BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD2EEEA2-048A-47D8-A545-D531B5DC9BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3336D90-68FC-42B0-9DBD-627883983983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3336D90-68FC-42B0-9DBD-627883983983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3336D90-68FC-42B0-9DBD-627883983983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3336D90-68FC-42B0-9DBD-627883983983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43821859-E25D-491C-87B6-DD4B9F75E0F2}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,6 @@ Option Explicit On
 Friend Class MakeCustom
 	
     Dim m As MTZMetaModel.MTZMetaModel.Application
-    'UPGRADE_WARNING: Arrays in structure o may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
     Dim o As LATIRGenerator.Response
     Dim tid As String
     Dim parent As Generator
@@ -139,7 +138,7 @@ bye:
 
         On Error GoTo bye
         For i = 1 To scol.Count
-            'UPGRADE_WARNING: Couldn't resolve default property of object scol.Item(i).Target.ID. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+
             If scol.Item(i).Target.ID.ToString = tid Then
                 Return scol.Item(i).PARAMETERS
                 Exit Function
@@ -164,7 +163,6 @@ bye:
             s = s & " out "
         End If
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object f.TypeOfParm.ID. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
         ftm = parent.MapFTObj(f.TypeOfParm.ID.ToString)
         If ftm.FixedSize <> 0 Then
             s = s & " " & ftm.StoageType '& "(" & ftm.FixedSize & ")"

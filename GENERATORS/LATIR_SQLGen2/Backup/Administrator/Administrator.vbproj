@@ -50,7 +50,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIRAdmin.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>true</DefineDebug>
@@ -65,7 +65,7 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIRAdmin.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>true</DefineDebug>
@@ -116,39 +116,39 @@
     <Reference Include="Infragistics2.Win.v8.2.Design, Version=8.2.20082.2011, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="JournalIG, Version=1.0.2599.24166, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\JournalIG.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\JournalIG.dll</HintPath>
     </Reference>
     <Reference Include="LATIRFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRFramework.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRFramework.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGenerator, Version=1.0.2598.38390, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRGenerator.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRGenerator.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGUIControls, Version=1.0.2603.27968, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRGUIControls.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRGUIControls.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGuiManager, Version=1.0.2400.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRGuiManager.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRGuiManager.dll</HintPath>
     </Reference>
     <Reference Include="LATIRJournal, Version=1.0.2400.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRJournal.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRJournal.dll</HintPath>
     </Reference>
     <Reference Include="LATIR_ASPNET, Version=1.0.2580.32941, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIR_ASPNET.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIR_ASPNET.dll</HintPath>
     </Reference>
     <Reference Include="LATIR_MSSQLGen, Version=1.0.2598.39526, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIR_MSSQLGen.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIR_MSSQLGen.dll</HintPath>
     </Reference>
     <Reference Include="LATIR_VBModel, Version=1.0.2598.38981, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIR_VBModel.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIR_VBModel.dll</HintPath>
     </Reference>
     <Reference Include="LATIR_WINNET2, Version=1.0.2625.31624, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -163,15 +163,15 @@
     </Reference>
     <Reference Include="MTZJrnl, Version=1.0.2598.41751, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MTZJrnl.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\MTZJrnl.dll</HintPath>
     </Reference>
     <Reference Include="MTZMetaModel, Version=1.0.2580.33141, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MTZMetaModel.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\MTZMetaModel.dll</HintPath>
     </Reference>
     <Reference Include="MTZUsers, Version=1.0.2598.41751, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MTZUsers.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\MTZUsers.dll</HintPath>
     </Reference>
     <Reference Include="MTZwp, Version=1.0.2624.38174, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -181,7 +181,7 @@
     </Reference>
     <Reference Include="STDInfoStore, Version=1.0.2598.41751, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\STDInfoStore.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\STDInfoStore.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

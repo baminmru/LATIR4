@@ -5,8 +5,7 @@ Imports MTZMetaModel.MTZMetaModel
 Friend Class MakeInit
 	
     Dim m As MTZMetaModel.MTZMetaModel.Application
-    'UPGRADE_WARNING: Arrays in structure o may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
-    Dim o As LatirGenerator.Response
+    Dim o As LATIRGenerator.Response
     Dim tid As String
     Dim parent As Generator
 
@@ -73,7 +72,6 @@ Friend Class MakeInit
         For i = 1 To m.OBJECTTYPE.Count
 
             If Not m.OBJECTTYPE.Item(i).ChooseView Is Nothing Then
-                'UPGRADE_WARNING: Couldn't resolve default property of object m.OBJECTTYPE.Item(i).ChooseView.the_Alias. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
                 s.putBuf("PERFORM SysOptions_SAVE ( '" & GetMap2(m.OBJECTTYPE.Item(i).Name & "_TDEFVIEW") & "', '" & m.OBJECTTYPE.Item(i).Name & "', '" & CType(m.OBJECTTYPE.Item(i).ChooseView, MTZMetaModel.MTZMetaModel.PARTVIEW).the_Alias & "', 'TDEFVIEW');")
             End If
 
@@ -98,7 +96,6 @@ Friend Class MakeInit
         o.Block = "--body"
         o.OutNL(s.getBuf)
         System.Diagnostics.Debug.Print("POSTGRESGEN.LoadOptions:done ")
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Sub
 

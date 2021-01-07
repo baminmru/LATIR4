@@ -410,13 +410,38 @@ Public Class GridView
 
             For row = 0 To gr.Rows.Count - 1
                 For col = 0 To visibleCount - 1
+                    'Try
+
+                    '    If IsDate(gr.Rows.Item(row).Cells.Item(cols(col)).Value) Then
+                    '        If gr.Rows.Item(row).Cells.Item(cols(col)).Value.Equals(DateTime.MinValue) Then
+                    '            SLD.SetCellValue(row + 2, col + 1, "")
+                    '        Else
+                    '            SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+                    '        End If
+                    '    Else
+                    '        SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+                    '    End If
+
+
+                    'Catch ex As Exception
+                    '    MsgBox(ex.Message)
+                    'End Try
+
                     Try
 
                         If IsDate(gr.Rows.Item(row).Cells.Item(cols(col)).Value) Then
-                            If gr.Rows.Item(row).Cells.Item(cols(col)).Value.Equals(DateTime.MinValue) Then
+                            Dim d As DateTime
+                            d = gr.Rows.Item(row).Cells.Item(cols(col)).Value
+
+                            If d.Equals(DateTime.MinValue) Then
                                 SLD.SetCellValue(row + 2, col + 1, "")
                             Else
-                                SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())
+
+                                If d.Hour = 0 And d.Minute = 0 And d.Second = 0 Then
+                                    SLD.SetCellValue(row + 2, col + 1, d.ToString("dd/MM/yyyy"))
+                                Else
+                                    SLD.SetCellValue(row + 2, col + 1, d.ToString("dd/MM/yyyy HH:mm:ss"))
+                                End If
                             End If
                         Else
                             SLD.SetCellValue(row + 2, col + 1, gr.Rows.Item(row).Cells.Item(cols(col)).Value.ToString())

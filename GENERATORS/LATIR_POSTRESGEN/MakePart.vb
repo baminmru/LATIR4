@@ -4,7 +4,6 @@ Imports LATIRGenerator
 Friend Class MakePart
 	
     Dim m As Application
-    'UPGRADE_WARNING: Arrays in structure o may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
     Dim o As Response
     Dim tid As String
     Dim parent As Generator
@@ -63,9 +62,7 @@ Friend Class MakePart
         s.putBuf(" aCURSESSION uuid,")
         s.putBuf(" a" & VF(os.Name) & "id uuid,")
         s.putBuf("ainstanceid uuid ")
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
-        If TypeName(os.parent.parent) <> "OBJECTTYPE" Then
+        If TypeName(os.Parent.Parent) <> "OBJECTTYPE" Then
             s.putBuf(", aParentStructRowID uuid ")
         End If
 
@@ -135,12 +132,10 @@ Friend Class MakePart
         o.ModuleName = "--functions.Type.Header"
         o.Block = "--" & ot.Name
         o.OutNL(s.getBuf)
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         Exit Sub
 bye:
         'Resume
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Sub
 
@@ -206,12 +201,10 @@ bye:
         o.Block = "--" & ot.Name
         o.OutNL(s.getBuf)
         System.Diagnostics.Debug.Print("POSTGRESGEN.CreateBriefProc:done ")
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         Exit Sub
 bye:
         'Resume
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Sub
 
@@ -342,14 +335,12 @@ bye:
         o.Block = "--" & ot.Name
         o.OutNL(s.getBuf)
 
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         System.Diagnostics.Debug.Print("POSTGRESGEN.CreateDelProc:done " & os.Caption)
         Exit Sub
 bye:
 
         'Resume
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Sub
 
@@ -373,8 +364,7 @@ bye:
         s.putBuf(" aCURSESSION uuid,")
         s.putBuf(" a" & VF(os.Name) & "id uuid,")
         s.putBuf("ainstanceid uuid ")
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
+
         If TypeName(os.Parent.Parent) <> "OBJECTTYPE" Then
             s.putBuf(", aParentStructRowID uuid ")
         End If
@@ -470,7 +460,6 @@ bye:
             s.putBuf("  " & VF(st.FIELD.Item(i).Name) & "=a" & VF(st.FIELD.Item(i).Name))
 
             'support extention field if file type used
-            'UPGRADE_WARNING: Couldn't resolve default property of object st.FIELD.Item().FIELDTYPE.Name. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             If UCase(ft.Name) = "FILE" Then
                 s.putBuf("," & VF(st.FIELD.Item(i).Name) & "_EXT=")
                 s.putBuf("a" & VF(st.FIELD.Item(i).Name) & "_EXT ")
@@ -510,12 +499,9 @@ bye:
         's.putBuf "    end if;"
         's.putBuf " end if;"
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
             s.putBuf("aaccess:= instance_ISLOCKED( acursession,aInstanceID); ")
         Else
-            'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             s.putBuf(" aaccess:= " & CType(os.Parent.Parent, PART).Name & "_ISLOCKED (acursession,aParentStructRowID); ")
         End If
 
@@ -532,8 +518,7 @@ bye:
         If os.PartType = 0 Then
 
             s.putBuf("select Count(*) into existsCnt from " & VF(os.Name) & " where ")
-            'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-            'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
+
             If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
                 s.putBuf("InstanceID=aInstanceID;")
             Else
@@ -562,8 +547,6 @@ bye:
             s.putBuf(",ParentRowid")
         End If
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
             s.putBuf(",InstanceID")
         Else
@@ -576,7 +559,6 @@ bye:
             s.putBuf("," & VF(st.FIELD.Item(i).Name) & vbCrLf)
             ft = st.FIELD.Item(i).FieldType
             'support extention field if file type used
-            'UPGRADE_WARNING: Couldn't resolve default property of object st.FIELD.Item().FIELDTYPE.Name. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             If UCase(ft.Name) = "FILE" Then
                 s.putBuf("," & VF(st.FIELD.Item(i).Name) & "_EXT")
             End If
@@ -591,8 +573,6 @@ bye:
         End If
 
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
             s.putBuf(",aInstanceID")
         Else
@@ -604,7 +584,6 @@ bye:
             s.putBuf(",a" & VF(st.FIELD.Item(i).Name) & vbCrLf)
             ft = st.FIELD.Item(i).FieldType
             'support extention field if file type used
-            'UPGRADE_WARNING: Couldn't resolve default property of object st.FIELD.Item().FIELDTYPE.Name. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             If UCase(ft.Name) = "FILE" Then
                 s.putBuf(",a" & VF(st.FIELD.Item(i).Name) & "_EXT")
             End If
@@ -638,14 +617,12 @@ bye:
         '  Set chos = os.PART.Item(i)
         '  CreateProc chos
         'Next
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         System.Diagnostics.Debug.Print("POSTGRESGEN.CreateProc:done " & os.Caption)
         Exit Sub
 bye:
 
         'Resume
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Sub
 
@@ -683,15 +660,12 @@ bye:
         s.putBuf("  end if;")
 
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
             s.putBuf("  aParentTable := 'INSTANCE';")
             's.putBuf "  select  INSTANCEID into aParentID from " & VF(os.Name) & " where  " & VF(os.Name) & "id=aRowID;"
         Else
 
             's.putBuf "  select ParentStructRowID into aParentID  from " & VF(os.Name) & " where  " & VF(os.Name) & "id=aRowID;"
-            'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             s.putBuf("  aParentTable := '" & CType(os.Parent.Parent, PART).Name & "';")
         End If
         ' End If
@@ -717,8 +691,6 @@ bye:
         s.putBuf("  end if;")
 
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object os.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
         If TypeName(os.Parent.Parent) = "OBJECTTYPE" Then
             ' s.putBuf "  aParentTable := 'INSTANCE';"
             s.putBuf("  select  INSTANCEID into aParentID from " & VF(os.Name) & " where  " & VF(os.Name) & "id=aRowID;")
@@ -741,7 +713,6 @@ bye:
 
 
         '------------------------------- IsLockED ----------------------------------------------
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         s = New Writer
 
@@ -815,7 +786,6 @@ bye:
 
 
         '--------------------------- Блокируем запись
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         s = New Writer
         s.putBuf(" create or replace function  " & VF(os.Name) & "_LOCK /*" & os.the_Comment & "*/ (")
@@ -890,7 +860,6 @@ bye:
 
         '--------------------------- HCL - Has Children Locked
 
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         s = New Writer
         s.putBuf(" create or replace function  " & VF(os.Name) & "_HCL /*" & os.the_Comment & "*/ (")
@@ -970,7 +939,6 @@ bye:
 
 
         '--------------------------- Разблокируем запись
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         s = New Writer
         s.putBuf(" create or replace function  " & VF(os.Name) & "_UNLOCK /*" & os.the_Comment & "*/ (")
@@ -1023,7 +991,6 @@ bye:
 
 
         '--------------------------- Наследуем установки Security
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         s = New Writer
 
@@ -1069,7 +1036,6 @@ bye:
 
 
         '--------------------------- распространение прав на дочерние объекты
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         s = New Writer
 
@@ -1111,14 +1077,12 @@ bye:
         o.Block = "--" & ot.Name
         o.OutNL(s.getBuf)
 
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
 
         Exit Sub
 bye:
 
         'Resume
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Sub
 
@@ -1166,12 +1130,10 @@ bye:
 
         ReferenceCheck = s.getBuf
         System.Diagnostics.Debug.Print("POSTGRESGEN.ReferenceCheck:done " & os.Caption & " Filed:" & f.Caption)
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
         Exit Function
 bye:
 
-        'UPGRADE_NOTE: Object s may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         s = Nothing
     End Function
 End Class

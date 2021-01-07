@@ -28,7 +28,7 @@
     </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIR_MSSQLGen.xml</DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <DefineDebug>True</DefineDebug>
@@ -39,7 +39,7 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIR_MSSQLGen.xml</DocumentationFile>
     <DebugSymbols>False</DebugSymbols>
     <DefineDebug>False</DefineDebug>
@@ -52,23 +52,23 @@
   <ItemGroup>
     <Reference Include="LATIRFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRFramework.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRFramework.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGenerator, Version=1.0.2598.38390, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRGenerator.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRGenerator.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGuiManager, Version=1.0.2400.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRGuiManager.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRGuiManager.dll</HintPath>
     </Reference>
     <Reference Include="LTOBJMan, Version=1.0.2400.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LTOBJMan.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LTOBJMan.dll</HintPath>
     </Reference>
     <Reference Include="MTZMetaModel, Version=1.0.2580.33141, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MTZMetaModel.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\MTZMetaModel.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

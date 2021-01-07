@@ -23,7 +23,7 @@ Module MakeProject
         s = s & vbCrLf & " <AssemblyName>" & ot.Name & "</AssemblyName>"
         s = s & vbCrLf & " <FileAlignment>512</FileAlignment>"
         s = s & vbCrLf & " <MyType>Windows</MyType>"
-        s = s & vbCrLf & " <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>"
+        s = s & vbCrLf & " <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>"
         s = s & vbCrLf & " <TargetFrameworkProfile />"
         s = s & vbCrLf & "    </PropertyGroup>"
         s = s & vbCrLf & " <PropertyGroup Condition = "" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "">"

@@ -3,8 +3,7 @@ Option Explicit On
 Friend Class MakeKernel
 	
     Dim m As MTZMetaModel.MTZMetaModel.Application
-    'UPGRADE_WARNING: Arrays in structure o may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
-    Dim o As LatirGenerator.Response
+    Dim o As LATIRGenerator.Response
     Dim tid As String
     Dim parent As Generator
 
@@ -181,7 +180,6 @@ bye:
         o.Block = "--body"
         o.OutNL(SQL.getBuf)
 
-        'UPGRADE_NOTE: Object SQL may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         SQL = Nothing
 
 bye:
@@ -780,7 +778,6 @@ bye:
         o.Block = "--body"
         o.OutNL(SQL.getBuf)
 
-        'UPGRADE_NOTE: Object SQL may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         SQL = Nothing
 
         Exit Sub
@@ -789,7 +786,6 @@ bye:
 
         'Resume
         'Stop
-        'UPGRADE_NOTE: Object SQL may not be destroyed until it is garbage collected. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6E35BFF6-CD74-4B09-9689-3E1A43DF8969"'
         SQL = Nothing
     End Sub
 	

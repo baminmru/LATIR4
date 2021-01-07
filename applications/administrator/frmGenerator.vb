@@ -672,8 +672,8 @@ Public Class frmGenerator
         Dim fname As String
         generator.Run(CType(model, Object), CType(response, Object), targetID.ToString)
         prepareFolder(projBasePath + VBSQLFOLDERNAME, False)
-        fname = projBasePath + VBSQLFOLDERNAME + "\dbPOSTGRE_" + Now.ToString().Replace("", ".").Replace(" ", "_") + ".xml"
-        response.Save(fname)
+        fname = projBasePath + VBSQLFOLDERNAME + "\dbPOSTGRE_" + Now.ToString().Replace("/", ".").Replace(":", "_") + ".xml"
+        response.Save(fname.Replace("\\", "\"))
         ReplaceInFile(fname, "&#xD;&#xA;", vbCrLf)
         WriteToLog(Environment.NewLine + "POSTGRESQL generator stopped")
         If (progressBar.Maximum > progressBar.Value + 1) Then

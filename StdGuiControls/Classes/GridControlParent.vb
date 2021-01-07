@@ -67,9 +67,9 @@ Public Class GridControlParent
 
     Private Sub ApplyFields(ByRef gr As DataGridView)
         Dim cs As DataGridColumnStyle
-        Dim column As DataGridViewColumn ' 
+        Dim column As DataGridViewColumn '  Infragistics.Win.UltraWinGrid.DataGridViewColumn
         Dim i As Integer, j As Integer
-
+        'If gr.DisplayLayout.Bands(0).Columns.Count = 0 Then Return
 
         gr.ScrollBars = ScrollBars.Both
         gr.AllowUserToAddRows = False

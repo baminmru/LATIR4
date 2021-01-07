@@ -70,7 +70,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIR4Admin.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>true</DefineDebug>
@@ -90,9 +90,8 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Oracle.ManagedDataAccess.19.9.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -125,7 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="latir_sites.XML.zzz" />
+    <None Include="latir_sites.XML.zzz">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -487,6 +488,10 @@
     <Content Include="IDMAP.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="latir_sites.XML">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -518,6 +523,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GanttChart\GanttChart.csproj">
+      <Project>{f98f97d5-4f29-4531-ad05-d90f8e84c9aa}</Project>
+      <Name>GanttChart</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Generated\Ядро2\VB.NET Model\MTZFltr\MTZFltr.vbproj">
       <Project>{6EBA831A-2185-4318-A057-C5D1F9E5158A}</Project>
       <Name>MTZFltr</Name>
@@ -570,6 +579,10 @@
       <Project>{ABFA76CF-338B-455B-B4BF-D1ABF94939FB}</Project>
       <Name>LATIR_WINNET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\gPic\gPic.vbproj">
+      <Project>{c3853a33-ee99-4c9a-a48b-3340a1ce171e}</Project>
+      <Name>gPic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\GuiManager\Latir2GuiManager.vbproj">
       <Project>{60996302-32D9-4636-9695-4046E51779BE}</Project>
       <Name>Latir2GuiManager</Name>
@@ -602,13 +615,37 @@
       <Project>{e40d6710-c21d-444d-8e81-3f8d07cd8260}</Project>
       <Name>STDJournal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\configurator\Configurator.vbproj">
+      <Project>{0bd8c5cd-f6f5-46fe-993b-6b8eb9c29eb8}</Project>
+      <Name>Configurator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBInstal\LATIRdbInstall.vbproj">
+      <Project>{3c99828d-63c3-4d3e-8d1e-ea902fbaea05}</Project>
+      <Name>LATIRdbInstall</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ext6_JSPHPBuilder\Ext6_JSPHPBuilder.vbproj">
+      <Project>{046a637e-0401-4dd4-b42a-e718aeb34e1f}</Project>
+      <Name>Ext6_JSPHPBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\L4JSPHPBuilder\Ext5_JSPHPBuilder.vbproj">
+      <Project>{81f2aaec-ba14-489c-b4b7-e2a3294f4cfe}</Project>
+      <Name>Ext5_JSPHPBuilder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\modelloader\ModelLoader.vbproj">
       <Project>{48376712-0dfb-412d-ba0e-927c38fa6325}</Project>
       <Name>ModelLoader</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MySQLDBInstal\MYSQLdbInstall.vbproj">
+      <Project>{4422206e-3fbf-42ad-bae5-426e38e78693}</Project>
+      <Name>MYSQLdbInstall</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ORADBInstal\ORAdbInstall.vbproj">
       <Project>{c8dd25bf-d7a6-48f7-b94c-e9fbc33dbe31}</Project>
       <Name>ORAdbInstall</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PgSQLDBInstal\PgSQLdbInstall.vbproj">
+      <Project>{c3336d90-68fc-42b0-9dbd-627883983983}</Project>
+      <Name>PgSQLdbInstall</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />

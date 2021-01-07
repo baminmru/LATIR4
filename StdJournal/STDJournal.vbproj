@@ -53,7 +53,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIRJournalSTD.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <DefineDebug>false</DefineDebug>
@@ -119,7 +119,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Generated\Ядро2\VB.NET Model\MTZJrnl\MTZJrnl.vbproj">
       <Project>{b0c9ae57-aa49-4c08-9fb1-e3d531c1af15}</Project>

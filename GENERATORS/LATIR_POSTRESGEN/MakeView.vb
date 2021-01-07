@@ -3,8 +3,7 @@ Option Explicit On
 <System.Runtime.InteropServices.ProgId("MakeView_NET.MakeView")> Public Class MakeView
 	
     Dim m As MTZMetaModel.MTZMetaModel.Application
-    'UPGRADE_WARNING: Arrays in structure o may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
-    Dim o As LatirGenerator.Response
+    Dim o As LATIRGenerator.Response
     Dim tid As String
     Dim parent As Generator
 
@@ -58,7 +57,6 @@ Option Explicit On
     End Sub
 
 
-    'UPGRADE_NOTE: pv was upgraded to pv_Renamed. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="A9E4979A-37FA-4718-9994-97DD76ED70A7"'
     Friend Sub MakeViews(ByRef pv_Renamed As MTZMetaModel.MTZMetaModel.PARTVIEW)
         System.Diagnostics.Debug.Print("POSTGRESGEN.MakeViews:start " & pv_Renamed.Name)
         Dim s As Writer
@@ -76,7 +74,6 @@ Option Explicit On
         Dim structfld As String
         On Error GoTo bye
 
-        'UPGRADE_WARNING: Couldn't resolve default property of object pv_Renamed.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
         BP = pv_Renamed.Parent.Parent
 
         s = New Writer
@@ -85,14 +82,9 @@ Option Explicit On
         root = BP
         from = " from " & BP.Name
         structfld = BP.Name & "ID"
-        'UPGRADE_WARNING: Couldn't resolve default property of object root.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        'UPGRADE_WARNING: TypeName has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="9B7D5ADD-D8FE-4819-A36C-6DEDAF088CC7"'
         While TypeName(root.Parent.Parent) <> "OBJECTTYPE"
-            'UPGRADE_WARNING: Couldn't resolve default property of object root.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             from = from & vbCrLf & " join " & CType(root.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Name & " on " & CType(root.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Name & "." & CType(root.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Name & "ID=" & root.Name & ".ParentStructRowID "
-            'UPGRADE_WARNING: Couldn't resolve default property of object root.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             structfld = structfld & "," & CType(root.Parent.Parent, MTZMetaModel.MTZMetaModel.PART).Name & "ID"
-            'UPGRADE_WARNING: Couldn't resolve default property of object root.parent.parent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
             root = root.Parent.Parent
         End While
 
@@ -184,7 +176,7 @@ Option Explicit On
 
 
                 ' проверяем верхние разделы, которые не  являются непосредственными родителями нашего базового раздела
-                 If TypeName(p.Parent.Parent) = "OBJECTTYPE" And (p.ID <> root.ID) Then
+                If TypeName(p.Parent.Parent) = "OBJECTTYPE" And (p.ID <> root.ID) Then
                     isOK = False
                     For j = 1 To i - 1
                         If pv_Renamed.ViewColumn.Item(j).FromPart.ID = p.ID Then
@@ -225,7 +217,7 @@ Option Explicit On
         System.Diagnostics.Debug.Print("POSTGRESGEN.MakeViews:done " & pv_Renamed.Name)
         Exit Sub
 bye:
-       
+
         s = Nothing
 
     End Sub

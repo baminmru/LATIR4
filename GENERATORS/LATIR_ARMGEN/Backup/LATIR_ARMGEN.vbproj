@@ -27,7 +27,7 @@
     </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIR_ARMGEN.xml</DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <DefineDebug>True</DefineDebug>
@@ -38,7 +38,7 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Generated\Generated Dlls\</OutputPath>
     <DocumentationFile>LATIR_ARMGEN.xml</DocumentationFile>
     <DebugSymbols>False</DebugSymbols>
     <DefineDebug>False</DefineDebug>
@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="LATIRGenerator, Version=1.0.2598.37037, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LATIRGenerator.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\LATIRGenerator.dll</HintPath>
     </Reference>
     <Reference Include="LATIRGuiManager, Version=1.0.2400.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="LTOBJMan, Version=1.0.2400.2, Culture=neutral, processorArchitecture=MSIL" />
@@ -64,7 +64,7 @@
     <Reference Include="MTZJrnl, Version=1.0.2844.33502, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="MTZMetaModel, Version=1.0.2580.33141, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MTZMetaModel.dll</HintPath>
+      <HintPath>..\..\Generated\Generated Dlls\MTZMetaModel.dll</HintPath>
     </Reference>
     <Reference Include="MTZRprt, Version=1.0.2903.38634, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="MTZwp, Version=1.0.2903.38641, Culture=neutral, processorArchitecture=MSIL" />
